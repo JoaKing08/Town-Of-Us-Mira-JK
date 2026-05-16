@@ -1,0 +1,552 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <!-- Player Colors -->
+	<!-- Cause of Deaths -->
+	<string name="DiedToFamine">Starved</string>
+	<string name="DiedToMonsterHunter">Staked</string>
+	<string name="DiedToSuicideBodyguard">Sacrificed</string>
+	<string name="DiedToBodyguard">Countered</string>
+	<string name="DiedToCrusader">Sanctified</string>
+	<string name="DiedToExecutor">Executed</string>
+	<string name="DiedToDeathArmageddon">Annihilated</string>
+	<string name="DiedToPirate">Dueled</string>
+	<string name="DiedToBloodhound">Slaughtered</string>
+	<string name="DiedToCursedSoul">Limboed</string>
+	<string name="DiedToNecromancer">Decayed</string>
+	<string name="DiedToBrotherhood">Bondbroken</string>
+	<string name="DiedToJackal">Assassinated</string>
+	<string name="DiedToPoisoner">Poisoned</string>
+	<string name="DiedToSniper">Sniped</string>
+	<string name="DiedToFamily">Abandoned</string>
+	<string name="DiedToDemagogue">Punished</string>
+	<string name="DiedToAmmit">Devoured</string>
+	<!-- Monster Hunter -->
+	<string name="TouJKRoleMonsterHunter">Monster Hunter</string>
+	<string name="TouJKRoleMonsterHunterIntroBlurb">Stake the monsters to kill them.</string>
+	<string name="TouJKRoleMonsterHunterTabDescription">Stake the monsters to kill them off.</string>
+	<string name="TouJKRoleMonsterHunterCorrectStake">\%player\% is a monster and you attacked them!</string>
+	<string name="TouJKRoleMonsterHunterWrongStake">\%player\% wasn't a monster!</string>
+	<!-- Monster Hunter Wiki -->
+	<string name="TouJKRoleMonsterHunterWikiDescription">The Monster Hunter is a Crewmate Killing role with a goal to get rid off the monsters. When there are no monsters left they transform into another crewmate role.</string>
+	<string name="TouJKRoleMonsterHunterStake">Stake</string>
+	<string name="TouJKRoleMonsterHunterStakeWikiDescription">Check if the player is a monster (Werewolf, Vampire or Undead), and attack them if they are.</string>
+	<!-- Monster Hunter Options -->
+	<string name="TouJKMonsterHunterStakeCooldown">Stake Cooldown</string>
+	<string name="TouJKMonsterHunterMaxStakes">Max Failed Stakes Per Game</string>
+	<string name="TouJKMonsterHunterStakeRoundOne">Can Stake Round One</string>
+	<string name="TouJKMonsterHunterSuicide">Self Kill When Run Out of Stakes</string>
+	<string name="TouJKMonsterHunterOnMonsterDeath">Becomes on Monsters Death</string>
+	<!-- Inspector -->
+	<string name="TouJKRoleInspector">Inspector</string>
+	<string name="TouJKRoleInspectorIntroBlurb">Learn what roles players can be.</string>
+	<string name="TouJKRoleInspectorTabDescription">Inspect the players to get clues towards their roles.</string>
+	<!-- Inspector Wiki -->
+	<string name="TouJKRoleInspectorWikiDescription">The Inspector is a Crewmate Investigative role with an ability to check players for possible roles.</string>
+	<string name="TouJKRoleInspectorInspect">Inspect</string>
+	<string name="TouJKRoleInspectorInspectWikiDescription">Get the target's possible roles on the next meeting.</string>
+	<string name="TouJKRoleInspectorInspectNotif">You will receive a report on \%player\% in the following meeting, containing their possible roles.</string>
+	<!-- Inspector Options -->
+	<string name="TouJKInspectorInspectCooldown">Inspect Cooldown</string>
+	<string name="TouJKInspectorUseDoomResults">Use Doomsayer Results</string>
+	<string name="TouJKInspectorCrewRoles">Crewmate Roles In Report</string>
+	<string name="TouJKInspectorNeutRoles">Neutral Roles In Report</string>
+	<string name="TouJKInspectorImpRoles">Impostor Roles In Report</string>
+	<!-- Inspector Feedback -->
+	<string name="TouJKRoleInspectorInspectTitle">Inspector Report</string>
+	<string name="TouJKRoleInspectorRoleHintPerception">You inspect that \%player\% has an altered perception of reality</string>
+	<string name="TouJKRoleInspectorRoleHintInsight">You inspect that \%player\% has an insight for private information</string>
+	<string name="TouJKRoleInspectorRoleHintDeath">You inspect that \%player\% has an unusual obsession with dead bodies</string>
+	<string name="TouJKRoleInspectorRoleHintHunter">You inspect that \%player\% is well-trained in hunting down prey</string>
+	<string name="TouJKRoleInspectorRoleHintFearmonger">You inspect that \%player\% spreads fear amongst the group</string>
+	<string name="TouJKRoleInspectorRoleHintProtective">You inspect that \%player\% hides to guard themselves or others</string>
+	<string name="TouJKRoleInspectorRoleHintTrickster">You inspect that \%player\% has a trick up their sleeve</string>
+	<string name="TouJKRoleInspectorRoleHintRelentless">You inspect that \%player\% is capable of performing relentless attacks</string>
+	<string name="TouJKRoleInspectorRoleHintDefault">You inspect that \%player\% is not from this town</string>
+	<string name="TouJKRoleInspectorRoleListing">You inspect that \%player\% is one of following roles</string>
+	<!-- Tavern Keeper -->
+	<string name="TouJKRoleTavernKeeper">Tavern Keeper</string>
+	<string name="TouJKRoleTavernKeeperIntroBlurb">Block players from using their abilities.</string>
+	<string name="TouJKRoleTavernKeeperTabDescription">Give players drinks to temporarly block their abilities.</string>
+	<!-- Tavern Keeper Wiki -->
+	<string name="TouJKRoleTavernKeeperWikiDescription">The Tavern Keeper is a Crewmate Support role that can temporarly block abilities.</string>
+	<string name="TouJKRoleTavernKeeperDrink">Drink</string>
+	<string name="TouJKRoleTavernKeeperDrinkWikiDescription">Prevents the target from using their abilities for a set duration.</string>
+	<string name="TouJKRoleTavernKeeperDrinkNotif">You are felling a bit tipsy and can't concentrate, \%role\% has blocked your ability.</string>
+	<!-- Tavern Keeper Options -->
+	<string name="TouJKTavernKeeperDrinkCooldown">Drink Cooldown</string>
+	<string name="TouJKTavernKeeperDrinksResetEveryRound">Reset Drinks Every Round</string>
+	<string name="TouJKTavernKeeperMaxDrinks">Max Drinks</string>
+	<string name="TouJKTavernKeeperDrinkDuration">Drunk Duration</string>
+	<!-- Undercover -->
+	<string name="TouJKRoleUndercover">Undercover</string>
+	<string name="TouJKRoleUndercoverIntroBlurb">Disguise yourself as an impostor.</string>
+	<string name="TouJKRoleUndercoverTabDescription">Disguise as an impostor to catch them in the act.</string>
+	<!-- Undercover Wiki -->
+	<string name="TouJKRoleUndercoverWikiDescription">The Undercover is a Crewmate Support role that is disguised as impostor.</string>
+	<string name="TouJKRoleUndercoverCover">Cover</string>
+	<string name="TouJKRoleUndercoverCoverWikiDescription">On the start of the game, you are given a impostor role as which the other impostors see you.</string>
+	<string name="TouJKRoleUndercoverTabCoverInfo">You are seen by impostors as a \%role\%.</string>
+	<!-- Undercover Options -->
+	<string name="TouJKUndercoverImpsKillEachother">Impostors Can Kill Eachother With Undercover Present</string>
+	<string name="TouJKUndercoverCanBeConcealing">Cover Can Be Impostor Concealing</string>
+	<string name="TouJKUndercoverCanBeKilling">Cover Can Be Impostor Killing</string>
+	<string name="TouJKUndercoverCanBePower">Cover Can Be Impostor Power</string>
+	<string name="TouJKUndercoverCanBeSupport">Cover Can Be Impostor Support</string>
+	<!-- Watcher -->
+	<string name="TouJKRoleWatcher">Watcher</string>
+	<string name="TouJKRoleWatcherIntroBlurb">See through walls.</string>
+	<string name="TouJKRoleWatcherTabDescription">Watch what the players are up to.</string>
+	<!-- Watcher Wiki -->
+	<string name="TouJKRoleWatcherWikiDescription">The Watcher is an Crewmate Investigative role that can temporarely see through walls.</string>
+	<string name="TouJKRoleWatcherWatch">Watch</string>
+	<string name="TouJKRoleWatcherWatchWikiDescription">Temporarely see through walls, while watching you can't move.</string>
+	<!-- Watcher Options -->
+	<string name="TouJKWatcherWatchCooldown">Watch Cooldown</string>
+	<string name="TouJKWatcherWatchDuration">Watch Duration</string>
+	<string name="TouJKWatcherWatchVisionMult">Watch Vision Multiplier</string>
+	<!-- Bodyguard -->
+	<string name="TouJKRoleBodyguard">Bodyguard</string>
+	<string name="TouJKRoleBodyguardIntroBlurb">Sacrifice yourself to protect the crew.</string>
+	<string name="TouJKRoleBodyguardTabDescription">Protect the players from attackers, dying in the result.</string>
+	<!-- Bodyguard Wiki -->
+	<string name="TouJKRoleBodyguardWikiDescription">The Bodyguard is a Crewmate Protective role that can protect the player. If the protected player is attacked, both the attacker and Bodyguard die.</string>
+	<string name="TouJKRoleBodyguardGuard">Guard</string>
+	<string name="TouJKRoleBodyguardGuardWikiDescription">Protect the player from attackers. If the player is attacked both you and attacker die.</string>
+	<string name="TouJKRoleBodyguardTabProtecting">Guarding: \%player\%</string>
+	<!-- Bodyguard Options -->
+	<string name="TouJKOptionBodyguardGuardCooldown">Guard Cooldown</string>
+	<string name="TouJKOptionBodyguardGuardDuration">Guard Duration</string>
+	<!-- Crusader -->
+	<string name="TouJKRoleCrusader">Crusader</string>
+	<string name="TouJKRoleCrusaderIntroBlurb">Kill anyone who tries to interact with the protected.</string>
+	<string name="TouJKRoleCrusaderTabDescription">Protect the players from interactions, by killing.</string>
+	<!-- Crusader Wiki -->
+	<string name="TouJKRoleCrusaderWikiDescription">The Crusader is a Crewmate Protective role that can protect the player. If the protected player is interacted with, the interacting player will die.</string>
+	<string name="TouJKRoleCrusaderFortify">Fortify</string>
+	<string name="TouJKRoleCrusaderFortifyWikiDescription">Protect the player from interactions. If the player is interacted with, the interacting player will be attacked.</string>
+	<string name="TouJKRoleCrusaderTabProtecting">Fortified: \%player\%</string>
+	<!-- Crusader Options -->
+	<string name="TouJKOptionCrusaderFortifyCooldown">Fortify Cooldown</string>
+	<string name="TouJKOptionCrusaderFortifyDuration">Fortify Duration</string>
+	<string name="TouJKOptionCrusaderFortifyMaxUses">Max Uses of Fortify</string>
+	<!-- Executor -->
+	<string name="TouJKRoleExecutor">Executor</string>
+	<string name="TouJKRoleExecutorIntroBlurb">Aim at the players to execute them during meetings.</string>
+	<string name="TouJKRoleExecutorTabDescription">Aim at the evildoers, to execute them during meeting.</string>
+	<!-- Executor Wiki -->
+	<string name="TouJKRoleExecutorWikiDescription">The Executor is a Crewmate Killing role that can aim at players. During meetings they can kill an player they aimed at.</string>
+	<string name="TouJKRoleExecutorAim">Aim</string>
+	<string name="TouJKRoleExecutorAimWikiDescription">Aim at the player, which you can execute on the next meeting.</string>
+	<string name="TouJKRoleExecutorAimNotif">You aimed your pistol at \%player\%, you can execute them next meeting.</string>
+	<string name="TouJKRoleExecutorExecute">Execute</string>
+	<string name="TouJKRoleExecutorExecuteWikiDescription">During meeting, kill one of the aimed players.</string>
+	<!-- Executor Options -->
+	<string name="TouJKOptionExecutorAimCooldown">Aim Cooldown</string>
+	<string name="TouJKOptionExecutorAimMaxUses">Max Aimed Players</string>
+	<string name="TouJKOptionExecutorReveal">Reveal Role After Executing</string>
+	<!-- Coroner -->
+	<string name="TouJKRoleCoroner">Coroner</string>
+	<string name="TouJKRoleCoronerIntroBlurb">Examine the bodies for additional informations.</string>
+	<string name="TouJKRoleCoronerTabDescription">Autopsy bodies to gain additional information.</string>
+	<!-- Coroner Wiki -->
+	<string name="TouJKRoleCoronerWikiDescription">The Coroner is a Crewmate Investigative role that can examine bodies, getting additional information about them.</string>
+	<string name="TouJKRoleCoronerAutopsy">Autopsy</string>
+	<string name="TouJKRoleCoronerAutopsyWikiDescription">Perform an autopsy on the body, getting additional information about it.</string>
+	<string name="TouJKRoleCoronerAutopsyNotif">You performed an autopsy on \%player\%, you will receive information about them on the next meeting.</string>
+	<!-- Coroner Report -->
+	<string name="TouJKRoleCoronerAutopsyTitle">Autopsy Report</string>
+	<string name="TouJKRoleCoronerAutopsyKillerColorLight">You determined that killer of \%player\% is a lighter color.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerColorDark">You determined that killer of \%player\% is a darker color.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerColorUnknown">You couldn't determine killer of \%player\%'s color.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerEscapeNowhere">You determined that killer of \%player\% either did not leave the area or used an alternative method of escape.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerEscapeNorth">You determined that killer of \%player\% has escaped north.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerEscapeEast">You determined that killer of \%player\% has escaped east.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerEscapeSouth">You determined that killer of \%player\% has escaped south.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerEscapeWest">You determined that killer of \%player\% has escaped west.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerEscapeMethodIndirect">You determined that killer of \%player\% probably wasn't on the scene of the crime to begin with.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerEscapeMethodAbility">You determined that killer of \%player\% has vanished using unconventional means.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerEscapeMethodVent">You determined that killer of \%player\% has escaped through vents.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerEscapeMethodNormal">You determined that killer of \%player\% has escaped by walking away or hasn't left the area.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerKillsNone">You determined that killer of \%player\% hasn't killed anyone in the past.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerKillsFew">You determined that killer of \%player\% has killed only \%count\% people in the past.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerKillsMany">You determined that killer of \%player\% has killed \%count\% people in the past.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerKillsMass">You determined that killer of \%player\% has massacred \%count\% people in the past.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerRoleSuicide">You determined that death of \%player\% was a suicide.</string>
+	<string name="TouJKRoleCoronerAutopsyKillerRole">You determined that killer of \%player\% is \%role\%.</string>
+	<string name="TouJKRoleCoronerAutopsyKillIndirectTrue">You determined that \%player\% was killed through unconventional means.</string>
+	<string name="TouJKRoleCoronerAutopsyKillIndirectFalse">You determined that \%player\% was killed normally.</string>
+	<string name="TouJKRoleCoronerAutopsyTimeOfDeath">You determined that \%player\% was killed \%time\% seconds ago.</string>
+	<string name="TouJKRoleCoronerAutopsyVictimRole">You determined that \%player\%'s role was \%role\%.</string>
+	<!-- Coroner Options -->
+	<string name="TouJKOptionCoronerAutopsyCooldown">Autopsy Cooldown</string>
+	<string name="TouJKOptionCoronerMaxAutopsy">Max Autopsies Per Body</string>
+	<string name="TouJKOptionCoronerAutopsyInfoDuringRound">Show Autopsy Result During Round</string>
+	<string name="TouJKOptionCoronerKillerUpdate">Track Killer's Movement For</string>
+	<!-- ToUM Soul Collector -->
+	<string name="TouRoleSoulCollector">Reaper</string>
+	<string name="TouRoleSoulCollectorWikiDescription">The Reaper is a Neutral Killing role that takes the soul of players. Instead of leaving a body behind, they leave behind a soul-less decoy that looks identical to the reaped player, standing still.</string>
+	<string name="TouOptionSoulCollectorCanVent">Reaper Can Vent</string>
+	<!-- Pirate -->
+	<string name="TouJKRolePirate">Pirate</string>
+	<string name="TouJKRolePirateIntroBlurb">Duel with those pesky landlubbers to get their treasures.</string>
+	<string name="TouJKRolePirateTabDescription">Duel the players to win.</string>
+	<string name="TouJKRolePirateTabSoulCounter">Duels Left: \%count\%/\%max_count\%</string>
+	<string name="TouJKRolePirateVictoryMessageSelf">You have successfully won as the \%role\%, as you've won enough duels!</string>
+	<string name="TouJKRolePirateVictoryMessage">The \%role\%, \%player\%, has successfully won, as they've won enough duels!</string>
+	<!-- Pirate Wiki -->
+	<string name="TouJKRolePirateWikiDescription">The Pirate is a Neutral Outlier role that needs to win a certain amount of duels to win.</string>
+	<string name="TouJKRolePirateDuel">Duel</string>
+	<string name="TouJKRolePirateDuelWikiDescription">Choose a player to duel on the next meeting. During duel both of players have a choice between three options, if the Pirate wins the other player is Killed.</string>
+	<string name="TouJKRolePirateDuelMech">Duel Mechanics</string>
+	<string name="TouJKRolePirateDuelMechWikiDescription">The winner of the duel is determined by whether Pirate and dueled choose the same type of defense/attack marked by a shape. If the type is the same the Pirate wins, otherwise the dueled wins.\%nl\%(\%color=red\%◆\%/color\%) \%b\%Scimitar\%/b\% beats \%b\%Sidestep\%/b\%\%nl\%(\%color=yellow\%▲\%/color\%) \%b\%Rapier\%/b\% beats \%b\%Chainmail\%/b\%\%nl\%(\%color=grey\%●\%/color\%) \%b\%Pistol\%/b\% beats \%b\%Backpedal\%/b\%</string>
+	<string name="TouJKRolePirateDuelNotif">You will duel \%player\% on the next meeting.</string>
+	<string name="TouJKRolePirateDuelScimitar">Scimitar</string>
+	<string name="TouJKRolePirateDuelSidestep">Sidestep</string>
+	<string name="TouJKRolePirateDuelRapier">Rapier</string>
+	<string name="TouJKRolePirateDuelChainmail">Chainmail</string>
+	<string name="TouJKRolePirateDuelPistol">Pistol</string>
+	<string name="TouJKRolePirateDuelBackpedal">Backpedal</string>
+	<string name="TouJKRolePirateDuelStartOwner">You challange \%player\% for a duel, choose your weapon.</string>
+	<string name="TouJKRolePirateDuelStartTarget">You were challanged by \%role\% for a duel, choose your method of defense.</string>
+	<string name="TouJKRolePirateDuelWonOwnerScimitar_Sidestep">\%player\% tried to Sidestep your attack, but nothing escapes your Scimitar.</string>
+	<string name="TouJKRolePirateDuelWonOwnerRapier_Chainmail">\%player\% put on a Chainmail, but your Rapier pierces right trough.</string>
+	<string name="TouJKRolePirateDuelWonOwnerPistol_Backpedal">\%player\% Backpedaled your attack, but your Pistol reaches them anyway.</string>
+	<string name="TouJKRolePirateDuelWonTargetScimitar_Sidestep">You tried to Sidestep the attack, but the Scimitar was too fast.</string>
+	<string name="TouJKRolePirateDuelWonTargetRapier_Chainmail">You put on a Chainmail, but the Rapier pierces right trough.</string>
+	<string name="TouJKRolePirateDuelWonTargetPistol_Backpedal">You Backpedaled the attack, but the Pistol reaches you anyway.</string>
+	<string name="TouJKRolePirateDuelLostOwnerScimitar_SidestepRapier_Chainmail">You tried to slice \%player\% with your Scimitar, but they put on a Chainmail.</string>
+	<string name="TouJKRolePirateDuelLostOwnerScimitar_SidestepPistol_Backpedal">You tried to slice \%player\% with your Scimitar, but they Backpedaled your attack.</string>
+	<string name="TouJKRolePirateDuelLostOwnerRapier_ChainmailScimitar_Sidestep">You tried to jab \%player\% with your Rapier, but they Sidestepped your attack.</string>
+	<string name="TouJKRolePirateDuelLostOwnerRapier_ChainmailPistol_Backpedal">You tried to jab \%player\% with your Rapier, but they Backpedaled your attack.</string>
+	<string name="TouJKRolePirateDuelLostOwnerPistol_BackpedalScimitar_Sidestep">You tried to shoot \%player\% with your Pistol, but they Sidestepped your attack.</string>
+	<string name="TouJKRolePirateDuelLostOwnerPistol_BackpedalRapier_Chainmail">You tried to shoot \%player\% with your Pistol, but they put on a Chainmail.</string>
+	<string name="TouJKRolePirateDuelLostTargetScimitar_SidestepRapier_Chainmail">Someone tried to slice you with Scimitar, but you put on a Chainmail.</string>
+	<string name="TouJKRolePirateDuelLostTargetScimitar_SidestepPistol_Backpedal">Someone tried to slice you with Scimitar, but you Backpedaled their attack.</string>
+	<string name="TouJKRolePirateDuelLostTargetRapier_ChainmailScimitar_Sidestep">Someone tried to jab you with Rapier, but you Sidestepped their attack.</string>
+	<string name="TouJKRolePirateDuelLostTargetRapier_ChainmailPistol_Backpedal">Someone tried to jab you with Rapier, but you Backpedaled their attack.</string>
+	<string name="TouJKRolePirateDuelLostTargetPistol_BackpedalScimitar_Sidestep">Someone tried to shoot you with Pistol, but you Sidestepped their attack.</string>
+	<string name="TouJKRolePirateDuelLostTargetPistol_BackpedalRapier_Chainmail">Someone tried to shoot you with Pistol, but you put on a Chainmail.</string>
+	<!-- Pirate Options -->
+	<string name="TouJKPirateDuelsToWin">Duels To Win</string>
+	<string name="TouJKPirateDuelCooldown">Duel Cooldown</string>
+	<string name="TouJKPirateContinuesGame">Pirate Continues The Game</string>
+	<!-- Bloodhound -->
+	<string name="TouJKRoleBloodhound">Bloodhound</string>
+	<string name="TouJKRoleBloodhoundIntroBlurb">Kill players to fill out your bloodlust.</string>
+	<string name="TouJKRoleBloodhoundTabDescription">Kill players to enter bloodlust.</string>
+	<string name="TouJKRoleBloodhoundTabKillCounter">Kills to bloodlust: \%count\%/\%max_count\%</string>
+	<string name="TouJKRoleBloodhoundTabBloodlustCounter">Bloodlust remaining: \%time\% seconds</string>
+	<string name="TouJKRoleBloodhoundBloodlustNotif">The blood of your victims flows through you, you feel unstoppable.</string>
+	<string name="TouJKRoleBloodhoundBloodlustProlongNotif">The blood keeps flowing feeding the beast within.</string>
+	<string name="TouJKRoleBloodhoundBloodlustEndNotif">Your blood settles, you regain control of yourself.</string>
+	<!-- Bloodhound Wiki -->
+	<string name="TouJKRoleBloodhoundWikiDescription">The Bloodhound is a Neutral Killing role that can kill. After they kill a certain amount of players, their kill cooldown is temporarely decreased.</string>
+	<!-- Bloodhound Options -->
+	<string name="TouJKOptionBloodhoundKillCooldown">Kill Cooldown</string>
+	<string name="TouJKOptionBloodhoundKillsToBloodlust">Kills To Bloodlust</string>
+	<string name="TouJKOptionBloodhoundBloodlustCooldown">Kill Cooldown On Bloodlust</string>
+	<string name="TouJKOptionBloodhoundBloodlustDuration">Bloodlust Duration</string>
+	<string name="TouJKOptionBloodhoundCanVent">Bloodhound Can Vent</string>
+	<!-- Pariah -->
+	<string name="TouJKPariahVictoryMessageSelf">You have successfully won as the \%role\%, as there are no crewmates left!</string>
+	<string name="TouJKPariahVictoryMessage">The \%role\%, \%player\%, has successfully won, as there are no crewmates left!</string>
+	<!-- Witch -->
+	<string name="TouJKRoleWitch">Witch</string>
+	<string name="TouJKRoleWitchIntroBlurb">Control the players into using their abilities.</string>
+	<string name="TouJKRoleWitchTabDescription">Survive to see the crew lose.</string>
+	<!-- Witch Wiki -->
+	<string name="TouJKRoleWitchWikiDescription">The Witch is a Neutral Evil role that needs to survive and make crewmates lose to win. They also have the ability to force someone into using their ability.</string>
+	<string name="TouJKRoleWitchMark">Mark</string>
+	<string name="TouJKRoleWitchMarkWikiDescription">Mark a player to later control them.</string>
+	<string name="TouJKRoleWitchControl">Control</string>
+	<string name="TouJKRoleWitchControlWikiDescription">Force a marked player to use their ability, and get a hint towards their role.</string>
+	<string name="TouJKRoleWitchControlOwnerNotifNoRoleNone">You tried to force \%player\% into using their ability but they don't have any or was unusable.</string>
+	<string name="TouJKRoleWitchControlOwnerNotifNoRolePrimary">You forced \%player\% into using their primary ability.</string>
+	<string name="TouJKRoleWitchControlOwnerNotifNoRoleSecondary">You forced \%player\% into using their secondary ability.</string>
+	<string name="TouJKRoleWitchControlOwnerNotifNoRoleTertiary">You forced \%player\% into using their tertiary ability.</string>
+	<string name="TouJKRoleWitchControlOwnerNotifNone">You tried to force \%player\% into using their ability but they don't have any or was unusable. They are \%role\%.</string>
+	<string name="TouJKRoleWitchControlOwnerNotifPrimary">You forced \%player\% into using their primary ability. They are \%role\%.</string>
+	<string name="TouJKRoleWitchControlOwnerNotifSecondary">You forced \%player\% into using their secondary ability. They are \%role\%.</string>
+	<string name="TouJKRoleWitchControlOwnerNotifTertiary">You forced \%player\% into using their tertiary ability. They are \%role\%.</string>
+	<string name="TouJKRoleWitchControlTargetNotifNone">A \%role\% attempted to force you to use your ability, but you don't have any or was unusable.</string>
+	<string name="TouJKRoleWitchControlTargetNotifPrimary">You were forced by a \%role\% to use your primary ability.</string>
+	<string name="TouJKRoleWitchControlTargetNotifSecondary">You were forced by a \%role\% to use your secondary ability.</string>
+	<string name="TouJKRoleWitchControlTargetNotifTertiary">You were forced by a \%role\% to use your tertiary ability.</string>
+	<!-- Witch Options -->
+	<string name="TouJKWitchControlCooldown">Control Cooldown</string>
+	<string name="TouJKWitchLearns">Witch Learns</string>
+	<string name="TouJKWitchLearnsNothing">Nothing</string>
+	<string name="TouJKWitchLearnsFaction">Faction</string>
+	<string name="TouJKWitchLearnsAlignment">Alignment</string>
+	<string name="TouJKWitchLearnsRole">Role</string>
+	<!-- Cursed Soul -->
+	<string name="TouJKRoleCursedSoul">Cursed Soul</string>
+	<string name="TouJKRoleCursedSoulIntroBlurb">Swap roles with players.</string>
+	<string name="TouJKRoleCursedSoulTabDescription">Choose a player to swap roles with.</string>
+	<string name="TouJKRoleCursedSoulSoulSwapOwnerNotif">You regained a spark from your soul, you feel like a \%role\%</string>
+	<string name="TouJKRoleCursedSoulSoulSwapTargetNotif">You feel like you lost something deep inside you, your soul was swapped by a \%role\%</string>
+	<!-- Cursed Soul Wiki -->
+	<string name="TouJKRoleCursedSoulWikiDescription">The Cursed Soul is a Neutral Benign role that can and must swap roles with other players.</string>
+	<string name="TouJKRoleCursedSoulSoulSwap">Soul Swap</string>
+	<string name="TouJKRoleCursedSoulSoulSwapWikiDescription">Attempt to swap roles with a player, with a chance to swap with a random player instead.</string>
+	<!-- Cursed Soul Options -->
+	<string name="TouJKCursedSoulSoulSwapCooldown">Soul Swap Cooldown</string>
+	<string name="TouJKCursedSoulRandomSwapChance">Random Swap Target Chance</string>
+	<string name="TouJKCursedSoulSwapFactionModifier">Swap Faction Modifier</string>
+	<string name="TouJKCursedSoulSwapAssassinModifier">Swap Assassin Modifier</string>
+	<string name="TouJKCursedSoulSwapWithImpostor">Can Swap With Impostor</string>
+	<string name="TouJKCursedSoulSwapWithNeutralKiller">Can Swap With Neutral Killer</string>
+	<string name="TouJKCursedSoulSwapWithNeutralApocalypse">Can Swap With Neutral Apocalypse</string>
+	<string name="TouJKCursedSoulKillOnNonValidSwap">Kill On Non-Valid Swap</string>
+	<string name="TouJKCursedSoulSwappedPlayerBecomes">Swapped Player Becomes</string>
+	<!-- Necromancer -->
+	<string name="TouJKRoleNecromancer">Necromancer</string>
+	<string name="TouJKRoleNecromancerIntroBlurb">Ressurect players to create an army of dead.</string>
+	<string name="TouJKRoleNecromancerTabDescription">Resurrect players to convert them to your team.</string>
+	<string name="TouJKRoleNecromancerReanimateNotif">You reanimated \%player\% and incorporated them into your ranks.</string>
+	<string name="TouJKRoleNecromancerReanimateTargetNotif">You were reanimated by \%player\%, the \%role\%. You join to the ranks of the undead.</string>
+	<!-- Necromancer Wiki -->
+	<string name="TouJKRoleNecromancerWikiDescription">The Necromancer is a Neutral Outlier role that can reanimate a dead body to make them join their faction. Necromancer wins when they with their undead outnumber the crew.</string>
+	<string name="TouJKRoleNecromancerReanimate">Reanimate</string>
+	<string name="TouJKRoleNecromancerReanimateWikiDescription">Resurrect a player to join the ranks of undead.</string>
+	<!-- Necromancer Options -->
+	<string name="TouJKNecromancerMaxUndead">Max Undead</string>
+	<string name="TouJKNecromancerReanimateCooldown">Reanimate Cooldown</string>
+	<string name="TouJKNecromancerNotifyKills">Show Arrows Pointing To Dead Bodies</string>
+	<string name="TouJKNecromancerArrowDelay">Dead Body Arrow Delay</string>
+	<string name="TouJKNecromancerArrowDuration">Dead Body Arrow Duration</string>
+	<!-- Jackal -->
+	<string name="TouJKRoleJackal">Jackal</string>
+	<string name="TouJKRoleJackalIntroBlurb">Lead your recruits to victory!</string>
+	<string name="TouJKRoleJackalTabDescription">Wait until your recruits kill off the crew.</string>
+	<string name="TouJKRoleJackalTabDescriptionRecDead">Murder the crew by yourself!</string>
+	<string name="TouJKRoleJackalRecDeadNotif">\%player\%, one of your recruits died.</string>
+	<string name="TouJKRoleJackalKillUnlockNotif">In result of your recruits death, you decided to take the matter into your own hands. You have gained the ability to kill.</string>
+	<!-- Jackal Wiki -->
+	<string name="TouJKRoleJackalWikiDescription">The Jackal is a Neutral Outlier role that starts with two recruits from two diffrent factions. Recruits lose their original win condidtion and their goal is to help the Jackal win. If all recruits are dead Jackal gains the ability to kill.</string>
+	<string name="TouJKRoleJackalReanimate">Reanimate</string>
+	<string name="TouJKRoleJackalReanimateWikiDescription">Resurrect a player to join the ranks of undead.</string>
+	<!-- Jackal Options -->
+	<string name="TouJKJackalKillCooldown">Kill Cooldown</string>
+	<string name="TouJKJackalCanVent">Jackal Can Vent</string>
+	<string name="TouJKJackalRecruitsDieTogether">Recruits Die Together</string>
+	<string name="TouJKJackalRecruitsSeeJackal">Recruits See Jackal</string>
+	<!-- Pestilence -->
+	<string name="TouRolePestilenceWikiDescription">The Pestilence is a Neutral Killing role that can kill and is invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
+	<!-- Famine -->
+	<string name="TouJKRoleFamine">Famine</string>
+	<string name="TouJKRoleFamineIntroBlurb">Horseman of the Apocalypse!</string>
+	<string name="TouJKRoleFamineTabDescription">Slowly drain everyone's power with hunger.</string>
+	<string name="TouJKRoleFamineWikiDescription">The Famine is a Neutral Apocalypse role that starves the crew, killing them if they are out of bread. They are invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
+	<string name="TouJKRoleFamineMessageTitle">Famine Warning</string>
+	<string name="TouJKRoleFamineAnnounceMessage">All of the Crew's bread has been given out.\%nl\%\%role\%, Horseman of the Apocalypse, has emerged!</string>
+	<string name="TouJKRoleFamineStarveMessage">Mere existance of \%role\% drains power\%nl\%from you, your stomach is feeling empty.</string>
+	<string name="TouJKRoleFamineStarveMessageApoc">Mere existance of \%role\% drains power\%nl\%from the Crew, however you are able to\%nl\%keep it together.</string>
+	<string name="TouJKRoleFaminePassiveStarve">Passive Starvation</string>
+	<string name="TouJKRoleFaminePassiveStarveWikiDescription">Once every so often, and after meetings, all players lose one bread. If players don't have any bread they die instead.</string>
+	<string name="TouJKRoleFamineStarve">Starve</string>
+	<string name="TouJKRoleFamineStarveWikiDescription">Reduces bread of the player by a set amount. If this ability tries to take bread they don't have it kills instead.</string>
+	<!-- Baker -->
+	<string name="TouJKRoleBaker">Baker</string>
+	<string name="TouJKRoleBakerIntroBlurb">Give out bread, until there's nothing left.</string>
+	<string name="TouJKRoleBakerTabDescription">Feed the players bread to transform.</string>
+	<string name="TouJKRoleBakerTabBreadCounter">Bread Left: \%count\%</string>
+	<string name="TouJKRoleBakerTabFedInfo">Fed Players:</string>
+	<!-- Baker Wiki -->
+	<string name="TouJKRoleBakerWikiDescription">The Baker is a Neutral Apocalypse role that needs to feed a certain amount of players to transform into Famine.</string>
+	<string name="TouJKRoleBakerBread">Bread</string>
+	<string name="TouJKRoleBakerBreadWikiDescription">Feeds the player bread. After a set amount of bread was given, Baker transforms into Famine.</string>
+	<!-- Baker Options -->
+	<string name="TouJKBakerBreadToFamine">Bread Needed To Transform</string>
+	<string name="TouJKBakerBreadCooldown">Bread Cooldown</string>
+	<string name="TouJKBakerBreadLasts">Bread Lasts For</string>
+	<string name="TouJKBakerNotEnoughPlayers">Not Enough Players Effect</string>
+	<string name="TouJKBakerNotEnoughPlayersEnumTransforms">Transform</string>
+	<string name="TouJKBakerNotEnoughPlayersEnumNothing">Nothing</string>
+	<string name="TouJKBakerNotEnoughPlayersEnumDies">Suicide</string>
+	<string name="TouJKBakerAnnounceTransformationDelay">Announce Famine Transformation Delay</string>
+	<string name="TouJKBakerFamineCanVent">Famine Can Vent</string>
+	<string name="TouJKBakerFamineStarveCooldown">Starve Ability Cooldown</string>
+	<string name="TouJKBakerStarveStrength">Starve Ability Strength</string>
+	<string name="TouJKBakerPassiveStarvingCooldown">Passive Starving Interval</string>
+	<!-- Berserker -->
+	<string name="TouJKRoleBerserker">Berserker</string>
+	<string name="TouJKRoleBerserkerIntroBlurb">Kill players in order to transform.</string>
+	<string name="TouJKRoleBerserkerTabDescription">Hack and slash players to transform.</string>
+	<string name="TouJKRoleBerserkerTabKillCounter">Kills Left: \%count\%/\%max_count\%</string>
+	<!-- Berserker Options -->
+	<string name="TouJKOptionBerserkerInstantWar">Instant War Chance</string>
+	<string name="TouJKOptionBerserkerInitialCooldown">Berserker Initial Kill Cooldown</string>
+	<string name="TouJKOptionBerserkerCooldownReduction">Berserker Kill Cooldown Reduction</string>
+	<string name="TouJKOptionBerserkerCanVent">Berserker Can Vent</string>
+	<string name="TouJKOptionBerserkerKillsToTransform">Kills Needed To Transform</string>
+	<string name="TouJKOptionBerserkerAnnounceTransformation">Announce War Transformation</string>
+	<string name="TouJKOptionBerserkerWarKillCooldown">War Kill Cooldown</string>
+	<string name="TouJKOptionBerserkerWarKillingSpreeDuration">War Killing Spree Duration</string>
+	<string name="TouJKOptionBerserkerWarCanVent">War Can Vent</string>
+	<!-- War -->
+	<string name="TouJKRoleWar">War</string>
+	<string name="TouJKRoleWarIntroBlurb">Horseman of the Apocalypse!</string>
+	<string name="TouJKRoleWarTabDescription">Murder everyone and start an eternal war.</string>
+	<string name="TouJKRoleWarWikiDescription">The War is a Neutral Apocalypse role that can kill multiple people in short period of time. They are invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
+	<string name="TouJKRoleWarMessageTitle">War Warning</string>
+	<string name="TouJKRoleWarAnnounceMessage">The Crew has been consumed in a great battle.\%nl\%\%role\%, Horseman of the Apocalypse, has emerged!</string>
+	<!-- Soul Collector -->
+	<string name="TouJKRoleSoulCollector">Soul Collector</string>
+	<string name="TouJKRoleSoulCollectorIntroBlurb">Collect souls from dead bodies to transform.</string>
+	<string name="TouJKRoleSoulCollectorTabDescription">Collect souls from recently deceased to transform.</string>
+	<string name="TouJKRoleSoulCollectorTabSoulCounter">Souls Left: \%count\%/\%max_count\%</string>
+	<!-- Soul Collector Wiki -->
+	<string name="TouJKRoleSoulCollectorWikiDescription">The Soul Collector is a Neutral Apocalypse role that needs to collect certain amount of souls from dead bodies to transform into Death.</string>
+	<string name="TouJKRoleSoulCollectorReap">Reap</string>
+	<string name="TouJKRoleSoulCollectorReapWikiDescription">Collect a soul from a dead body. After a set amount of souls were collected, Soul Collector transforms into Death.</string>
+	<!-- Soul Collector Options -->
+	<string name="TouJKSoulCollectorSoulsToTransform">Souls Needed</string>
+	<string name="TouJKSoulCollectorReapCooldown">Reap Cooldown</string>
+	<string name="TouJKSoulCollectorNotifyKills">Show Arrows Pointing To Dead Bodies</string>
+	<string name="TouJKSoulCollectorArrowDelay">Dead Body Arrow Delay</string>
+	<string name="TouJKSoulCollectorArrowDuration">Dead Body Arrow Duration</string>
+	<string name="TouJKSoulCollectorArmageddonTimer">Armageddon Countdown Duration</string>
+	<!-- Death -->
+	<string name="TouJKRoleDeath">Death</string>
+	<string name="TouJKRoleDeathIntroBlurb">Horseman of the Apocalypse!</string>
+	<string name="TouJKRoleDeathTabDescription">Slowly drain everyone's power with hunger.</string>
+	<string name="TouJKRoleDeathWikiDescription">The Death is a Neutral Apocalypse role that kills everyone if they survive too long after transformation. They are invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
+	<string name="TouJKRoleDeathMessageTitle">Death Warning</string>
+	<string name="TouJKRoleDeathAnnounceMessage">The souls of the dead were collected.\%nl\%\%role\%, Horseman of the Apocalypse, has emerged!</string>
+	<string name="TouJKRoleDeathArmageddon">Armageddon</string>
+	<string name="TouJKRoleDeathArmageddonWikiDescription">After transformation, an armageddon will begin. After a certain amount of time or the next meeting the armageddon will kill everyone else.</string>
+	<string name="TouJKRoleDeathWarningNotif">The \%role\% is unleashing a Armageddon in \%time\% seconds!</string>
+	<string name="TouJKRoleDeathArmageddonTriggered">Death has emerged, the Armageddon begins!</string>
+	<string name="TouJKRoleDeathArmageddonInProgress">Armageddon in progress, everyone dies in \%time\% seconds.</string>
+	<string name="TouJKRoleDeathArmageddonDeathDead">Death has been killed, Armageddon was halted.</string>
+	<!-- Poisoner -->
+	<string name="TouJKRolePoisoner">Poisoner</string>
+	<string name="TouJKRolePoisonerIntroBlurb">Poison the crew to get away from kills with ease.</string>
+	<string name="TouJKRolePoisonerTabDescription">Poison the players to kill them with delay.</string>
+	<string name="TouJKRolePoisonerPoisonOwnerNotif">You poisoned \%player\%, they will die in \%time\% seconds.</string>
+	<string name="TouJKRolePoisonerPoisonTargetNotif">A \%role\% has poisoned you! You will die in \%time\% seconds!</string>
+	<string name="TouJKRolePoisonerPoisonDiedNotif">\%player\% was attacked by poison.</string>
+	<!-- Poisoner Wiki -->
+	<string name="TouJKRolePoisonerWikiDescription">The Poisoner is a Impostor Killing role that can poison a player, killing them after a set amount of time.</string>
+	<string name="TouJKRolePoisonerPoison">Poison</string>
+	<string name="TouJKRolePoisonerPoisonWikiDescription">Poison a player, after a set amount of time you will kill them.</string>
+	<!-- Poisoner Options -->
+	<string name="TouJKOptionPoisonerPoisonCooldown">Poison Cooldown</string>
+	<string name="TouJKOptionPoisonerPoisonDuration">Poison Kills After</string>
+	<string name="TouJKOptionPoisonerShowPoison">Announce Poison To The Victim</string>
+	<string name="TouJKOptionPoisonerPoisonDelay">Poison Announcement Delay</string>
+	<string name="TouJKOptionPoisonerCanKill">Poisoner Can Use Normal Kill</string>
+	<!-- Sniper -->
+	<string name="TouJKRoleSniper">Sniper</string>
+	<string name="TouJKRoleSniperIntroBlurb">Shoot down crew from the distance.</string>
+	<string name="TouJKRoleSniperTabDescription">Aim at players to later kill them from a distance.</string>
+	<string name="TouJKRoleSniperAimNotif">You aimed at \%player\%, you can shoot them now.</string>
+	<string name="TouJKRoleSniperShootNotif">Someone was shot by a \%role\%!</string>
+	<string name="TouJKRoleSniperShootOwnerNotif">You shot at \%player\%!</string>
+	<!-- Sniper Wiki -->
+	<string name="TouJKRoleSniperWikiDescription">The Sniper is a Impostor Killing role that can aim at the player, later they can shoot the player previously aimed at.</string>
+	<string name="TouJKRoleSniperAim">Aim</string>
+	<string name="TouJKRoleSniperAimWikiDescription">Aim a player, to later shoot them.</string>
+	<string name="TouJKRoleSniperShoot">Shoot</string>
+	<string name="TouJKRoleSniperShootWikiDescription">Kill an previously aimed player.</string>
+	<!-- Sniper Options -->
+	<string name="TouJKOptionSniperAimCooldown">Aim Cooldown</string>
+	<string name="TouJKOptionSniperShootCooldown">Shoot Cooldown</string>
+	<string name="TouJKOptionSniperShowArrow">Show Arrow To The Aimed Player</string>
+	<string name="TouJKOptionSniperArrowUpdateInterval">Aimed Arrow Update Interval</string>
+	<string name="TouJKOptionSniperAnnounceShot">Announce Sniper Shot</string>
+	<string name="TouJKOptionSniperShowSniper">Point To The Sniper</string>
+	<string name="TouJKOptionSniperShowVictim">Point To The Victim</string>
+	<string name="TouJKOptionSniperArrowDuration">Pointing Arrow Duration</string>
+	<string name="TouJKOptionSniperCanKill">Sniper Can Use Normal Kill</string>
+	<!-- Godfather -->
+	<string name="TouJKRoleGodfather">Godfather</string>
+	<string name="TouJKRoleGodfatherIntroBlurb">Recruit crewmates to your ranks.</string>
+	<string name="TouJKRoleGodfatherTabDescription">Recruit a player, turning them into a Mafioso.</string>
+	<string name="TouJKRoleGodfatherRecruitFailedNotif">You failed to recruit \%player\%, they aren't a crewmate role or aren't crew aligned!</string>
+	<string name="TouJKRoleGodfatherRecruitOwnerNotif">You succesfully recruited \%player\%, and turned them into \%role\%!</string>
+	<string name="TouJKRoleGodfatherRecruitTargetNotif">You were recruited by \%player\%, the \%role\%, you are now \%new_role\%!</string>
+	<!-- Godfather Wiki -->
+	<string name="TouJKRoleGodfatherWikiDescription">The Godfather is a Impostor Power role that can recruit a crewmate, turning them into Mafioso.</string>
+	<string name="TouJKRoleGodfatherRecruit">Recruit</string>
+	<string name="TouJKRoleGodfatherRecruitWikiDescription">Recruit a crewmate turning them into Mafioso</string>
+	<!-- Godfather Options -->
+	<string name="TouJKOptionGodfatherMafiosoKillCooldownDebuff">Mafioso Kill Cooldown Increase</string>
+	<string name="TouJKOptionGodfatherCanKill">Godfather Can Kill With Mafioso Alive</string>
+	<string name="TouJKOptionGodfatherCanKillBeforeMafioso">Godfather Can Kill Before Recruiting</string>
+	<string name="TouJKOptionGodfatherMafiosoDiesWithGodfather">Mafioso Dies With Godfather</string>
+	<!-- Mafioso -->
+	<string name="TouJKRoleMafioso">Mafioso</string>
+	<string name="TouJKRoleMafiosoIntroBlurb">Help the Godfather.</string>
+	<string name="TouJKRoleMafiosoTabDescription">Lead the Godfather to the victory!</string>
+	<!-- Mafioso Wiki -->
+	<string name="TouJKRoleMafiosoWikiDescription">The Mafioso is a Impostor Support role that appears after Godfather recruits a crewmate.</string>
+	<!-- Demagogue -->
+	<string name="TouJKRoleDemagogue">Demagogue</string>
+	<string name="TouJKRoleDemagogueIntroBlurb">Kill the crewmates with no regard for witnesses.</string>
+	<string name="TouJKRoleDemagogueTabDescription">You are immune for being voted out as long as immunity lives.</string>
+	<string name="TouJKRoleDemagogueNotifTitle">Demagogue Announcement</string>
+	<string name="TouJKRoleDemagogueNotif">\%player\% is the \%role\%! They cannot be killed until their immunity has been killed, immunity's alignment is \%alignment\%.</string>
+	<string name="TouJKRoleDemagogueHintTitle">Demagogue Hint</string>
+	<string name="TouJKRoleDemagogueHint">\%player\% is not the immunity.</string>
+	<string name="TouJKRoleDemagogueImmunityDeathNotifTitle">Demagogue Announcement</string>
+	<string name="TouJKRoleDemagogueImmunityDeathNotif">The immunity has died! \%player\, the \%role\% can now be killed!</string>
+	<!-- Demagogue Wiki -->
+	<string name="TouJKRoleDemagogueWikiDescription">The Demagogue is a Impostor Power role that is revealed to whole crew at the start of the first meeting. Random Neutral (Impostor if they aren't any, or Crewmate in extreme circumstances) player becomes a immunity. They cannot be ejected or killed in meetings while their immunity lives. Immunity and Impostors know who immunity is.</string>
+	<!-- Demagogue Options -->
+	<string name="TouJKOptionDemagogueKillCooldownDebuff">Demagogue Kill Cooldown Increase</string>
+	<string name="TouJKOptionDemagoguePunishVoters">Punich Voters If Immunity Lives</string>
+	<string name="TouJKOptionDemagogueCanBeKilled">Demagogue Can Be Killed If Immunity Lives</string>
+	<string name="TouJKOptionDemagoguePunishKillers">Punich Killers If Immunity Lives</string>
+	<string name="TouJKOptionDemagoguePunishNonCrew">Punich Non-Crew Killers</string>
+	<string name="TouJKOptionDemagogueGiveHints">Give Hints About Who Isn't Immunity</string>
+	<string name="TouJKOptionDemagogueAnnounceImmunityDeath">Announce Immunity Death</string>
+	<!-- Drunk Wiki / Description -->
+	<string name="TouJKModifierDrunk">Drunk</string>
+	<string name="TouJKModifierDrunkTabDescriptionExpires">Your movement is inverted for \%time\% rounds!</string>
+	<string name="TouJKModifierDrunkTabDescription">Your movement is inverted!</string>
+	<string name="TouJKModifierDrunkWikiDescription">Your movement is inverted.</string>
+	<!-- Tasker Wiki / Description -->
+	<string name="TouJKModifierTasker">Tasker</string>
+	<string name="TouJKModifierTaskerTabDescription">You can do tasks!</string>
+	<string name="TouJKModifierTaskerWikiDescription">You can do tasks.</string>
+	<!-- Prophet Wiki / Description -->
+	<string name="TouJKModifierProphet">Prophet</string>
+	<string name="TouJKModifierProphetShortName">Apoc</string>
+	<string name="TouJKModifierProphetIntroBlurb">Aid the \%color=#606060FF\%Apocalypse\%/color\%</string>
+	<string name="TouJKModifierProphetTabDescription">Betray the crewmates as a member of Apocalypse.</string>
+	<string name="TouJKModifierProphetWikiDescription">The Prophet is a Crewmate Alliance modifier, which forces a crewmate to work for the apocalypse faction.</string>
+	<string name="TouJKModifierProphetIntroMessage">You are the \%modifier\%. You can only win with Apocalypse.</string>
+	<!-- Undead Description -->
+	<string name="TouJKModifierUndead">Undead</string>
+	<string name="TouJKModifierUndeadShortName">Und</string>
+	<string name="TouJKModifierUndeadTabDescription">Help the Necromancer win as a part of his army!</string>
+	<!-- Recruit Description -->
+	<string name="TouJKModifierRecruit">Recruit</string>
+	<string name="TouJKModifierRecruitShortName">Rec</string>
+	<string name="TouJKModifierRecruitTabDescription">Lead the Jackal to victory!</string>
+	<!-- Ammit -->
+	<string name="TouJKRoleAmmit">Ammit</string>
+	<string name="TouJKRoleAmmitIntroBlurb">Devour the crew.</string>
+	<string name="TouJKRoleAmmitTabDescription">Devour players to kill.</string>
+	<!-- Ammit Wiki -->
+	<string name="TouJKRoleAmmitWikiDescription">The Ammit is a Secret Neutral Killing role that can devour players, killing them if they aren't killed before the meeting.</string>
+	<string name="TouJKRoleAmmitDevour">Devour</string>
+	<string name="TouJKRoleAmmitDevourWikiDescription">Devour a player, killing them if you survive to the meeting.</string>
+	<!-- Ammit Options -->
+	<string name="TouJKOptionAmmitDevourCooldown">Devour Cooldown</string>
+	<string name="TouJKOptionAmmitDevourCooldownIncrease">Devour Cooldown Increase Per Devour</string>
+	<string name="TouJKOptionAmmitMaxDevoured">Max Devoured Per Round</string>
+	<string name="TouJKOptionAmmitSizePerPerson">Size Increase Per Person Devoured</string>
+	<string name="TouJKOptionAmmitCanVent">Ammit Can Vent</string>
+	<!-- Task Text Info -->
+	<string name="TouJKNeutralApocalypseTaskHeader">Bring forth the apocalypse upon crew and impostors alike!\%nl\%Fake Tasks:</string>
+	<!-- End Game Summary Details -->
+	<string name="TouJKApocalypseWin">Apocalypse Is Nigh</string>
+	<!-- Role Alignment -->
+	<string name="None">None</string>
+	<string name="27">Neutral Apocalypse</string>
+	<string name="TouJKApocalypse">APOCALYPSE</string>
+	<string name="TouJKApocalypseDesc">You are a member of Apocalypse.</string>
+</resources>

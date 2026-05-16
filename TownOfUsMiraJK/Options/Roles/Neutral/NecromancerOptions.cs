@@ -1,0 +1,34 @@
+using MiraAPI.GameOptions;
+using MiraAPI.GameOptions.Attributes;
+using MiraAPI.GameOptions.OptionTypes;
+using MiraAPI.Utilities;
+using TownOfUsMiraJK.Roles.Neutral;
+using TownOfUs.Modules.Localization;
+
+namespace TownOfUsMiraJK.Options.Roles.Neutral;
+
+public sealed class NecromancerOptions : AbstractOptionGroup<NecromancerRole>
+{
+    public override string GroupName => TouLocale.Get("TouJKRoleNecromancer", "Necromancer");
+
+    [ModdedNumberOption("TouJKNecromancerMaxUndead", 1, 7, 1)]
+    public float MaxUndead { get; set; } = 3;
+
+    [ModdedNumberOption("TouJKNecromancerReanimateCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    public float ReanimateCooldown { get; set; } = 25f;
+
+    [ModdedToggleOption("TouJKNecromancerNotifyKills")]
+    public bool NecromancerArrows { get; set; } = false;
+
+    public ModdedNumberOption NecromancerArrowDelay { get; set; } =
+        new("TouJKNecromancerArrowDelay", 0.5f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0")
+        {
+            Visible = () => OptionGroupSingleton<NecromancerOptions>.Instance.NecromancerArrows
+        };
+
+    public ModdedNumberOption NecromancerArrowDuration { get; set; } =
+        new("TouJKNecromancerArrowDuration", 10f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0", zeroInfinity: true)
+        {
+            Visible = () => OptionGroupSingleton<NecromancerOptions>.Instance.NecromancerArrows
+        };
+}
