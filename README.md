@@ -79,6 +79,14 @@ Possible autopsy results:
 - How long ago the victim died.
 - Role of the victim.
 
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Autopsy Cooldown | Cooldown of the Autopsy ability. | 10s |
+| Max Autopsies Per Body | Maximum Autopsies per dead body. | 3 |
+| Show Autopsy Result During Round | Show Autopsy results immidiately. | True |
+| Track Killer's Movement For | Time after murder up until which escape direction and escape method are updated. | 10s |
+
 ### Inspector
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
 
