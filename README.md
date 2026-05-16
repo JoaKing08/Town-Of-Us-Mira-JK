@@ -54,7 +54,11 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <a href="#death"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" /></a>
   
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/AllianceMods.png" />
-  <a href="#death"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Propher.png" /></a>
+  <a href="#prophet"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Prophet.png" /></a>
+  <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/ImpMods.png" />
+  <a href="#tasker"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" /></a>
+  <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/UniMods.png" />
+  <a href="#drunk"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" /></a>
 </p>
 
 -----------------------
