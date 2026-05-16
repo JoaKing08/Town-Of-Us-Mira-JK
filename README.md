@@ -66,7 +66,6 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 # Role Explanations
 ## Crewmate Roles
 ### Coroner
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Coroner.png" />
 Alignment: <b>Crewmate Investigative</b>
 The Coroner is a role that can autopsy bodies to gather information about them and the killer.
 Possible autopsy results:
