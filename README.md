@@ -72,85 +72,85 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 <img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
 
 ### Watcher
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" />
 
 ### Executor
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Executor.png" />
 
 ### Monster Hunter
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/MonsterHunter.png" />
 
 ### Bodyguard
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bodyguard.png" />
 
 ### Crusader
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Crusader.png" />
 
 ### Tavern Keeper
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" />
 
 ### Undercover
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Undercover.png" />
 
 ## Impostor Roles
 ### Poisoner
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Poisoner.png" />
 
 ### Sniper
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sniper.png" />
 
 ### Demagogue
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Demagogue.png" />
 
 ### Godfather
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Godfather.png" />
 
 ## Neutral Roles
 ### Cursed Soul
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/CursedSoul.png" />
 
 ### Witch
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" />
 
 ### Bloodhound
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" />
 
 ### Jackal
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" />
 
 ### Necromancer
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" />
 
 ### Pirate
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" />
 
 ### Baker
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" />
 
 ### Famine
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" />
 
 ### Berserker
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" />
 
 ### War
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
 
 ### Soul Collector
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/SoulCollector.png" />
 
 ### Death
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" />
 
 ## Modifiers
 ### Prophet
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Prophet.png" />
 
 ### Tasker
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Tasker.png" />
 
 ### Drunk
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Drunk.png" />
 
 -----------------------
 # Credits
