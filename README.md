@@ -117,13 +117,46 @@ Game Options:
 | Watch Vision Multiplier | How much the screens zooms out while watching. | 1.25x |
 
 ### Executor
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Executor.png" />
+Alignment: <b>Crewmate Killing</b>
+
+The Executor is a role that can Aim at players to later Execute one of them during meeting.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Aim Cooldown | Cooldown of the Aim ability. | 25s |
+| Max Aimed Players | Maximum amount of alive Aimed players. | 5 |
+| Reveal Role After Executing | Whether to reveal Executor's role to everyone after Executing. | False |
 
 ### Monster Hunter
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/MonsterHunter.png" />
+Alignment: <b>Crewmate Killing</b>
+
+The Monster Hunter is a role that can Stake players to check if they are a monster, and killing them if they are.\
+The player is treated as a monster if they are a Vampire, Werewolf or Undead.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Stake Cooldown | Cooldown of the Stake ability. | 25s |
+| Max Failed Stakes Per Game | Maximum amount of incorrect Stakes per game. | 5 |
+| Can Stake Round One | Whether the Monster Hunter can stake round one. | False |
+| Self Kill When Run Out of Stakes | Commit suicide if ran out of stakes. | False |
+| Becomes on Monsters Death | What Monster Hunter becomes after killing all monsters. | Crewmate |
 
 ### Bodyguard
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bodyguard.png" />
+Alignment: <b>Crewmate Protective</b>
+
+The Monster Hunter is a role that can Stake players to check if they are a monster, and killing them if they are.\
+The player is treated as a monster if they are a Vampire, Werewolf or Undead.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Stake Cooldown | Cooldown of the Stake ability. | 25s |
+| Max Failed Stakes Per Game | Maximum amount of incorrect Stakes per game. | 5 |
+| Can Stake Round One | Whether the Monster Hunter can stake round one. | False |
+| Self Kill When Run Out of Stakes | Commit suicide if ran out of stakes. | False |
+| Becomes on Monsters Death | What Monster Hunter becomes after killing all monsters. | Crewmate |
 
 ### Crusader
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Crusader.png" />
