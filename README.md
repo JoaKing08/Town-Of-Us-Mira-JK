@@ -68,7 +68,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 ### Coroner
 Alignment: <b>Crewmate Investigative</b>
 
-The Coroner is a role that can autopsy bodies to gather information about them and the killer.
+The Coroner is a role that can Autopsy bodies to gather information about them and the killer.
 Possible autopsy results:
 - Whether the killer is lighter or darker color.
 - In which cardinal direction the killer escaped.
@@ -88,7 +88,20 @@ Game Options:
 | Track Killer's Movement For | Time after murder up until which escape direction and escape method are updated. | 10s |
 
 ### Inspector
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+Alignment: <b>Crewmate Investigative</b>
+
+The Inspector is a role that can Inspect players to learn what roles they may be.
+If the `Use Doomsayer Results` option is turned on, the results will be identical to the Doomsayer Observe.
+Otherwise the result will be composed of random roles in amounts configured by options, one of which is that of the Inspected player.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Inspect Cooldown | Cooldown of the Inspect ability. | 25s |
+| Use Doomsayer Results | Whether to use the same results as Doomsayer's Observe. | True |
+| Crewmate Roles In Report | The amount of crewmate roles in the report. | 3 |
+| Neutral Roles In Report | The amount of neutral roles in the report. | 2 |
+| Impostor Roles In Report | The amount of impostor roles in the report. | 2 |
 
 ### Watcher
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" />
