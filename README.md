@@ -67,36 +67,91 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 ## Crewmate Roles
 ### Coroner
 <img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Coroner.png" />
+
 ### Inspector
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Watcher
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Executor
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Monster Hunter
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Bodyguard
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Crusader
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Tavern Keeper
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Undercover
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ## Impostor Roles
 ### Poisoner
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Sniper
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Demagogue
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Godfather
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ## Neutral Roles
 ### Cursed Soul
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Witch
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Bloodhound
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Jackal
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Necromancer
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Pirate
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Baker
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Famine
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Berserker
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### War
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Soul Collector
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Death
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ## Modifiers
 ### Prophet
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Tasker
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 ### Drunk
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+
 -----------------------
 # Credits
 <b>@craftrpl</b> on Discord for role icons.
