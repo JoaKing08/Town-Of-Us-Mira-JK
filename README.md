@@ -68,7 +68,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 ### Coroner
 Alignment: <b>Crewmate Investigative</b>
 
-The Coroner is a role that can Autopsy bodies to gather information about them and the killer.
+The Coroner is a role that can Autopsy bodies to gather information about them and the killer.\
 Possible autopsy results:
 - Whether the killer is lighter or darker color.
 - In which cardinal direction the killer escaped.
@@ -90,8 +90,8 @@ Game Options:
 ### Inspector
 Alignment: <b>Crewmate Investigative</b>
 
-The Inspector is a role that can Inspect players to learn what roles they may be.
-If the `Use Doomsayer Results` option is turned on, the results will be identical to the Doomsayer Observe.
+The Inspector is a role that can Inspect players to learn what roles they may be.\
+If the `Use Doomsayer Results` option is turned on, the results will be identical to the Doomsayer Observe.\
 Otherwise the result will be composed of random roles in amounts configured by options, one of which is that of the Inspected player.
 
 Game Options:
