@@ -65,8 +65,8 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 -----------------------
 # Role Explanations
 ## Crewmate Roles
-<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Coroner.png" />
 ### Coroner
+<img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Coroner.png" />
 ### Inspector
 ### Watcher
 ### Executor
