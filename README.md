@@ -4,8 +4,8 @@
 -----------------------
 
 <div align="center">
-  <img src="./TownOfUsMiraJK/Resources/ExampleBanner.png" alt="TOU Mira Example Mod"/>
-  <p>TOU Mira Example Mod</p>
+  <img src="./TownOfUsMiraJK/Resources/Banner.png" alt="Town Of Us Mira JK Mod"/>
+  <p>Town Of Us Mira JK Mod</p>
 </div>
 <br/>
 
