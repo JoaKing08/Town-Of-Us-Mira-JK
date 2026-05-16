@@ -15,43 +15,43 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewInvest.png" align="center" />
-  <a href="#coroner"><img width="10%" src="./Resources/RoleIcons/Coroner.png" /></a>
-  <a href="#inspector"><img width="10%" src="./Resources/RoleIcons/Inspector.png" /></a>
-  <a href="#watcher"><img width="10%" src="./Resources/RoleIcons/Watcher.png" /></a>
+  <a href="#coroner"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Coroner.png" /></a>
+  <a href="#inspector"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" /></a>
+  <a href="#watcher"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewKilling.png" align="center" />
-  <a href="#executor"><img width="10%" src="./Resources/RoleIcons/Executor.png" /></a>
-  <a href="#monster-hunter"><img width="10%" src="./Resources/RoleIcons/MonsterHunter.png" /></a>
+  <a href="#executor"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Executor.png" /></a>
+  <a href="#monster-hunter"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/MonsterHunter.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewProtect.png" align="center" />
-  <a href="#bodyguard"><img width="10%" src="./Resources/RoleIcons/Bodyguard.png" /></a>
-  <a href="#crusader"><img width="10%" src="./Resources/RoleIcons/Crusader.png" /></a>
+  <a href="#bodyguard"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bodyguard.png" /></a>
+  <a href="#crusader"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Crusader.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewSupport.png" align="center" />
-  <a href="#tavern-keeper"><img width="10%" src="./Resources/RoleIcons/TavernKeeper.png" /></a>
-  <a href="#undercover"><img width="10%" src="./Resources/RoleIcons/Undercover.png" /></a>
+  <a href="#tavern-keeper"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" /></a>
+  <a href="#undercover"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Undercover.png" /></a>
   
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/ImpKilling.png" align="center" />
-  <a href="#poisoner"><img width="10%" src="./Resources/RoleIcons/Poisoner.png" /></a>
-  <a href="#sniper"><img width="10%" src="./Resources/RoleIcons/Sniper.png" /></a>
+  <a href="#poisoner"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Poisoner.png" /></a>
+  <a href="#sniper"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sniper.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/ImpPower.png" align="center" />
-  <a href="#demagogue"><img width="10%" src="./Resources/RoleIcons/Demagogue.png" /></a>
-  <a href="#godfather"><img width="10%" src="./Resources/RoleIcons/Godfather.png" /></a>
+  <a href="#demagogue"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Demagogue.png" /></a>
+  <a href="#godfather"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Godfather.png" /></a>
   
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutBenign.png" align="center" />
-  <a href="#cursed-soul"><img width="10%" src="./Resources/RoleIcons/CursedSoul.png" /></a>
+  <a href="#cursed-soul"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/CursedSoul.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutEvil.png" align="center" />
-  <a href="#witch"><img width="10%" src="./Resources/RoleIcons/Witch.png" /></a>
+  <a href="#witch"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutKilling.png" align="center" />
-  <a href="#bloodhound"><img width="10%" src="./Resources/RoleIcons/Bloodhound.png" /></a>
+  <a href="#bloodhound"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutOutlier.png" align="center" />
-  <a href="#jackal"><img width="10%" src="./Resources/RoleIcons/Jackal.png" /></a>
-  <a href="#necromancer"><img width="10%" src="./Resources/RoleIcons/Necromancer.png" /></a>
-  <a href="#pirate"><img width="10%" src="./Resources/RoleIcons/Pirate.png" /></a>
+  <a href="#jackal"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" /></a>
+  <a href="#necromancer"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" /></a>
+  <a href="#pirate"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" /></a>
   <img src="NeutralApocalypsePlaceholderHeader" align="center" />
-  <a href="#baker"><img width="10%" src="./Resources/RoleIcons/Baker.png" /></a>
-  <a href="#famine"><img width="10%" src="./Resources/RoleIcons/Famine.png" /></a>
-  <a href="#berserker"><img width="10%" src="./Resources/RoleIcons/Berserker.png" /></a>
-  <a href="#war"><img width="10%" src="./Resources/RoleIcons/War.png" /></a>
-  <a href="#soul-collector"><img width="10%" src="./Resources/RoleIcons/SoulCollector.png" /></a>
-  <a href="#death"><img width="10%" src="./Resources/RoleIcons/Death.png" /></a>
+  <a href="#baker"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" /></a>
+  <a href="#famine"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" /></a>
+  <a href="#berserker"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" /></a>
+  <a href="#war"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" /></a>
+  <a href="#soul-collector"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/SoulCollector.png" /></a>
+  <a href="#death"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" /></a>
 </p>
 
 -----------------------
