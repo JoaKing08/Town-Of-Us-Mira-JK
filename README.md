@@ -63,6 +63,36 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 <b>And more...</b>
 
 -----------------------
+# Role Explanations
+## Crewmate Roles
+### Coroner
+### Inspector
+### Watcher
+### Executor
+### Monster Hunter
+### Bodyguard
+### Crusader
+### Tavern Keeper
+### Undercover
+## Impostor Roles
+### Poisoner
+### Sniper
+### Demagogue
+### Godfather
+## Neutral Roles
+### Cursed Soul
+### Witch
+### Bloodhound
+### Jackal
+### Necromancer
+### Pirate
+### Baker
+### Famine
+### Berserker
+### War
+### Soul Collector
+### Death
+-----------------------
 # Credits
 <b>@craftrpl</b> on Discord for role icons.
 
