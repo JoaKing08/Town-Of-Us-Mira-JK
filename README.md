@@ -45,7 +45,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <a href="#jackal"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" /></a>
   <a href="#necromancer"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" /></a>
   <a href="#pirate"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" /></a>
-  <img src="./TownOfUsMiraJK/Resources/RoleIcons/NeutralApocalypseHeader.png" align="center" />
+  <img src="./TownOfUsMiraJK/Resources/NeutralApocalypseHeader.png" align="center" />
   <a href="#baker"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" /></a>
   <a href="#famine"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" /></a>
   <a href="#berserker"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" /></a>
