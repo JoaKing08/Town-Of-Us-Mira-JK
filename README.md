@@ -60,7 +60,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/UniMods.png" />
   <a href="#drunk"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" /></a>
 </p>
-<size=300%>And more...</size>
+<b>And more...</b>
 
 -----------------------
 # Credits
