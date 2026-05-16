@@ -59,7 +59,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 
 -----------------------
 # Credits
-<b></b>
+<b>@craftrpl</b> on Discord for role icons.
 
 # License
 This software is distributed under the GNU GPLv3 License. BepInEx is distributed under the LGPL-2.1 License.
