@@ -183,7 +183,8 @@ Game Options:
 ### Undercover
 Alignment: <b>Crewmate Support</b>
 
-The Undercover is a role that is seen as random Impostor to other Impostor.
+The Undercover is a role that is seen as random Impostor to other Impostor.\
+The role Undercover is disguised as can be seen on modifier tab.
 
 Game Options:
 | Name | Description | Default |
@@ -196,10 +197,34 @@ Game Options:
 
 ## Impostor Roles
 ### Poisoner
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Poisoner.png" />
+Alignment: <b>Impostor Killing</b>
+
+The Poisoner is a role that can Poison players to kill them after set amount of time.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Poison Kills After | Time after Poison after which the Poisoned player dies. | 15s |
+| Announce Poison To The Victim | Whether the victim learns that they were poisoned. | True |
+| Poison Announcement Delay | The time between being Poisoned and announcing Poison to the victim. | 5s |
+| Poisoner Can Use Normal Kill | Whether Poisoner can use normal kill button. | True |
 
 ### Sniper
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sniper.png" />
+Alignment: <b>Impostor Killing</b>
+
+The Sniper is a role that can Aim at a player to Shoot them, killing them whenever they want.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Aim Cooldown | Cooldown of the Aim ability. | 10s |
+| Show Arrow To The Aimed Player | Whether Sniper sees an arrow towards the victim. | True |
+| Aimed Arrow Update Interval | Interval between updates of the arrow pointing towards the victim. | 2.5s |
+| Announce Sniper Shot | Whether to announce when the Sniper used their Shoot ability. | True |
+| Point To The Sniper | Whether to show arrow towards Sniper after they used the Shoot ability. | True |
+| Point To The Victim | Whether to show arrow towards the victim after the Sniper used the Shoot ability. | True |
+| Pointing Arrow Duration | Duration of the arrows pointing towards sniper and victim. | 1s |
+| Sniper Can Use Normal Kill | Whether Sniper can use normal kill button. | True |
 
 ### Demagogue
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Demagogue.png" />
