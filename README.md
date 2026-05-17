@@ -146,26 +146,53 @@ Game Options:
 ### Bodyguard
 Alignment: <b>Crewmate Protective</b>
 
-The Monster Hunter is a role that can Stake players to check if they are a monster, and killing them if they are.\
-The player is treated as a monster if they are a Vampire, Werewolf or Undead.
+The Bodyguard is a role that can Guard players to protect them from attacks.\
+When the target is attacked, the Bodyguard teleports between the attacker and the victim, and killing themself and the attacker.
 
 Game Options:
 | Name | Description | Default |
 |----------|:-------------:|:------:|
-| Stake Cooldown | Cooldown of the Stake ability. | 25s |
-| Max Failed Stakes Per Game | Maximum amount of incorrect Stakes per game. | 5 |
-| Can Stake Round One | Whether the Monster Hunter can stake round one. | False |
-| Self Kill When Run Out of Stakes | Commit suicide if ran out of stakes. | False |
-| Becomes on Monsters Death | What Monster Hunter becomes after killing all monsters. | Crewmate |
+| Guard Cooldown | Cooldown of the Guard ability. | 25s |
+| Guard Duration | Duration of the Guard ability. | 30s |
 
 ### Crusader
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Crusader.png" />
+Alignment: <b>Crewmate Protective</b>
+
+The Crusader is a role that can Fortify players to attack the first person that interacts with them.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Fortify Cooldown | Cooldown of the Fortify ability. | 25s |
+| Fortify Duration | Duration of the Fortify ability. | 30s |
+| Max Uses of Fortify | Maximum amount of Fortify uses. | 5 |
 
 ### Tavern Keeper
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" />
+Alignment: <b>Crewmate Support</b>
+
+The Tavern Keeper is a role that can Drink with players to temporarely disable their abilities.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Drink Cooldown | Cooldown of the Drink ability. | 25s |
+| Reset Drinks Every Round | Whether to reset remaining drinks at the start of the round. | True |
+| Max Drinks | Maximum amount of Drink uses. | 5 |
+| Drink Duration | Duration of the Drink ability. | 20s |
 
 ### Undercover
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Undercover.png" />
+Alignment: <b>Crewmate Support</b>
+
+The Undercover is a role that is seen as random Impostor to other Impostor.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Impostors Can Kill Eachother With Undercover Present | Whether Impostors can kill eachother if Undercover is in play. | True |
+| Cover Can Be Impostor Concealing | Whether Undercover can be disguised as Impostor Concealing | True |
+| Cover Can Be Impostor Killing | Whether Undercover can be disguised as Impostor Killing | True |
+| Cover Can Be Impostor Power | Whether Undercover can be disguised as Impostor Power | True |
+| Cover Can Be Impostor Support | Whether Undercover can be disguised as Impostor Support | False |
 
 ## Impostor Roles
 ### Poisoner
