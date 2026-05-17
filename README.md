@@ -60,7 +60,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/UniMods.png" />
   <a href="#drunk"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" /></a>
 </p>
-### <b>And more...</b>
+<b>And more...</b>
 
 -----------------------
 # Role Explanations
@@ -227,7 +227,25 @@ Game Options:
 | Sniper Can Use Normal Kill | Whether Sniper can use normal kill button. | True |
 
 ### Demagogue
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Demagogue.png" />
+Alignment: <b>Impostor Power</b>
+
+The Demagogue is a role that cannot be ejected while their immunity lives.\
+On the start of the game a random Neutral role is marked as immunity.\
+If there are no Neutral roles in the game, the immunity becomes one of the other Impostors instead.\
+If there are no Neutral roles or other Impostors in the game, the immunity becomes a random Crewmate instead.\
+All Impostors and the immunity see who the immunity is.\
+On the first meeting, the Demagogue's identity is revealed, and players learn the immunity's alignment.\
+Regardless of the settings, the immunity can always kill the Demagogue.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Demagogue Kill Cooldown Increase | Increase to the Demagogue's kill cooldown. | 10s |
+| Punich Voters If Immunity Lives | Whether to kill the voters after failing to eject the Demagogue. | True |
+| Demagogue Can Be Killed By Crew Roles | Whether the Demagogue can be killed by Crewmate roles. | False |
+| Demagogue Can Be Killed By Non-Crew Roles | Whether the Demagogue can be killed by Non-Crewmate roles. | True |
+| Give Hints About Who Isn't Immunity | Whether to announce a random player that isn't immunity on start of every meeting. | True |
+| Announce Immunity Death | Whether to announce whether the immunity died on the start of the meeting. | False |
 
 ### Godfather
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Godfather.png" />
