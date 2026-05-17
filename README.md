@@ -45,7 +45,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <a href="#jackal"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" /></a>
   <a href="#necromancer"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" /></a>
   <a href="#pirate"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" /></a>
-  <img src="./TownOfUsMiraJK/Resources/NeutralApocalypseHeader.png" align="center" />
+  <a href="#neutral-apocalypse"><img src="./TownOfUsMiraJK/Resources/NeutralApocalypseHeader.png" align="center" /></a>
   <a href="#baker"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" /></a>
   <a href="#famine"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" /></a>
   <a href="#berserker"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" /></a>
@@ -61,7 +61,16 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <a href="#drunk"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" /></a>
 </p>
 <b>And more...</b>
-
+-----------------------
+# Other changes
+- The original Soul Collector's name was changed to "Reaper".
+- Plaguebearer and Pestilence alignments were changed to Neutral Apocalypse.
+-----------------------
+# Neutral Apocalypse
+Neutral Apocalypse is a new alignment (and faction) to Neutral roles.\
+The goal of the Apocalypse is to reach majority with no other killers left alive.\
+All of the Neutral Apocalypse roles have a goal to reach, after which they transform into a stronger version of itself.\
+Neutral Apocalypse is treated as Neutral Killing to all roles checking for alignment (eg. Seer, Sheriff).
 -----------------------
 # Role Explanations
 ## Crewmate Roles
