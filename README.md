@@ -79,6 +79,7 @@ Neutral Apocalypse is treated as Neutral Killing to all roles checking for align
 ## Crewmate Roles
 ### Coroner
 Alignment: <b>Crewmate Investigative</b>
+Inspiration: <b>The Other Roles (Medium)</b>
 
 The Coroner is a role that can Autopsy bodies to gather information about them and the killer.\
 Possible Autopsy results:
@@ -101,6 +102,7 @@ Game Options:
 
 ### Inspector
 Alignment: <b>Crewmate Investigative</b>
+Inspiration: <b>Town Of Us Reactivated (old Detective)</b>, <b>Town Of Salem (Investigator)</b>
 
 The Inspector is a role that can Inspect players to learn what roles they may be.\
 If the `Use Doomsayer Results` option is turned on, the results will be identical to the Doomsayer's Observe.\
@@ -117,6 +119,7 @@ Game Options:
 
 ### Watcher
 Alignment: <b>Crewmate Investigative</b>
+Inspiration: <b>Det From Better Town Of Salem 2 Discord (Lookout)</b>
 
 The Watcher is a role that can Watch to zoom out their vision and see through walls.\
 While Watching the Watcher cannot move.
@@ -130,6 +133,7 @@ Game Options:
 
 ### Executor
 Alignment: <b>Crewmate Killing</b>
+Inspiration: <b>Town Of Salem 2 (Deputy)</b>
 
 The Executor is a role that can Aim at players to later Execute one of them during meeting.
 
@@ -142,6 +146,7 @@ Game Options:
 
 ### Monster Hunter
 Alignment: <b>Crewmate Killing</b>
+Inspiration: <b>Town Of Us Reactivated (Vampire Hunter)</b>
 
 The Monster Hunter is a role that can Stake players to check if they are a monster, and killing them if they are.\
 The player is treated as a monster if they are a Vampire, Werewolf or Undead.
@@ -157,6 +162,7 @@ Game Options:
 
 ### Bodyguard
 Alignment: <b>Crewmate Protective</b>
+Inspiration: <b>Town Of Salem 2 (Bodyguard)</b>
 
 The Bodyguard is a role that can Guard players to protect them from attacks.\
 When the target is attacked, the Bodyguard teleports between the attacker and the victim, and killing themself and the attacker.
@@ -169,6 +175,7 @@ Game Options:
 
 ### Crusader
 Alignment: <b>Crewmate Protective</b>
+Inspiration: <b>Town Of Salem 2 (Crusader)</b>
 
 The Crusader is a role that can Fortify players to attack the first person that interacts with them.
 
@@ -181,6 +188,7 @@ Game Options:
 
 ### Tavern Keeper
 Alignment: <b>Crewmate Support</b>
+Inspiration: <b>Town Of Salem 2 (Tavern Keeper)</b>
 
 The Tavern Keeper is a role that can Drink with players to temporarely disable their abilities.
 
@@ -194,6 +202,7 @@ Game Options:
 
 ### Undercover
 Alignment: <b>Crewmate Support</b>
+Inspiration: <b>The Other Roles (Spy)</b>
 
 The Undercover is a role that is seen as random Impostor to other Impostor.\
 The role Undercover is disguised as can be seen on modifier tab.
@@ -210,6 +219,7 @@ Game Options:
 ## Impostor Roles
 ### Poisoner
 Alignment: <b>Impostor Killing</b>
+Inspiration: <b>Town Of Us Reactivated (Poisoner)</b>
 
 The Poisoner is a role that can Poison players to kill them after set amount of time.
 
@@ -223,6 +233,7 @@ Game Options:
 
 ### Sniper
 Alignment: <b>Impostor Killing</b>
+Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 The Sniper is a role that can Aim at a player to Shoot them, killing them whenever they want.
 
@@ -240,6 +251,7 @@ Game Options:
 
 ### Demagogue
 Alignment: <b>Impostor Power</b>
+Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 The Demagogue is a role that cannot be ejected while their immunity lives.\
 On the start of the game a random Neutral role is marked as immunity.\
@@ -260,58 +272,74 @@ Game Options:
 | Announce Immunity Death | Whether to announce whether the immunity died on the start of the meeting. | False |
 
 ### Godfather
+Inspiration: <b>Own Idea/Inspiration Unclear</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Godfather.png" />
 
 ## Neutral Roles
 ### Cursed Soul
+Inspiration: <b>Town Of Salem 2 (old Cursed Soul)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/CursedSoul.png" />
 
 ### Witch
+Inspiration: <b>Town Of Salem (Witch)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" />
 
 ### Bloodhound
+Inspiration: <b>Town Of Salem 2 (Serial Killer)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" />
 
 ### Jackal
+Inspiration: <b>Better Town Of Salem 2 (Jackal)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" />
 
 ### Necromancer
+Inspiration: <b>Own Idea/Inspiration Unclear</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" />
 
 ### Pirate
+Inspiration: <b>Town Of Salem 2 (old Pirate)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" />
 
 ### Baker
+Inspiration: <b>Town Of Salem 2 (Baker)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" />
 
 ### Famine
+Inspiration: <b>Town Of Salem 2 (Famine)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" />
 
 ### Berserker
+Inspiration: <b>Town Of Salem 2 (Berserker)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" />
 
 ### War
+Inspiration: <b>Town Of Salem 2 (War)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
 
 ### Soul Collector
+Inspiration: <b>Town Of Salem 2 (Soul Collector)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/SoulCollector.png" />
 
 ### Death
+Inspiration: <b>Town Of Salem 2 (Death)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" />
 
 ## Modifiers
 ### Prophet
+Inspiration: <b>Better Town Of Salem 2 (Apoc Town Traitor)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Prophet.png" />
 
 ### Tasker
+Inspiration: <b>Community Sugestion (Tasker)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" />
 
 ### Drunk
+Inspiration: <b>Town Of Us (Drunk)</b>
 <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" />
 
 -----------------------
 # Credits
-<b>@craftrpl</b> on Discord for role icons.
+<b>@craftrpl</b> on Discord for role icons and buttons.
 
 # License
 This software is distributed under the GNU GPLv3 License. BepInEx is distributed under the LGPL-2.1 License.
