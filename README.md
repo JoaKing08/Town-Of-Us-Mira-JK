@@ -78,7 +78,7 @@ Neutral Apocalypse is treated as Neutral Killing to all roles checking for align
 # Role Explanations
 ## Crewmate Roles
 ### Coroner
-Alignment: <b>Crewmate Investigative</b>
+Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>The Other Roles (Medium)</b>
 
 The Coroner is a role that can Autopsy bodies to gather information about them and the killer.\
@@ -101,7 +101,7 @@ Game Options:
 | Track Killer's Movement For | Time after murder up until which escape direction and escape method are updated. | 10s |
 
 ### Inspector
-Alignment: <b>Crewmate Investigative</b>
+Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>Town Of Us Reactivated (old Detective)</b>, <b>Town Of Salem (Investigator)</b>
 
 The Inspector is a role that can Inspect players to learn what roles they may be.\
@@ -118,7 +118,7 @@ Game Options:
 | Impostor Roles In Report | The amount of impostor roles in the report. | 2 |
 
 ### Watcher
-Alignment: <b>Crewmate Investigative</b>
+Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>Det From Better Town Of Salem 2 Discord (Lookout)</b>
 
 The Watcher is a role that can Watch to zoom out their vision and see through walls.\
@@ -132,7 +132,7 @@ Game Options:
 | Watch Vision Multiplier | How much the screens zooms out while watching. | 1.25x |
 
 ### Executor
-Alignment: <b>Crewmate Killing</b>
+Alignment: <b>Crewmate Killing</b>\
 Inspiration: <b>Town Of Salem 2 (Deputy)</b>
 
 The Executor is a role that can Aim at players to later Execute one of them during meeting.
@@ -145,7 +145,7 @@ Game Options:
 | Reveal Role After Executing | Whether to reveal Executor's role to everyone after Executing. | False |
 
 ### Monster Hunter
-Alignment: <b>Crewmate Killing</b>
+Alignment: <b>Crewmate Killing</b>\
 Inspiration: <b>Town Of Us Reactivated (Vampire Hunter)</b>
 
 The Monster Hunter is a role that can Stake players to check if they are a monster, and killing them if they are.\
@@ -161,7 +161,7 @@ Game Options:
 | Becomes on Monsters Death | What Monster Hunter becomes after killing all monsters. | Crewmate |
 
 ### Bodyguard
-Alignment: <b>Crewmate Protective</b>
+Alignment: <b>Crewmate Protective</b>\
 Inspiration: <b>Town Of Salem 2 (Bodyguard)</b>
 
 The Bodyguard is a role that can Guard players to protect them from attacks.\
@@ -174,7 +174,7 @@ Game Options:
 | Guard Duration | Duration of the Guard ability. | 30s |
 
 ### Crusader
-Alignment: <b>Crewmate Protective</b>
+Alignment: <b>Crewmate Protective</b>\
 Inspiration: <b>Town Of Salem 2 (Crusader)</b>
 
 The Crusader is a role that can Fortify players to attack the first person that interacts with them.
@@ -187,7 +187,7 @@ Game Options:
 | Max Uses of Fortify | Maximum amount of Fortify uses. | 5 |
 
 ### Tavern Keeper
-Alignment: <b>Crewmate Support</b>
+Alignment: <b>Crewmate Support</b>\
 Inspiration: <b>Town Of Salem 2 (Tavern Keeper)</b>
 
 The Tavern Keeper is a role that can Drink with players to temporarely disable their abilities.
@@ -201,7 +201,7 @@ Game Options:
 | Drink Duration | Duration of the Drink ability. | 20s |
 
 ### Undercover
-Alignment: <b>Crewmate Support</b>
+Alignment: <b>Crewmate Support</b>\
 Inspiration: <b>The Other Roles (Spy)</b>
 
 The Undercover is a role that is seen as random Impostor to other Impostor.\
@@ -218,7 +218,7 @@ Game Options:
 
 ## Impostor Roles
 ### Poisoner
-Alignment: <b>Impostor Killing</b>
+Alignment: <b>Impostor Killing</b>\
 Inspiration: <b>Town Of Us Reactivated (Poisoner)</b>
 
 The Poisoner is a role that can Poison players to kill them after set amount of time.
@@ -232,7 +232,7 @@ Game Options:
 | Poisoner Can Use Normal Kill | Whether Poisoner can use normal kill button. | True |
 
 ### Sniper
-Alignment: <b>Impostor Killing</b>
+Alignment: <b>Impostor Killing</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 The Sniper is a role that can Aim at a player to Shoot them, killing them whenever they want.
@@ -250,7 +250,7 @@ Game Options:
 | Sniper Can Use Normal Kill | Whether Sniper can use normal kill button. | True |
 
 ### Demagogue
-Alignment: <b>Impostor Power</b>
+Alignment: <b>Impostor Power</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 The Demagogue is a role that cannot be ejected while their immunity lives.\
