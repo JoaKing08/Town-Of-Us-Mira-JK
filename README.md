@@ -77,7 +77,7 @@ Neutral Apocalypse is treated as Neutral Killing to all roles checking for align
 -----------------------
 # Role Explanations
 ## Crewmate Roles
-### Coroner
+### Coroner <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Coroner.png" />
 Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>The Other Roles (Medium)</b>
 
@@ -100,7 +100,7 @@ Game Options:
 | Show Autopsy Result During Round | Show Autopsy results immidiately. | True |
 | Track Killer's Movement For | Time after murder up until which escape direction and escape method are updated. | 10s |
 
-### Inspector
+### Inspector <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
 Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>Town Of Us Reactivated (old Detective)</b>, <b>Town Of Salem (Investigator)</b>
 
@@ -117,7 +117,7 @@ Game Options:
 | Neutral Roles In Report | The amount of neutral roles in the report. | 2 |
 | Impostor Roles In Report | The amount of impostor roles in the report. | 2 |
 
-### Watcher
+### Watcher <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" />
 Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>Det From Better Town Of Salem 2 Discord (Lookout)</b>
 
@@ -131,7 +131,7 @@ Game Options:
 | Watch Duration | How long the Watch ability lasts. | 10s |
 | Watch Vision Multiplier | How much the screens zooms out while watching. | 1.25x |
 
-### Executor
+### Executor <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Executor.png" />
 Alignment: <b>Crewmate Killing</b>\
 Inspiration: <b>Town Of Salem 2 (Deputy)</b>
 
@@ -144,7 +144,7 @@ Game Options:
 | Max Aimed Players | Maximum amount of alive Aimed players. | 5 |
 | Reveal Role After Executing | Whether to reveal Executor's role to everyone after Executing. | False |
 
-### Monster Hunter
+### Monster Hunter <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/MonsterHunter.png" />
 Alignment: <b>Crewmate Killing</b>\
 Inspiration: <b>Town Of Us Reactivated (Vampire Hunter)</b>
 
@@ -160,7 +160,7 @@ Game Options:
 | Self Kill When Run Out of Stakes | Commit suicide if ran out of stakes. | False |
 | Becomes on Monsters Death | What Monster Hunter becomes after killing all monsters. | Crewmate |
 
-### Bodyguard
+### Bodyguard <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bodyguard.png" />
 Alignment: <b>Crewmate Protective</b>\
 Inspiration: <b>Town Of Salem 2 (Bodyguard)</b>
 
@@ -173,7 +173,7 @@ Game Options:
 | Guard Cooldown | Cooldown of the Guard ability. | 25s |
 | Guard Duration | Duration of the Guard ability. | 30s |
 
-### Crusader
+### Crusader <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Crusader.png" />
 Alignment: <b>Crewmate Protective</b>\
 Inspiration: <b>Town Of Salem 2 (Crusader)</b>
 
@@ -186,7 +186,7 @@ Game Options:
 | Fortify Duration | Duration of the Fortify ability. | 30s |
 | Max Uses of Fortify | Maximum amount of Fortify uses. | 5 |
 
-### Tavern Keeper
+### Tavern Keeper <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" />
 Alignment: <b>Crewmate Support</b>\
 Inspiration: <b>Town Of Salem 2 (Tavern Keeper)</b>
 
@@ -200,7 +200,7 @@ Game Options:
 | Max Drinks | Maximum amount of Drink uses. | 5 |
 | Drink Duration | Duration of the Drink ability. | 20s |
 
-### Undercover
+### Undercover <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Undercover.png" />
 Alignment: <b>Crewmate Support</b>\
 Inspiration: <b>The Other Roles (Spy)</b>
 
@@ -217,7 +217,7 @@ Game Options:
 | Cover Can Be Impostor Support | Whether Undercover can be disguised as Impostor Support | False |
 
 ## Impostor Roles
-### Poisoner
+### Poisoner <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Poisoner.png" />
 Alignment: <b>Impostor Killing</b>\
 Inspiration: <b>Town Of Us Reactivated (Poisoner)</b>
 
@@ -231,7 +231,7 @@ Game Options:
 | Poison Announcement Delay | The time between being Poisoned and announcing Poison to the victim. | 5s |
 | Poisoner Can Use Normal Kill | Whether Poisoner can use normal kill button. | True |
 
-### Sniper
+### Sniper <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sniper.png" />
 Alignment: <b>Impostor Killing</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
@@ -249,7 +249,7 @@ Game Options:
 | Pointing Arrow Duration | Duration of the arrows pointing towards sniper and victim. | 1s |
 | Sniper Can Use Normal Kill | Whether Sniper can use normal kill button. | True |
 
-### Demagogue
+### Demagogue <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Demagogue.png" />
 Alignment: <b>Impostor Power</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
@@ -276,66 +276,51 @@ Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 
 ## Neutral Roles
-### Cursed Soul
+### Cursed Soul <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/CursedSoul.png" />
 Inspiration: <b>Town Of Salem 2 (old Cursed Soul)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/CursedSoul.png" />
 
-### Witch
+### Witch <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" />
 Inspiration: <b>Town Of Salem (Witch)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" />
 
-### Bloodhound
+### Bloodhound <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" />
 Inspiration: <b>Town Of Salem 2 (Serial Killer)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" />
 
-### Jackal
+### Jackal <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" />
 Inspiration: <b>Better Town Of Salem 2 (Jackal)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" />
 
-### Necromancer
+### Necromancer <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" />
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" />
 
-### Pirate
+### Pirate <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" />
 Inspiration: <b>Town Of Salem 2 (old Pirate)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" />
 
-### Baker
+### Baker <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" />
 Inspiration: <b>Town Of Salem 2 (Baker)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" />
 
-### Famine
+### Famine <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" />
 Inspiration: <b>Town Of Salem 2 (Famine)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" />
 
-### Berserker
+### Berserker <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" />
 Inspiration: <b>Town Of Salem 2 (Berserker)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" />
 
-### War
+### War <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
 Inspiration: <b>Town Of Salem 2 (War)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
 
-### Soul Collector
+### Soul Collector <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/SoulCollector.png" />
 Inspiration: <b>Town Of Salem 2 (Soul Collector)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/SoulCollector.png" />
 
-### Death
+### Death <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" />
 Inspiration: <b>Town Of Salem 2 (Death)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" />
 
 ## Modifiers
-### Prophet
+### Prophet <img width="3%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Prophet.png" />
 Inspiration: <b>Better Town Of Salem 2 (Apoc Town Traitor)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Prophet.png" />
 
-### Tasker
+### Tasker <img width="3%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" />
 Inspiration: <b>Community Sugestion (Tasker)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" />
 
-### Drunk
+### Drunk <img width="3%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" />
 Inspiration: <b>Town Of Us (Drunk)</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" />
 
 -----------------------
 # Credits
