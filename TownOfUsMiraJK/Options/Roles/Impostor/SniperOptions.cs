@@ -18,9 +18,11 @@ public sealed class SniperOptions : AbstractOptionGroup<SniperRole>
 
     [ModdedToggleOption("TouJKOptionSniperShowArrow")]
     public bool ShowArrow { get; set; } = true;
-
-    [ModdedNumberOption("TouJKOptionSniperArrowUpdateInterval", 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds)]
-    public float UpdateInterval { get; set; } = 2.5f;
+    public ModdedNumberOption UpdateInterval { get; set; } =
+        new("TouJKOptionSniperArrowUpdateInterval", 2.5f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0")
+        {
+            Visible = () => OptionGroupSingleton<SniperOptions>.Instance.ShowArrow
+        };
 
     [ModdedToggleOption("TouJKOptionSniperAnnounceShot")]
     public bool AnnounceShot { get; set; } = true;

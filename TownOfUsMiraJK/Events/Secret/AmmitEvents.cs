@@ -12,6 +12,8 @@ using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using TownOfUs.Buttons;
 using TownOfUs.Buttons.Crewmate;
+using TownOfUs.Events;
+using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modifiers.Neutral;
@@ -45,11 +47,6 @@ public static class AmmitEvents
             return;
         }
 
-        if (!OptionGroupSingleton<TavernKeeperOptions>.Instance.ResetEveryRound)
-        {
-            return;
-        }
-
         if (!PlayerControl.LocalPlayer.Is((RoleTypes)RoleId.Get<AmmitRole>()))
         {
             return;
@@ -60,65 +57,21 @@ public static class AmmitEvents
             CustomButtonSingleton<AmmitDevourButton>.Instance.SetUses((int)OptionGroupSingleton<AmmitOptions>.Instance.MaxDevoured);
         }
     }
-    [RegisterEvent]
-    public static void MiraButtonClickEventHandler(MiraButtonClickEvent @event)
+
+    [RegisterEvent(-1000)]
+    public static void ReportBodyEventHandler(ReportBodyEvent @event)
     {
-        var source = PlayerControl.LocalPlayer;
-        var button = @event.Button;
-
-        if (button == null || !button.CanClick())
+        foreach (var modifier in ModifierUtils.GetActiveModifiers<AmmitDevouredModifier>())
         {
-            return;
+            if (!modifier.Player.HasModifier<InvulnerabilityModifier>())
+            {
+                DeathHandlerModifier.UpdateDeathHandlerImmediate(modifier.Player, TouLocale.Get("DiedToAmmit"),
+                    DeathEventHandlers.CurrentRound, DeathHandlerOverride.SetFalse,
+                    lockInfo: DeathHandlerOverride.SetTrue);
+
+                modifier.Player.Exiled();
+            }
+            modifier.ModifierComponent?.RemoveModifier(modifier);
         }
-
-        CheckForDrunk(@event, source, true);
-    }
-    [RegisterEvent]
-    public static void VanillaButtonClickEventHandler(VanillaButtonClickEvent @event)
-    {
-        var source = PlayerControl.LocalPlayer;
-        var button = @event.Button;
-
-        if (button == null)
-        {
-            return;
-        }
-
-        CheckForDrunk(@event, source, true);
-    }
-
-    [RegisterEvent]
-    public static void BeforeMurderEventHandler(BeforeMurderEvent @event)
-    {
-        var source = @event.Source;
-
-        CheckForDrunk(@event, source);
-    }
-
-    private static void CheckForDrunk(MiraCancelableEvent miraEvent, PlayerControl source, bool isLocal = false)
-    {
-        if (MeetingHud.Instance || ExileController.Instance)
-        {
-            return;
-        }
-
-        if (!source.AmOwner)
-        {
-            return;
-        }
-
-        if (!source.HasModifier<TavernKeeperDrunkModifier>())
-        {
-            return;
-        }
-
-        miraEvent.Cancel();
-
-        var notif1 = Helpers.CreateAndShowNotification(
-            TouLocale.GetParsed("TouJKRoleTavernKeeperDrunkNotif").Replace("<role>",
-            MiscUtils.GetHyperlinkText(MiscUtils.PlayerById(source.GetModifier<TavernKeeperDrunkModifier>()!.TavernKeeperId).Data.Role)),
-            Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.TavernKeeper.LoadAsset());
-
-        notif1.AdjustNotification();
     }
 }

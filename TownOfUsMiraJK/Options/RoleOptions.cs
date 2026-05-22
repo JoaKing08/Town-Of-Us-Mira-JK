@@ -1,8 +1,10 @@
 ﻿using AmongUs.GameOptions;
+using HarmonyLib;
 using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
 using TownOfUs.Options;
+using TownOfUs.Patches;
 using TownOfUs.Utilities;
 
 namespace TownOfUsMiraJK.Options;
@@ -21,7 +23,6 @@ public sealed class RoleJKOptions : AbstractOptionGroup
 
     public override string GroupName => "Role Settings";
     public override uint GroupPriority => 2;
-    public bool RoleListEnabled => OptionGroupSingleton<TownOfUs.Options.RoleOptions>.Instance.RoleAssignmentType.Value is (int)RoleSelectionMode.RoleList;
 
     public ModdedEnumOption<RoleListOption> Slot1 { get; } =
         new("Replace Slot 1", RoleListOption.None, OptionStrings)
@@ -124,6 +125,20 @@ public sealed class RoleJKOptions : AbstractOptionGroup
         {
             Visible = () => OptionGroupSingleton<TownOfUs.Options.RoleOptions>.Instance.CurrentRoleDistribution() is RoleDistribution.MinMaxList
         };
+    [HarmonyPatch]
+    public static class PatchHudManagerPatch // hehe
+    {
+        [HarmonyPatch(typeof(HudManagerPatches),nameof(HudManagerPatches.HudManagerStartPatch))]
+        [HarmonyPostfix]
+        public static void Postfix()
+        {
+            OptionStrings =
+            [
+                MiscUtils.GetParsedRoleBucket("None"),
+                MiscUtils.GetParsedRoleBucket("27")
+            ];
+        }
+    }
 }
 public enum RoleListOption
 {

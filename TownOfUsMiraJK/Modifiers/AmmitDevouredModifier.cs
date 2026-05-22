@@ -56,7 +56,7 @@ public sealed class AmmitDevouredModifier(PlayerControl ammit) : DisabledModifie
         if (Player?.AmOwner == true)
         {
             var notif1 = Helpers.CreateAndShowNotification(
-                TouLocale.GetParsed("TouJKRoleAmmitDevourTargetNotif").Replace("<player>", $"{Colors.Ammit.ToTextColor()}{Ammit?.Data.PlayerName}</color>"),
+                TouLocale.GetParsed("TouJKRoleAmmitDevourTargetNotif").Replace("<player>", Ammit?.Data.PlayerName).Replace("<role>", $"{Colors.Ammit.ToTextColor()}{Ammit?.Data.Role.GetRoleName()}</color>"),
                 Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Ammit.LoadAsset());
 
             notif1.AdjustNotification();

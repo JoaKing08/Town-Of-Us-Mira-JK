@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+	<!-- Wiki -->
+    <string name="TermsRoleBucketsInfo">Role List Buckets are only relevant when the "Set Role List" setting is used for role spawning. • Common \%color=#8CFFFF\%crew\%/color\% contains Investigative, Protective, and Support roles. • Common \%color=#FF0000\%Impostor\%/color\% contains Concealing and Support roles. • Common \%color=#8A8A8A\%Neutral\%/color\% contains Benign and Evil roles. • Special \%color=#8CFFFF\%crew\%/color\% contains Killing and Power roles. • Special \%color=#FF0000\%Impostor\%/color\% contains Killing and Power roles. • Special \%color=#8A8A8A\%Neutral\%/color\% contains Killing, Outlier and Apocalypse roles. • Wildcard \%color=#8A8A8A\%Neutral\%/color\% contains Benign, Evil, and Outlier roles. • Non-\%color=#FF0000\%Impostor\%/color\% contains all \%color=#8A8A8A\%Neutral\%/color\% and \%color=#8CFFFF\%crewmate\%/color\% roles. • Random buckets spawn any role of said faction (like Random \%color=#8CFFFF\%crew\%/color\%). • The Any bucket allows any enabled role to spawn.</string>
+    <string name="TermsTargetSymbolsInfo">Target Symbols appear on player names in meetings and mid-game, usually only visible to the role they pertain to and/or the dead. • Executioner targets are marked with \%color=#643B1F\%X\%/color\% • Inquisitor heretics are marked with \%color=#D94291\%$\%/color\% to the dead. • Fairy targets are marked with \%color=#B3FFFF\%★\%/color\% • Demagogue immunity marked with \%color=#FF1919\%Œ\%/color\% • Undercover is marked with \%color=#002600\%€\%/color\% to the dead.</string>
+    <string name="TermsProtectionSymbolsInfo">Protection Symbols appear on player names in meetings and/or mid-game, showing that they are immune to most attacks. These are usually only visible to the role they pertain to, their target, and/or the dead. • Medic shields are marked with \%color=#006600\%+\%/color\% • Cleric barriers are marked with \%color=#00FFB3\%Ω\%/color\% • Warden fortification is marked with \%color=#9900FF\%π\%/color\% • Mirrorcaster's reflections are marked with\%color=#90A2C3\%〚〛\%/color\% • Fairy Protection is marked with \%color=#FFD900\%★\%/color\% • Guardian Angel Protection is marked with \%color=#66AAF3\%☀\%/color\% • Oracle blessing is marked with \%color=#BF00BF\%†\%/color\% • Bodyguard guards are marked with \%color=#36454F\%()\%/color\% • Crusader fortifications are marked with \%color=#EFEFEF\%{}\%/color\%</string>
+    <string name="TermsStatusEffectInfo">Status Effects appear on player names in meetings and mid-game, usually only visible to the role they pertain to and/or the dead. • Arsonist douses are marked with \%color=#FF4D00\%Δ\%/color\% • Plaguebearer plague is marked with \%color=#E6FFB3\%¥\%/color\% • Controlled players are marked with \%color=#FF2660\%⦿\%/color\% • Blackmailed targets are marked with \%color=#2A1119\%M\%/color\% • Hypnosis is marked with \%color=#D53F42\%@\%/color\% • Spellslinger Hex is marked with \%color=#FF0000\%乂\%/color\% • Monarch Knights are marked with \%color=#EA535B\%♠\%/color\% • Players with bread from Baker are marked with \%color=#FFBF80\%ß\%/color\% • Tavern Keeper drunk is marked with \%color=#8C4514\%ø\%/color\% • Executor aimed are marked with \%color=#AAAAAA\%‡\%/color\% • Witch marked are marked with \%color=#BF60FF\%ð\%/color\% • Poison is marked with \%color=#FF1919\%ž\%/color\%</string>
+    <string name="TermsNeutRoleAlignmentsInfo">• \%color=#8A8A8A\%Benign\%/color\% roles cannot win by themselves, either helping others or surviving as long as possible. • \%color=#8A8A8A\%Evil\%/color\% roles set out to complete their goals, staying as kingmakers, leaving in victory, or ending the game abruptly. • \%color=#8A8A8A\%Killing\%/color\% roles set out to be the last \%color=#FF8B95\%killer\%/color\% alive at all costs. • \%color=#8A8A8A\%Outlier\%/color\% roles set out to achieve their own goals, but each role impacts the game differently, sometimes behaving like a mix of \%color=#8A8A8A\%Benign\%/color\%, \%color=#8A8A8A\%Evil\%/color\%, and \%color=#8A8A8A\%Killing\%/color\% roles. • \%color=#8A8A8A\%Apocalypse\%/color\% roles set out to be the only \%color=#FF8B95\%killers\%/color\% alive with other \%color=#8A8A8A\%Apocalypse\%/color\%. All of those roles have an objective, after reaching which they transform into their stronger version.</string>
     <!-- Player Colors -->
 	<!-- Cause of Deaths -->
 	<string name="DiedToFamine">Starved</string>
@@ -20,6 +26,7 @@
 	<string name="DiedToFamily">Abandoned</string>
 	<string name="DiedToDemagogue">Punished</string>
 	<string name="DiedToAmmit">Devoured</string>
+	<string name="DiedToShadow">Faded</string>
 	<!-- Monster Hunter -->
 	<string name="TouJKRoleMonsterHunter">Monster Hunter</string>
 	<string name="TouJKRoleMonsterHunterIntroBlurb">Stake the monsters to kill them.</string>
@@ -198,7 +205,7 @@
 	<string name="TouJKRolePirateDuel">Duel</string>
 	<string name="TouJKRolePirateDuelWikiDescription">Choose a player to duel on the next meeting. During duel both of players have a choice between three options, if the Pirate wins the other player is Killed.</string>
 	<string name="TouJKRolePirateDuelMech">Duel Mechanics</string>
-	<string name="TouJKRolePirateDuelMechWikiDescription">The winner of the duel is determined by whether Pirate and dueled choose the same type of defense/attack marked by a shape. If the type is the same the Pirate wins, otherwise the dueled wins.\%nl\%(\%color=red\%◆\%/color\%) \%b\%Scimitar\%/b\% beats \%b\%Sidestep\%/b\%\%nl\%(\%color=yellow\%▲\%/color\%) \%b\%Rapier\%/b\% beats \%b\%Chainmail\%/b\%\%nl\%(\%color=grey\%●\%/color\%) \%b\%Pistol\%/b\% beats \%b\%Backpedal\%/b\%</string>
+	<string name="TouJKRolePirateDuelMechWikiDescription">The winner of the duel is determined by whether Pirate and dueled choose the same type of defense/attack marked by a shape. If the type is the same the Pirate wins, otherwise the dueled wins.\%nl\%(\%font="LiberationSans SDF" material="LiberationSans SDF - BlackOutlineMasked"\%\%color=red\%◆\%/color\%\%/font\%) \%b\%Scimitar\%/b\% beats \%b\%Sidestep\%/b\%\%nl\%(\%font="LiberationSans SDF" material="LiberationSans SDF - BlackOutlineMasked"\%\%color=yellow\%▲\%/color\%\%/font\%) \%b\%Rapier\%/b\% beats \%b\%Chainmail\%/b\%\%nl\%(\%font="LiberationSans SDF" material="LiberationSans SDF - BlackOutlineMasked"\%\%color=grey\%●\%/color\%\%/font\%) \%b\%Pistol\%/b\% beats \%b\%Backpedal\%/b\%</string>
 	<string name="TouJKRolePirateDuelNotif">You will duel \%player\% on the next meeting.</string>
 	<string name="TouJKRolePirateDuelScimitar">Scimitar</string>
 	<string name="TouJKRolePirateDuelSidestep">Sidestep</string>
@@ -331,8 +338,10 @@
 	<string name="TouJKJackalCanVent">Jackal Can Vent</string>
 	<string name="TouJKJackalRecruitsDieTogether">Recruits Die Together</string>
 	<string name="TouJKJackalRecruitsSeeJackal">Recruits See Jackal</string>
+	<!-- Plaguebearer -->
+    <string name="TouRolePlaguebearerWikiDescription">The Plaguebearer is a Neutral Apocalypse role that needs to infect all other players to turn into the Pestilence.</string>
 	<!-- Pestilence -->
-	<string name="TouRolePestilenceWikiDescription">The Pestilence is a Neutral Killing role that can kill and is invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
+	<string name="TouRolePestilenceWikiDescription">The Pestilence is a Neutral Apocalypse role that can kill and is invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
 	<!-- Famine -->
 	<string name="TouJKRoleFamine">Famine</string>
 	<string name="TouJKRoleFamineIntroBlurb">Horseman of the Apocalypse!</string>
@@ -487,7 +496,7 @@
 	<string name="TouJKRoleDemagogueIntroBlurb">Kill the crewmates with no regard for witnesses.</string>
 	<string name="TouJKRoleDemagogueTabDescription">You are immune for being voted out as long as immunity lives.</string>
 	<string name="TouJKRoleDemagogueNotifTitle">Demagogue Announcement</string>
-	<string name="TouJKRoleDemagogueNotif">\%player\% is the \%role\%! They cannot be killed until their immunity has been killed, immunity's alignment is \%alignment\%.</string>
+	<string name="TouJKRoleDemagogueNotif">\%player\% is the \%role\%! They cannot be ejected until their immunity has been killed, immunity's alignment is \%alignment\%.</string>
 	<string name="TouJKRoleDemagogueHintTitle">Demagogue Hint</string>
 	<string name="TouJKRoleDemagogueHint">\%player\% is not the immunity.</string>
 	<string name="TouJKRoleDemagogueImmunityDeathNotifTitle">Demagogue Announcement</string>
@@ -497,9 +506,8 @@
 	<!-- Demagogue Options -->
 	<string name="TouJKOptionDemagogueKillCooldownDebuff">Demagogue Kill Cooldown Increase</string>
 	<string name="TouJKOptionDemagoguePunishVoters">Punich Voters If Immunity Lives</string>
-	<string name="TouJKOptionDemagogueCanBeKilled">Demagogue Can Be Killed If Immunity Lives</string>
-	<string name="TouJKOptionDemagoguePunishKillers">Punich Killers If Immunity Lives</string>
-	<string name="TouJKOptionDemagoguePunishNonCrew">Punich Non-Crew Killers</string>
+	<string name="TouJKOptionDemagogueCanBeKilledCrew">Demagogue Can Be Killed By Crew Roles</string>
+	<string name="TouJKOptionDemagogueCanBeKilledNonCrew">Demagogue Can Be Killed By Non-Crew Roles</string>
 	<string name="TouJKOptionDemagogueGiveHints">Give Hints About Who Isn't Immunity</string>
 	<string name="TouJKOptionDemagogueAnnounceImmunityDeath">Announce Immunity Death</string>
 	<!-- Drunk Wiki / Description -->
@@ -531,15 +539,38 @@
 	<string name="TouJKRoleAmmitIntroBlurb">Devour the crew.</string>
 	<string name="TouJKRoleAmmitTabDescription">Devour players to kill.</string>
 	<!-- Ammit Wiki -->
-	<string name="TouJKRoleAmmitWikiDescription">The Ammit is a Secret Neutral Killing role that can devour players, killing them if they aren't killed before the meeting.</string>
+	<string name="TouJKRoleAmmitWikiDescription">The Ammit is a secret Neutral Killing role that can devour players, killing them if they aren't killed before the meeting.</string>
 	<string name="TouJKRoleAmmitDevour">Devour</string>
 	<string name="TouJKRoleAmmitDevourWikiDescription">Devour a player, killing them if you survive to the meeting.</string>
+	<string name="TouJKRoleAmmitDevourOwnerNotif">You devoured \%player\%, they will die if you aren't killed by the next meeting!</string>
+	<string name="TouJKRoleAmmitDevourTargetNotif">You were devoured by \%player\%, the \%role\%, you will die if they aren't killed by the next meeting!</string>
 	<!-- Ammit Options -->
+	<string name="TouJKOptionAmmitChance">Chance To Appear</string>
 	<string name="TouJKOptionAmmitDevourCooldown">Devour Cooldown</string>
 	<string name="TouJKOptionAmmitDevourCooldownIncrease">Devour Cooldown Increase Per Devour</string>
 	<string name="TouJKOptionAmmitMaxDevoured">Max Devoured Per Round</string>
 	<string name="TouJKOptionAmmitSizePerPerson">Size Increase Per Person Devoured</string>
 	<string name="TouJKOptionAmmitCanVent">Ammit Can Vent</string>
+	<!-- Shadow -->
+	<string name="TouJKRoleShadow">Shadow</string>
+	<string name="TouJKRoleShadowIntroBlurb">Strike from the shadows.</string>
+	<string name="TouJKRoleShadowTabDescription">Cast darkness upon all players, and vanish remaining as almost unnoticable shadow.</string>
+	<!-- Shadow Wiki -->
+	<string name="TouJKRoleShadowWikiDescription">The Shadow is a secret Neutral Killing role with multiple utility abilities, they can become almost invisible as well as blind all players (including Impostors) on the map.</string>
+	<string name="TouJKRoleShadowVanish">Vanish</string>
+	<string name="TouJKRoleShadowVanishWikiDescription">Turn almost invisible for everyone.</string>
+	<string name="TouJKRoleShadowDarkness">Darkness</string>
+	<string name="TouJKRoleShadowDarknessWikiDescription">Darkness causes for all players (including Impostors) to lose their vision for a short amount of time.</string>
+	<string name="TouJKRoleShadowDarknessNotif">The \%role\% has brought forth unpenetrable darkness!</string>
+	<!-- Shadow Options -->
+	<string name="TouJKOptionShadowChance">Chance To Appear</string>
+	<string name="TouJKOptionShadowKillCooldown">Kill Cooldown</string>
+	<string name="TouJKOptionShadowVanishCooldown">Vanish Cooldown</string>
+	<string name="TouJKOptionShadowVanishDuration">Vanish Duration</string>
+	<string name="TouJKOptionShadowVanishOpacity">Shadow Transparency During Vanish</string>
+	<string name="TouJKOptionShadowDarknessCooldown">Darkness Cooldown</string>
+	<string name="TouJKOptionShadowDarknessDuration">Darkness Duration</string>
+	<string name="TouJKOptionShadowCanVent">Shadow Can Vent</string>
 	<!-- Task Text Info -->
 	<string name="TouJKNeutralApocalypseTaskHeader">Bring forth the apocalypse upon crew and impostors alike!\%nl\%Fake Tasks:</string>
 	<!-- End Game Summary Details -->

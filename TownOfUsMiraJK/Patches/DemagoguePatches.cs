@@ -62,12 +62,4 @@ public static class DemagoguePatches
     {
         return voteArea.GetPlayer()?.IsRole<DemagogueRole>() != true;
     }
-    [HarmonyPatch(typeof(InvulnerabilityEvents), "CheckForInvulnerability")]
-    [HarmonyPrefix]
-    public static bool OverrideInvulnerability(PlayerControl source, PlayerControl target)
-    {
-        var imm = source.GetModifier<DemagogueImmunityModifier>();
-        var dem = target.GetRole<DemagogueRole>();
-        return imm == null || dem == null || imm.OwnerId != dem.Player.PlayerId;
-    }
 }

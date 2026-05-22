@@ -60,8 +60,10 @@ public sealed class CoronerAutopsyButton : TownOfUsRoleButton<CoronerRole, DeadB
     {
         var target = PlayerControl.LocalPlayer == null ? null : Helpers.GetNearestDeadBodies(PlayerControl.LocalPlayer.GetTruePosition(),
             PlayerControl.LocalPlayer.MaxReportDistance / 4f, Helpers.CreateFilter(Constants.NotShipMask))
-            .Find(component => component && !component.Reported && Role.CanAutopsy(component.ParentId));
-        SetUses(target == null ? -1 : (int)OptionGroupSingleton<CoronerOptions>.Instance.MaxAutopsy - PlayerControl.LocalPlayer?.GetModifiers<CoronerResultBaseModifier>(x => x.Body?.ParentId == target.ParentId).Count() ?? 0);
+            .Find(component => component && !component.Reported && Role.CanAutopsy(component.ParentId) &&
+            0 < (OptionGroupSingleton<CoronerOptions>.Instance.MaxAutopsy -
+            PlayerControl.LocalPlayer?.GetModifiers<CoronerResultBaseModifier>(x => x.Body?.ParentId == component.ParentId).Count()));
+        SetUses(target == null ? 0 : (int)OptionGroupSingleton<CoronerOptions>.Instance.MaxAutopsy - PlayerControl.LocalPlayer?.GetModifiers<CoronerResultBaseModifier>(x => x.Body?.ParentId == target.ParentId).Count() ?? 0);
         if (target == null)
         {
             Button?.usesRemainingSprite.gameObject.SetActive(false);

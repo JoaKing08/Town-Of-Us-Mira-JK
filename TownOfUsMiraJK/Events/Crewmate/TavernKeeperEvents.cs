@@ -96,17 +96,10 @@ public static class TavernKeeperEvents
             return;
         }
 
-        if (!source.AmOwner)
-        {
-            return;
-        }
-
         if (!source.HasModifier<TavernKeeperDrunkModifier>())
         {
             return;
         }
-
-        miraEvent.Cancel();
 
         var notif1 = Helpers.CreateAndShowNotification(
             TouLocale.GetParsed("TouJKRoleTavernKeeperDrunkNotif").Replace("<role>",
@@ -114,5 +107,7 @@ public static class TavernKeeperEvents
             Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.TavernKeeper.LoadAsset());
 
         notif1.AdjustNotification();
+
+        miraEvent.Cancel();
     }
 }

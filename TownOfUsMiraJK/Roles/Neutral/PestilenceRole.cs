@@ -7,6 +7,7 @@ using MiraAPI.LocalSettings;
 using MiraAPI.Modifiers;
 using MiraAPI.Networking;
 using MiraAPI.Patches.Stubs;
+using MiraAPI.PluginLoading;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
@@ -246,7 +247,7 @@ public sealed class PestilenceJKRole(IntPtr cppPtr)
 
         return true;
     }
-    TeamIntroConfiguration? IntroConfiguration => new(
+    TeamIntroConfiguration? ICustomRole.IntroConfiguration => new(
         Colors.Apocalypse,
         TouLocale.Get("TouJKApocalypse"),
         TouLocale.Get("TouJKApocalypseDesc"));

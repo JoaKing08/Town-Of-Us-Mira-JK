@@ -47,7 +47,6 @@ public sealed class DemagogueRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
     public bool ImmunityAlive => Immunity != null && !Immunity.HasDied();
     public bool Immunitized { get; set; }
     public bool EasterEgg { get; set; }
-    public InvulnerabilityModifier invulnerabilityModifier { get; set; }
 
     public string GetAdvancedDescription()
     {
@@ -125,10 +124,6 @@ public sealed class DemagogueRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
         {
             Coroutines.Start(SetTutorialTargets(this));
         }
-        if (!OptionGroupSingleton<DemagogueOptions>.Instance.CanBeKilled && !player.HasModifier<InvulnerabilityModifier>())
-        {
-            invulnerabilityModifier = player.AddModifier<InvulnerabilityModifier>(false, false, false)!;
-        }
     }
     public override void OnMeetingStart()
     {
@@ -179,9 +174,9 @@ public sealed class DemagogueRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
         }
     }
 
-    private static IEnumerator SetTutorialTargets(DemagogueRole exe)
+    private static IEnumerator SetTutorialTargets(DemagogueRole dem)
     {
         yield return new WaitForSeconds(0.01f);
-        exe.AssignTargets();
+        dem.AssignTargets();
     }
 }

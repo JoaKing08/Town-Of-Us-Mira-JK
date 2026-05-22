@@ -105,15 +105,6 @@ public class CoronerData(byte victimId, byte killerId, bool indirect = false, bo
         }
 
         AllData.Remove(instance);
-        var ownerId = player.GetModifier<DemagogueImmunityModifier>()?.OwnerId;
-        if (ownerId != null)
-        {
-            var dem = MiscUtils.PlayerById((byte)ownerId)?.GetRole<DemagogueRole>();
-            if (dem != null && !OptionGroupSingleton<DemagogueOptions>.Instance.CanBeKilled && !dem.Player.HasModifier<InvulnerabilityModifier>())
-            {
-                dem.invulnerabilityModifier = player.AddModifier<InvulnerabilityModifier>(false, false, false)!;
-            }
-        }
     }
 
     [HarmonyPatch(typeof(GameHistory), nameof(GameHistory.ClearAll))]

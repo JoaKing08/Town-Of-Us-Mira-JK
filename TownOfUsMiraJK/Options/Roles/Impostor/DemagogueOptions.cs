@@ -19,18 +19,11 @@ public sealed class DemagogueOptions : AbstractOptionGroup<DemagogueRole>
     [ModdedToggleOption("TouJKOptionDemagoguePunishVoters")]
     public bool PunishVoters { get; set; } = true;
 
-    [ModdedToggleOption("TouJKOptionDemagogueCanBeKilled")]
-    public bool CanBeKilled { get; set; } = false;
-    public ModdedToggleOption PunishKillers { get; set; } =
-        new("TouJKOptionDemagoguePunishKillers", true)
-        {
-            Visible = () => OptionGroupSingleton<DemagogueOptions>.Instance.CanBeKilled
-        };
-    public ModdedToggleOption PunishNonCrew { get; set; } =
-        new("TouJKOptionDemagoguePunishNonCrew", true)
-        {
-            Visible = () => OptionGroupSingleton<DemagogueOptions>.Instance.CanBeKilled && OptionGroupSingleton<DemagogueOptions>.Instance.PunishKillers
-        };
+    [ModdedToggleOption("TouJKOptionDemagogueCanBeKilledCrew")]
+    public bool CanBeKilledCrew { get; set; } = false;
+
+    [ModdedToggleOption("TouJKOptionDemagogueCanBeKilledNonCrew")]
+    public bool CanBeKilledNonCrew { get; set; } = true;
 
     [ModdedToggleOption("TouJKOptionDemagogueGiveHints")]
     public bool GiveHints { get; set; } = true;

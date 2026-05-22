@@ -24,5 +24,8 @@ namespace TownOfUsMiraJK.Enums
         PoisonerPoison,
         CoronerAutopsy,
         AmmitDevour,
+        ShadowVanish,
+        ShadowAppear,
+        ShadowDarkness,
     }
 }

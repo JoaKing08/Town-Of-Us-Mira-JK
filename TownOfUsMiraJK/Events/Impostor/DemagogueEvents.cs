@@ -1,14 +1,17 @@
 ﻿using AmongUs.GameOptions;
 using MiraAPI.Events;
+using MiraAPI.Events.Mira;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Events.Vanilla.Meeting;
 using MiraAPI.Events.Vanilla.Meeting.Voting;
 using MiraAPI.Events.Vanilla.Player;
 using MiraAPI.GameOptions;
+using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using MiraAPI.Networking;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
+using TownOfUs.Buttons;
 using TownOfUs.Events;
 using TownOfUs.Events.TouEvents;
 using TownOfUs.Modifiers;
@@ -84,7 +87,15 @@ public static class DemagogueEvents
         {
             @event.Source.SetKillTimer(@event.Source.GetKillCooldown() + OptionGroupSingleton<DemagogueOptions>.Instance.KillCooldownDebuff);
         }
-        if (!OptionGroupSingleton<DemagogueOptions>.Instance.PunishKillers)
+    }
+    [RegisterEvent]
+    public static void BeforeMurderEventHandler(BeforeMurderEvent @event)
+    {
+        if (OptionGroupSingleton<DemagogueOptions>.Instance.CanBeKilledCrew && @event.Source.Is(ModdedRoleTeams.Crewmate) && !@event.Source.HasModifier<AllianceGameModifier>())
+        {
+            return;
+        }
+        if (OptionGroupSingleton<DemagogueOptions>.Instance.CanBeKilledNonCrew && (!@event.Source.Is(ModdedRoleTeams.Crewmate) || @event.Source.HasModifier<AllianceGameModifier>()))
         {
             return;
         }
@@ -93,27 +104,33 @@ public static class DemagogueEvents
         {
             return;
         }
-        if ((!@event.Source.IsCrewmate()
-            || @event.Source.HasModifier<AllianceGameModifier>()) && !OptionGroupSingleton<DemagogueOptions>.Instance.PunishNonCrew)
+        @event.Cancel();
+    }
+    [RegisterEvent]
+    public static void MiraButtonClickEventHandler(MiraButtonClickEvent @event)
+    {
+        var button = @event.Button as CustomActionButton<PlayerControl>;
+        var target = button?.Target;
+
+        if (target == null || button == null || button is not IKillButton || !button.CanClick())
         {
             return;
         }
-        var showAnim = MeetingHud.Instance == null && ExileController.Instance == null;
-        var murderResultFlags2 = MurderResultFlags.DecisionByHost | MurderResultFlags.Succeeded;
 
-        DeathHandlerModifier.UpdateDeathHandlerImmediate(@event.Source, TouLocale.Get("DiedToDemagogue"),
-            DeathEventHandlers.CurrentRound,
-            (!MeetingHud.Instance && !ExileController.Instance)
-                ? DeathHandlerOverride.SetTrue
-                : DeathHandlerOverride.SetFalse, lockInfo: DeathHandlerOverride.SetTrue);
-        @event.Target.CustomMurder(
-            @event.Source,
-            murderResultFlags2,
-            false,
-            showAnim,
-            false,
-            showAnim,
-            false);
+        if (OptionGroupSingleton<DemagogueOptions>.Instance.CanBeKilledCrew && PlayerControl.LocalPlayer.Is(ModdedRoleTeams.Crewmate) && !PlayerControl.LocalPlayer.HasModifier<AllianceGameModifier>())
+        {
+            return;
+        }
+        if (OptionGroupSingleton<DemagogueOptions>.Instance.CanBeKilledNonCrew && (!PlayerControl.LocalPlayer.Is(ModdedRoleTeams.Crewmate) || PlayerControl.LocalPlayer.HasModifier<AllianceGameModifier>()))
+        {
+            return;
+        }
+        if (target.Data.Role is not DemagogueRole role
+            || !role.ImmunityAlive || PlayerControl.LocalPlayer.HasModifier<DemagogueImmunityModifier>(x => x.OwnerId == target.PlayerId))
+        {
+            return;
+        }
+        @event.Cancel();
     }
 
     [RegisterEvent(1)]

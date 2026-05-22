@@ -7,6 +7,7 @@ using MiraAPI.LocalSettings;
 using MiraAPI.Modifiers;
 using MiraAPI.Networking;
 using MiraAPI.Patches.Stubs;
+using MiraAPI.PluginLoading;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
@@ -33,6 +34,18 @@ using TownOfUsMiraJK.GameOptions;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Utilities;
 using UnityEngine;
+using Il2CppInterop.Runtime.InteropTypes.Fields;
+using MiraAPI.GameOptions.OptionTypes;
+using MiraAPI.Modifiers.Types;
+using MiraAPI.Utilities.Assets;
+using Reactor.Utilities.Attributes;
+using Reactor.Utilities.Extensions;
+using TMPro;
+using TownOfUs.Interfaces;
+using TownOfUs.Modifiers.Game;
+using TownOfUs.Options;
+using TownOfUs.Options.Maps;
+using UnityEngine.Events;
 
 namespace TownOfUsMiraJK.Roles.Neutral;
 
@@ -245,6 +258,24 @@ public sealed class PlaguebearerJKRole(IntPtr cppPtr)
             RpcCheckInfected(source, target);
             return false;
         }
+        [HarmonyPatch(typeof(IngameWikiMinigame), "LoadSearchScreen")]
+        [HarmonyPostfix]
+        public static void LoadSearchScreenPostfix(IngameWikiMinigame __instance)
+        {
+            var activeItems = (typeof(IngameWikiMinigame).GetField("_activeItems", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)?.GetValue(__instance) as List<Transform>)?.Select(x => x.GetComponent<InGameWikiEntry>()).ToList();
+            var pbItem = activeItems?.FirstOrDefault(x => x.EntryTitle == TouLocale.Get($"TouRolePlaguebearer"));
+            var pestItem = activeItems?.FirstOrDefault(x => x.EntryTitle == TouLocale.Get($"TouRolePestilence"));
+            if (pbItem != null)
+            {
+                pbItem.EntrySource = "TOUM";
+                pbItem.EntrySourceTmp.Value.text = "<font=\"LiberationSans SDF\" material=\"LiberationSans SDF - Chat Message Masked\">TOUM</font>";
+            }
+            if (pestItem != null)
+            {
+                pestItem.EntrySource = "TOUM";
+                pestItem.EntrySourceTmp.Value.text = "<font=\"LiberationSans SDF\" material=\"LiberationSans SDF - Chat Message Masked\">TOUM</font>";
+            }
+        }
     }
 
     public bool SetupIntroTeam(IntroCutscene instance,
@@ -267,7 +298,7 @@ public sealed class PlaguebearerJKRole(IntPtr cppPtr)
 
         return true;
     }
-    TeamIntroConfiguration? IntroConfiguration => new(
+    TeamIntroConfiguration? ICustomRole.IntroConfiguration => new(
         Colors.Apocalypse,
         TouLocale.Get("TouJKApocalypse"),
         TouLocale.Get("TouJKApocalypseDesc"));
