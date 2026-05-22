@@ -271,9 +271,9 @@ Game Options:
 | Give Hints About Who Isn't Immunity | Whether to announce a random player that isn't immunity on start of every meeting. | True |
 | Announce Immunity Death | Whether to announce whether the immunity died on the start of the meeting. | False |
 
-### Godfather
+### Godfather<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Godfather.png" />
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
-<img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Godfather.png" />
+
 
 ## Neutral Roles
 ### Cursed Soul
