@@ -17,6 +17,7 @@ public static class RoleIcons
     public static LoadableAsset<Sprite> Crusader { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Crusader.png", 200);
     public static LoadableAsset<Sprite> Executor { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Executor.png", 200);
     public static LoadableAsset<Sprite> Coroner { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Coroner.png", 200);
+    public static LoadableAsset<Sprite> Secretary { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Secretary.png", 200);
 
     // Neutrals
     public static LoadableAsset<Sprite> Baker { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Baker.png", 200);

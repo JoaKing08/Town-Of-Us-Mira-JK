@@ -19,7 +19,7 @@
 	<string name="DiedToBloodhound">Slaughtered</string>
 	<string name="DiedToCursedSoul">Limboed</string>
 	<string name="DiedToNecromancer">Decayed</string>
-	<string name="DiedToBrotherhood">Bondbroken</string>
+	<string name="DiedToBrotherhood">Failed Their Teammate</string>
 	<string name="DiedToJackal">Assassinated</string>
 	<string name="DiedToPoisoner">Poisoned</string>
 	<string name="DiedToSniper">Sniped</string>
@@ -189,6 +189,19 @@
 	<string name="TouJKOptionCoronerMaxAutopsy">Max Autopsies Per Body</string>
 	<string name="TouJKOptionCoronerAutopsyInfoDuringRound">Show Autopsy Result During Round</string>
 	<string name="TouJKOptionCoronerKillerUpdate">Track Killer's Movement For</string>
+	<!-- Secretary -->
+	<string name="TouJKRoleSecretary">Secretary</string>
+	<string name="TouJKRoleSecretaryIntroBlurb">Store your votes to unleash them all at once.</string>
+	<string name="TouJKRoleSecretaryTabDescription">Store votes during meetings to unleash them all at once.</string>
+	<string name="TouJKRoleSecretaryStoredVotes">You have \%count\% stored votes.</string>
+	<string name="TouJKRoleSecretaryAbstain">Abstain</string>
+	<!-- Secretary Wiki -->
+	<string name="TouJKRoleSecretaryWikiDescription">The Secretary is a Crewmate Power role that can store votes during meetings to later be able to vote multiple times.</string>
+	<string name="TouJKRoleSecretaryStore">Store</string>
+	<string name="TouJKRoleSecretaryStoreDescription">Abstain from voting this meeting to add them to the stored votes.</string>
+	<!-- Secretary Options -->
+	<string name="TouJKOptionSecretaryInitialVotes">Initial Stored Votes</string>
+	<string name="TouJKOptionSecretaryMaxVotes">Maximum Stored Votes</string>
 	<!-- ToUM Soul Collector -->
 	<string name="TouRoleSoulCollector">Reaper</string>
 	<string name="TouRoleSoulCollectorWikiDescription">The Reaper is a Neutral Killing role that takes the soul of players. Instead of leaving a body behind, they leave behind a soul-less decoy that looks identical to the reaped player, standing still.</string>

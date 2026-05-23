@@ -16,6 +16,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <EmbeddedResource Include="Patches\MeetingHudTimerPatch.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Reference Include="TownOfUsMira">
         <HintPath>..\packages.local\TownOfUsMira.dll</HintPath>
         <Private>False</Private>

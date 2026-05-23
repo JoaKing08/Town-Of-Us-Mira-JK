@@ -31,5 +31,7 @@ namespace TownOfUsMiraJK.Enums
         SetDemagogueImmunity,
         DemagogueImmunitized,
         DemagogueHint,
+        SecretaryStore,
+        SecretaryVote,
     }
 }

@@ -16,6 +16,7 @@ public static class Colors
     public static Color Crusader => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(239, 239, 239, 255);
     public static Color Executor => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(170, 170, 170, 255);
     public static Color Coroner => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(180, 160, 160, 255);
+    public static Color Secretary => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(153, 255, 51, 255);
 
     // Neutral Colors
     public static Color Baker => new Color32(255, 191, 128, 255);
