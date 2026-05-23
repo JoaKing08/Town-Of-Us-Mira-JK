@@ -21,6 +21,8 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewKilling.png" align="center" />
   <a href="#executor-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Executor.png" /></a>
   <a href="#monster-hunter-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/MonsterHunter.png" /></a>
+  <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewPower.png" align="center" />
+  <a href="#secretary-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Secretary.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewProtect.png" align="center" />
   <a href="#bodyguard-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bodyguard.png" /></a>
   <a href="#crusader-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Crusader.png" /></a>
@@ -159,6 +161,10 @@ Game Options:
 | Can Stake Round One | Whether the Monster Hunter can stake round one. | False |
 | Self Kill When Run Out of Stakes | Commit suicide if ran out of stakes. | False |
 | Becomes on Monsters Death | What Monster Hunter becomes after killing all monsters. | Crewmate |
+
+### Secretary <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Secretary.png" />
+Alignment: <b>Crewmate Power</b>\
+Inspiration: <b>Town Of Us Reactivated (old Mayor)</b>
 
 ### Bodyguard <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bodyguard.png" />
 Alignment: <b>Crewmate Protective</b>\
