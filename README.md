@@ -68,6 +68,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 # Other changes
 - The original Soul Collector's name was changed to "Reaper".
 - Plaguebearer and Pestilence alignments were changed to Neutral Apocalypse.
+- Imitator's Wiki entry now automatically detects all roles with Crew Variants and updates them.
 
 -----------------------
 # Neutral Apocalypse
