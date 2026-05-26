@@ -361,7 +361,7 @@ Inspiration: <b>Town Of Salem 2 (Death)</b>
 Inspiration: <b>Better Town Of Salem 2 (Apoc Town Traitor)</b>
 
 ### Tasker <img width="3%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" />
-Inspiration: <b>Community Sugestion (Tasker)</b>
+Inspiration: <b>Community Sugestion (Tasker by @craftrpl)</b>
 
 ### Drunk <img width="3%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" />
 Inspiration: <b>Town Of Us (Drunk)</b>
