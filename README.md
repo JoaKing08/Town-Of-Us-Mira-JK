@@ -121,7 +121,7 @@ Game Options:
 
 ### Watcher <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" />
 Alignment: <b>Crewmate Investigative</b>\
-Inspiration: <b>Det From Better Town Of Salem 2 Discord (Lookout)</b>
+Inspiration: <b>@detective22 From Better Town Of Salem 2 Discord (Lookout)</b>
 
 The Watcher is a role that can Watch to zoom out their vision and see through walls.\
 While Watching the Watcher cannot move.
@@ -165,6 +165,15 @@ Game Options:
 ### Secretary <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Secretary.png" />
 Alignment: <b>Crewmate Power</b>\
 Inspiration: <b>Town Of Us Reactivated (old Mayor)</b>
+
+The Secratary is a role that can Store votes, abstaining from the vote at the meeting.\
+After Storing a vote, the Secretary can decide to cast multiple votes at one meeting.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Initial Stored Votes | Amount of Stored votes on the start of the game. | 2 |
+| Maximum Stored Votes | Maximum amount of Stored votes. | 5 |
 
 ### Bodyguard <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bodyguard.png" />
 Alignment: <b>Crewmate Protective</b>\
@@ -278,14 +287,43 @@ Game Options:
 | Announce Immunity Death | Whether to announce whether the immunity died on the start of the meeting. | False |
 
 ### Godfather <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Godfather.png" />
+Alignment: <b>Impostor Power</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
+The Godfather is a role that can Recruit a player into their faction turning them into Mafioso./
+The player being Recruited by Godfather must be a Crewmate with no Alliance Modifiers, otherwise the Recruiting fails.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Mafioso Kill Cooldown Increase | Increase to the Mafioso's kill cooldown. | 10s |
+| Godfather Can Kill With Mafioso Alive | Whether the Godfather can kill with Mafioso alive. | False |
+| Godfather Can Kill Before Recruiting | Whether the Godfather can kill before Recruiting. | False |
+| Mafioso Dies With Godfather | Whether the Demagogue can be killed by Non-Crewmate roles. | True |
 
 ## Neutral Roles
 ### Cursed Soul <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/CursedSoul.png" />
+Alignment: <b>Neutral Benign</b>\
 Inspiration: <b>Town Of Salem 2 (old Cursed Soul)</b>
 
+The Cursed Soul is a role that can Soul Swap with players to gain their role./
+The Cursed Soul cannot win by themself until they get a role.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Soul Swap Cooldown | Cooldown of the Soul Swap ability. | 25s |
+| Random Swap Target Chance | Chance of swapping with a random player instead of the target. | 50% |
+| Swap Faction Modifier | Whether the Cursed Soul gains the player's Faction Modifier. | True |
+| Swap Assassin Modifier | Whether the Cursed Soul gains the player's Assassin Modifier. | True |
+| Can Swap With Impostor | Whether the Cursed Soul can Soul Swap with an Impostor. | False |
+| Can Swap With Neutral Killer | Whether the Cursed Soul can Soul Swap with Neutral Killing. | True |
+| Can Swap With Neutral Apocalypse | Whether the Cursed Soul can Soul Swap with Neutral Apocalypse. | False |
+| Kill On Non-Valid Swap | Whether the Cursed Soul dies on non-valid swap,\if false the Cursed Soul will always get an random person's role after targeting a non-valid target. | True |
+| Swapped Player Becomes | What the target becomes after Soul Swap. | Cursed Soul |
+
 ### Witch <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" />
+Alignment: <b>Neutral Evil</b>\
 Inspiration: <b>Town Of Salem (Witch)</b>
 
 ### Bloodhound <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" />
