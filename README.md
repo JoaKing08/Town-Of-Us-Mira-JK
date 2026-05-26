@@ -74,6 +74,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 # Neutral Apocalypse
 Neutral Apocalypse is a new alignment (and faction) to Neutral roles.\
 The goal of the Apocalypse is to reach majority with no other killers left alive.\
+All of the Neutral Apocalypse roles are in the same faction, and win together.\
 All of the Neutral Apocalypse roles have a goal to reach, after which they transform into a stronger version of itself.\
 Neutral Apocalypse is treated as Neutral Killing to all roles checking for alignment (eg. Seer, Sheriff).
 
