@@ -336,7 +336,7 @@ Inspiration: <b>Better Town Of Salem 2 (Jackal)</b>
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 ### Pirate <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" />
-Inspiration: <b>Town Of Salem 2 (old Pirate)</b>
+Inspiration: <b>Town Of Salem 1 & 2 (Pirate)</b>
 
 ### Baker <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" />
 Inspiration: <b>Town Of Salem 2 (Baker)</b>
