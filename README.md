@@ -84,7 +84,7 @@ Neutral Apocalypse is treated as Neutral Killing to all roles checking for align
 -----------------------
 # Role Explanations
 ## Crewmate Roles
-### Coroner <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Coroner.png" style="vertical-align: middle;" />
+### Coroner <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Coroner.png" valign: "middle" />
 Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>The Other Roles (Medium)</b>
 
