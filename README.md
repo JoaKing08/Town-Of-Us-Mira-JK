@@ -26,6 +26,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewProtect.png" align="center" />
   <a href="#bodyguard-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bodyguard.png" /></a>
   <a href="#crusader-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Crusader.png" /></a>
+  <a href="#sanctifier-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sanctifier.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewSupport.png" align="center" />
   <a href="#tavern-keeper-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" /></a>
   <a href="#undercover-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Undercover.png" /></a>
@@ -62,6 +63,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <a href="#prophet-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Prophet.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/ImpMods.png" />
   <a href="#tasker-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" /></a>
+  <a href="#outcast-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Outcast.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/UniMods.png" />
   <a href="#drunk-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" /></a>
 </p>
@@ -125,7 +127,7 @@ Game Options:
 
 ### Watcher <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" />
 Alignment: <b>Crewmate Investigative</b>\
-Inspiration: <b>@detective22 From Better Town Of Salem 2 Discord (Lookout)</b>
+Inspiration: <b>@detective22 On Discord (Lookout)</b>
 
 The Watcher is a role that can Watch to zoom out their vision and see through walls.\
 While Watching the Watcher cannot move.
@@ -204,6 +206,10 @@ Game Options:
 | Fortify Cooldown | Cooldown of the Fortify ability. | 25s |
 | Fortify Duration | Duration of the Fortify ability. | 30s |
 | Max Uses of Fortify | Maximum amount of Fortify uses. | 5 |
+
+### Sanctifier <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sanctifier.png" />
+Alignment: <b>Crewmate Protective</b>\
+Inspiration: <b>@chipseq On Discord (Aurial)</b>
 
 ### Tavern Keeper <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" />
 Alignment: <b>Crewmate Support</b>\
@@ -387,6 +393,9 @@ Inspiration: <b>Better Town Of Salem 2 (Apoc Town Traitor)</b>
 
 ### Tasker <img width="3%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" />
 Inspiration: <b>Community Sugestion (Tasker by @craftrpl)</b>
+
+### Outcast <img width="3%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Outcast.png" />
+Inspiration: <b>Community Sugestion (Unknown by @craftrpl)</b>
 
 ### Drunk <img width="3%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" />
 Inspiration: <b>Town Of Us (Drunk)</b>
