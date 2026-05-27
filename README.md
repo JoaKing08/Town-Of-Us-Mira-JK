@@ -209,6 +209,11 @@ Game Options:
 Alignment: <b>Crewmate Protective</b>\
 Inspiration: <b>[xChipseq](https://github.com/xChipseq) (Aurial)</b>
 
+The Sanctifier is a role that can Sanctify an area to prevent players to use all abilities in that area.
+
+Game Options:
+WIP
+
 ### Tavern Keeper <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" />
 Alignment: <b>Crewmate Support</b>\
 Inspiration: <b>Town Of Salem 2 (Tavern Keeper)</b>
@@ -234,10 +239,12 @@ Game Options:
 | Name | Description | Default |
 |----------|:-------------:|:------:|
 | Impostors Can Kill Eachother With Undercover Present | Whether Impostors can kill eachother if Undercover is in play. | True |
-| Cover Can Be Impostor Concealing | Whether Undercover can be disguised as Impostor Concealing | True |
-| Cover Can Be Impostor Killing | Whether Undercover can be disguised as Impostor Killing | True |
-| Cover Can Be Impostor Power | Whether Undercover can be disguised as Impostor Power | True |
-| Cover Can Be Impostor Support | Whether Undercover can be disguised as Impostor Support | False |
+| Cover Can Be Impostor Concealing | Whether Undercover can be disguised as Impostor Concealing. | True |
+| Cover Can Be Impostor Killing | Whether Undercover can be disguised as Impostor Killing. | True |
+| Cover Can Be Impostor Power | Whether Undercover can be disguised as Impostor Power. | True |
+| Cover Can Be Impostor Support | Whether Undercover can be disguised as Impostor Support. | False |
+| Undercover Can Vent | Whether Undercover can Vent. | True |
+| Undercover Can Move In Vents | Whether Undercover can move between Vents. | False |
 
 ## Impostor Roles
 ### Poisoner <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Poisoner.png" />
