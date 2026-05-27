@@ -8,6 +8,7 @@ using TownOfUs.Modules.Localization;
 using TownOfUs.Roles.Impostor;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Roles.Neutral;
+using TownOfUsMiraJK.Roles.Neutral.WitchReveal;
 using TownOfUsMiraJK.Utilities;
 
 namespace TownOfUsMiraJK.Modules.Components;

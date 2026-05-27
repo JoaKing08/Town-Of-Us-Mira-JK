@@ -84,7 +84,7 @@ public sealed class ManhunterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
         }
 
         var players = PlayerControl.AllPlayerControls.ToArray()
-            .Where(x => x.Data.Role is not ManhunterRole && x.Data.Role is not SpectatorRole).ToList();
+            .Where(x => x.Data.Role is not ManhunterRole && x.Data.Role is not SpectatorRole && !x.HasModifier<InvulnerabilityModifier>()).ToList();
         players.Shuffle();
         players.Shuffle();
         players.Shuffle();
@@ -241,14 +241,14 @@ public sealed class ManhunterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
         var mod = killed.GetModifier<ManhunterTargetModifier>();
         if (mod != null && mod.KilledByManhunter && (killer == null || killer.PlayerId != Player.PlayerId))
         {
-            PlayerControl nextTarget = null;
+            PlayerControl? nextTarget = null;
             if (killer != null && !killer.HasModifier<ManhunterTargetModifier>())
             {
                 nextTarget = killer;
             }
             if (nextTarget == null)
             {
-                var targets = Helpers.GetAlivePlayers().Where(x => x.PlayerId != killed.PlayerId && x.PlayerId != Player.PlayerId && !x.HasModifier<ManhunterTargetModifier>());
+                var targets = Helpers.GetAlivePlayers().Where(x => x.PlayerId != killed.PlayerId && x.PlayerId != Player.PlayerId && !x.HasModifier<ManhunterTargetModifier>() && !x.HasModifier<InvulnerabilityModifier>());
                 targets.Shuffle();
                 nextTarget = targets.FirstOrDefault();
             }

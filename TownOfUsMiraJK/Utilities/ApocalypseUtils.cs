@@ -26,6 +26,7 @@ using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Modules.Components;
 using TownOfUsMiraJK.Roles.Neutral;
+using TownOfUsMiraJK.Roles.Neutral.WitchReveal;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Utilities
