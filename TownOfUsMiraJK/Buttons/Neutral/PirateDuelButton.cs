@@ -56,11 +56,10 @@ public sealed class PirateDuelButton : TownOfUsKillRoleButton<PirateRole, Player
             return;
         }
 
-        var players = ModifierUtils.GetPlayersWithModifier<PirateDuelModifier>(x => x.Pirate.AmOwner && !x.IsSelf);
+        var players = ModifierUtils.GetPlayersWithModifier<PirateDuelModifier>(x => x.Pirate.AmOwner);
         players.Do(x => x.RpcRemoveModifier<PirateDuelModifier>());
 
         Target.RpcAddModifier<PirateDuelModifier>(PlayerControl.LocalPlayer);
-        PlayerControl.LocalPlayer.RpcAddModifier<PirateDuelModifier>(PlayerControl.LocalPlayer);
 
         var notif1 = Helpers.CreateAndShowNotification(
             TouLocale.GetParsed("TouJKRolePirateDuelNotif").Replace("<player>", $"{Colors.Pirate.ToTextColor()}{Target.Data.PlayerName}</color>"),

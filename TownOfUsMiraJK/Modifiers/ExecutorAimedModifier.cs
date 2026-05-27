@@ -12,7 +12,6 @@ using TownOfUs.Modules.Anims;
 using TownOfUs.Options;
 using TownOfUs.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Buttons.Crewmate;
-using TownOfUsMiraJK.Buttons.Secret;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using UnityEngine;

@@ -24,13 +24,11 @@ using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Modifiers.Neutral;
 using TownOfUsMiraJK.Options.Roles.Neutral;
-using TownOfUsMiraJK.Options.Roles.Secret;
-using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
 
-namespace TownOfUsMiraJK.Roles.Secret;
+namespace TownOfUsMiraJK.Roles.Neutral;
 
-public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IUnguessable
+public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IUnguessable
 {
     public override void SpawnTaskHeader(PlayerControl playerControl)
     {
@@ -42,14 +40,30 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
         orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralKillingTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
-    public bool IsHiddenFromList => MiscUtils.CurrentGamemode() is not TouGamemode.Normal || !PlayerControl.LocalPlayer.IsRole<AmmitRole>();
-    public List<PlayerControl> Devoured => ModifierUtils.GetPlayersWithModifier<AmmitDevouredModifier>(x => x.Ammit.PlayerId == Player.PlayerId)?.ToList() ?? new();
-    public string LocaleKey => "Ammit";
+    public bool IsHiddenFromList => MiscUtils.CurrentGamemode() is not TouGamemode.Normal || !PlayerControl.LocalPlayer.IsRole<ShadowRole>();
+    public string LocaleKey => "Shadow";
     public string RoleName => TouLocale.Get($"TouJKRole{LocaleKey}");
     public string RoleDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}IntroBlurb");
     public string RoleLongDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}TabDescription");
     public bool IsGuessable => false;
     public RoleBehaviour AppearAs => RoleManager.Instance.GetRole(RoleTypes.Crewmate);
+
+    [HideFromIl2Cpp]
+    public List<CustomButtonWikiDescription> Abilities
+    {
+        get
+        {
+            return new List<CustomButtonWikiDescription>
+            {
+                new(TouLocale.GetParsed($"TouRole{LocaleKey}Vanish", "Vanish"),
+                    TouLocale.GetParsed($"TouRole{LocaleKey}VanishWikiDescription"),
+                    NeutAssets.ShadowVanishSprite),
+                new(TouLocale.GetParsed($"TouRole{LocaleKey}Darkness", "Darkness"),
+                    TouLocale.GetParsed($"TouRole{LocaleKey}DarknessWikiDescription"),
+                    NeutAssets.ShadowDarknessSprite)
+            };
+        }
+    }
 
     public string GetAdvancedDescription()
     {
@@ -58,16 +72,16 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
             MiscUtils.AppendOptionsText(GetType());
     }
 
-    public Color RoleColor => Colors.Ammit;
+    public Color RoleColor => Colors.Shadow;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        CanUseVent = OptionGroupSingleton<AmmitOptions>.Instance.CanVent,
-        IntroSound = TouAudio.ViperIntroSound,
+        CanUseVent = OptionGroupSingleton<ShadowOptions>.Instance.CanVent,
+        IntroSound = TouAudio.PhantomIntroSound,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
-        Icon = RoleIcons.Ammit,
+        Icon = RoleIcons.Shadow,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>(),
         DefaultRoleCount = 1,
         MaxRoleCount = 1,
@@ -79,14 +93,14 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
 
     public bool WinConditionMet()
     {
-        var amCount = CustomRoleUtils.GetActiveRolesOfType<AmmitRole>().Count(x => !x.Player.HasDied());
+        var shCount = CustomRoleUtils.GetActiveRolesOfType<ShadowRole>().Count(x => !x.Player.HasDied());
 
-        if (MiscUtils.KillersAliveCount > amCount)
+        if (MiscUtils.KillersAliveCount > shCount)
         {
             return false;
         }
 
-        return amCount >= Helpers.GetAlivePlayers().Count - amCount;
+        return shCount >= Helpers.GetAlivePlayers().Count - shCount;
     }
 
     public override void Initialize(PlayerControl player)
@@ -94,12 +108,8 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
         RoleBehaviourStubs.Initialize(this, player);
         if (Player.AmOwner)
         {
-            HudManager.Instance.ImpostorVentButton.graphic.sprite = SecrAssets.AmmitVentSprite.LoadAsset();
-            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(Colors.Ammit);
-        }
-        if (!Player.HasModifier<AmmitSizeModifier>())
-        {
-            Player.AddModifier<AmmitSizeModifier>();
+            HudManager.Instance.ImpostorVentButton.graphic.sprite = NeutAssets.ShadowVentSprite.LoadAsset();
+            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(Colors.Shadow);
         }
     }
 
@@ -111,10 +121,6 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
         {
             HudManager.Instance.ImpostorVentButton.graphic.sprite = TouAssets.VentSprite.LoadAsset();
             HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(TownOfUsColors.Impostor);
-        }
-        if (Player.HasModifier<AmmitSizeModifier>())
-        {
-            Player.RemoveModifier<AmmitSizeModifier>();
         }
     }
 
@@ -134,13 +140,5 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
         return console == null || console.AllowImpostor;
     }
 
-    public override void OnDeath(DeathReason reason)
-    {
-        foreach (var devoured in Devoured)
-        {
-            devoured.RemoveModifier<AmmitDevouredModifier>();
-        }
-    }
-
-    bool ICustomRole.CanSpawnOnCurrentMode() => !GameManager.Instance.IsHideAndSeek() && UnityEngine.Random.RandomRange(0, 100) <= OptionGroupSingleton<AmmitOptions>.Instance.AmmitChance;
+    bool ICustomRole.CanSpawnOnCurrentMode() => !GameManager.Instance.IsHideAndSeek() && UnityEngine.Random.RandomRange(0, 100) <= OptionGroupSingleton<ShadowOptions>.Instance.ShadowChance;
 }

@@ -29,7 +29,7 @@ public sealed class CursedSoulOptions : AbstractOptionGroup<CursedSoulRole>
     public bool SwapWithImpostor { get; set; } = false;
 
     [ModdedToggleOption("TouJKCursedSoulSwapWithNeutralKiller")]
-    public bool SwapWithNeutralKiller { get; set; } = false;
+    public bool SwapWithNeutralKiller { get; set; } = true;
 
     [ModdedToggleOption("TouJKCursedSoulSwapWithNeutralApocalypse")]
     public bool SwapWithNeutralApocalypse { get; set; } = false;

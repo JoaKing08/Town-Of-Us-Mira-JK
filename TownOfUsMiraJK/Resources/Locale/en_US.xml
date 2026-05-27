@@ -27,6 +27,7 @@
 	<string name="DiedToDemagogue">Punished</string>
 	<string name="DiedToAmmit">Devoured</string>
 	<string name="DiedToShadow">Faded</string>
+	<string name="DiedToManhunter">Hunted</string>
 	<!-- Monster Hunter -->
 	<string name="TouJKRoleMonsterHunter">Monster Hunter</string>
 	<string name="TouJKRoleMonsterHunterIntroBlurb">Stake the monsters to kill them.</string>
@@ -99,6 +100,8 @@
 	<string name="TouJKUndercoverCanBeKilling">Cover Can Be Impostor Killing</string>
 	<string name="TouJKUndercoverCanBePower">Cover Can Be Impostor Power</string>
 	<string name="TouJKUndercoverCanBeSupport">Cover Can Be Impostor Support</string>
+	<string name="TouJKUndercoverCanVent">Undercover Can Vent</string>
+	<string name="TouJKUndercoverCanMoveInVent">Undercover Can Move In Vents</string>
 	<!-- Watcher -->
 	<string name="TouJKRoleWatcher">Watcher</string>
 	<string name="TouJKRoleWatcherIntroBlurb">See through walls.</string>
@@ -552,13 +555,12 @@
 	<string name="TouJKRoleAmmitIntroBlurb">Devour the crew.</string>
 	<string name="TouJKRoleAmmitTabDescription">Devour players to kill.</string>
 	<!-- Ammit Wiki -->
-	<string name="TouJKRoleAmmitWikiDescription">The Ammit is a secret Neutral Killing role that can devour players, killing them if they aren't killed before the meeting.</string>
+	<string name="TouJKRoleAmmitWikiDescription">The Ammit is a Neutral Killing role that can devour players, killing them if they aren't killed before the meeting.</string>
 	<string name="TouJKRoleAmmitDevour">Devour</string>
 	<string name="TouJKRoleAmmitDevourWikiDescription">Devour a player, killing them if you survive to the meeting.</string>
 	<string name="TouJKRoleAmmitDevourOwnerNotif">You devoured \%player\%, they will die if you aren't killed by the next meeting!</string>
 	<string name="TouJKRoleAmmitDevourTargetNotif">You were devoured by \%player\%, the \%role\%, you will die if they aren't killed by the next meeting!</string>
 	<!-- Ammit Options -->
-	<string name="TouJKOptionAmmitChance">Chance To Appear</string>
 	<string name="TouJKOptionAmmitDevourCooldown">Devour Cooldown</string>
 	<string name="TouJKOptionAmmitDevourCooldownIncrease">Devour Cooldown Increase Per Devour</string>
 	<string name="TouJKOptionAmmitMaxDevoured">Max Devoured Per Round</string>
@@ -569,14 +571,13 @@
 	<string name="TouJKRoleShadowIntroBlurb">Strike from the shadows.</string>
 	<string name="TouJKRoleShadowTabDescription">Cast darkness upon all players, and vanish remaining as almost unnoticable shadow.</string>
 	<!-- Shadow Wiki -->
-	<string name="TouJKRoleShadowWikiDescription">The Shadow is a secret Neutral Killing role with multiple utility abilities, they can become almost invisible as well as blind all players (including Impostors) on the map.</string>
+	<string name="TouJKRoleShadowWikiDescription">The Shadow is a Neutral Killing role with multiple utility abilities, they can become almost invisible as well as blind all players (including Impostors) on the map.</string>
 	<string name="TouJKRoleShadowVanish">Vanish</string>
 	<string name="TouJKRoleShadowVanishWikiDescription">Turn almost invisible for everyone.</string>
 	<string name="TouJKRoleShadowDarkness">Darkness</string>
 	<string name="TouJKRoleShadowDarknessWikiDescription">Darkness causes for all players (including Impostors) to lose their vision for a short amount of time.</string>
 	<string name="TouJKRoleShadowDarknessNotif">The \%role\% has brought forth unpenetrable darkness!</string>
 	<!-- Shadow Options -->
-	<string name="TouJKOptionShadowChance">Chance To Appear</string>
 	<string name="TouJKOptionShadowKillCooldown">Kill Cooldown</string>
 	<string name="TouJKOptionShadowVanishCooldown">Vanish Cooldown</string>
 	<string name="TouJKOptionShadowVanishDuration">Vanish Duration</string>
@@ -584,6 +585,19 @@
 	<string name="TouJKOptionShadowDarknessCooldown">Darkness Cooldown</string>
 	<string name="TouJKOptionShadowDarknessDuration">Darkness Duration</string>
 	<string name="TouJKOptionShadowCanVent">Shadow Can Vent</string>
+	<!-- Manhunter Wiki / Abilities -->
+	<string name="TouJKRoleManhunter">Manhunter</string>
+	<string name="TouJKRoleManhunterIntroBlurb">Hunt for the heads of your targets!</string>
+	<string name="TouJKRoleManhunterTabDescription">Murder your targets.\%nl\%You will win after every target dies by your hand.\%nl\%If they're all dead after a meeting ends,\%nl\%you'll leave \%and\% announce your victory.</string>
+	<string name="TouJKRoleManhunterTabAddition">Your targets are:</string>
+	<string name="TouJKRoleManhunterWikiDescription">The Manhunter is a Neutral Outlier role that wins if they kill all of their targets. The Manhunter knows who the targets are (marked with \%symbol\%). If the target gets killed in any other way than Manhunter's kill, the new target will be selected randomly, prioritising the killer of the previous target.</string>
+	<!-- Inquisitor Feedback -->
+	<string name="TouJKRoleManhunterVictoryMessage">The \%role\%, \%player\%, has successfully won, as all their targets have been killed!</string>
+	<string name="TouJKRoleManhunterVictoryMessageSelf">You have successfully won as the \%role\%, as all your targets have been killed!</string>
+	<!-- Inquisitor Options -->
+	<string name="TouJKOptionManhunterKillCooldown">Kill Cooldown</string>
+	<string name="TouJKOptionManhunterContinuesGame">Manhunter Continues Game In Final 3</string>
+	<string name="TouJKOptionManhunterTargets">Manhunter's Targets</string>
 	<!-- Task Text Info -->
 	<string name="TouJKNeutralApocalypseTaskHeader">Bring forth the apocalypse upon crew and impostors alike!\%nl\%Fake Tasks:</string>
 	<!-- End Game Summary Details -->

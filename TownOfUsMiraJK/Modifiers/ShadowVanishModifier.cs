@@ -13,9 +13,9 @@ using TownOfUs.Patches;
 using TownOfUs.Utilities;
 using TownOfUs.Utilities.Appearances;
 using TownOfUsMiraJK.Assets;
-using TownOfUsMiraJK.Buttons.Secret;
+using TownOfUsMiraJK.Buttons.Neutral;
 using TownOfUsMiraJK.Enums;
-using TownOfUsMiraJK.Options.Roles.Secret;
+using TownOfUsMiraJK.Options.Roles.Neutral;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Modifiers.Secret;
@@ -70,7 +70,7 @@ public sealed class ShadowVanishModifier : ConcealedModifier, IVisualAppearance
         Player.cosmetics.ToggleNameVisible(false);
 
         var button = CustomButtonSingleton<ShadowVanishButton>.Instance;
-        button.OverrideSprite(SecrAssets.ShadowAppearSprite.LoadAsset());
+        button.OverrideSprite(NeutAssets.ShadowAppearSprite.LoadAsset());
         button.OverrideName(TouLocale.Get("TouJKRoleShadowAppear", "Appear"));
 
         var touAbilityEvent = new TouAbilityEvent((AbilityType)JKAbilityType.ShadowVanish, Player);
@@ -96,7 +96,7 @@ public sealed class ShadowVanishModifier : ConcealedModifier, IVisualAppearance
         if (Player.AmOwner)
         {
             var button = CustomButtonSingleton<ShadowVanishButton>.Instance;
-            button.OverrideSprite(SecrAssets.ShadowVanishSprite.LoadAsset());
+            button.OverrideSprite(NeutAssets.ShadowVanishSprite.LoadAsset());
             button.OverrideName(TouLocale.Get("TouJKRoleShadowVanish", "Vanish"));
             if (!MeetingHud.Instance)
             {

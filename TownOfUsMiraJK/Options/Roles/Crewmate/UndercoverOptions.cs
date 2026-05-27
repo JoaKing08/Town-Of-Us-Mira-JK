@@ -3,6 +3,7 @@ using MiraAPI.GameOptions.Attributes;
 using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
 using TownOfUs.Modules.Localization;
+using TownOfUsMiraJK.Options.Roles.Impostor;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Neutral;
@@ -27,4 +28,13 @@ public sealed class UndercoverOptions : AbstractOptionGroup<UndercoverRole>
 
     [ModdedToggleOption("TouJKUndercoverCanBeSupport")]
     public bool CanBeSupport { get; set; } = false;
+
+    [ModdedToggleOption("TouJKUndercoverCanVent")]
+    public bool CanVent { get; set; } = true;
+
+    public ModdedToggleOption CanMoveInVent { get; set; } =
+        new("TouJKOptionUndercoverCanMoveInVent", false)
+        {
+            Visible = () => OptionGroupSingleton<UndercoverOptions>.Instance.CanVent
+        };
 }

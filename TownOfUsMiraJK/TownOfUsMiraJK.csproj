@@ -27,8 +27,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Buttons\Secret\" />
       <Folder Include="Events\Modifiers\" />
+      <Folder Include="Events\Secret\" />
       <Folder Include="Modifiers\Impostor\" />
+      <Folder Include="Options\Roles\Secret\" />
+      <Folder Include="Resources\SecrButtons\" />
+      <Folder Include="Roles\Secret\" />
     </ItemGroup>
 
     <Import Project="../AmongUs.props" />

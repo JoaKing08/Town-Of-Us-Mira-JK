@@ -22,7 +22,6 @@ using TownOfUsMiraJK.Buttons.Neutral;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Options.Roles.Neutral;
-using TownOfUsMiraJK.Options.Roles.Secret;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Modifiers.Neutral;

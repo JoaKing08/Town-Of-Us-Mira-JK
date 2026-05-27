@@ -11,11 +11,11 @@ using TownOfUs.Options.Roles.Impostor;
 using TownOfUs.Roles.Impostor;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Modifiers.Secret;
-using TownOfUsMiraJK.Options.Roles.Secret;
-using TownOfUsMiraJK.Roles.Secret;
+using TownOfUsMiraJK.Options.Roles.Neutral;
+using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
 
-namespace TownOfUsMiraJK.Buttons.Secret;
+namespace TownOfUsMiraJK.Buttons.Neutral;
 
 public sealed class ShadowVanishButton : TownOfUsRoleButton<ShadowRole>, IAftermathableButton
 {
@@ -24,7 +24,7 @@ public sealed class ShadowVanishButton : TownOfUsRoleButton<ShadowRole>, IAfterm
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<ShadowOptions>.Instance.VanishCooldown + MapCooldown, 5f, 120f);
     public override float EffectDuration => OptionGroupSingleton<ShadowOptions>.Instance.VanishDuration;
-    public override LoadableAsset<Sprite> Sprite => SecrAssets.ShadowVanishSprite;
+    public override LoadableAsset<Sprite> Sprite => NeutAssets.ShadowVanishSprite;
 
     public override bool ZeroIsInfinite { get; set; } = true;
 
@@ -78,8 +78,8 @@ public sealed class ShadowVanishButton : TownOfUsRoleButton<ShadowRole>, IAfterm
             return false;
         }
 
-        return (Timer <= 0 && !EffectActive && (!LimitedUses || UsesLeft > 0)) ||
-                (EffectActive && Timer <= EffectDuration - 2f);
+        return Timer <= 0 && !EffectActive && (!LimitedUses || UsesLeft > 0) ||
+                EffectActive && Timer <= EffectDuration - 2f;
     }
 
     protected override void OnClick()

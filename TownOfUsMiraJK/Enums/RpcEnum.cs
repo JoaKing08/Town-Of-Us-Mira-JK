@@ -33,5 +33,7 @@ namespace TownOfUsMiraJK.Enums
         DemagogueHint,
         SecretaryStore,
         SecretaryVote,
+        AddManhunterTarget,
+        ManhunterWin,
     }
 }

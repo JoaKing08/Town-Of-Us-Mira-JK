@@ -76,6 +76,7 @@ public sealed class UndercoverRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
 
     public CustomRoleConfiguration Configuration => new(this)
     {
+        CanUseVent = OptionGroupSingleton<UndercoverOptions>.Instance.CanVent && (Player.GetModifier<UndercoverCoverModifier>()?.ShownRole is not ICustomRole role || role?.Configuration.CanUseVent != false),
         Icon = RoleIcons.Undercover,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         IntroSound = TouAudio.SpyIntroSound

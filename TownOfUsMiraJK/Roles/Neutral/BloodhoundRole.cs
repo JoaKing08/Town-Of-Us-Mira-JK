@@ -21,7 +21,6 @@ using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Modifiers.Neutral;
 using TownOfUsMiraJK.Options.Roles.Neutral;
-using TownOfUsMiraJK.Options.Roles.Secret;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Neutral;

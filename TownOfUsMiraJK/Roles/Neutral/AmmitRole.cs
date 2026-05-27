@@ -24,13 +24,11 @@ using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Modifiers.Neutral;
 using TownOfUsMiraJK.Options.Roles.Neutral;
-using TownOfUsMiraJK.Options.Roles.Secret;
-using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
 
-namespace TownOfUsMiraJK.Roles.Secret;
+namespace TownOfUsMiraJK.Roles.Neutral;
 
-public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IUnguessable
+public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable
 {
     public override void SpawnTaskHeader(PlayerControl playerControl)
     {
@@ -42,30 +40,11 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
         orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralKillingTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
-    public bool IsHiddenFromList => MiscUtils.CurrentGamemode() is not TouGamemode.Normal || !PlayerControl.LocalPlayer.IsRole<ShadowRole>();
-    public string LocaleKey => "Shadow";
+    public List<PlayerControl> Devoured => ModifierUtils.GetPlayersWithModifier<AmmitDevouredModifier>(x => x.Ammit.PlayerId == Player.PlayerId)?.ToList() ?? new();
+    public string LocaleKey => "Ammit";
     public string RoleName => TouLocale.Get($"TouJKRole{LocaleKey}");
     public string RoleDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}IntroBlurb");
     public string RoleLongDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}TabDescription");
-    public bool IsGuessable => false;
-    public RoleBehaviour AppearAs => RoleManager.Instance.GetRole(RoleTypes.Crewmate);
-
-    [HideFromIl2Cpp]
-    public List<CustomButtonWikiDescription> Abilities
-    {
-        get
-        {
-            return new List<CustomButtonWikiDescription>
-            {
-                new(TouLocale.GetParsed($"TouRole{LocaleKey}Vanish", "Vanish"),
-                    TouLocale.GetParsed($"TouRole{LocaleKey}VanishWikiDescription"),
-                    SecrAssets.ShadowVanishSprite),
-                new(TouLocale.GetParsed($"TouRole{LocaleKey}Darkness", "Darkness"),
-                    TouLocale.GetParsed($"TouRole{LocaleKey}DarknessWikiDescription"),
-                    SecrAssets.ShadowDarknessSprite)
-            };
-        }
-    }
 
     public string GetAdvancedDescription()
     {
@@ -74,35 +53,37 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
             MiscUtils.AppendOptionsText(GetType());
     }
 
-    public Color RoleColor => Colors.Shadow;
+    public Color RoleColor => Colors.Ammit;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        CanUseVent = OptionGroupSingleton<ShadowOptions>.Instance.CanVent,
-        IntroSound = TouAudio.PhantomIntroSound,
+        CanUseVent = OptionGroupSingleton<AmmitOptions>.Instance.CanVent,
+        IntroSound = TouAudio.ViperIntroSound,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
-        Icon = RoleIcons.Shadow,
+        Icon = RoleIcons.Ammit,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>(),
-        DefaultRoleCount = 1,
         MaxRoleCount = 1,
-        DefaultChance = 100,
-        HideSettings = true
     };
 
     public bool HasImpostorVision => true;
 
     public bool WinConditionMet()
     {
-        var shCount = CustomRoleUtils.GetActiveRolesOfType<ShadowRole>().Count(x => !x.Player.HasDied());
+        var amCount = CustomRoleUtils.GetActiveRolesOfType<AmmitRole>().Count(x => !x.Player.HasDied());
 
-        if (MiscUtils.KillersAliveCount > shCount)
+        if (!PlayerControl.AllPlayerControls.ToArray().Any(x => !x.HasDied() && !x.HasModifier<AmmitDevouredModifier>() && !x.IsRole<AmmitRole>()) && amCount > 0)
+        {
+            return true;
+        }
+
+        if (MiscUtils.KillersAliveCount > amCount)
         {
             return false;
         }
 
-        return shCount >= Helpers.GetAlivePlayers().Count - shCount;
+        return amCount >= Helpers.GetAlivePlayers().Count - amCount;
     }
 
     public override void Initialize(PlayerControl player)
@@ -110,8 +91,12 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
         RoleBehaviourStubs.Initialize(this, player);
         if (Player.AmOwner)
         {
-            HudManager.Instance.ImpostorVentButton.graphic.sprite = SecrAssets.ShadowVentSprite.LoadAsset();
-            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(Colors.Shadow);
+            HudManager.Instance.ImpostorVentButton.graphic.sprite = NeutAssets.AmmitVentSprite.LoadAsset();
+            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(Colors.Ammit);
+        }
+        if (!Player.HasModifier<AmmitSizeModifier>())
+        {
+            Player.AddModifier<AmmitSizeModifier>();
         }
     }
 
@@ -123,6 +108,10 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
         {
             HudManager.Instance.ImpostorVentButton.graphic.sprite = TouAssets.VentSprite.LoadAsset();
             HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(TownOfUsColors.Impostor);
+        }
+        if (Player.HasModifier<AmmitSizeModifier>())
+        {
+            Player.RemoveModifier<AmmitSizeModifier>();
         }
     }
 
@@ -142,5 +131,11 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
         return console == null || console.AllowImpostor;
     }
 
-    bool ICustomRole.CanSpawnOnCurrentMode() => !GameManager.Instance.IsHideAndSeek() && UnityEngine.Random.RandomRange(0, 100) <= OptionGroupSingleton<ShadowOptions>.Instance.ShadowChance;
+    public override void OnDeath(DeathReason reason)
+    {
+        foreach (var devoured in Devoured)
+        {
+            devoured.RemoveModifier<AmmitDevouredModifier>();
+        }
+    }
 }

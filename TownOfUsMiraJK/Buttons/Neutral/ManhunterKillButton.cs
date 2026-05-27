@@ -10,24 +10,23 @@ using TownOfUs.Options.Roles.Neutral;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
+using TownOfUsMiraJK.Modifiers;
 using TownOfUsMiraJK.Modifiers.Neutral;
 using TownOfUsMiraJK.Options.Roles.Neutral;
-using TownOfUsMiraJK.Options.Roles.Secret;
 using TownOfUsMiraJK.Roles.Neutral;
-using TownOfUsMiraJK.Roles.Secret;
 using TownOfUsMiraJK.Utilities;
 using UnityEngine;
 
-namespace TownOfUsMiraJK.Buttons.Secret;
+namespace TownOfUsMiraJK.Buttons.Neutral;
 
-public sealed class ShadowKillButton : TownOfUsKillRoleButton<ShadowRole, PlayerControl>, IDiseaseableButton,
+public sealed class ManhunterKillButton : TownOfUsKillRoleButton<ManhunterRole, PlayerControl>, IDiseaseableButton,
     IKillButton
 {
     public override string Name => TranslationController.Instance.GetStringWithDefault(StringNames.KillLabel, "Kill");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override Color TextOutlineColor => Colors.Shadow;
-    public override LoadableAsset<Sprite> Sprite => SecrAssets.ShadowKillSprite;
-    public override float Cooldown => Math.Clamp(OptionGroupSingleton<ShadowOptions>.Instance.KillCooldown + MapCooldown, 5f, 120f);
+    public override Color TextOutlineColor => Colors.Manhunter;
+    public override LoadableAsset<Sprite> Sprite => NeutAssets.ManhunterKillSprite;
+    public override float Cooldown => Math.Clamp(OptionGroupSingleton<ManhunterOptions>.Instance.KillCooldown + MapCooldown, 5f, 120f);
 
     public override void CreateButton(Transform parent)
     {
@@ -44,7 +43,7 @@ public sealed class ShadowKillButton : TownOfUsKillRoleButton<ShadowRole, Player
     {
         if (Target == null)
         {
-            Error("Shadow Kill: Target is null");
+            Error("Manhunter Kill: Target is null");
             return;
         }
 
@@ -53,11 +52,6 @@ public sealed class ShadowKillButton : TownOfUsKillRoleButton<ShadowRole, Player
 
     public override PlayerControl? GetTarget()
     {
-        if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
-        {
-            return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance, false, x => !x.IsLover());
-        }
-
-        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance);
+        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance, false, x => x.HasModifier<ManhunterTargetModifier>());
     }
 }

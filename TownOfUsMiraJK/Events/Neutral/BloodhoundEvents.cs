@@ -13,7 +13,6 @@ using TownOfUs.Roles.Neutral;
 using TownOfUsMiraJK.Buttons.Neutral;
 using TownOfUsMiraJK.Modifiers.Neutral;
 using TownOfUsMiraJK.Options.Roles.Neutral;
-using TownOfUsMiraJK.Options.Roles.Secret;
 using TownOfUsMiraJK.Roles.Neutral;
 
 namespace TownOfUsMiraJK.Events.Neutral;

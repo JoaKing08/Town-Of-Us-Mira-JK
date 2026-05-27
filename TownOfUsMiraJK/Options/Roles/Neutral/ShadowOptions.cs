@@ -5,9 +5,9 @@ using MiraAPI.Utilities;
 using TownOfUs.Interfaces;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Roles.Neutral;
-using TownOfUsMiraJK.Roles.Secret;
+using TownOfUsMiraJK.Roles.Neutral;
 
-namespace TownOfUsMiraJK.Options.Roles.Secret;
+namespace TownOfUsMiraJK.Options.Roles.Neutral;
 
 public sealed class ShadowOptions : AbstractOptionGroup<ShadowRole>
 {

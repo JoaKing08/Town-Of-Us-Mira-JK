@@ -18,14 +18,14 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Neutral;
 
-public sealed class BloodhoundKillButton : TownOfUsKillRoleButton<BloodhoundRole, PlayerControl>, IDiseaseableButton,
+public sealed class ShadowKillButton : TownOfUsKillRoleButton<ShadowRole, PlayerControl>, IDiseaseableButton,
     IKillButton
 {
     public override string Name => TranslationController.Instance.GetStringWithDefault(StringNames.KillLabel, "Kill");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override Color TextOutlineColor => Colors.Bloodhound;
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.BloodhoundKillSprite;
-    public override float Cooldown => Role?.Player != null && Role.Player.HasModifier<BloodhoundBloodlustModifier>(x => !x.IsDestroyed) ? OptionGroupSingleton<BloodhoundOptions>.Instance.BloodlustCooldown : OptionGroupSingleton<BloodhoundOptions>.Instance.KillCooldown + MapCooldown;
+    public override Color TextOutlineColor => Colors.Shadow;
+    public override LoadableAsset<Sprite> Sprite => NeutAssets.ShadowKillSprite;
+    public override float Cooldown => Math.Clamp(OptionGroupSingleton<ShadowOptions>.Instance.KillCooldown + MapCooldown, 5f, 120f);
 
     public override void CreateButton(Transform parent)
     {
@@ -42,7 +42,7 @@ public sealed class BloodhoundKillButton : TownOfUsKillRoleButton<BloodhoundRole
     {
         if (Target == null)
         {
-            Error("Berserker Kill: Target is null");
+            Error("Shadow Kill: Target is null");
             return;
         }
 

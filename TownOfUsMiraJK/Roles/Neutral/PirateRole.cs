@@ -111,27 +111,6 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
 
     public bool MetWinCon => DuelsWon >= OptionGroupSingleton<PirateOptions>.Instance.DuelsToWin;
 
-    public bool WinConditionMet()
-    {
-        if (Player.HasDied())
-        {
-            return false;
-        }
-
-        if (!OptionGroupSingleton<PirateOptions>.Instance.StallGame)
-        {
-            return false;
-        }
-
-        if (!MetWinCon)
-        {
-            return false;
-        }
-
-        var result = Helpers.GetAlivePlayers().Contains(Player) && Helpers.GetAlivePlayers().Count <= 2 &&
-                     MiscUtils.KillersAliveCount == 1;
-        return result;
-    }
 
     public override void Deinitialize(PlayerControl targetPlayer)
     {
@@ -157,26 +136,32 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
 
     public override bool DidWin(GameOverReason gameOverReason)
     {
-        return MetWinCon || WinConditionMet();
+        return MetWinCon;
     }
 
     [MethodRpc((uint)TownOfUsJKRpc.ChangeDuel, LocalHandling = RpcLocalHandling.Before)]
-    public static void RpcChangeDuelOption(PlayerControl player, byte option)
+    public static void RpcChangeDuelOption(PlayerControl player, bool pirate, byte option)
     {
         if (!player.TryGetModifier<PirateDuelModifier>(out var modifier))
         {
             return;
         }
-        modifier.ChosenOption = (DuelOption)option;
+        if (pirate)
+        {
+            modifier.ChosenOptionPirate = (DuelOption)option;
+        }
+        else
+        {
+            modifier.ChosenOption = (DuelOption)option;
+        }
     }
     public void DoDuel()
     {
-        var pirateModifier = Player.GetModifier<PirateDuelModifier>();
-        var dueledModifier = ModifierUtils.GetActiveModifiers<PirateDuelModifier>(x => x.Pirate.PlayerId == Player.PlayerId && !x.IsSelf && !x.Player.HasDied()).FirstOrDefault();
-        if (pirateModifier != null && dueledModifier != null && !Player.HasDied())
+        var dueledModifier = ModifierUtils.GetActiveModifiers<PirateDuelModifier>(x => x.Pirate.PlayerId == Player.PlayerId && !x.Player.HasDied()).FirstOrDefault();
+        if (dueledModifier != null && dueledModifier.Pirate.PlayerId == Player.PlayerId && !Player.HasDied())
         {
             var dueled = dueledModifier.Player;
-            if (pirateModifier.ChosenOption == dueledModifier.ChosenOption)
+            if (dueledModifier.ChosenOptionPirate == dueledModifier.ChosenOption)
             {
                 DuelsWon++;
                 if (!dueled.HasModifier<InvulnerabilityModifier>() && Player.AmOwner)
@@ -189,7 +174,7 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
                 if (Player.AmOwner)
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
-                        TouLocale.GetParsed("TouJKRolePirateDuelWonOwner" + pirateModifier.ChosenOption.ToString()).Replace("<player>", $"{Colors.Pirate.ToTextColor()}{dueled.Data.PlayerName}</color>"),
+                        TouLocale.GetParsed("TouJKRolePirateDuelWonOwner" + dueledModifier.ChosenOption.ToString()).Replace("<player>", $"{Colors.Pirate.ToTextColor()}{dueled.Data.PlayerName}</color>"),
                         Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
 
                     notif1.AdjustNotification();
@@ -197,7 +182,7 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
                 if (dueled.AmOwner)
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
-                        TouLocale.GetParsed("TouJKRolePirateDuelWonTarget" + pirateModifier.ChosenOption.ToString()),
+                        TouLocale.GetParsed("TouJKRolePirateDuelWonTarget" + dueledModifier.ChosenOption.ToString()),
                         Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
 
                     notif1.AdjustNotification();
@@ -208,7 +193,7 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
                 if (Player.AmOwner)
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
-                        TouLocale.GetParsed("TouJKRolePirateDuelLostOwner" + pirateModifier.ChosenOption.ToString() + dueledModifier.ChosenOption.ToString()).Replace("<player>", $"{Colors.Pirate.ToTextColor()}{dueled.Data.PlayerName}</color>"),
+                        TouLocale.GetParsed("TouJKRolePirateDuelLostOwner" + dueledModifier.ChosenOptionPirate.ToString() + dueledModifier.ChosenOption.ToString()).Replace("<player>", $"{Colors.Pirate.ToTextColor()}{dueled.Data.PlayerName}</color>"),
                         Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
 
                     notif1.AdjustNotification();
@@ -216,7 +201,7 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
                 if (dueled.AmOwner)
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
-                        TouLocale.GetParsed("TouJKRolePirateDuelLostTarget" + pirateModifier.ChosenOption.ToString() + dueledModifier.ChosenOption.ToString()),
+                        TouLocale.GetParsed("TouJKRolePirateDuelLostTarget" + dueledModifier.ChosenOptionPirate.ToString() + dueledModifier.ChosenOption.ToString()),
                         Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
 
                     notif1.AdjustNotification();

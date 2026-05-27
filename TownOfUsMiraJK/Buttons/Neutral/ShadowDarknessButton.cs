@@ -10,11 +10,11 @@ using TownOfUs.Roles.Impostor;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Modifiers;
-using TownOfUsMiraJK.Options.Roles.Secret;
-using TownOfUsMiraJK.Roles.Secret;
+using TownOfUsMiraJK.Options.Roles.Neutral;
+using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
 
-namespace TownOfUsMiraJK.Buttons.Secret;
+namespace TownOfUsMiraJK.Buttons.Neutral;
 
 public sealed class ShadowDarknessButton : TownOfUsRoleButton<ShadowRole>
 {
@@ -23,22 +23,15 @@ public sealed class ShadowDarknessButton : TownOfUsRoleButton<ShadowRole>
     public override Color TextOutlineColor => Colors.Shadow;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<ShadowOptions>.Instance.DarknessCooldown + MapCooldown, 5f, 120f);
     public override float EffectDuration => OptionGroupSingleton<ShadowOptions>.Instance.DarknessDuration;
-    public override LoadableAsset<Sprite> Sprite => SecrAssets.ShadowDarknessSprite;
+    public override LoadableAsset<Sprite> Sprite => NeutAssets.ShadowDarknessSprite;
 
     public override bool ZeroIsInfinite { get; set; } = true;
 
     protected override void OnClick()
     {
-        OverrideName(TouLocale.Get("TouJKRoleShadowParting", "Parting"));
-
         foreach (var player in PlayerControl.AllPlayerControls.ToArray().Where(x => !x.HasDied() && !x.AmOwner))
         {
             player.RpcAddModifier<ShadowDarknessModifier>(PlayerControl.LocalPlayer);
         }
-    }
-
-    public override void OnEffectEnd()
-    {
-        OverrideName(TouLocale.Get("TouJKRoleShadowDarkness", "Darkness"));
     }
 }

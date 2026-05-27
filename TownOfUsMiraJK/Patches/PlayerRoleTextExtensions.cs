@@ -23,6 +23,7 @@ using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Impostor;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
+using TownOfUsMiraJK.Modifiers;
 using TownOfUsMiraJK.Modifiers.Game.Alliance;
 using TownOfUsMiraJK.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Impostor;
@@ -50,6 +51,29 @@ namespace TownOfUsMiraJK.Patches
             crModifier => crModifier.Poisoner.PlayerId == PlayerControl.LocalPlayer.PlayerId;
         private static Func<DemagogueImmunityModifier, bool> DemagoguePredicate { get; } =
             diModifier => diModifier.Player.PlayerId == PlayerControl.LocalPlayer.PlayerId || PlayerControl.LocalPlayer.IsImpostorAligned();
+
+        [HarmonyPatch]
+        public static class UpdateTargetSymbols
+        {
+            [HarmonyPatch(typeof(TownOfUs.Utilities.PlayerRoleTextExtensions), nameof(TownOfUs.Utilities.PlayerRoleTextExtensions.UpdateTargetSymbols), new Type[] { typeof(string), typeof(PlayerControl), typeof(DataVisibility) })]
+            [HarmonyPostfix]
+            public static void Postfix(PlayerControl player, DataVisibility visibility, ref string __result)
+            {
+                var hidden = visibility == DataVisibility.Hidden;
+                var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
+                var isDead = visibility is DataVisibility.Show || PlayerControl.LocalPlayer.HasDied() && genOpt.TheDeadKnow && !hidden;
+
+                if (player.TryGetModifier<ManhunterTargetModifier>(out var mhmod) && (PlayerControl.LocalPlayer.IsRole<ManhunterRole>() || isDead))
+                {
+                    var color = Colors.Manhunter;
+                    if (!mhmod.KilledByManhunter && player.HasDied())
+                    {
+                        color = Color.Lerp(Colors.Manhunter, Color.red, 0.75f);
+                    }
+                    __result += $"<color=#{color.ToHtmlStringRGBA()}> /</color>";
+                }
+            }
+        }
 
         [HarmonyPatch]
         public static class UpdateAllianceSymbols

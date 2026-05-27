@@ -13,7 +13,7 @@ using TownOfUs.Utilities;
 using TownOfUs.Utilities.Appearances;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
-using TownOfUsMiraJK.Options.Roles.Secret;
+using TownOfUsMiraJK.Options.Roles.Neutral;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Modifiers;

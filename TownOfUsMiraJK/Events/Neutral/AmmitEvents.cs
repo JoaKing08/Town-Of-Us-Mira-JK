@@ -24,18 +24,17 @@ using TownOfUs.Roles;
 using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
-using TownOfUsMiraJK;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Buttons.Crewmate;
-using TownOfUsMiraJK.Buttons.Secret;
+using TownOfUsMiraJK.Buttons.Neutral;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
-using TownOfUsMiraJK.Options.Roles.Secret;
+using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Roles.Crewmate;
-using TownOfUsMiraJK.Roles.Secret;
+using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-namespace TownOfUsMiraJK.Events.Secret;
+namespace TownOfUsMiraJK.Events.Neutral;
 
 public static class AmmitEvents
 {

@@ -26,13 +26,13 @@ using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
-using TownOfUsMiraJK.Options.Roles.Secret;
+using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Impostor;
-using TownOfUsMiraJK.Roles.Secret;
+using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
 
-namespace TownOfUsMiraJK.Buttons.Secret;
+namespace TownOfUsMiraJK.Buttons.Neutral;
 
 public sealed class AmmitDevourButton : TownOfUsKillRoleButton<AmmitRole, PlayerControl>
 {
@@ -41,7 +41,7 @@ public sealed class AmmitDevourButton : TownOfUsKillRoleButton<AmmitRole, Player
     public override Color TextOutlineColor => Colors.Ammit;
     public override float Cooldown => BaseCooldown + (OptionGroupSingleton<AmmitOptions>.Instance.DevourCooldownIncrease * Role.TryCast<AmmitRole>()?.Devoured.Count ?? 0);
     public float BaseCooldown => Math.Clamp(OptionGroupSingleton<AmmitOptions>.Instance.DevourCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => SecrAssets.AmmitDevourSprite;
+    public override LoadableAsset<Sprite> Sprite => NeutAssets.AmmitDevourSprite;
     public override int MaxUses => (int)OptionGroupSingleton<AmmitOptions>.Instance.MaxDevoured;
 
     public override PlayerControl? GetTarget()

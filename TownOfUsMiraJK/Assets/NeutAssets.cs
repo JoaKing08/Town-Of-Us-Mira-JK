@@ -9,8 +9,6 @@ public static class NeutAssets
     public static LoadableAsset<Sprite> FamineVentSprite { get; } = new LoadableResourceAsset($"{ShortPath}.FamineVentSprite.png");
     public static LoadableAsset<Sprite> FamineStarveSprite { get; } = new LoadableResourceAsset($"{ShortPath}.FamineStarveSprite.png");
     public static LoadableAsset<Sprite> BakerBreadSprite { get; } = new LoadableResourceAsset($"{ShortPath}.BakerBreadSprite.png");
-    public static LoadableAsset<Sprite> ShadowVanishSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ShadowVanishSprite.png");
-    public static LoadableAsset<Sprite> ShadowAppearSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ShadowAppearSprite.png");
     public static LoadableAsset<Sprite> BerserkerKillSprite { get; } = new LoadableResourceAsset($"{ShortPath}.BerserkerKillSprite.png");
     public static LoadableAsset<Sprite> BerserkerVentSprite { get; } = new LoadableResourceAsset($"{ShortPath}.BerserkerVentSprite.png");
     public static LoadableAsset<Sprite> WarKillSprite { get; } = new LoadableResourceAsset($"{ShortPath}.WarKillSprite.png");
@@ -31,4 +29,12 @@ public static class NeutAssets
     public static LoadableAsset<Sprite> NecromancerReanimateSprite { get; } = new LoadableResourceAsset($"{ShortPath}.NecromancerReanimateSprite.png");
     public static LoadableAsset<Sprite> JackalKillSprite { get; } = new LoadableResourceAsset($"{ShortPath}.JackalKillSprite.png");
     public static LoadableAsset<Sprite> JackalVentSprite { get; } = new LoadableResourceAsset($"{ShortPath}.JackalVentSprite.png");
+    public static LoadableAsset<Sprite> AmmitVentSprite { get; } = new LoadableResourceAsset($"{ShortPath}.AmmitVentSprite.png");
+    public static LoadableAsset<Sprite> AmmitDevourSprite { get; } = new LoadableResourceAsset($"{ShortPath}.AmmitDevourSprite.png");
+    public static LoadableAsset<Sprite> ShadowVentSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ShadowVentSprite.png");
+    public static LoadableAsset<Sprite> ShadowKillSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ShadowKillSprite.png");
+    public static LoadableAsset<Sprite> ShadowVanishSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ShadowVanishSprite.png");
+    public static LoadableAsset<Sprite> ShadowAppearSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ShadowAppearSprite.png");
+    public static LoadableAsset<Sprite> ShadowDarknessSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ShadowDarknessSprite.png");
+    public static LoadableAsset<Sprite> ManhunterKillSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ManhunterKillSprite.png");
 }
