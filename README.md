@@ -126,7 +126,7 @@ Game Options:
 
 ### Watcher <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" />
 Alignment: <b>Crewmate Investigative</b>\
-Inspiration: <b>@detective22 On Discord (Lookout)</b>
+Inspiration: <b>[Det2203](https://github.com/FERTAILS) (Lookout)</b>
 
 The Watcher is a role that can Watch to zoom out their vision and see through walls.\
 While Watching the Watcher cannot move.
