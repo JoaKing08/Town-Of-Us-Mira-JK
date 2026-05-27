@@ -26,6 +26,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewProtect.png" align="center" />
   <a href="#bodyguard-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bodyguard.png" /></a>
   <a href="#crusader-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Crusader.png" /></a>
+  <a href="#sanctifier-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sanctifier.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewSupport.png" align="center" />
   <a href="#tavern-keeper-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" /></a>
   <a href="#undercover-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Undercover.png" /></a>
@@ -42,9 +43,12 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutEvil.png" align="center" />
   <a href="#witch-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutKilling.png" align="center" />
+  <a href="#ammit-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Ammit.png" /></a>
   <a href="#bloodhound-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" /></a>
+  <a href="#shadow-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Shadow.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutOutlier.png" align="center" />
   <a href="#jackal-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" /></a>
+  <a href="#manhunter-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manhunter.png" /></a>
   <a href="#necromancer-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" /></a>
   <a href="#pirate-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" /></a>
   <a href="#neutral-apocalypse"><img src="./TownOfUsMiraJK/Resources/NeutralApocalypseHeader.png" align="center" /></a>
@@ -59,10 +63,10 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <a href="#prophet-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Prophet.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/ImpMods.png" />
   <a href="#tasker-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" /></a>
+  <a href="#outcast-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Outcast.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/UniMods.png" />
   <a href="#drunk-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" /></a>
 </p>
-<b>And more...</b>
 
 -----------------------
 # Other changes
@@ -123,7 +127,7 @@ Game Options:
 
 ### Watcher <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" />
 Alignment: <b>Crewmate Investigative</b>\
-Inspiration: <b>@detective22 From Better Town Of Salem 2 Discord (Lookout)</b>
+Inspiration: <b>@detective22 On Discord (Lookout)</b>
 
 The Watcher is a role that can Watch to zoom out their vision and see through walls.\
 While Watching the Watcher cannot move.
@@ -202,6 +206,10 @@ Game Options:
 | Fortify Cooldown | Cooldown of the Fortify ability. | 25s |
 | Fortify Duration | Duration of the Fortify ability. | 30s |
 | Max Uses of Fortify | Maximum amount of Fortify uses. | 5 |
+
+### Sanctifier <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sanctifier.png" />
+Alignment: <b>Crewmate Protective</b>\
+Inspiration: <b>@chipseq On Discord (Aurial)</b>
 
 ### Tavern Keeper <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" />
 Alignment: <b>Crewmate Support</b>\
@@ -292,7 +300,7 @@ Game Options:
 Alignment: <b>Impostor Power</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
-The Godfather is a role that can Recruit a player into their faction turning them into Mafioso./
+The Godfather is a role that can Recruit a player into their faction turning them into Mafioso.\
 The player being Recruited by Godfather must be a Crewmate with no Alliance Modifiers, otherwise the Recruiting fails.
 
 Game Options:
@@ -308,7 +316,7 @@ Game Options:
 Alignment: <b>Neutral Benign</b>\
 Inspiration: <b>Town Of Salem 2 (old Cursed Soul)</b>
 
-The Cursed Soul is a role that can Soul Swap with players to gain their role./
+The Cursed Soul is a role that can Soul Swap with players to gain their role.\
 The Cursed Soul cannot win by themself until they get a role.
 
 Game Options:
@@ -328,11 +336,32 @@ Game Options:
 Alignment: <b>Neutral Evil</b>\
 Inspiration: <b>Town Of Salem (Witch)</b>
 
+The Witch is a role that can force players to use their ability.\
+The Witch wins when the Crewmates lose and they survived.\
+Alternatively they leave in victory when there are no Crewmates left alive.\
+The Witch can Mark a player, to later Control them into using their ability.\
+Witch will learn if they were successful in forcing the player to use their ability, and which one they used (by keybind).
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Control Cooldown | Cooldown of the Control ability. | 25s |
+| Witch Learns | What the Witch learns about the player after using Control. | Alignment |
+
+### Ammit <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Ammit.png" />
+Inspiration: <b>Goose Goose Duck (Pelican)</b>
+
 ### Bloodhound <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" />
 Inspiration: <b>Town Of Salem 2 (Serial Killer)</b>
 
+### Shadow <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Shadow.png" />
+Inspiration: <b>Own Idea/Inspiration Unclear</b>
+
 ### Jackal <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" />
-Inspiration: <b>Better Town Of Salem 2 (Jackal)</b>
+Inspiration: <b>Better Town Of Salem 1 & 2 (Jackal)</b>
+
+### Manhunter <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manhunter.png" />
+Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 ### Necromancer <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" />
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
@@ -364,6 +393,9 @@ Inspiration: <b>Better Town Of Salem 2 (Apoc Town Traitor)</b>
 
 ### Tasker <img width="3%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" />
 Inspiration: <b>Community Sugestion (Tasker by @craftrpl)</b>
+
+### Outcast <img width="3%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Outcast.png" />
+Inspiration: <b>Community Sugestion (Unknown by @craftrpl)</b>
 
 ### Drunk <img width="3%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" />
 Inspiration: <b>Town Of Us (Drunk)</b>
