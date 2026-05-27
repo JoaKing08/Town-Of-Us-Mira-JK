@@ -354,42 +354,67 @@ Game Options:
 | Witch Learns | What the Witch learns about the player after using Control. | Alignment |
 
 ### Ammit <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Ammit.png" />
+Alignment: <b>Neutral Killing</b>\
 Inspiration: <b>Goose Goose Duck (Pelican)</b>
 
+The Ammit is a role that can Devour players killing them if Ammit survives up to the next meeting.\
+When Ammit is killed, all players Devoured by them will appear at the Ammit's body.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Devour Cooldown | Cooldown of the Devour ability. | 20s |
+| Devour Cooldown Increase Per Devour | Increase to the cooldown of the Devour ability per Devoured player. | 5s |
+| Max Devoured Per Round | Maximum Devoured players per round. | Infinite |
+| Size Increase Per Person Devoured | By how much Ammit's size is increased per Devoured player. | 2.5% |
+| Ammit Can Vent | Whether the Ammit can vent. | False |
+
 ### Berserker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" />
+Alignment: <b>Neutral Killing</b>\
 Inspiration: <b>Town Of Salem 2 (Berserker)</b>
 
 ### War <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
+Alignment: <b>Neutral Killing</b>\
 Inspiration: <b>Town Of Salem 2 (War)</b>
 
 ### Bloodhound <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" />
+Alignment: <b>Neutral Killing</b>\
 Inspiration: <b>Town Of Salem 2 (Serial Killer)</b>
 
 ### Shadow <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Shadow.png" />
+Alignment: <b>Neutral Killing</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 ### Baker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" />
+Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Baker)</b>
 
 ### Famine <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" />
+Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Famine)</b>
 
 ### Jackal <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" />
+Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Better Town Of Salem 1 & 2 (Jackal)</b>
 
 ### Manhunter <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manhunter.png" />
+Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 ### Necromancer <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" />
+Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 ### Pirate <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" />
+Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 1 & 2 (Pirate)</b>
 
 ### Soul Collector <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/SoulCollector.png" />
+Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Soul Collector)</b>
 
 ### Death <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" />
+Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Death)</b>
 
 ## Modifiers
