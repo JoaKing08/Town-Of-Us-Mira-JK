@@ -32,7 +32,6 @@ using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Buttons.Neutral;
 using TownOfUsMiraJK.Enums;
-using TownOfUsMiraJK.GameOptions;
 using TownOfUsMiraJK.Modules.Components;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Utilities;
@@ -50,7 +49,7 @@ public sealed class DeathRole(IntPtr cppPtr)
             return;
         }
         ImportantTextTask orCreateTask = PlayerTask.GetOrCreateTask<ImportantTextTask>(playerControl, 0);
-        orCreateTask.Text = $"{Colors.Apocalypse.ToTextColor()}{TouLocale.GetParsed("TouJKNeutralApocalypseTaskHeader")}</color>";
+        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("TouNeutralOutlierTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
 
@@ -86,7 +85,7 @@ public sealed class DeathRole(IntPtr cppPtr)
 
     public Color RoleColor => Colors.Death;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
-    public RoleAlignment RoleAlignment => (RoleAlignment)27;
+    public RoleAlignment RoleAlignment => RoleAlignment.NeutralOutlier;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
@@ -215,7 +214,6 @@ public sealed class DeathRole(IntPtr cppPtr)
     {
         return ApocalypseUtils.ApocalypseWinConditionMet();
     }
-    RoleOptionsGroup ICustomRole.RoleOptionsGroup => CustomAlignmentsData.NeutralApocalypse;
 
     public bool SetupIntroTeam(IntroCutscene instance,
         ref Il2CppSystem.Collections.Generic.List<PlayerControl> yourTeam)
@@ -237,8 +235,4 @@ public sealed class DeathRole(IntPtr cppPtr)
 
         return true;
     }
-    TeamIntroConfiguration? IntroConfiguration => new(
-        Colors.Apocalypse,
-        TouLocale.Get("TouJKApocalypse"),
-        TouLocale.Get("TouJKApocalypseDesc"));
 }

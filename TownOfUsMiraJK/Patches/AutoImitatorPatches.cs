@@ -21,7 +21,7 @@ public static class AutoImitatorPatches
         var impDescription = "";
 
         var neutRoles = new List<RoleBehaviour>();
-        foreach (var role in CustomRoleManager.AllRoles.Select(x => x is IUnguessable unguessable ? unguessable.AppearAs : x).Where(x => !x.IsCrewmate() && !x.IsImpostor() && x is ICrewVariant && x is not PlaguebearerRole))
+        foreach (var role in CustomRoleManager.AllRoles.Select(x => x is IUnguessable unguessable ? unguessable.AppearAs : x).Where(x => !x.IsCrewmate() && !x.IsImpostor() && x is ICrewVariant))
         {
             if (!neutRoles.Any(x => x.Role == role.Role))
             {

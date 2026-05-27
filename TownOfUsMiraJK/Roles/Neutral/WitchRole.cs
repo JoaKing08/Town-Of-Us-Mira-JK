@@ -273,9 +273,6 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
                         case RoleAlignment.NeutralKilling:
                             player.AddModifier<WitchRevealModifier>(RoleId.Get<NeutralKilling>());
                             break;
-                        case (RoleAlignment)27:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<NeutralApocalypse>());
-                            break;
                     }
                     if (player.IsCrewmate())
                     {

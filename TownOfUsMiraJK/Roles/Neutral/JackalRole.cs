@@ -149,7 +149,7 @@ public sealed class JackalRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
                 factions.Add(RoleTypes.Scientist, apoc);
             }
 
-            foreach (var role in CustomRoleUtils.GetActiveRoles().Where(x => x.GetRoleAlignment() == RoleAlignment.NeutralKilling && x.Role != (RoleTypes)RoleId.Get<VampireRole>()))
+            foreach (var role in CustomRoleUtils.GetActiveRoles().Where(x => x.GetRoleAlignment() == RoleAlignment.NeutralKilling && x.Role != (RoleTypes)RoleId.Get<VampireRole>() && !x.IsApocalypse()))
             {
                 if (!factions.ContainsKey(role.Role))
                 {

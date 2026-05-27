@@ -32,7 +32,6 @@ using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Buttons.Neutral;
 using TownOfUsMiraJK.Enums;
-using TownOfUsMiraJK.GameOptions;
 using TownOfUsMiraJK.Modules.Components;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Utilities;

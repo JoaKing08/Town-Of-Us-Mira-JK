@@ -355,14 +355,14 @@
 	<string name="TouJKJackalRecruitsDieTogether">Recruits Die Together</string>
 	<string name="TouJKJackalRecruitsSeeJackal">Recruits See Jackal</string>
 	<!-- Plaguebearer -->
-    <string name="TouRolePlaguebearerWikiDescription">The Plaguebearer is a Neutral Apocalypse role that needs to infect all other players to turn into the Pestilence.</string>
+    <string name="TouRolePlaguebearerWikiDescription">The Plaguebearer is a Neutral Killing role that needs to infect all other players to turn into the Pestilence. They win with other apocalypse members.</string>
 	<!-- Pestilence -->
-	<string name="TouRolePestilenceWikiDescription">The Pestilence is a Neutral Apocalypse role that can kill and is invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
+	<string name="TouRolePestilenceWikiDescription">The Pestilence is a Neutral Killing role that can kill and is invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
 	<!-- Famine -->
 	<string name="TouJKRoleFamine">Famine</string>
 	<string name="TouJKRoleFamineIntroBlurb">Horseman of the Apocalypse!</string>
 	<string name="TouJKRoleFamineTabDescription">Slowly drain everyone's power with hunger.</string>
-	<string name="TouJKRoleFamineWikiDescription">The Famine is a Neutral Apocalypse role that starves the crew, killing them if they are out of bread. They are invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
+	<string name="TouJKRoleFamineWikiDescription">The Famine is a Neutral Outlier role that starves the crew, killing them if they are out of bread. They are invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
 	<string name="TouJKRoleFamineMessageTitle">Famine Warning</string>
 	<string name="TouJKRoleFamineAnnounceMessage">All of the Crew's bread has been given out.\%nl\%\%role\%, Horseman of the Apocalypse, has emerged!</string>
 	<string name="TouJKRoleFamineStarveMessage">Mere existance of \%role\% drains power\%nl\%from you, your stomach is feeling empty.</string>
@@ -378,7 +378,7 @@
 	<string name="TouJKRoleBakerTabBreadCounter">Bread Left: \%count\%</string>
 	<string name="TouJKRoleBakerTabFedInfo">Fed Players:</string>
 	<!-- Baker Wiki -->
-	<string name="TouJKRoleBakerWikiDescription">The Baker is a Neutral Apocalypse role that needs to feed a certain amount of players to transform into Famine.</string>
+	<string name="TouJKRoleBakerWikiDescription">The Baker is a Neutral Outlier role that needs to feed a certain amount of players to transform into Famine. They win with other apocalypse members.</string>
 	<string name="TouJKRoleBakerBread">Bread</string>
 	<string name="TouJKRoleBakerBreadWikiDescription">Feeds the player bread. After a set amount of bread was given, Baker transforms into Famine.</string>
 	<!-- Baker Options -->
@@ -413,7 +413,7 @@
 	<string name="TouJKRoleWar">War</string>
 	<string name="TouJKRoleWarIntroBlurb">Horseman of the Apocalypse!</string>
 	<string name="TouJKRoleWarTabDescription">Murder everyone and start an eternal war.</string>
-	<string name="TouJKRoleWarWikiDescription">The War is a Neutral Apocalypse role that can kill multiple people in short period of time. They are invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
+	<string name="TouJKRoleWarWikiDescription">The War is a Neutral Killing role that can kill multiple people in short period of time. They are invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
 	<string name="TouJKRoleWarMessageTitle">War Warning</string>
 	<string name="TouJKRoleWarAnnounceMessage">The Crew has been consumed in a great battle.\%nl\%\%role\%, Horseman of the Apocalypse, has emerged!</string>
 	<!-- Soul Collector -->
@@ -422,7 +422,7 @@
 	<string name="TouJKRoleSoulCollectorTabDescription">Collect souls from recently deceased to transform.</string>
 	<string name="TouJKRoleSoulCollectorTabSoulCounter">Souls Left: \%count\%/\%max_count\%</string>
 	<!-- Soul Collector Wiki -->
-	<string name="TouJKRoleSoulCollectorWikiDescription">The Soul Collector is a Neutral Apocalypse role that needs to collect certain amount of souls from dead bodies to transform into Death.</string>
+	<string name="TouJKRoleSoulCollectorWikiDescription">The Soul Collector is a Neutral Outlier role that needs to collect certain amount of souls from dead bodies to transform into Death. They win with other apocalypse members.</string>
 	<string name="TouJKRoleSoulCollectorReap">Reap</string>
 	<string name="TouJKRoleSoulCollectorReapWikiDescription">Collect a soul from a dead body. After a set amount of souls were collected, Soul Collector transforms into Death.</string>
 	<!-- Soul Collector Options -->
@@ -436,7 +436,7 @@
 	<string name="TouJKRoleDeath">Death</string>
 	<string name="TouJKRoleDeathIntroBlurb">Horseman of the Apocalypse!</string>
 	<string name="TouJKRoleDeathTabDescription">Slowly drain everyone's power with hunger.</string>
-	<string name="TouJKRoleDeathWikiDescription">The Death is a Neutral Apocalypse role that kills everyone if they survive too long after transformation. They are invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
+	<string name="TouJKRoleDeathWikiDescription">The Death is a Neutral Outlier role that kills everyone if they survive too long after transformation. They are invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
 	<string name="TouJKRoleDeathMessageTitle">Death Warning</string>
 	<string name="TouJKRoleDeathAnnounceMessage">The souls of the dead were collected.\%nl\%\%role\%, Horseman of the Apocalypse, has emerged!</string>
 	<string name="TouJKRoleDeathArmageddon">Armageddon</string>
@@ -604,7 +604,4 @@
 	<string name="TouJKApocalypseWin">Apocalypse Is Nigh</string>
 	<!-- Role Alignment -->
 	<string name="None">None</string>
-	<string name="27">Neutral Apocalypse</string>
-	<string name="TouJKApocalypse">APOCALYPSE</string>
-	<string name="TouJKApocalypseDesc">You are a member of Apocalypse.</string>
 </resources>

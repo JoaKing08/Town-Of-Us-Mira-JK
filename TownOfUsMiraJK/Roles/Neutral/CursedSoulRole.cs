@@ -30,6 +30,7 @@ using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Roles.Crewmate;
+using TownOfUsMiraJK.Utilities;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Neutral;
@@ -140,6 +141,11 @@ public sealed class CursedSoulRole(IntPtr cppPtr)
                 .Do(x => x.ModifierComponent?.RemoveModifier(x));
             player.AddModifier<PlaguebearerInfectedModifier>(player.PlayerId);
         }
+        else if (player.Data.Role is BakerRole || player.Data.Role is FamineRole)
+        {
+            ModifierUtils.GetActiveModifiers<BakerFedModifier>()
+                .Do(x => x.ModifierComponent?.RemoveModifier(x));
+        }
         else if (player.Data.Role is ArsonistRole)
         {
             ModifierUtils.GetActiveModifiers<ArsonistDousedModifier>().Do(x => x.ModifierComponent?.RemoveModifier(x));
@@ -246,11 +252,11 @@ public sealed class CursedSoulRole(IntPtr cppPtr)
         {
             return opts.SwapWithImpostor;
         }
-        else if (role.GetRoleAlignment() == RoleAlignment.NeutralKilling)
+        else if (role.GetRoleAlignment() == RoleAlignment.NeutralKilling && !role.IsApocalypse())
         {
             return opts.SwapWithNeutralKiller;
         }
-        else if (role.GetRoleAlignment() == (RoleAlignment)27)
+        else if (role.IsApocalypse())
         {
             return opts.SwapWithNeutralApocalypse;
         }

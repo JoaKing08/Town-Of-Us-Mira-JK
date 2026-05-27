@@ -13,7 +13,6 @@ using System.Globalization;
 using System.Reflection;
 using TownOfUs;
 using TownOfUs.Options;
-using TownOfUsMiraJK.GameOptions;
 
 namespace TownOfUsMiraJK;
 

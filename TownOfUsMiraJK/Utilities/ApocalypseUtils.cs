@@ -43,7 +43,7 @@ namespace TownOfUsMiraJK.Utilities
         }
         public static bool IsApocalypse(this RoleBehaviour role)
         {
-            return role.Role == (RoleTypes)RoleId.Get<PlaguebearerJKRole>() || role.Role == (RoleTypes)RoleId.Get<PestilenceJKRole>() || role.Role == (RoleTypes)RoleId.Get<BakerRole>() || role.Role == (RoleTypes)RoleId.Get<FamineRole>() || role.Role == (RoleTypes)RoleId.Get<BerserkerRole>() || role.Role == (RoleTypes)RoleId.Get<WarRole>() || role.Role == (RoleTypes)RoleId.Get<SoulCollectorJKRole>() || role.Role == (RoleTypes)RoleId.Get<DeathRole>();
+            return role.Role == (RoleTypes)RoleId.Get<PlaguebearerRole>() || role.Role == (RoleTypes)RoleId.Get<PestilenceRole>() || role.Role == (RoleTypes)RoleId.Get<BakerRole>() || role.Role == (RoleTypes)RoleId.Get<FamineRole>() || role.Role == (RoleTypes)RoleId.Get<BerserkerRole>() || role.Role == (RoleTypes)RoleId.Get<WarRole>() || role.Role == (RoleTypes)RoleId.Get<SoulCollectorJKRole>() || role.Role == (RoleTypes)RoleId.Get<DeathRole>();
         }
         public static bool IsApocalypseAligned(this PlayerControl player)
         {
@@ -77,6 +77,7 @@ namespace TownOfUsMiraJK.Utilities
         [HarmonyPatch]
         public static class PlaguebearerPatches
         {
+            [HarmonyPatch(typeof(PlaguebearerRole), nameof(PlaguebearerRole.WinConditionMet))]
             [HarmonyPatch(typeof(PestilenceRole), nameof(PestilenceRole.WinConditionMet))]
             [HarmonyPrefix]
             public static bool WinConditionMetPest(ref bool __result)

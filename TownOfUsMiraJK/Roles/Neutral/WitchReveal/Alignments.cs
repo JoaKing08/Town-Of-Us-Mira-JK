@@ -32,7 +32,6 @@ using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Buttons.Neutral;
 using TownOfUsMiraJK.Enums;
-using TownOfUsMiraJK.GameOptions;
 using TownOfUsMiraJK.Modules.Components;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Utilities;
@@ -164,21 +163,6 @@ public sealed class NeutralKilling(IntPtr cppPtr)
     : NeutralRole(cppPtr), ICustomRole
 {
     public string RoleName => TouLocale.Get("NeutralKilling");
-    public Color RoleColor => TownOfUsColors.Neutral;
-    public string RoleDescription => "";
-    public string RoleLongDescription => "";
-    public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
-    public CustomRoleConfiguration Configuration => new(this)
-    {
-        Icon = TouRoleIcons.Neutral,
-        ShowInFreeplay = false,
-        HideSettings = true
-    };
-}
-public sealed class NeutralApocalypse(IntPtr cppPtr)
-    : NeutralRole(cppPtr), ICustomRole
-{
-    public string RoleName => TouLocale.Get("27");
     public Color RoleColor => TownOfUsColors.Neutral;
     public string RoleDescription => "";
     public string RoleLongDescription => "";

@@ -28,7 +28,6 @@ namespace TownOfUsMiraJK.Utilities
             var crewmates = MiscUtils.GetCrewmates(impostors);
 
             var roleOptions = OptionGroupSingleton<RoleOptions>.Instance;
-            var roleOptions2 = OptionGroupSingleton<TownOfUsMiraJK.Options.RoleJKOptions>.Instance;
             var nbCount = UnityEngine.Random.RandomRange((int)roleOptions.MinNeutralBenign.Value,
                 (int)roleOptions.MaxNeutralBenign.Value + 1);
             var neCount = UnityEngine.Random.RandomRange((int)roleOptions.MinNeutralEvil.Value,
@@ -37,10 +36,8 @@ namespace TownOfUsMiraJK.Utilities
                 (int)roleOptions.MaxNeutralKiller.Value + 1);
             var noCount = UnityEngine.Random.RandomRange((int)roleOptions.MinNeutralOutlier.Value,
                 (int)roleOptions.MaxNeutralOutlier.Value + 1);
-            var naCount = UnityEngine.Random.RandomRange((int)roleOptions2.MinNeutralApocalypse.Value,
-                (int)roleOptions2.MaxNeutralApocalypse.Value + 1);
 
-            AdjustNeutralCountsForUpRequests(ref nbCount, ref neCount, ref nkCount, ref noCount, ref naCount, crewmates.Count);
+            AdjustNeutralCountsForUpRequests(ref nbCount, ref neCount, ref nkCount, ref noCount, crewmates.Count);
 
             var excluded = MiscUtils.SpawnableRoles.Where(x => x is ISpawnChange { NoSpawn: true }).Select(x => x.Role);
 
@@ -66,9 +63,8 @@ namespace TownOfUsMiraJK.Utilities
             var neRoles = MiscUtils.GetMaxRolesToAssign(RoleAlignment.NeutralEvil, neCount);
             var nkRoles = MiscUtils.GetMaxRolesToAssign(RoleAlignment.NeutralKilling, nkCount);
             var noRoles = MiscUtils.GetMaxRolesToAssign(RoleAlignment.NeutralOutlier, noCount);
-            var naRoles = MiscUtils.GetMaxRolesToAssign((RoleAlignment)27, naCount);
 
-            var crewCount = crewmates.Count - nbRoles.Count - neRoles.Count - nkRoles.Count - noRoles.Count - naRoles.Count;
+            var crewCount = crewmates.Count - nbRoles.Count - neRoles.Count - nkRoles.Count - noRoles.Count;
             var crewRoles = MiscUtils.GetMaxRolesToAssign(ModdedRoleTeams.Crewmate, crewCount);
             if (!nkRoles.Any(x => x == RoleId.Get<VampireRole>() || x == RoleId.Get<WerewolfRole>()) && !noRoles.Any(x => x == RoleId.Get<NecromancerRole>()))
             {
@@ -83,7 +79,6 @@ namespace TownOfUsMiraJK.Utilities
             crewAndNeutRoles.AddRange(neRoles);
             crewAndNeutRoles.AddRange(nkRoles);
             crewAndNeutRoles.AddRange(noRoles);
-            crewAndNeutRoles.AddRange(naRoles);
             crewAndNeutRoles.AddRange(crewRoles);
 
             AddUpRequestedRolesToPools(impRoles, crewAndNeutRoles);
@@ -141,7 +136,6 @@ namespace TownOfUsMiraJK.Utilities
             var neutEvilRoles = MiscUtils.GetRolesToAssign(RoleAlignment.NeutralEvil, exclusionFilter);
             var neutKillingRoles = MiscUtils.GetRolesToAssign(RoleAlignment.NeutralKilling, exclusionFilter);
             var neutOutlierRoles = MiscUtils.GetRolesToAssign(RoleAlignment.NeutralOutlier, exclusionFilter);
-            var neutApocalypseRoles = MiscUtils.GetRolesToAssign((RoleAlignment)27, exclusionFilter);
             var impConcealRoles = MiscUtils.GetRolesToAssign(RoleAlignment.ImpostorConcealing, exclusionFilter);
             var impKillingRoles = MiscUtils.GetRolesToAssign(RoleAlignment.ImpostorKilling, exclusionFilter);
             var impPowerRoles = MiscUtils.GetRolesToAssign(RoleAlignment.ImpostorPower, exclusionFilter);
@@ -274,11 +268,6 @@ namespace TownOfUsMiraJK.Utilities
 
             specialNeutRoles.AddRange(neutKillingRoles);
 
-            crewRoles.AddRange(MiscUtils.ReadFromBucket(buckets, neutApocalypseRoles, (RoleListOption)25,
-                RoleListOption.NeutSpecial));
-
-            specialNeutRoles.AddRange(neutApocalypseRoles);
-
             crewRoles.AddRange(MiscUtils.ReadFromBucket(buckets, commonNeutRoles, RoleListOption.NeutCommon,
                 RoleListOption.NeutRandom));
 
@@ -405,13 +394,12 @@ namespace TownOfUsMiraJK.Utilities
             AssignVanillaRoles(crewmates, impostors);
             return false;
         }
-        private static void AdjustNeutralCountsForUpRequests(ref int nbCount, ref int neCount, ref int nkCount, ref int noCount, ref int naCount, int crewmateCount)
+        private static void AdjustNeutralCountsForUpRequests(ref int nbCount, ref int neCount, ref int nkCount, ref int noCount, int crewmateCount)
         {
             var upRequestedBenign = false;
             var upRequestedEvil = false;
             var upRequestedKilling = false;
             var upRequestedOutlier = false;
-            var upRequestedApocalypse = false;
 
             var upRequests = UpCommandRequests.GetAllRequests();
             foreach (var (playerName, _) in upRequests)
@@ -455,30 +443,22 @@ namespace TownOfUsMiraJK.Utilities
                                 noCount = 1;
                             }
                             break;
-                        case (RoleAlignment)27:
-                            upRequestedApocalypse = true;
-                            if (naCount == 0)
-                            {
-                                naCount = 1;
-                            }
-                            break;
                     }
                 }
             }
 
-            AdjustNeutralCountsWithProtection(ref nbCount, ref neCount, ref nkCount, ref noCount, ref naCount, crewmateCount,
-                upRequestedBenign, upRequestedEvil, upRequestedKilling, upRequestedOutlier, upRequestedApocalypse);
+            AdjustNeutralCountsWithProtection(ref nbCount, ref neCount, ref nkCount, ref noCount, crewmateCount,
+                upRequestedBenign, upRequestedEvil, upRequestedKilling, upRequestedOutlier);
         }
 
-        private static void AdjustNeutralCountsWithProtection(ref int nbCount, ref int neCount, ref int nkCount, ref int noCount, ref int naCount, int crewmateCount,
-            bool protectBenign, bool protectEvil, bool protectKilling, bool protectOutlier, bool protectApocalypse)
+        private static void AdjustNeutralCountsWithProtection(ref int nbCount, ref int neCount, ref int nkCount, ref int noCount, int crewmateCount,
+            bool protectBenign, bool protectEvil, bool protectKilling, bool protectOutlier)
         {
             var roleOptions = OptionGroupSingleton<RoleOptions>.Instance;
             var minBenign = (int)roleOptions.MinNeutralBenign.Value;
             var minEvil = (int)roleOptions.MinNeutralEvil.Value;
             var minKilling = (int)roleOptions.MinNeutralKiller.Value;
             var minOutlier = (int)roleOptions.MinNeutralOutlier.Value;
-            var minApocalypse = (int)OptionGroupSingleton<TownOfUsMiraJK.Options.RoleJKOptions>.Instance.MinNeutralApocalypse.Value;
 
             if (protectBenign && minBenign < 1)
             {
@@ -496,28 +476,23 @@ namespace TownOfUsMiraJK.Utilities
             {
                 minOutlier = 1;
             }
-            if (protectApocalypse && minApocalypse < 1)
-            {
-                minApocalypse = 1;
-            }
 
-            while (Math.Ceiling((double)crewmateCount / 2) <= nbCount + neCount + nkCount + noCount + naCount)
+            while (Math.Ceiling((double)crewmateCount / 2) <= nbCount + neCount + nkCount + noCount)
             {
-                var totalNeutrals = nbCount + neCount + nkCount + noCount + naCount;
+                var totalNeutrals = nbCount + neCount + nkCount + noCount;
                 if (totalNeutrals == 0)
                 {
                     break;
                 }
 
-                var factionIndices = new List<int> { 0, 1, 2, 3, 4 };
+                var factionIndices = new List<int> { 0, 1, 2, 3 };
                 factionIndices.Shuffle();
 
                 var canSubtractBenign = nbCount > minBenign;
                 var canSubtractEvil = neCount > minEvil;
                 var canSubtractKilling = nkCount > minKilling;
                 var canSubtractOutlier = noCount > minOutlier;
-                var canSubtractApocalypse = naCount > minApocalypse;
-                var canSubtractAny = canSubtractBenign || canSubtractEvil || canSubtractKilling || canSubtractOutlier || canSubtractApocalypse;
+                var canSubtractAny = canSubtractBenign || canSubtractEvil || canSubtractKilling || canSubtractOutlier;
 
                 bool subtracted = false;
                 foreach (var index in factionIndices)
@@ -538,10 +513,6 @@ namespace TownOfUsMiraJK.Utilities
                             break;
                         case 3 when noCount > 0 && (canSubtractOutlier || !canSubtractAny):
                             noCount -= 1;
-                            subtracted = true;
-                            break;
-                        case 4 when naCount > 0 && (canSubtractApocalypse || !canSubtractAny):
-                            naCount -= 1;
                             subtracted = true;
                             break;
                     }
@@ -569,10 +540,6 @@ namespace TownOfUsMiraJK.Utilities
                     else if (noCount > minOutlier)
                     {
                         noCount -= 1;
-                    }
-                    else if (naCount > minApocalypse)
-                    {
-                        naCount -= 1;
                     }
                     else
                     {
@@ -685,21 +652,9 @@ namespace TownOfUsMiraJK.Utilities
             opts.Slot6, opts.Slot7, opts.Slot8, opts.Slot9, opts.Slot10,
             opts.Slot11, opts.Slot12, opts.Slot13, opts.Slot14, opts.Slot15
         };
-            var opts2 = OptionGroupSingleton<TownOfUsMiraJK.Options.RoleJKOptions>.Instance;
-            var slotReplacements = new[]
-            {
-            opts2.Slot1, opts2.Slot2, opts2.Slot3, opts2.Slot4, opts2.Slot5,
-            opts2.Slot6, opts2.Slot7, opts2.Slot8, opts2.Slot9, opts2.Slot10,
-            opts2.Slot11, opts2.Slot12, opts2.Slot13, opts2.Slot14, opts2.Slot15
-        };
             var slotsToAdd = Math.Min(playerCount, 15);
             for (var i = 0; i < slotsToAdd; i++)
             {
-                if (slotReplacements[i] == Options.RoleListOption.NeutralApocalypse)
-                {
-                    buckets.Add((RoleListOption)25);
-                    continue;
-                }
                 buckets.Add(slotValues[i].Value);
             }
 
