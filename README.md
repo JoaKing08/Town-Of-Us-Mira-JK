@@ -43,18 +43,17 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <a href="#witch-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutKilling.png" align="center" />
   <a href="#ammit-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Ammit.png" /></a>
+  <a href="#berserker-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" /></a>
+  <a href="#war-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" /></a>
   <a href="#bloodhound-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" /></a>
   <a href="#shadow-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Shadow.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutOutlier.png" align="center" />
+  <a href="#baker-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" /></a>
+  <a href="#famine-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" /></a>
   <a href="#jackal-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" /></a>
   <a href="#manhunter-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manhunter.png" /></a>
   <a href="#necromancer-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" /></a>
   <a href="#pirate-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" /></a>
-  <a href="#neutral-apocalypse"><img src="./TownOfUsMiraJK/Resources/NeutralApocalypseHeader.png" align="center" /></a>
-  <a href="#baker-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" /></a>
-  <a href="#famine-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" /></a>
-  <a href="#berserker-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" /></a>
-  <a href="#war-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" /></a>
   <a href="#soul-collector-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/SoulCollector.png" /></a>
   <a href="#death-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" /></a>
   
@@ -70,16 +69,15 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 -----------------------
 # Other changes
 - The original Soul Collector's name was changed to "Reaper".
-- Plaguebearer and Pestilence alignments were changed to Neutral Apocalypse.
 - Imitator's Wiki entry now automatically detects all roles with Crew Variants and updates them.
 
 -----------------------
-# Neutral Apocalypse
-Neutral Apocalypse is a new alignment (and faction) to Neutral roles.\
+# Apocalypse
+Apocalypse is a new faction to Neutral roles.\
 The goal of the Apocalypse is to reach majority with no other killers left alive.\
-All of the Neutral Apocalypse roles are in the same faction, and win together.\
-All of the Neutral Apocalypse roles have a goal to reach, after which they transform into a stronger version of itself.\
-Neutral Apocalypse is treated as Neutral Killing to all roles checking for alignment (eg. Seer, Sheriff).
+All of the Apocalypse roles are in the same faction, and win together.\
+All of the Apocalypse roles have a goal to reach, after which they transform into a stronger version of itself.\
+To the Apocalypse roles belong: Baker, Famine, Berserker, War, Plaguebearer, Pestilence, Soul Collector and Death.
 
 -----------------------
 # Role Explanations
@@ -351,11 +349,23 @@ Game Options:
 ### Ammit <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Ammit.png" />
 Inspiration: <b>Goose Goose Duck (Pelican)</b>
 
+### Berserker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" />
+Inspiration: <b>Town Of Salem 2 (Berserker)</b>
+
+### War <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
+Inspiration: <b>Town Of Salem 2 (War)</b>
+
 ### Bloodhound <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" />
 Inspiration: <b>Town Of Salem 2 (Serial Killer)</b>
 
 ### Shadow <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Shadow.png" />
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
+
+### Baker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" />
+Inspiration: <b>Town Of Salem 2 (Baker)</b>
+
+### Famine <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" />
+Inspiration: <b>Town Of Salem 2 (Famine)</b>
 
 ### Jackal <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" />
 Inspiration: <b>Better Town Of Salem 1 & 2 (Jackal)</b>
@@ -369,18 +379,6 @@ Inspiration: <b>Own Idea/Inspiration Unclear</b>
 ### Pirate <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" />
 Inspiration: <b>Town Of Salem 1 & 2 (Pirate)</b>
 
-### Baker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" />
-Inspiration: <b>Town Of Salem 2 (Baker)</b>
-
-### Famine <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" />
-Inspiration: <b>Town Of Salem 2 (Famine)</b>
-
-### Berserker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" />
-Inspiration: <b>Town Of Salem 2 (Berserker)</b>
-
-### War <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
-Inspiration: <b>Town Of Salem 2 (War)</b>
-
 ### Soul Collector <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/SoulCollector.png" />
 Inspiration: <b>Town Of Salem 2 (Soul Collector)</b>
 
@@ -392,7 +390,7 @@ Inspiration: <b>Town Of Salem 2 (Death)</b>
 Inspiration: <b>Better Town Of Salem 2 (Apoc Town Traitor)</b>
 
 ### Tasker <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" />
-Inspiration: <b>Community Sugestion (Tasker by [CraftManiakpl](https://github.com/CraftManiakpl))</b>
+Inspiration: <b>Community Sugestion (Tasker by [CraftR](https://github.com/CraftManiakpl))</b>
 
 ### Outcast <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Outcast.png" />
 Inspiration: <b>Community Sugestion (Unknown by @brzozuwka)</b>
