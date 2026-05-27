@@ -330,11 +330,20 @@ Game Options:
 Alignment: <b>Neutral Evil</b>\
 Inspiration: <b>Town Of Salem (Witch)</b>
 
+### Ammit <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Ammit.png" />
+Inspiration: <b>Goose Goose Duck (Pelican)</b>
+
 ### Bloodhound <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" />
 Inspiration: <b>Town Of Salem 2 (Serial Killer)</b>
 
+### Shadow <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Shadow.png" />
+Inspiration: <b>Own Idea/Inspiration Unclear</b>
+
 ### Jackal <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" />
 Inspiration: <b>Better Town Of Salem 2 (Jackal)</b>
+
+### Manhunter <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manhunter.png" />
+Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 ### Necromancer <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" />
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
