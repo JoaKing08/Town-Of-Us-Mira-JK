@@ -42,9 +42,12 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutEvil.png" align="center" />
   <a href="#witch-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutKilling.png" align="center" />
+  <a href="#ammit-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Ammit.png" /></a>
   <a href="#bloodhound-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" /></a>
+  <a href="#shadow-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Shadow.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutOutlier.png" align="center" />
   <a href="#jackal-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" /></a>
+  <a href="#manhunter-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manhunter.png" /></a>
   <a href="#necromancer-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" /></a>
   <a href="#pirate-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" /></a>
   <a href="#neutral-apocalypse"><img src="./TownOfUsMiraJK/Resources/NeutralApocalypseHeader.png" align="center" /></a>
@@ -62,7 +65,6 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/UniMods.png" />
   <a href="#drunk-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" /></a>
 </p>
-<b>And more...</b>
 
 -----------------------
 # Other changes
