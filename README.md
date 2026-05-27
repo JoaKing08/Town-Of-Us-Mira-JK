@@ -309,7 +309,7 @@ Game Options:
 | Mafioso Kill Cooldown Increase | Increase to the Mafioso's kill cooldown. | 10s |
 | Godfather Can Kill With Mafioso Alive | Whether the Godfather can kill with Mafioso alive. | False |
 | Godfather Can Kill Before Recruiting | Whether the Godfather can kill before Recruiting. | False |
-| Mafioso Dies With Godfather | Whether the Demagogue can be killed by Non-Crewmate roles. | True |
+| Mafioso Dies With Godfather | Whether the Mafioso dies when Godfather dies. | True |
 
 ## Neutral Roles
 ### Cursed Soul <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/CursedSoul.png" />
