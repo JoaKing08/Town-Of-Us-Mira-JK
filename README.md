@@ -402,7 +402,7 @@ Inspiration: <b>Town Of Us (Drunk)</b>
 
 -----------------------
 # Credits
-[CraftManiakpl](https://github.com/CraftManiakpl) for role icons and buttons.
+[CraftR](https://github.com/CraftManiakpl) for role icons and buttons.
 
 # License
 This software is distributed under the GNU GPLv3 License. BepInEx is distributed under the LGPL-2.1 License.
