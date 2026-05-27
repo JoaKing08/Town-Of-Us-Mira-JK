@@ -340,7 +340,7 @@ Inspiration: <b>Town Of Salem 2 (Serial Killer)</b>
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 ### Jackal <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" />
-Inspiration: <b>Better Town Of Salem 2 (Jackal)</b>
+Inspiration: <b>Better Town Of Salem 1 & 2 (Jackal)</b>
 
 ### Manhunter <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manhunter.png" />
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
