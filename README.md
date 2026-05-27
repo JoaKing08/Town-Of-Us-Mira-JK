@@ -294,7 +294,7 @@ Game Options:
 Alignment: <b>Impostor Power</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
-The Godfather is a role that can Recruit a player into their faction turning them into Mafioso./
+The Godfather is a role that can Recruit a player into their faction turning them into Mafioso.\
 The player being Recruited by Godfather must be a Crewmate with no Alliance Modifiers, otherwise the Recruiting fails.
 
 Game Options:
@@ -310,7 +310,7 @@ Game Options:
 Alignment: <b>Neutral Benign</b>\
 Inspiration: <b>Town Of Salem 2 (old Cursed Soul)</b>
 
-The Cursed Soul is a role that can Soul Swap with players to gain their role./
+The Cursed Soul is a role that can Soul Swap with players to gain their role.\
 The Cursed Soul cannot win by themself until they get a role.
 
 Game Options:
@@ -330,10 +330,10 @@ Game Options:
 Alignment: <b>Neutral Evil</b>\
 Inspiration: <b>Town Of Salem (Witch)</b>
 
-The Witch is a role that can force players to use their ability./
-The Witch wins when the Crewmates lose and they survived./
-Alternatively they leave in victory when there are no Crewmates left alive./
-The Witch can Mark a player, to later Control them into using their ability./
+The Witch is a role that can force players to use their ability.\
+The Witch wins when the Crewmates lose and they survived.\
+Alternatively they leave in victory when there are no Crewmates left alive.\
+The Witch can Mark a player, to later Control them into using their ability.\
 Witch will learn if they were successful in forcing the player to use their ability, and which one they used (by keybind).
 
 Game Options:
