@@ -156,7 +156,8 @@ Alignment: <b>Crewmate Killing</b>\
 Inspiration: <b>Town Of Us Reactivated (Vampire Hunter)</b>
 
 The Monster Hunter is a role that can Stake players to check if they are a monster, and killing them if they are.\
-The player is treated as a monster if they are a Vampire, Werewolf or Undead.
+The player is treated as a monster if they are a Vampire, Werewolf or Undead.\
+If there are no monsters, the Monster Hunter won't spawn.
 
 Game Options:
 | Name | Description | Default |
