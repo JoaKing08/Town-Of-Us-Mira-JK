@@ -392,7 +392,7 @@ Inspiration: <b>Town Of Salem 2 (Death)</b>
 Inspiration: <b>Better Town Of Salem 2 (Apoc Town Traitor)</b>
 
 ### Tasker <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" />
-Inspiration: <b>Community Sugestion (Tasker by @craftrpl)</b>
+Inspiration: <b>Community Sugestion (Tasker by [CraftManiakpl](https://github.com/CraftManiakpl))</b>
 
 ### Outcast <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Outcast.png" />
 Inspiration: <b>Community Sugestion (Unknown by @brzozuwka)</b>
@@ -402,7 +402,7 @@ Inspiration: <b>Town Of Us (Drunk)</b>
 
 -----------------------
 # Credits
-<b>@craftrpl</b> on Discord for role icons and buttons.
+[CraftManiakpl](https://github.com/CraftManiakpl) for role icons and buttons.
 
 # License
 This software is distributed under the GNU GPLv3 License. BepInEx is distributed under the LGPL-2.1 License.
