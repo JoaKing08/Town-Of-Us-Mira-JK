@@ -209,7 +209,7 @@ Game Options:
 
 ### Sanctifier <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sanctifier.png" />
 Alignment: <b>Crewmate Protective</b>\
-Inspiration: <b>@chipseq On Discord (Aurial)</b>
+Inspiration: <b>[xChipseq](https://github.com/xChipseq) (Aurial)</b>
 
 ### Tavern Keeper <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" />
 Alignment: <b>Crewmate Support</b>\
