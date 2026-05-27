@@ -330,6 +330,18 @@ Game Options:
 Alignment: <b>Neutral Evil</b>\
 Inspiration: <b>Town Of Salem (Witch)</b>
 
+The Witch is a role that can force players to use their ability./
+The Witch wins when the Crewmates lose and they survived./
+Alternatively they leave in victory when there are no Crewmates left alive./
+The Witch can Mark a player, to later Control them into using their ability./
+Witch will learn if they were successful in forcing the player to use their ability, and which one they used (by keybind).
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Control Cooldown | Cooldown of the Control ability. | 25s |
+| Witch Learns | What the Witch learns about the player after using Control. | Alignment |
+
 ### Ammit <img width="3%" src="./TownOfUsMiraJK/Resources/RoleIcons/Ammit.png" />
 Inspiration: <b>Goose Goose Duck (Pelican)</b>
 
