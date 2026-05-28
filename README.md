@@ -418,6 +418,22 @@ Game Options:
 Alignment: <b>Neutral Killing</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
+The Shadow is a role that can kill players, with two additional abilities.\
+Vanish makes the shadow have very low opacity, be anonymous and move faster.\
+Darkness turns out vision for <i>all</i> other players (including Impostors).
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Kill Cooldown | Cooldown of Shadow's kill button. | 25s |
+| Vanish Cooldown | Cooldown of the Vanish ability. | 25s |
+| Vanish Duration | How long the Vanish ability lasts. | 10s |
+| Shadow Transparency During Vanish | Shadow's opacity during Vanish. | 5% |
+| Shadow Speed During Vanish | Shadow's speed multiplier during Vanish. | x1.25 |
+| Darkness Cooldown | Cooldown of the Darkness ability. | 25s |
+| Darkness Duration | How long the Darkness ability lasts. | 10s |
+| Shadow Can Vent | Whether the Shadow can Vent. | True |
+
 ### Baker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Baker)</b>
