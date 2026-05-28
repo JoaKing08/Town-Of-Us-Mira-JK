@@ -432,15 +432,35 @@ Game Options:
 | Shadow Speed During Vanish | Shadow's speed multiplier during Vanish. | x1.25 |
 | Darkness Cooldown | Cooldown of the Darkness ability. | 25s |
 | Darkness Duration | How long the Darkness ability lasts. | 10s |
-| Shadow Can Vent | Whether the Shadow can Vent. | True |
+| Shadow Can Vent | Whether the Shadow can Vent. | False |
 
 ### Baker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Baker)</b>
 
-### Famine <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" />
+The Baker is a role that can give Bread to players.\
+After they give a certain amount of bread out, they transform into Famine, Horseman of the Apocalypse.
+
+#### Famine <img width="4%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Famine)</b>
+
+The Famine is a role that can Starve players to make them lose Bread.\
+If the player is meant to lose Bread but they don't have any, they die.\
+Additionally every so often and after meetings all players lose 1 Bread due to passive starvation.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Bread Needed To Transform | Amount of players fed needed for Baker to transform into Famine. | 0% |
+| Bread Cooldown | Cooldown of the Bread ability. | 25s |
+| Bread Lasts For | How much charges of Bread are given. | 5s |
+| Not Enough Players Effect | What happens to the Baker when there are not enough players to transform. | Transform |
+| Announce Famine Transformation Delay | Time after transforming, after which the players are notified about transformation. | 10s |
+| Famine Can Vent | Whether the Famine can Vent. | False |
+| Starve Ability Cooldown | Cooldown of the Starve ability. | 25s |
+| Starve Ability Strength | Amount of Bread, that player targeted by Starve ability loses. | 1 |
+| Passive Starving Interval | Interval between passive starvation events. | 35s |
 
 ### Jackal <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" />
 Alignment: <b>Neutral Outlier</b>\
@@ -462,7 +482,7 @@ Inspiration: <b>Town Of Salem 1 & 2 (Pirate)</b>
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Soul Collector)</b>
 
-### Death <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" />
+#### Death <img width="4%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Death)</b>
 
