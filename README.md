@@ -376,7 +376,7 @@ Inspiration: <b>Town Of Salem 2 (Berserker)</b>
 The Berserker is a role that can kill players, lowering their cooldown with each kill.\
 After reaching a certain kill thershold, they transform into War, Horseman of the Apocalypse.
 
-#### War <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
+#### War <img width="4%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
 Alignment: <b>Neutral Killing</b>\
 Inspiration: <b>Town Of Salem 2 (War)</b>
 
