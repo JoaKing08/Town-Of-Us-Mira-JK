@@ -369,7 +369,7 @@ Game Options:
 | Size Increase Per Person Devoured | By how much Ammit's size is increased per Devoured player. | 2.5% |
 | Ammit Can Vent | Whether the Ammit can vent. | False |
 
-### Berserker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" /> / War <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
+### Berserker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" />
 Alignment: <b>Neutral Killing</b>\
 Inspiration: <b>Town Of Salem 2 (Berserker)</b>
 
