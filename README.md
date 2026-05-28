@@ -369,17 +369,50 @@ Game Options:
 | Size Increase Per Person Devoured | By how much Ammit's size is increased per Devoured player. | 2.5% |
 | Ammit Can Vent | Whether the Ammit can vent. | False |
 
-### Berserker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" />
+### Berserker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" /> / War <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
 Alignment: <b>Neutral Killing</b>\
 Inspiration: <b>Town Of Salem 2 (Berserker)</b>
 
-### War <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
+The Berserker is a role that can kill players, lowering their cooldown with each kill.\
+After reaching a certain kill thershold, they transform into War, Horseman of the Apocalypse.
+
+#### War <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/War.png" />
 Alignment: <b>Neutral Killing</b>\
 Inspiration: <b>Town Of Salem 2 (War)</b>
+
+The War is a role that can kill multiple players without reseting the kill cooldown, provided they kill fast enough.\
+The War is immune to all attacks and can only be killed by being voted out.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Instant War Chance | Chance to become War immediately at the start of the game. | 0% |
+| Berserker Initial Kill Cooldown | Initial cooldown of Berserker's kill button. | 25s |
+| Berserker Kill Cooldown Reduction | Decrease to Berserker's kill button cooldown per killed player. | 5s |
+| Berserker Can Vent | Whether the Berserker can vent. | True |
+| Kills Needed To Transform | Kill threshold, after which Berserker transforms into War. | 4 |
+| Announce War Transformation | Whether to announce War transformation on the meeting after transformation. | True |
+| War Kill Cooldown | Cooldown of War's kill button. | 10s |
+| War Killing Spree Duration | Duration during which War can kill without reseting the kill cooldown. | 1s |
+| War Can Vent | Whether the War can vent. | True |
 
 ### Bloodhound <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" />
 Alignment: <b>Neutral Killing</b>\
 Inspiration: <b>Town Of Salem 2 (Serial Killer)</b>
+
+The Bloodhound is a role that can kill players.\
+After killing a certain amount of players, they enter Bloodlust.\
+Bloodlust lasts a certain amount of time, during which Bloodhound's kill cooldown is lowered.\
+Kills during Bloodlust still count towards another Bloodlust, so Bloodhound can have theoretically infinite Bloodlust.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Kill Cooldown | Cooldown of Bloodhound's kill button. | 25s |
+| Kills To Bloodlust | Amount of kills after reaching which Bloodhound enters Bloodlust. | 3 |
+| Kill Cooldown On Bloodlust | Cooldown of Bloodhound's kill button while in Bloodlust. | 10s |
+| Bloodlust Duration | Duration of Bloodhound's Bloodlust condition. | 30s |
+| Bloodhound Can Vent | Whether the Bloodhound can vent. | True |
 
 ### Shadow <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Shadow.png" />
 Alignment: <b>Neutral Killing</b>\
