@@ -18,7 +18,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <a href="#inspector-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" /></a>
   <a href="#watcher-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewKilling.png" align="center" />
-  <a href="#executor-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Executor.png" /></a>
+  <a href="#gunslinger-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Gunslinger.png" /></a>
   <a href="#monster-hunter-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/MonsterHunter.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewPower.png" align="center" />
   <a href="#secretary-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Secretary.png" /></a>
@@ -50,11 +50,10 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutOutlier.png" align="center" />
   <a href="#baker-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Baker.png" /></a>
   <a href="#famine-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Famine.png" /></a>
-  <a href="#jackal-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" /></a>
   <a href="#manhunter-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manhunter.png" /></a>
   <a href="#necromancer-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" /></a>
   <a href="#pirate-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" /></a>
-  <a href="#soul-collector-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/SoulCollector.png" /></a>
+  <a href="#reaper-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Reaper.png" /></a>
   <a href="#death-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" /></a>
   
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/AllianceMods.png" />
@@ -136,18 +135,18 @@ Game Options:
 | Watch Duration | How long the Watch ability lasts. | 10s |
 | Watch Vision Multiplier | How much the screens zooms out while watching. | 1.25x |
 
-### Executor <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Executor.png" />
+### Gunslinger <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Gunslinger.png" />
 Alignment: <b>Crewmate Killing</b>\
 Inspiration: <b>Town Of Salem 2 (Deputy)</b>
 
-The Executor is a role that can Aim at players to later Execute one of them during meeting.
+The Gunslinger is a role that can Aim at players to later Shoot one of them during meeting.
 
 Game Options:
 | Name | Description | Default |
 |----------|:-------------:|:------:|
 | Aim Cooldown | Cooldown of the Aim ability. | 25s |
 | Max Aimed Players | Maximum amount of alive Aimed players. | 5 |
-| Reveal Role After Executing | Whether to reveal Executor's role to everyone after Executing. | False |
+| Reveal Role After Shooting | Whether to reveal Gunslinger's role to everyone after Shooting. | False |
 
 ### Monster Hunter <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/MonsterHunter.png" />
 Alignment: <b>Crewmate Killing</b>\
@@ -462,16 +461,6 @@ Game Options:
 | Starve Ability Strength | Amount of Bread, that player targeted by Starve ability loses. | 1 |
 | Passive Starving Interval | Interval between passive starvation events. | 35s |
 
-### Jackal <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Jackal.png" />
-Alignment: <b>Neutral Outlier</b>\
-Inspiration: <b>Better Town Of Salem 1 & 2 (Jackal)</b>
-
-The Jackal is a role that starts with two players being Recruits.\
-The Recruits are always in opposing factions to eachother.\
-The Recruits lose their original win condition and win with the Jackal instead.\
-When there are no non-Crewmate Recruits the Jackal gains ability to kill.\
-The Recruits and the Jackal know who the Recruits are.
-
 ### Manhunter <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manhunter.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
@@ -484,7 +473,7 @@ Inspiration: <b>Own Idea/Inspiration Unclear</b>
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 1 & 2 (Pirate)</b>
 
-### Soul Collector <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/SoulCollector.png" />
+### Reaper <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Reaper.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Soul Collector)</b>
 
