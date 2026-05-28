@@ -232,7 +232,7 @@ Game Options:
 Alignment: <b>Crewmate Support</b>\
 Inspiration: <b>The Other Roles (Spy)</b>
 
-The Undercover is a role that is seen as random Impostor to other Impostor.\
+The Undercover is a role that is seen as random Impostor role to other Impostor.\
 The role Undercover is disguised as can be seen on modifier tab.
 
 Game Options:
@@ -243,7 +243,7 @@ Game Options:
 | Cover Can Be Impostor Killing | Whether Undercover can be disguised as Impostor Killing. | True |
 | Cover Can Be Impostor Power | Whether Undercover can be disguised as Impostor Power. | True |
 | Cover Can Be Impostor Support | Whether Undercover can be disguised as Impostor Support. | False |
-| Undercover Can Vent | Whether Undercover can Vent. | True |
+| Undercover Can Vent | Whether Undercover can Vent if the role Undercover is disguised as can also Vent. | True |
 | Undercover Can Move In Vents | Whether Undercover can move between Vents. | False |
 
 ## Impostor Roles
@@ -367,7 +367,7 @@ Game Options:
 | Devour Cooldown Increase Per Devour | Increase to the cooldown of the Devour ability per Devoured player. | 5s |
 | Max Devoured Per Round | Maximum Devoured players per round. | Infinite |
 | Size Increase Per Person Devoured | By how much Ammit's size is increased per Devoured player. | 2.5% |
-| Ammit Can Vent | Whether the Ammit can vent. | False |
+| Ammit Can Vent | Whether the Ammit can Vent. | False |
 
 ### Berserker <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Berserker.png" />
 Alignment: <b>Neutral Killing</b>\
@@ -394,7 +394,7 @@ Game Options:
 | Announce War Transformation | Whether to announce War transformation on the meeting after transformation. | True |
 | War Kill Cooldown | Cooldown of War's kill button. | 10s |
 | War Killing Spree Duration | Duration during which War can kill without reseting the kill cooldown. | 1s |
-| War Can Vent | Whether the War can vent. | True |
+| War Can Vent | Whether the War can Vent. | True |
 
 ### Bloodhound <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bloodhound.png" />
 Alignment: <b>Neutral Killing</b>\
@@ -412,7 +412,7 @@ Game Options:
 | Kills To Bloodlust | Amount of kills after reaching which Bloodhound enters Bloodlust. | 3 |
 | Kill Cooldown On Bloodlust | Cooldown of Bloodhound's kill button while in Bloodlust. | 10s |
 | Bloodlust Duration | Duration of Bloodhound's Bloodlust condition. | 30s |
-| Bloodhound Can Vent | Whether the Bloodhound can vent. | True |
+| Bloodhound Can Vent | Whether the Bloodhound can Vent. | True |
 
 ### Shadow <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Shadow.png" />
 Alignment: <b>Neutral Killing</b>\
