@@ -466,6 +466,12 @@ Game Options:
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Better Town Of Salem 1 & 2 (Jackal)</b>
 
+The Jackal is a role that starts with two players being Recruits.\
+The Recruits are always in opposing factions to eachother.\
+The Recruits lose their original win condition and win with the Jackal instead.\
+When there are no non-Crewmate Recruits the Jackal gains ability to kill.\
+The Recruits and the Jackal know who the Recruits are.
+
 ### Manhunter <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manhunter.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
