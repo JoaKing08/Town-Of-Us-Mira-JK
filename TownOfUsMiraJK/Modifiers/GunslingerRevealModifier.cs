@@ -5,10 +5,10 @@ using TownOfUsMiraJK.Roles.Crewmate;
 
 namespace TownOfUs.Modifiers.Crewmate;
 
-public sealed class ExecutorRevealModifier(RoleBehaviour role)
+public sealed class GunslingerRevealModifier(RoleBehaviour role)
     : BaseRevealModifier
 {
-    public override string ModifierName => "Executor Reveal";
+    public override string ModifierName => "Gunslinger Reveal";
 
     public override ChangeRoleResult ChangeRoleResult { get; set; } = ChangeRoleResult.RemoveModifier;
 
@@ -24,9 +24,9 @@ public sealed class ExecutorRevealModifier(RoleBehaviour role)
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (Player.Data.Role is ExecutorRole executor)
+        if (Player.Data.Role is GunslingerRole Gunslinger)
         {
-            Visible = executor.HasExecuted && OptionGroupSingleton<ExecutorOptions>.Instance.Reveal;
+            Visible = Gunslinger.HasShot && OptionGroupSingleton<GunslingerOptions>.Instance.Reveal;
         }
         else
         {

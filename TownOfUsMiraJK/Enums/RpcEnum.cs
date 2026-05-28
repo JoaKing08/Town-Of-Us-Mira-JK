@@ -16,7 +16,7 @@ namespace TownOfUsMiraJK.Enums
         CorrectStake,
         SetUpProphet,
         TeleportBodyguard,
-        ExecutorExecuted,
+        GunslingerShot,
         TriggerWar,
         CollectSoul,
         TriggerDeath,

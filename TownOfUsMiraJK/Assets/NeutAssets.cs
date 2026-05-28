@@ -13,7 +13,7 @@ public static class NeutAssets
     public static LoadableAsset<Sprite> BerserkerVentSprite { get; } = new LoadableResourceAsset($"{ShortPath}.BerserkerVentSprite.png");
     public static LoadableAsset<Sprite> WarKillSprite { get; } = new LoadableResourceAsset($"{ShortPath}.WarKillSprite.png");
     public static LoadableAsset<Sprite> WarVentSprite { get; } = new LoadableResourceAsset($"{ShortPath}.WarVentSprite.png");
-    public static LoadableAsset<Sprite> SoulCollectorReapSprite { get; } = new LoadableResourceAsset($"{ShortPath}.SoulCollectorReapSprite.png");
+    public static LoadableAsset<Sprite> ReaperReapSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ReaperReapSprite.png");
     public static LoadableAsset<Sprite> PirateDuelSprite { get; } = new LoadableResourceAsset($"{ShortPath}.PirateDuelSprite.png");
     public static LoadableAsset<Sprite> PirateScimitarSprite { get; } = new LoadableResourceAsset($"{ShortPath}.PirateScimitarSprite.png", 150);
     public static LoadableAsset<Sprite> PirateRapierSprite { get; } = new LoadableResourceAsset($"{ShortPath}.PirateRapierSprite.png", 150);

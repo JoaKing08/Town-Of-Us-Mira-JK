@@ -12,7 +12,7 @@ public static class CrewAssets
     public static LoadableAsset<Sprite> WatcherWatchSprite { get; } = new LoadableResourceAsset($"{ShortPath}.WatcherWatchSprite.png");
     public static LoadableAsset<Sprite> BodyguardGuardSprite { get; } = new LoadableResourceAsset($"{ShortPath}.BodyguardGuardSprite.png");
     public static LoadableAsset<Sprite> CrusaderFortifySprite { get; } = new LoadableResourceAsset($"{ShortPath}.CrusaderFortifySprite.png");
-    public static LoadableAsset<Sprite> ExecutorAimSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ExecutorAimSprite.png");
-    public static LoadableAsset<Sprite> ExecutorExecuteSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ExecutorExecuteSprite.png", 150);
+    public static LoadableAsset<Sprite> GunslingerAimSprite { get; } = new LoadableResourceAsset($"{ShortPath}.GunslingerAimSprite.png");
+    public static LoadableAsset<Sprite> GunslingerShootSprite { get; } = new LoadableResourceAsset($"{ShortPath}.GunslingerShootSprite.png", 150);
     public static LoadableAsset<Sprite> CoronerAutopsySprite { get; } = new LoadableResourceAsset($"{ShortPath}.CoronerAutopsySprite.png");
 }

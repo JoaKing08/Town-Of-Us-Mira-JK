@@ -114,7 +114,7 @@ public sealed class DeathRole(IntPtr cppPtr)
     }
 
     public bool IsGuessable => false;
-    public RoleBehaviour AppearAs => RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<SoulCollectorJKRole>());
+    public RoleBehaviour AppearAs => RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<ReaperJKRole>());
 
     [MethodRpc((uint)TownOfUsJKRpc.TriggerDeath, LocalHandling = RpcLocalHandling.Before)]
     public static void RpcTriggerDeath(PlayerControl player)
@@ -124,7 +124,7 @@ public sealed class DeathRole(IntPtr cppPtr)
             MiscUtils.RunAnticheatWarning(player);
             return;
         }
-        if (player.HasDied() || (player.Data.Role is not DeathRole && player.Data.Role is not SoulCollectorJKRole))
+        if (player.HasDied() || (player.Data.Role is not DeathRole && player.Data.Role is not ReaperJKRole))
         {
             return;
         }
@@ -142,7 +142,7 @@ public sealed class DeathRole(IntPtr cppPtr)
             Player.AddModifier<InvulnerabilityModifier>(false, false, false);
         }
 
-        var title = $"<color=#{Colors.SoulCollector.ToHtmlStringRGBA()}>{TouLocale.Get("TouJKRoleDeathMessageTitle")}</color>";
+        var title = $"<color=#{Colors.Reaper.ToHtmlStringRGBA()}>{TouLocale.Get("TouJKRoleDeathMessageTitle")}</color>";
         var msg = TouLocale.GetParsed("TouJKRoleDeathAnnounceMessage");
 
         var notif1 = Helpers.CreateAndShowNotification(

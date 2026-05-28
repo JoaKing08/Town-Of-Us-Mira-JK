@@ -20,27 +20,27 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Events.Neutral;
 
-public static class SoulCollectorEvents
+public static class ReaperEvents
 {
     [RegisterEvent]
     public static void AfterMurderEventHandler(AfterMurderEvent @event)
     {
-        if (!CustomRoleUtils.GetActiveRolesOfType<SoulCollectorJKRole>().HasAny())
+        if (!CustomRoleUtils.GetActiveRolesOfType<ReaperJKRole>().HasAny())
         {
             return;
         }
 
-        if (!OptionGroupSingleton<SoulCollectorJKOptions>.Instance.SoulCollectorArrows)
+        if (!OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrows)
         {
             return;
         }
 
-        Coroutines.Start(CoCreateSoulCollectorArrow(@event.Target));
+        Coroutines.Start(CoCreateReaperArrow(@event.Target));
     }
 
-    public static IEnumerator CoCreateSoulCollectorArrow(PlayerControl target)
+    public static IEnumerator CoCreateReaperArrow(PlayerControl target)
     {
-        yield return new WaitForSeconds(OptionGroupSingleton<SoulCollectorJKOptions>.Instance.SoulCollectorArrowDelay.Value);
+        yield return new WaitForSeconds(OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrowDelay.Value);
 
         var deadBody = UnityEngine.Object.FindObjectsOfType<DeadBody>().FirstOrDefault(x => x.ParentId == target.PlayerId);
 
@@ -49,11 +49,11 @@ public static class SoulCollectorEvents
             yield break;
         }
 
-        foreach (var soulCollector in CustomRoleUtils.GetActiveRolesOfType<SoulCollectorJKRole>().Select(x => x.Player))
+        foreach (var soulCollector in CustomRoleUtils.GetActiveRolesOfType<ReaperJKRole>().Select(x => x.Player))
         {
             if (soulCollector.AmOwner)
             {
-                soulCollector.AddModifier<SoulCollectorArrowModifier>(deadBody, Colors.SoulCollector);
+                soulCollector.AddModifier<ReaperArrowModifier>(deadBody, Colors.Reaper);
             }
         }
     }

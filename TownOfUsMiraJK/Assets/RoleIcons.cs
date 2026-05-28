@@ -15,7 +15,7 @@ public static class RoleIcons
     public static LoadableAsset<Sprite> Watcher { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Watcher.png", 200);
     public static LoadableAsset<Sprite> Bodyguard { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Bodyguard.png", 200);
     public static LoadableAsset<Sprite> Crusader { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Crusader.png", 200);
-    public static LoadableAsset<Sprite> Executor { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Executor.png", 200);
+    public static LoadableAsset<Sprite> Gunslinger { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Gunslinger.png", 200);
     public static LoadableAsset<Sprite> Coroner { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Coroner.png", 200);
     public static LoadableAsset<Sprite> Secretary { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Secretary.png", 200);
 
@@ -24,7 +24,7 @@ public static class RoleIcons
     public static LoadableAsset<Sprite> Famine { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Famine.png", 200);
     public static LoadableAsset<Sprite> Berserker { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Berserker.png", 200);
     public static LoadableAsset<Sprite> War { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.War.png", 200);
-    public static LoadableAsset<Sprite> SoulCollector { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.SoulCollector.png", 200);
+    public static LoadableAsset<Sprite> Reaper { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Reaper.png", 200);
     public static LoadableAsset<Sprite> Death { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Death.png", 200);
     public static LoadableAsset<Sprite> Pirate { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Pirate.png", 200);
     public static LoadableAsset<Sprite> Bloodhound { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Bloodhound.png", 200);

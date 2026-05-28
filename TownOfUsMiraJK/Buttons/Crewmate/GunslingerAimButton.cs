@@ -32,38 +32,38 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Crewmate;
 
-public sealed class ExecutorAimButton : TownOfUsKillRoleButton<ExecutorRole, PlayerControl>
+public sealed class GunslingerAimButton : TownOfUsKillRoleButton<GunslingerRole, PlayerControl>
 {
-    public override string Name => TouLocale.GetParsed("TouJKRoleExecutorAim", "Aim");
+    public override string Name => TouLocale.GetParsed("TouJKRoleGunslingerAim", "Aim");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Executor;
-    public override float Cooldown => Math.Clamp(OptionGroupSingleton<ExecutorOptions>.Instance.AimCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.ExecutorAimSprite;
-    public override int MaxUses => (int)OptionGroupSingleton<ExecutorOptions>.Instance.AimMaxUses;
+    public override Color TextOutlineColor => Colors.Gunslinger;
+    public override float Cooldown => Math.Clamp(OptionGroupSingleton<GunslingerOptions>.Instance.AimCooldown + MapCooldown, 5f, 120f);
+    public override LoadableAsset<Sprite> Sprite => CrewAssets.GunslingerAimSprite;
+    public override int MaxUses => (int)OptionGroupSingleton<GunslingerOptions>.Instance.AimMaxUses;
     public override bool CanUse()
     {
-        return base.CanUse() && !Role.HasExecuted;
+        return base.CanUse() && !Role.HasShot;
     }
 
     public override PlayerControl? GetTarget()
     {
         return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance,
-            predicate: x => !x.HasModifier<ExecutorAimedModifier>(y => y.Executor.PlayerId == PlayerControl.LocalPlayer.PlayerId));
+            predicate: x => !x.HasModifier<GunslingerAimedModifier>(y => y.Gunslinger.PlayerId == PlayerControl.LocalPlayer.PlayerId));
     }
 
     protected override void OnClick()
     {
         if (Target == null)
         {
-            Error("Executor Aim: Target is null");
+            Error("Gunslinger Aim: Target is null");
             return;
         }
 
-        Target.RpcAddModifier<ExecutorAimedModifier>(PlayerControl.LocalPlayer);
+        Target.RpcAddModifier<GunslingerAimedModifier>(PlayerControl.LocalPlayer);
 
         var notif1 = Helpers.CreateAndShowNotification(
-            TouLocale.GetParsed("TouJKRoleExecutorAimNotif").Replace("<player>", $"{Colors.Executor.ToTextColor()}{Target.Data.PlayerName}</color>"),
-            Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Executor.LoadAsset());
+            TouLocale.GetParsed("TouJKRoleGunslingerAimNotif").Replace("<player>", $"{Colors.Gunslinger.ToTextColor()}{Target.Data.PlayerName}</color>"),
+            Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Gunslinger.LoadAsset());
 
         notif1.AdjustNotification();
     }

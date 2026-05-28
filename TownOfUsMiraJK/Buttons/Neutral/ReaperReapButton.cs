@@ -30,25 +30,25 @@ using static UnityEngine.GraphicsBuffer;
 
 namespace TownOfUsMiraJK.Buttons.Neutral;
 
-public sealed class SoulCollectorReapButton : TownOfUsRoleButton<SoulCollectorJKRole, DeadBody>
+public sealed class ReaperReapButton : TownOfUsRoleButton<ReaperJKRole, DeadBody>
 {
-    public override string Name => TouLocale.GetParsed("TouJKRoleSoulCollectorReap", "Reap");
+    public override string Name => TouLocale.GetParsed("TouJKRoleReaperReap", "Reap");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override int MaxUses => (int)OptionGroupSingleton<SoulCollectorJKOptions>.Instance.SoulsToTransform;
-    public override Color TextOutlineColor => Colors.SoulCollector;
-    public override float Cooldown => Math.Clamp(OptionGroupSingleton<SoulCollectorJKOptions>.Instance.ReapCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.SoulCollectorReapSprite;
+    public override int MaxUses => (int)OptionGroupSingleton<ReaperJKOptions>.Instance.SoulsToTransform;
+    public override Color TextOutlineColor => Colors.Reaper;
+    public override float Cooldown => Math.Clamp(OptionGroupSingleton<ReaperJKOptions>.Instance.ReapCooldown + MapCooldown, 5f, 120f);
+    public override LoadableAsset<Sprite> Sprite => NeutAssets.ReaperReapSprite;
 
     protected override void OnClick()
     {
         if (Target == null)
         {
-            Error("SoulCollector Reap: Target is null");
+            Error("Reaper Reap: Target is null");
             return;
         }
 
-        SoulCollectorJKRole.RpcReapSoul(Role.Player, Target);
-        if (Role.SoulCount >= OptionGroupSingleton<SoulCollectorJKOptions>.Instance.SoulsToTransform)
+        ReaperJKRole.RpcReapSoul(Role.Player, Target);
+        if (Role.SoulCount >= OptionGroupSingleton<ReaperJKOptions>.Instance.SoulsToTransform)
         {
             DeathRole.RpcTriggerDeath(Role.Player);
         }
@@ -58,7 +58,7 @@ public sealed class SoulCollectorReapButton : TownOfUsRoleButton<SoulCollectorJK
     {
         return PlayerControl.LocalPlayer == null ? null : Helpers.GetNearestDeadBodies(PlayerControl.LocalPlayer.GetTruePosition(),
             PlayerControl.LocalPlayer.MaxReportDistance / 4f, Helpers.CreateFilter(Constants.NotShipMask))
-            .Find(component => component && !component.Reported && !CustomRoleUtils.GetActiveRolesOfType<SoulCollectorJKRole>()
+            .Find(component => component && !component.Reported && !CustomRoleUtils.GetActiveRolesOfType<ReaperJKRole>()
             .Any(x => x.ReapedBodies.Contains(component.ParentId)));
     }
 

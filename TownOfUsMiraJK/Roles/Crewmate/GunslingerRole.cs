@@ -40,12 +40,12 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Crewmate;
 
-public sealed class ExecutorRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCrewRole, IWikiDiscoverable, IDoomable
+public sealed class GunslingerRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCrewRole, IWikiDiscoverable, IDoomable
 {
     private MeetingMenu meetingMenu;
-    public bool HasExecuted { get; set; }
+    public bool HasShot { get; set; }
     public DoomableType DoomHintType => DoomableType.Fearmonger;
-    public string LocaleKey => "Executor";
+    public string LocaleKey => "Gunslinger";
     public string RoleName => TouLocale.Get($"TouJKRole{LocaleKey}");
     public string RoleDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}IntroBlurb");
     public string RoleLongDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}TabDescription");
@@ -66,31 +66,31 @@ public sealed class ExecutorRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCrew
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Aim", "Aim"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}AimWikiDescription"),
-                    CrewAssets.ExecutorAimSprite),
-                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Execute", "Execute"),
-                    TouLocale.GetParsed($"TouJKRole{LocaleKey}ExecuteWikiDescription"),
-                    CrewAssets.ExecutorExecuteSprite)
+                    CrewAssets.GunslingerAimSprite),
+                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Shoot", "Shoot"),
+                    TouLocale.GetParsed($"TouJKRole{LocaleKey}ShootWikiDescription"),
+                    CrewAssets.GunslingerShootSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Executor;
+    public Color RoleColor => Colors.Gunslinger;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateKilling;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        Icon = RoleIcons.Executor,
+        Icon = RoleIcons.Gunslinger,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         IntroSound = TouAudio.DeputyIntroSound
     };
-    public bool IsPowerCrew => !HasExecuted;
+    public bool IsPowerCrew => !HasShot;
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
-        if (!Player.HasModifier<ExecutorRevealModifier>())
+        if (!Player.HasModifier<GunslingerRevealModifier>())
         {
-            Player.AddModifier<ExecutorRevealModifier>(RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<ExecutorRole>()));
+            Player.AddModifier<GunslingerRevealModifier>(RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<GunslingerRole>()));
         }
 
         if (Player.AmOwner)
@@ -99,7 +99,7 @@ public sealed class ExecutorRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCrew
                 this,
                 ClickGuess,
                 MeetingAbilityType.Click,
-                CrewAssets.ExecutorExecuteSprite,
+                CrewAssets.GunslingerShootSprite,
                 null!,
                 IsExempt)
             {
@@ -110,32 +110,32 @@ public sealed class ExecutorRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCrew
 
     public void Clear()
     {
-        var player = ModifierUtils.GetPlayersWithModifier<ExecutorAimedModifier>(x => x.Executor.AmOwner).FirstOrDefault();
+        var player = ModifierUtils.GetPlayersWithModifier<GunslingerAimedModifier>(x => x.Gunslinger.AmOwner).FirstOrDefault();
 
         if (player != null && Player.AmOwner)
         {
-            player.RpcRemoveModifier<ExecutorAimedModifier>();
+            player.RpcRemoveModifier<GunslingerAimedModifier>();
         }
     }
 
     public void ClickGuess(PlayerVoteArea voteArea, MeetingHud __)
     {
         var target = GameData.Instance.GetPlayerById(voteArea.TargetPlayerId).Object;
-        var role = Player.GetRole<ExecutorRole>()!;
+        var role = Player.GetRole<GunslingerRole>()!;
 
         if (!target.HasModifier<InvulnerabilityModifier>())
         {
             Player.RpcSpecialMurder(target, MeetingCheck.ForMeeting, true, createDeadBody: false, teleportMurderer: false,
                 showKillAnim: false,
                 playKillSound: false,
-                causeOfDeath: "Executor");
+                causeOfDeath: "Gunslinger");
         }
 
         if (Player.AmOwner)
         {
             meetingMenu?.HideButtons();
         }
-        RpcExecutorExecuted(Player, target.PlayerId);
+        RpcGunslingerShot(Player, target.PlayerId);
 
         Clear();
     }
@@ -143,20 +143,20 @@ public sealed class ExecutorRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCrew
     public bool IsExempt(PlayerVoteArea voteArea)
     {
         return voteArea?.TargetPlayerId == Player.PlayerId || Player.Data.IsDead || voteArea!.AmDead ||
-            HasExecuted || voteArea.GetPlayer()?.HasModifier<JailedModifier>() == true ||
-            !voteArea.GetPlayer()?.HasModifier<ExecutorAimedModifier>(x => x.Executor.PlayerId == Player.PlayerId) == true || voteArea.GetPlayer()?.IsRole<DemagogueRole>() == true;
+            HasShot || voteArea.GetPlayer()?.HasModifier<JailedModifier>() == true ||
+            !voteArea.GetPlayer()?.HasModifier<GunslingerAimedModifier>(x => x.Gunslinger.PlayerId == Player.PlayerId) == true || voteArea.GetPlayer()?.IsRole<DemagogueRole>() == true;
     }
 
-    [MethodRpc((uint)TownOfUsJKRpc.ExecutorExecuted)]
-    public static void RpcExecutorExecuted(PlayerControl executor, byte target)
+    [MethodRpc((uint)TownOfUsJKRpc.GunslingerShot)]
+    public static void RpcGunslingerShot(PlayerControl Gunslinger, byte target)
     {
         if (LobbyBehaviour.Instance)
         {
-            MiscUtils.RunAnticheatWarning(executor);
+            MiscUtils.RunAnticheatWarning(Gunslinger);
             return;
         }
-        var role = executor.Data.Role as ExecutorRole;
-        role.HasExecuted = true;
+        var role = Gunslinger.Data.Role as GunslingerRole;
+        role.HasShot = true;
     }
 
     public override void Deinitialize(PlayerControl targetPlayer)
@@ -191,7 +191,7 @@ public sealed class ExecutorRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCrew
         if (Player.AmOwner)
         {
             meetingMenu.GenButtons(MeetingHud.Instance,
-                Player.AmOwner && !Player.HasDied() && !HasExecuted && !Player.HasModifier<JailedModifier>());
+                Player.AmOwner && !Player.HasDied() && !HasShot && !Player.HasModifier<JailedModifier>());
         }
     }
 }

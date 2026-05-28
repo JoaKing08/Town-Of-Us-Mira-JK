@@ -13,11 +13,11 @@ using UnityEngine;
 
 namespace TownOfUs.Modifiers.Neutral;
 
-public sealed class SoulCollectorArrowModifier(DeadBody deadBody, Color color) : TimedModifier
+public sealed class ReaperArrowModifier(DeadBody deadBody, Color color) : TimedModifier
 {
     private ArrowBehaviour? _arrow;
     public override string ModifierName => "Death Notifier";
-    public override float Duration => OptionGroupSingleton<SoulCollectorJKOptions>.Instance.SoulCollectorArrowDuration.Value;
+    public override float Duration => OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrowDuration.Value;
     public override bool AutoStart => false;
     public override bool RemoveOnComplete => true;
     public override bool HideOnUi => true;
@@ -26,7 +26,7 @@ public sealed class SoulCollectorArrowModifier(DeadBody deadBody, Color color) :
     public override void OnActivate()
     {
         base.OnActivate();
-        if (OptionGroupSingleton<SoulCollectorJKOptions>.Instance.SoulCollectorArrowDuration.Value > 0f)
+        if (OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrowDuration.Value > 0f)
         {
             StartTimer();
         }

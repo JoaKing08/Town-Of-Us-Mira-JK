@@ -47,8 +47,7 @@ namespace TownOfUsMiraJK.Utilities
             {
                 var apocFlag = PlayerControl.LocalPlayer.IsApocalypseAligned() && player.IsApocalypseAligned();
                 var undeadFlag = (PlayerControl.LocalPlayer.Is((RoleTypes)RoleId.Get<NecromancerRole>()) || PlayerControl.LocalPlayer.HasModifier<NecromancerUndeadModifier>()) && (player.Is((RoleTypes)RoleId.Get<NecromancerRole>()) || player.HasModifier<NecromancerUndeadModifier>());
-                var recruitFlag = (PlayerControl.LocalPlayer.Is((RoleTypes)RoleId.Get<JackalRole>()) || PlayerControl.LocalPlayer.HasModifier<JackalRecruitModifier>()) && ((player.Is((RoleTypes)RoleId.Get<JackalRole>()) && OptionGroupSingleton<JackalOptions>.Instance.RecruitsSeeJackal) || player.HasModifier<JackalRecruitModifier>());
-                if ((apocFlag || undeadFlag || recruitFlag) && !player.AmOwner)
+                if ((apocFlag || undeadFlag) && !player.AmOwner)
                 {
                     if (!player.HasModifier<SeesRole>())
                     {

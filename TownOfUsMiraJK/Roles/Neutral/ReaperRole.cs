@@ -38,7 +38,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Neutral;
 
-public sealed class SoulCollectorJKRole(IntPtr cppPtr)
+public sealed class ReaperJKRole(IntPtr cppPtr)
     : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable, ICrewVariant
 {
     public override void SpawnTaskHeader(PlayerControl playerControl)
@@ -56,7 +56,7 @@ public sealed class SoulCollectorJKRole(IntPtr cppPtr)
     public int SoulCount { get; set; }
     public RoleBehaviour CrewVariant => RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<ForensicRole>());
     public DoomableType DoomHintType => DoomableType.Death;
-    public string LocaleKey => "SoulCollector";
+    public string LocaleKey => "Reaper";
     public string RoleName => TouLocale.Get($"TouJKRole{LocaleKey}");
     public string RoleDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}IntroBlurb");
     public string RoleLongDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}TabDescription");
@@ -77,19 +77,19 @@ public sealed class SoulCollectorJKRole(IntPtr cppPtr)
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Reap", "Reap"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}ReapWikiDescription"),
-                    NeutAssets.SoulCollectorReapSprite),
+                    NeutAssets.ReaperReapSprite),
             };
         }
     }
 
-    public Color RoleColor => Colors.SoulCollector;
+    public Color RoleColor => Colors.Reaper;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralOutlier;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
         IntroSound = TouAudio.MediumIntroSound,
-        Icon = RoleIcons.SoulCollector,
+        Icon = RoleIcons.Reaper,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
         MaxRoleCount = 1,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()
@@ -99,7 +99,7 @@ public sealed class SoulCollectorJKRole(IntPtr cppPtr)
     public StringBuilder SetTabText()
     {
         var stringB = ITownOfUsRole.SetNewTabText(this);
-        stringB.Append(TownOfUsPlugin.Culture, $"\n<b>{TouLocale.GetParsed("TouJKRoleSoulCollectorTabSoulCounter").Replace("<count>", $"{SoulCount}").Replace("<max_count>", $"{(int)OptionGroupSingleton<SoulCollectorJKOptions>.Instance.SoulsToTransform}")}</b>");
+        stringB.Append(TownOfUsPlugin.Culture, $"\n<b>{TouLocale.GetParsed("TouJKRoleReaperTabSoulCounter").Replace("<count>", $"{SoulCount}").Replace("<max_count>", $"{(int)OptionGroupSingleton<ReaperJKOptions>.Instance.SoulsToTransform}")}</b>");
 
         return stringB;
     }
@@ -128,7 +128,7 @@ public sealed class SoulCollectorJKRole(IntPtr cppPtr)
     [MethodRpc((uint)TownOfUsJKRpc.CollectSoul)]
     public static void RpcReapSoul(PlayerControl soulCollector, DeadBody body)
     {
-        var role = soulCollector.GetRole<SoulCollectorJKRole>();
+        var role = soulCollector.GetRole<ReaperJKRole>();
         role.ReapedBodies.Add(body.ParentId);
         role.SoulCount++;
         Coroutines.Start(CoReapSoul(body));

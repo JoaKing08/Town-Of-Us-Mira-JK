@@ -43,8 +43,8 @@ namespace TownOfUsMiraJK.Patches
             bgModifier => bgModifier.Bodyguard.PlayerId == PlayerControl.LocalPlayer.PlayerId;
         private static Func<CrusaderFortifyModifier, bool> CrusaderPredicate { get; } =
             crModifier => crModifier.Crusader.PlayerId == PlayerControl.LocalPlayer.PlayerId;
-        private static Func<ExecutorAimedModifier, bool> ExecutorPredicate { get; } =
-            crModifier => crModifier.Executor.PlayerId == PlayerControl.LocalPlayer.PlayerId;
+        private static Func<GunslingerAimedModifier, bool> GunslingerPredicate { get; } =
+            crModifier => crModifier.Gunslinger.PlayerId == PlayerControl.LocalPlayer.PlayerId;
         private static Func<WitchMarkModifier, bool> WitchPredicate { get; } =
             crModifier => crModifier.Witch.PlayerId == PlayerControl.LocalPlayer.PlayerId;
         private static Func<PoisonerPoisonModifier, bool> PoisonerPredicate { get; } =
@@ -93,10 +93,6 @@ namespace TownOfUsMiraJK.Patches
                 {
                     __result += $"<color=#FFFFFF> (<color=#{Colors.Necromancer.ToHtmlStringRGBA()}>{undeadMod.ShortName}</color>)</color>";
                 }
-                if (player.TryGetModifier<JackalRecruitModifier>(out var recruitMod) && (JackalRecruitModifier.RecruitVisibilityFlag(player) || isDead))
-                {
-                    __result += $"<color=#FFFFFF> (<color=#{Colors.Jackal.ToHtmlStringRGBA()}>{recruitMod.ShortName}</color>)</color>";
-                }
                 if (player.Is((RoleTypes)RoleId.Get<UndercoverRole>()) && isDead)
                 {
                     __result += $"<color=#{Colors.Undercover.ToHtmlStringRGBA()}> €</color>";
@@ -131,10 +127,10 @@ namespace TownOfUsMiraJK.Patches
                 {
                     __result += $"<color=#{Colors.TavernKeeper.ToHtmlStringRGBA()}> ø</color>";
                 }
-                if (player.HasModifier(ExecutorPredicate) && PlayerControl.LocalPlayer.IsRole<ExecutorRole>()
-                    || player.HasModifier<ExecutorAimedModifier>() && isDead)
+                if (player.HasModifier(GunslingerPredicate) && PlayerControl.LocalPlayer.IsRole<GunslingerRole>()
+                    || player.HasModifier<GunslingerAimedModifier>() && isDead)
                 {
-                    __result += $"<color=#{Colors.Executor.ToHtmlStringRGBA()}> ‡</color>";
+                    __result += $"<color=#{Colors.Gunslinger.ToHtmlStringRGBA()}> ‡</color>";
                 }
                 if (player.HasModifier(WitchPredicate) && PlayerControl.LocalPlayer.IsRole<WitchRole>()
                     || player.HasModifier<WitchMarkModifier>() && isDead)

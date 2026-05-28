@@ -25,7 +25,7 @@ public sealed class MonsterHunterOptions : AbstractOptionGroup<MonsterHunterRole
     [ModdedToggleOption("TouJKMonsterHunterSuicide")]
     public bool Suicide { get; set; } = false;
 
-    [ModdedEnumOption("TouJKMonsterHunterOnMonsterDeath", typeof(BecomesOnMonsterDeath), ["CrewmateKeyword", "TouRoleDeputy", "TouRoleHunter", "TouRoleOfficer", "TouRoleSheriff", "TouRoleVeteran", "TouRoleVigilante", "TouJKRoleExecutor"])]
+    [ModdedEnumOption("TouJKMonsterHunterOnMonsterDeath", typeof(BecomesOnMonsterDeath), ["CrewmateKeyword", "TouRoleDeputy", "TouRoleHunter", "TouRoleOfficer", "TouRoleSheriff", "TouRoleVeteran", "TouRoleVigilante", "TouJKRoleGunslinger"])]
     public BecomesOnMonsterDeath BecomesOnMonsterDeath { get; set; } = BecomesOnMonsterDeath.Crewmate;
 }
 public enum BecomesOnMonsterDeath
@@ -37,5 +37,5 @@ public enum BecomesOnMonsterDeath
     Sheriff,
     Veteran,
     Vigilante,
-    Executor
+    Gunslinger
 }

@@ -15,7 +15,7 @@ namespace TownOfUsMiraJK.Enums
         WatcherWatch,
         BodyguardGuard,
         CrusaderFortify,
-        ExecutorAim,
+        GunslingerAim,
         PirateDuel,
         WitchMark,
         WitchControl,

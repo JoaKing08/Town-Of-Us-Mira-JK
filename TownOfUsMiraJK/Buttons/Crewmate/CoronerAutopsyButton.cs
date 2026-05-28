@@ -49,7 +49,7 @@ public sealed class CoronerAutopsyButton : TownOfUsRoleButton<CoronerRole, DeadB
     {
         if (Target == null)
         {
-            Error("SoulCollector Reap: Target is null");
+            Error("Reaper Reap: Target is null");
             return;
         }
 

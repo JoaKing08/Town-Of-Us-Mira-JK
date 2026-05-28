@@ -98,25 +98,5 @@ public static class JKIntroScenePatches
     [HarmonyPrefix]
     public static void RecruitBeginPatch(IntroCutscene __instance, [HarmonyArgument(0)] ref Il2CppSystem.Collections.Generic.List<PlayerControl> yourTeam)
     {
-        if (PlayerControl.LocalPlayer.HasModifier<JackalRecruitModifier>())
-        {
-
-            var jackTeam = new Il2CppSystem.Collections.Generic.List<PlayerControl>();
-
-            jackTeam.Add(PlayerControl.LocalPlayer);
-            if (OptionGroupSingleton<JackalOptions>.Instance.RecruitsSeeJackal)
-            {
-                foreach (var player in CustomRoleUtils.GetActiveRolesOfType<JackalRole>().Select(x => x.Player))
-                {
-                    jackTeam.Add(player);
-                }
-            }
-            foreach (var player in ModifierUtils.GetPlayersWithModifier<JackalRecruitModifier>(x => !x.Player.AmOwner))
-            {
-                jackTeam.Add(player);
-            }
-
-            yourTeam = jackTeam;
-        }
     }
 }

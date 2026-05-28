@@ -54,7 +54,7 @@ public static class MonsterHunterEvents
                     BecomesOnMonsterDeath.Sheriff => RoleId.Get<SheriffRole>(),
                     BecomesOnMonsterDeath.Veteran => RoleId.Get<VeteranRole>(),
                     BecomesOnMonsterDeath.Vigilante => RoleId.Get<VigilanteRole>(),
-                    BecomesOnMonsterDeath.Executor => RoleId.Get<DeputyRole>(),
+                    BecomesOnMonsterDeath.Gunslinger => RoleId.Get<DeputyRole>(),
                     _ => (ushort)RoleTypes.Crewmate
                 };
                 mh.Player.ChangeRole(roleId);

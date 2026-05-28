@@ -18,24 +18,24 @@ using UnityEngine;
 
 namespace TownOfUs.Modifiers.Crewmate;
 
-public sealed class ExecutorAimedModifier(PlayerControl executor) : BaseModifier
+public sealed class GunslingerAimedModifier(PlayerControl Gunslinger) : BaseModifier
 {
     public override string ModifierName => "Aimed";
 
     public override bool HideOnUi => true;
 
-    public PlayerControl Executor { get; } = executor;
+    public PlayerControl Gunslinger { get; } = Gunslinger;
 
 
     public override void OnActivate()
     {
-        var touAbilityEvent = new TouAbilityEvent((AbilityType)JKAbilityType.ExecutorAim, Executor, Player);
+        var touAbilityEvent = new TouAbilityEvent((AbilityType)JKAbilityType.GunslingerAim, Gunslinger, Player);
         MiraEventManager.InvokeEvent(touAbilityEvent);
     }
 
     public override void Update()
     {
-        if (Player == null || Executor == null)
+        if (Player == null || Gunslinger == null)
         {
             ModifierComponent?.RemoveModifier(this);
             return;
@@ -45,9 +45,9 @@ public sealed class ExecutorAimedModifier(PlayerControl executor) : BaseModifier
     public override void OnDeath(DeathReason reason)
     {
         ModifierComponent?.RemoveModifier(this);
-        if (Executor.AmOwner)
+        if (Gunslinger.AmOwner)
         {
-            var button = CustomButtonSingleton<ExecutorAimButton>.Instance;
+            var button = CustomButtonSingleton<GunslingerAimButton>.Instance;
             button.UsesLeft += 1;
             button.SetUses(button.UsesLeft);
         }

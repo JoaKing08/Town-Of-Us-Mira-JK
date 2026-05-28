@@ -83,7 +83,7 @@ public sealed class NecromancerReanimateButton : TownOfUsRoleButton<NecromancerR
     {
         return PlayerControl.LocalPlayer == null ? null : Helpers.GetNearestDeadBodies(PlayerControl.LocalPlayer.GetTruePosition(),
             PlayerControl.LocalPlayer.MaxReportDistance / 4f, Helpers.CreateFilter(Constants.NotShipMask))
-            .Find(component => component && !component.Reported && !CustomRoleUtils.GetActiveRolesOfType<SoulCollectorJKRole>()
+            .Find(component => component && !component.Reported && !CustomRoleUtils.GetActiveRolesOfType<ReaperJKRole>()
             .Any(x => x.ReapedBodies.Contains(component.ParentId)));
     }
 

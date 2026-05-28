@@ -14,14 +14,14 @@ public static class Colors
     public static Color Watcher => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(128, 223, 223, 255);
     public static Color Bodyguard => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(54, 69, 79, 255);
     public static Color Crusader => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(239, 239, 239, 255);
-    public static Color Executor => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(170, 170, 170, 255);
+    public static Color Gunslinger => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(170, 170, 170, 255);
     public static Color Coroner => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(180, 160, 160, 255);
     public static Color Secretary => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(153, 255, 51, 255);
 
     // Neutral Colors
     public static Color Baker => new Color32(255, 191, 128, 255);
     public static Color Berserker => new Color32(255, 79, 0, 255);
-    public static Color SoulCollector => new Color32(224, 0, 255, 255);
+    public static Color Reaper => new Color32(224, 0, 255, 255);
     public static Color Famine => new Color32(97, 128, 97, 255);
     public static Color War => new Color32(128, 31, 0, 255);
     public static Color Death => new Color32(76, 0, 76, 255);
