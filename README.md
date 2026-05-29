@@ -67,7 +67,6 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 
 -----------------------
 # Other changes
-- The original Soul Collector's name was changed to "Reaper".
 - Imitator's Wiki entry now automatically detects all roles with Crew Variants and updates them.
 
 -----------------------
