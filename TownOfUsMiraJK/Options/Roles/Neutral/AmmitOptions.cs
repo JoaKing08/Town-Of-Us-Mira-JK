@@ -13,9 +13,6 @@ public sealed class AmmitOptions : AbstractOptionGroup<AmmitRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleAmmit", "Ammit");
 
-    [ModdedNumberOption("TouJKOptionAmmitChance", 0, 100, 10f, MiraNumberSuffixes.Percent)]
-    public float AmmitChance { get; set; } = 1.5f;
-
     [ModdedNumberOption("TouJKOptionAmmitDevourCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float DevourCooldown { get; set; } = 20f;
 

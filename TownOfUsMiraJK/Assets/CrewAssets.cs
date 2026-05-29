@@ -15,4 +15,5 @@ public static class CrewAssets
     public static LoadableAsset<Sprite> GunslingerAimSprite { get; } = new LoadableResourceAsset($"{ShortPath}.GunslingerAimSprite.png");
     public static LoadableAsset<Sprite> GunslingerShootSprite { get; } = new LoadableResourceAsset($"{ShortPath}.GunslingerShootSprite.png", 150);
     public static LoadableAsset<Sprite> CoronerAutopsySprite { get; } = new LoadableResourceAsset($"{ShortPath}.CoronerAutopsySprite.png");
+    public static LoadableAsset<Sprite> SanctifierSanctifySprite { get; } = new LoadableResourceAsset($"{ShortPath}.SanctifierSanctifySprite.png");
 }

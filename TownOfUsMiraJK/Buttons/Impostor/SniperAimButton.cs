@@ -48,7 +48,7 @@ public sealed class SniperAimButton : TownOfUsRoleButton<SniperRole, PlayerContr
 
         notif1.AdjustNotification();
 
-        Target.RpcAddModifier<SniperTargetModifier>(PlayerControl.LocalPlayer, TownOfUsColors.Impostor, OptionGroupSingleton<SniperOptions>.Instance.UpdateInterval);
+        Target.RpcAddModifier<SniperTargetModifier>(PlayerControl.LocalPlayer, TownOfUsColors.Impostor, OptionGroupSingleton<SniperOptions>.Instance.UpdateInterval.Value);
         SetActive(false, Role);
         CustomButtonSingleton<SniperShootButton>.Instance.SetActive(true, Role);
         CustomButtonSingleton<SniperShootButton>.Instance.ResetCooldownAndOrEffect();

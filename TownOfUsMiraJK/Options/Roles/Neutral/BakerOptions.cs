@@ -27,7 +27,7 @@ public sealed class BakerOptions : AbstractOptionGroup<BakerRole>
     public float AnnounceTransformationDelay { get; set; } = 10f;
 
     [ModdedToggleOption("TouJKBakerFamineCanVent")]
-    public bool CanVent { get; set; } = true;
+    public bool CanVent { get; set; } = false;
 
     [ModdedNumberOption("TouJKBakerFamineStarveCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float StarveCooldown { get; set; } = 25f;

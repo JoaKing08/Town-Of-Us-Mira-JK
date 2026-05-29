@@ -13,9 +13,6 @@ public sealed class ManhunterOptions : AbstractOptionGroup<ManhunterRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleManhunter", "Manhunter");
 
-    [ModdedNumberOption("TouJKOptionManhunterChance", 0, 100, 10f, MiraNumberSuffixes.Percent)]
-    public float ManhunterChance { get; set; } = 1.5f;
-
     [ModdedNumberOption("TouJKOptionManhunterKillCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float KillCooldown { get; set; } = 25f;
 

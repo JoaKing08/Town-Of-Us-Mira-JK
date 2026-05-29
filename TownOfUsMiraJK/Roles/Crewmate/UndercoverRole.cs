@@ -48,6 +48,7 @@ public sealed class UndercoverRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
     public string RoleName => TouLocale.Get($"TouJKRole{LocaleKey}");
     public string RoleDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}IntroBlurb");
     public string RoleLongDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}TabDescription");
+    public bool CoverCanVent => Player?.GetModifier<UndercoverCoverModifier>()?.ShownRole is not ICustomRole role || role?.Configuration.CanUseVent != false;
 
     public string GetAdvancedDescription()
     {
@@ -76,7 +77,7 @@ public sealed class UndercoverRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        CanUseVent = OptionGroupSingleton<UndercoverOptions>.Instance.CanVent && (Player.GetModifier<UndercoverCoverModifier>()?.ShownRole is not ICustomRole role || role?.Configuration.CanUseVent != false),
+        CanUseVent = OptionGroupSingleton<UndercoverOptions>.Instance.CanVent && CoverCanVent,
         Icon = RoleIcons.Undercover,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         IntroSound = TouAudio.SpyIntroSound

@@ -1,10 +1,14 @@
 using MiraAPI.Utilities.Assets;
+using Reactor.Utilities;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Assets;
 
-public static class Assets
+public static class ToUJKAssets
 {
     private const string ShortPath = "TownOfUsMiraJK.Resources";
+    public static readonly AssetBundle MainBundle = AssetBundleManager.Load("toumjk-assets");
     public static LoadableAsset<Sprite> Banner { get; } = new LoadableResourceAsset($"{ShortPath}.Banner.png");
+    public static LoadableAsset<GameObject> SanctifierCircle { get; }
+        = new LoadableBundleAsset<GameObject>("SanctifierCircle", MainBundle);
 }

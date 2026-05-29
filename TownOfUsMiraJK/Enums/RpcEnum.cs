@@ -21,6 +21,7 @@ namespace TownOfUsMiraJK.Enums
         CollectSoul,
         TriggerDeath,
         ChangeDuel,
+        DoDuel,
         TriggerBloodhound,
         WitchControl,
         WitchFeedback,
@@ -35,5 +36,6 @@ namespace TownOfUsMiraJK.Enums
         SecretaryVote,
         AddManhunterTarget,
         ManhunterWin,
+        SanctifierSanctify,
     }
 }

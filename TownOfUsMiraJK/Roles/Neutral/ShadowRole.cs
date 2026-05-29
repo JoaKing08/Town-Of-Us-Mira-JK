@@ -28,7 +28,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Neutral;
 
-public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IUnguessable
+public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable
 {
     public override void SpawnTaskHeader(PlayerControl playerControl)
     {
@@ -45,8 +45,6 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
     public string RoleName => TouLocale.Get($"TouJKRole{LocaleKey}");
     public string RoleDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}IntroBlurb");
     public string RoleLongDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}TabDescription");
-    public bool IsGuessable => false;
-    public RoleBehaviour AppearAs => RoleManager.Instance.GetRole(RoleTypes.Crewmate);
 
     [HideFromIl2Cpp]
     public List<CustomButtonWikiDescription> Abilities
@@ -83,10 +81,7 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
         Icon = RoleIcons.Shadow,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>(),
-        DefaultRoleCount = 1,
         MaxRoleCount = 1,
-        DefaultChance = 100,
-        HideSettings = true
     };
 
     public bool HasImpostorVision => true;
@@ -139,6 +134,4 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
         var console = usable.TryCast<Console>()!;
         return console == null || console.AllowImpostor;
     }
-
-    bool ICustomRole.CanSpawnOnCurrentMode() => !GameManager.Instance.IsHideAndSeek() && UnityEngine.Random.RandomRange(0, 100) <= OptionGroupSingleton<ShadowOptions>.Instance.ShadowChance;
 }

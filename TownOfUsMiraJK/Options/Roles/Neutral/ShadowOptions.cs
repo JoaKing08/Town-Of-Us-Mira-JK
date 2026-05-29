@@ -13,9 +13,6 @@ public sealed class ShadowOptions : AbstractOptionGroup<ShadowRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleShadow", "Shadow");
 
-    [ModdedNumberOption("TouJKOptionShadowChance", 0, 100, 10f, MiraNumberSuffixes.Percent)]
-    public float ShadowChance { get; set; } = 1.5f;
-
     [ModdedNumberOption("TouJKOptionShadowKillCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float KillCooldown { get; set; } = 25f;
 
@@ -37,5 +34,5 @@ public sealed class ShadowOptions : AbstractOptionGroup<ShadowRole>
     public float DarknessDuration { get; set; } = 10f;
 
     [ModdedToggleOption("TouJKOptionShadowCanVent")]
-    public bool CanVent { get; set; } = true;
+    public bool CanVent { get; set; } = false;
 }

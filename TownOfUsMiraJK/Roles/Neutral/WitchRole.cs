@@ -163,7 +163,7 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
                 buttonUsed = ButtonUsed.Tertiary;
             }
             var notif1 = Helpers.CreateAndShowNotification(
-                TouLocale.GetParsed("TouJKRoleWitchControlTargetNotif" + buttonUsed.ToString()).Replace("<role>", $"{Colors.Witch}{CustomRoleUtils.GetRegisteredRole((RoleTypes)RoleId.Get<WitchRole>())?.GetRoleName()}</color>"),
+                TouLocale.GetParsed("TouJKRoleWitchControlTargetNotif" + buttonUsed.ToString()).Replace("<role>", $"{Colors.Witch.ToTextColor()}{CustomRoleUtils.GetRegisteredRole((RoleTypes)RoleId.Get<WitchRole>())?.GetRoleName()}</color>"),
                 Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
 
             notif1.AdjustNotification();
@@ -188,7 +188,7 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
             else
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKRoleWitchControlOwnerNotif" + buttonUsed.ToString()).Replace("<player>", $"{Colors.Witch.ToTextColor()}{target.Data.PlayerName}</color>").Replace("<role>", WitchResult(target)),
+                    TouLocale.GetParsed("TouJKRoleWitchControlOwnerNotif" + _buttonUsed.ToString()).Replace("<player>", $"{Colors.Witch.ToTextColor()}{target.Data.PlayerName}</color>").Replace("<role>", WitchResult(target)),
                     Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
 
                 notif1.AdjustNotification();
@@ -202,7 +202,7 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
             case WitchLearns.Nothing:
                 return "Unknown";
             case WitchLearns.Faction:
-                if (!player.HasModifier<BaseRevealModifier>())
+                if (!player.HasModifier<BaseRevealModifier>(x => x.Visible))
                 {
                     if (player.IsCrewmate())
                     {
@@ -230,7 +230,7 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
                     return $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.Get("NeutralKeyword")}</color>";
                 }
             case WitchLearns.Alignment:
-                if (!player.HasModifier<BaseRevealModifier>())
+                if (!player.HasModifier<BaseRevealModifier>(x => x.Visible))
                 {
                     switch (player.Data.Role.GetRoleAlignment())
                     {
@@ -300,7 +300,7 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
                     return $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.Get(player.Data.Role.GetRoleAlignment().ToString())}</color>";
                 }
             case WitchLearns.Role:
-                if (!player.HasModifier<BaseRevealModifier>())
+                if (!player.HasModifier<BaseRevealModifier>(x => x.Visible))
                 {
                     player.AddModifier<WitchRevealModifier>((ushort)player.Data.Role.Role);
                 }

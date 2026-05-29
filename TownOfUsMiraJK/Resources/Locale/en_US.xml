@@ -153,7 +153,7 @@
 	<!-- Gunslinger Options -->
 	<string name="TouJKOptionGunslingerAimCooldown">Aim Cooldown</string>
 	<string name="TouJKOptionGunslingerAimMaxUses">Max Aimed Players</string>
-	<string name="TouJKOptionGunslingerReveal">Reveal Role After Executing</string>
+	<string name="TouJKOptionGunslingerReveal">Reveal Role After Shooting</string>
 	<!-- Coroner -->
 	<string name="TouJKRoleCoroner">Coroner</string>
 	<string name="TouJKRoleCoronerIntroBlurb">Examine the bodies for additional informations.</string>
@@ -205,6 +205,22 @@
 	<!-- Secretary Options -->
 	<string name="TouJKOptionSecretaryInitialVotes">Initial Stored Votes</string>
 	<string name="TouJKOptionSecretaryMaxVotes">Maximum Stored Votes</string>
+	<!-- Sanctifier -->
+	<string name="TouJKRoleSanctifier">Sanctifier</string>
+	<string name="TouJKRoleSanctifierIntroBlurb">Bless the ground to stop the evildoers.</string>
+	<string name="TouJKRoleSanctifierTabDescription">Sanctify the area to prevent all interactions.</string>
+	<!-- Sanctifier Wiki -->
+	<string name="TouJKRoleSanctifierWikiDescription">The Sanctifier is a Crewmate Protective role that can place magic circle, which when the player is inside they cannot be interacted with.</string>
+	<string name="TouJKRoleSanctifierSanctify">Sanctify</string>
+	<string name="TouJKRoleSanctifierSanctifyDescription">Place a magic circle, preventing others from using their abilities inside of it.</string>
+	<!-- Sanctifier Options -->
+	<string name="TouJKOptionSanctifierSanctifyCooldown">Sanctify Cooldown</string>
+	<string name="TouJKOptionSanctifierShowSanctify">Magic Circle Visible</string>
+	<string name="TouJKOptionSanctifierShowSanctifyDelay">Magic Circle Visibility Delay</string>
+	<string name="TouJKOptionSanctifierMaxSanctifies">Initial Number Of Uses</string>
+	<string name="TouJKOptionSanctifierSanctifySize">Magic Circle Size</string>
+	<string name="TouJKOptionSanctifierResetSanctify">Circles Reset After Each Round</string>
+	<string name="TouJKOptionSanctifierGetUsesFromTasks">Get More Uses From Completing Tasks</string>
 	<!-- Pirate -->
 	<string name="TouJKRolePirate">Pirate</string>
 	<string name="TouJKRolePirateIntroBlurb">Duel with those pesky landlubbers to get their treasures.</string>
@@ -395,6 +411,7 @@
 	<string name="TouJKRoleBerserkerIntroBlurb">Kill players in order to transform.</string>
 	<string name="TouJKRoleBerserkerTabDescription">Hack and slash players to transform.</string>
 	<string name="TouJKRoleBerserkerTabKillCounter">Kills Left: \%count\%/\%max_count\%</string>
+	<string name="TouJKRoleBerserkerWikiDescription">The Berserker is a Neutral Killing role that for each kill they get, gets their kill cooldown gets reduced. After killing a certain amount of players they transform into War. They win with other apocalypse members.</string>
 	<!-- Berserker Options -->
 	<string name="TouJKOptionBerserkerInstantWar">Instant War Chance</string>
 	<string name="TouJKOptionBerserkerInitialCooldown">Berserker Initial Kill Cooldown</string>
@@ -577,7 +594,8 @@
 	<string name="TouJKOptionShadowKillCooldown">Kill Cooldown</string>
 	<string name="TouJKOptionShadowVanishCooldown">Vanish Cooldown</string>
 	<string name="TouJKOptionShadowVanishDuration">Vanish Duration</string>
-	<string name="TouJKOptionShadowVanishOpacity">Shadow Transparency During Vanish</string>
+	<string name="TouJKOptionShadowVanishOpacity">Shadow Opacity During Vanish</string>
+	<string name="TouJKOptionShadowVanishSpeed">Shadow Speed During Vanish</string>
 	<string name="TouJKOptionShadowDarknessCooldown">Darkness Cooldown</string>
 	<string name="TouJKOptionShadowDarknessDuration">Darkness Duration</string>
 	<string name="TouJKOptionShadowCanVent">Shadow Can Vent</string>

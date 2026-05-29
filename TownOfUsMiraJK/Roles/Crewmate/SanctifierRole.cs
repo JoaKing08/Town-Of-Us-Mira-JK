@@ -18,15 +18,16 @@ using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
+using TownOfUsMiraJK.Options.Roles.Crewmate;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Crewmate;
 
-public sealed class CrusaderRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable
+public sealed class SanctifierRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable
 {
     public override bool IsAffectedByComms => false;
-    public DoomableType DoomHintType => DoomableType.Relentless;
-    public string LocaleKey => "Crusader";
+    public DoomableType DoomHintType => DoomableType.Protective;
+    public string LocaleKey => "Sanctifier";
     public string RoleName => TouLocale.Get($"TouJKRole{LocaleKey}");
     public string RoleDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}IntroBlurb");
     public string RoleLongDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}TabDescription");
@@ -38,28 +39,6 @@ public sealed class CrusaderRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfU
             MiscUtils.AppendOptionsText(GetType());
     }
 
-    public static string ProtectionString = TouLocale.GetParsed("TouJKRoleCrusaderTabProtecting");
-
-    public override void Initialize(PlayerControl player)
-    {
-        RoleBehaviourStubs.Initialize(this, player);
-        ProtectionString = TouLocale.GetParsed("TouJKRoleCrusaderTabProtecting");
-    }
-
-    [HideFromIl2Cpp]
-    public StringBuilder SetTabText()
-    {
-        var stringB = ITownOfUsRole.SetNewTabText(this);
-
-        var protectedPlayer = ModifierUtils.GetPlayersWithModifier<CrusaderFortifyModifier>(x => x.Crusader.AmOwner).FirstOrDefault();
-        if (protectedPlayer != null)
-        {
-            stringB.AppendLine(TownOfUsPlugin.Culture, $"\n<b>{ProtectionString.Replace("<player>", protectedPlayer.Data.PlayerName)}</b>");
-        }
-
-        return stringB;
-    }
-
     [HideFromIl2Cpp]
     public List<CustomButtonWikiDescription> Abilities
     {
@@ -67,21 +46,34 @@ public sealed class CrusaderRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfU
         {
             return new List<CustomButtonWikiDescription>
             {
-                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Fortify", "Fortify"),
-                    TouLocale.GetParsed($"TouJKRole{LocaleKey}FortifyWikiDescription"),
-                    CrewAssets.CrusaderFortifySprite)
+                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Sanctify", "Sanctify"),
+                    TouLocale.GetParsed($"TouJKRole{LocaleKey}SanctifyWikiDescription"),
+                    CrewAssets.SanctifierSanctifySprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Crusader;
+    public Color RoleColor => Colors.Sanctifier;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateProtective;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        IntroSound = TouAudio.WarlockIntroSound,
+        IntroSound = TouAudio.TimeLordIntroSound,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
-        Icon = RoleIcons.Crusader
+        Icon = RoleIcons.Sanctifier
     };
+
+    [MethodRpc((uint)TownOfUsJKRpc.SanctifierSanctify)]
+    public static void RpcSanctifierSanctify(PlayerControl sanctifier, Vector2 position, float z)
+    {
+        if (LobbyBehaviour.Instance)
+        {
+            MiscUtils.RunAnticheatWarning(sanctifier);
+            return;
+        }
+        var v3pos = (Vector3)position;
+        v3pos.z = z;
+        SanctifierCircle.Create(v3pos, scale: OptionGroupSingleton<SanctifierOptions>.Instance.SanctifySize * ShipStatus.Instance.MaxLightRadius * 2f);
+    }
 }

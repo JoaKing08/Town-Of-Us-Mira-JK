@@ -155,23 +155,25 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
             modifier.ChosenOption = (DuelOption)option;
         }
     }
-    public void DoDuel()
+    [MethodRpc((uint)TownOfUsJKRpc.DoDuel, LocalHandling = RpcLocalHandling.Before)]
+    public static void RpcDoDuel(PlayerControl pirate)
     {
-        var dueledModifier = ModifierUtils.GetActiveModifiers<PirateDuelModifier>(x => x.Pirate.PlayerId == Player.PlayerId && !x.Player.HasDied()).FirstOrDefault();
-        if (dueledModifier != null && dueledModifier.Pirate.PlayerId == Player.PlayerId && !Player.HasDied())
+        var pirateRole = pirate.GetRole<PirateRole>();
+        var dueledModifier = ModifierUtils.GetActiveModifiers<PirateDuelModifier>(x => x.Pirate.PlayerId == pirate.PlayerId && !x.Player.HasDied()).FirstOrDefault();
+        if (pirateRole != null && dueledModifier != null && dueledModifier.Pirate.PlayerId == pirate.PlayerId && !pirate.HasDied())
         {
             var dueled = dueledModifier.Player;
             if (dueledModifier.ChosenOptionPirate == dueledModifier.ChosenOption)
             {
-                DuelsWon++;
-                if (!dueled.HasModifier<InvulnerabilityModifier>() && Player.AmOwner)
+                pirateRole.DuelsWon++;
+                if (!dueled.HasModifier<InvulnerabilityModifier>() && pirate.AmOwner)
                 {
-                    Player.RpcSpecialMurder(dueled, MeetingCheck.ForMeeting, true, createDeadBody: false, teleportMurderer: false,
+                    pirate.RpcSpecialMurder(dueled, MeetingCheck.ForMeeting, true, createDeadBody: false, teleportMurderer: false,
                         showKillAnim: false,
                         playKillSound: false,
                         causeOfDeath: "Pirate");
                 }
-                if (Player.AmOwner)
+                if (pirate.AmOwner)
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
                         TouLocale.GetParsed("TouJKRolePirateDuelWonOwner" + dueledModifier.ChosenOption.ToString()).Replace("<player>", $"{Colors.Pirate.ToTextColor()}{dueled.Data.PlayerName}</color>"),
@@ -190,7 +192,7 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
             }
             else
             {
-                if (Player.AmOwner)
+                if (pirate.AmOwner)
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
                         TouLocale.GetParsed("TouJKRolePirateDuelLostOwner" + dueledModifier.ChosenOptionPirate.ToString() + dueledModifier.ChosenOption.ToString()).Replace("<player>", $"{Colors.Pirate.ToTextColor()}{dueled.Data.PlayerName}</color>"),

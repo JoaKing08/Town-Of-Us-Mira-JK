@@ -12,6 +12,7 @@ using TownOfUs.Assets;
 using TownOfUs.Buttons;
 using TownOfUs.Buttons.Neutral;
 using TownOfUs.Events.TouEvents;
+using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules;
@@ -54,7 +55,36 @@ public sealed class WitchControlButton : TownOfUsRoleButton<WitchRole, PlayerCon
 
     public override bool CanClick()
     {
-        return true;
+        if (TimeLordRewindSystem.IsRewinding)
+        {
+            return false;
+        }
+
+        if (PlayerControl.LocalPlayer.HasDied() && !UsableInDeath)
+        {
+            return false;
+        }
+
+        if (HudManager.Instance.Chat.IsOpenOrOpening || MeetingHud.Instance)
+        {
+            return false;
+        }
+
+        if (!PlayerControl.LocalPlayer.CanMove ||
+            PlayerControl.LocalPlayer.GetModifiers<DisabledModifier>().Any(x => !x.CanUseAbilities))
+        {
+            return false;
+        }
+
+        var newTarget = GetTarget();
+        if (newTarget != Target)
+        {
+            SetOutline(false);
+        }
+
+        SetOutline(true);
+
+        return PlayerControl.LocalPlayer.moveable;
     }
 
     protected override void OnClick()

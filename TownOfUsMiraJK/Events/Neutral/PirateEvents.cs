@@ -28,19 +28,19 @@ public static class PirateEvents
     [RegisterEvent]
     public static void VoteEvent(CheckForEndVotingEvent @event)
     {
-        if (!@event.IsVotingComplete)
+        if (!@event.IsVotingComplete || !PlayerControl.LocalPlayer.IsHost())
         {
             return;
         }
 
         foreach (var pirate in CustomRoleUtils.GetActiveRolesOfType<PirateRole>().Where(x => !x.Player.HasDied()))
         {
-            pirate.DoDuel();
+            PirateRole.RpcDoDuel(pirate.Player);
         }
 
-        foreach (var modifier in ModifierUtils.GetActiveModifiers<PirateDuelModifier>())
+        foreach (var player in ModifierUtils.GetPlayersWithModifier<PirateDuelModifier>())
         {
-            modifier.ModifierComponent.RemoveModifier(modifier);
+            player.RpcRemoveModifier<PirateDuelModifier>();
         }
     }
     [RegisterEvent]

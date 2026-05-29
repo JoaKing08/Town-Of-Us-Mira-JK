@@ -101,12 +101,15 @@ public static class TavernKeeperEvents
             return;
         }
 
-        var notif1 = Helpers.CreateAndShowNotification(
-            TouLocale.GetParsed("TouJKRoleTavernKeeperDrunkNotif").Replace("<role>",
-            MiscUtils.GetHyperlinkText(MiscUtils.PlayerById(source.GetModifier<TavernKeeperDrunkModifier>()!.TavernKeeperId).Data.Role)),
-            Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.TavernKeeper.LoadAsset());
+        if (source.AmOwner)
+        {
+            var notif1 = Helpers.CreateAndShowNotification(
+                TouLocale.GetParsed("TouJKRoleTavernKeeperDrinkNotif").Replace("<role>",
+                MiscUtils.GetHyperlinkText(MiscUtils.PlayerById(source.GetModifier<TavernKeeperDrunkModifier>()!.TavernKeeperId).Data.Role)),
+                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.TavernKeeper.LoadAsset());
 
-        notif1.AdjustNotification();
+            notif1.AdjustNotification();
+        }
 
         miraEvent.Cancel();
     }

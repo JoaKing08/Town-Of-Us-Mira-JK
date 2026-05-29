@@ -29,7 +29,6 @@ namespace TownOfUsMiraJK.Modifiers
         public override string ModifierName => "Witch Learns";
         public override bool HideOnUi => true;
 
-        public override ChangeRoleResult ChangeRoleResult { get; set; } = ChangeRoleResult.RemoveModifier;
         public override bool RevealRole { get; set; } = true;
         public override void OnActivate()
         {
@@ -41,6 +40,10 @@ namespace TownOfUsMiraJK.Modifiers
         {
             base.FixedUpdate();
             Visible = PlayerControl.LocalPlayer.IsRole<WitchRole>();
+            if (Player.HasModifier<BaseRevealModifier>(x => x.Visible && x is not WitchRevealModifier))
+            {
+                ModifierComponent?.RemoveModifier(this);
+            }
         }
     }
 }
