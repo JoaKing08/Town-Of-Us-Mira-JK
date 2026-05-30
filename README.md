@@ -293,23 +293,23 @@ Game Options:
 Alignment: <b>Impostor Power</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
-The Demagogue is a role that cannot be ejected while their immunity lives.\
-On the start of the game a random Neutral role is marked as immunity.\
-If there are no Neutral roles in the game, the immunity becomes one of the other Impostors instead.\
-If there are no Neutral roles or other Impostors in the game, the immunity becomes a random Crewmate instead.\
-All Impostors and the immunity see who the immunity is.\
-On the first meeting, the Demagogue's identity is revealed, and players learn the immunity's alignment.\
-Regardless of the settings, the immunity can always kill the Demagogue.
+The Demagogue is a role that cannot be ejected while their Immunity lives.\
+On the start of the game a random Neutral role is marked as Immunity.\
+If there are no Neutral roles in the game, the Immunity becomes one of the other Impostors instead.\
+If there are no Neutral roles or other Impostors in the game, the Immunity becomes a random Crewmate instead.\
+All Impostors and the Immunity see who the Immunity is.\
+On the first meeting, the Demagogue's identity is revealed, and players learn the Immunity's alignment.\
+Regardless of the settings, the Immunity can always kill the Demagogue.
 
 Game Options:
 | Name | Description | Default |
 |----------|:-------------:|:------:|
 | Demagogue Kill Cooldown Increase | Increase to the Demagogue's kill cooldown. | 10s |
 | Punich Voters If Immunity Lives | Whether to kill the voters after failing to eject the Demagogue. | True |
-| Demagogue Can Be Killed By Crew Roles | Whether the Demagogue can be killed by Crewmate roles. | False |
-| Demagogue Can Be Killed By Non-Crew Roles | Whether the Demagogue can be killed by Non-Crewmate roles. | True |
-| Give Hints About Who Isn't Immunity | Whether to announce a random player that isn't immunity on start of every meeting. | True |
-| Announce Immunity Death | Whether to announce whether the immunity died on the start of the meeting. | False |
+| Demagogue Can Be Killed By Crew Roles | Whether the Demagogue can be killed by Crewmate roles if their Immunity lives. | False |
+| Demagogue Can Be Killed By Non-Crew Roles | Whether the Demagogue can be killed by Non-Crewmate roles if their Immunity lives. | True |
+| Give Hints About Who Isn't Immunity | Whether to announce a random player that isn't the Immunity on start of every meeting. | True |
+| Announce Immunity Death | Whether to announce whether the Immunity died on the start of the meeting. | False |
 
 ### Godfather <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Godfather.png" />
 Alignment: <b>Impostor Power</b>\
@@ -457,12 +457,13 @@ Inspiration: <b>Town Of Salem 2 (Famine)</b>
 
 The Famine is a role that can Starve players to make them lose Bread.\
 If the player is meant to lose Bread but they don't have any, they die.\
-Additionally every so often and after meetings all players lose 1 Bread due to passive starvation.
+Additionally every so often and after meetings all players lose 1 Bread due to passive starvation.\
+The Famine is immune to all attacks and can only be killed by being voted out.
 
 Game Options:
 | Name | Description | Default |
 |----------|:-------------:|:------:|
-| Bread Needed To Transform | Amount of players fed needed for Baker to transform into Famine. | 0% |
+| Bread Needed To Transform | Amount of players fed needed for Baker to transform into Famine. | 5 |
 | Bread Cooldown | Cooldown of the Bread ability. | 25s |
 | Bread Lasts For | How much charges of Bread are given. | 5s |
 | Not Enough Players Effect | What happens to the Baker when there are not enough players to transform. | Transform |
@@ -501,20 +502,54 @@ Game Options:
 | Max Undead | Maximum amount of Undead. | 3 |
 | Reanimate Cooldown | Cooldown of the Reanimate ability. | 25s |
 | Show Arrows Pointing To Dead Bodies | Whether to show the arrows pointing to bodies to the Necromancer. | False |
-| Dead Body Arrow Delay | Delay of the body arrows. | 0.5s |
-| Dead Body Arrow Duration | Duration of the body arrows. | 10s |
+| Dead Body Arrow Delay | Delay of the arrows pointing to the bodies. | 0.5s |
+| Dead Body Arrow Duration | Duration of the arrows pointing to the bodies. | 10s |
 
 ### Pirate <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 1 & 2 (Pirate)</b>
 
+The Pirate is a role that can Duel players during meetings.\
+The Pirate wins the duel if they pick the weapon beating the defense method the Dueled player have chosen.\
+If the Pirate wins they kill the Dueled player unless they are a transformed Apocalypse member.\
+When Pirate wins a certain amount of Duels, they win.
+
+Scimitar beats Sidestep (◆)\
+Rapier beats Chainmail (▲)\
+Pistol beats Backpedal (●)
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Duels To Win | Amount of Duels won, after which the Pirate wins. | 2 |
+| Duel Cooldown | Cooldown of the Duel ability. | 25s |
+| Pirate Continues Game In Final 3 | Whether Pirate continues the game in the final 3. | True |
+
 ### Reaper <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Reaper.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Soul Collector)</b>
 
+The Reaper is a role that can Reap souls from dead bodies.\
+The bodies that have been Reaped will appear a bit darker than regural.\
+If the Reaper Reaps a certain amount of souls they transform into Death, Horseman of the Apocalypse.
+
 #### Death <img width="4%" src="./TownOfUsMiraJK/Resources/RoleIcons/Death.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 2 (Death)</b>
+
+The Death is a role that immediately after appearing starts an Armageddon.\
+If the Death is alive at the end of the timer or end of the next meeting they win.\\
+The Death is immune to all attacks and can only be killed by being voted out.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Souls Needed | Amount of Reaped souls needed for Reaper to transform into Death. | 4 |
+| Reap Cooldown | Cooldown of the Reap ability. | 25s |
+| Show Arrows Pointing To Dead Bodies | Whether to show the arrows pointing to bodies to the Reaper. | True |
+| Dead Body Arrow Delay | Delay of the arrows pointing to the bodies. | 0.5s |
+| Dead Body Arrow Duration | Duration of the arrows pointing to the bodies. | 10s |
+| Armageddon Countdown Duration | How long after transformation does the Death win if no meeting is called. | 45s |
 
 ## Modifiers
 ### Prophet <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Prophet.png" />
