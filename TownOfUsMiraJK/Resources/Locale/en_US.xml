@@ -555,6 +555,10 @@
 	<string name="TouJKModifierProphetTabDescription">Betray the crewmates as a member of Apocalypse.</string>
 	<string name="TouJKModifierProphetWikiDescription">The Prophet is a Crewmate Alliance modifier, which forces a crewmate to work for the apocalypse faction.</string>
 	<string name="TouJKModifierProphetIntroMessage">You are the \%modifier\%. You can only win with Apocalypse.</string>
+	<!-- Outcast Wiki / Description -->
+	<string name="TouJKModifierOutcast">Outcast</string>
+	<string name="TouJKModifierOutcastTabDescription">You don't know the other Impostors.</string>
+	<string name="TouJKModifierOutcastWikiDescription">The Outcast is a Impostor Utility modifier, which makes the impostor not visible to other impostors and vice versa. In exchange the Outcast's kill cooldown is lowered.</string>
 	<!-- Undead Description -->
 	<string name="TouJKModifierUndead">Undead</string>
 	<string name="TouJKModifierUndeadShortName">Und</string>
