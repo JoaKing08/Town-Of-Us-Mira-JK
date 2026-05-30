@@ -574,7 +574,7 @@ Faction: <b>Impostor Utility</b>\
 Inspiration: <b>Community Sugestion (Unknown by @brzozuwka)</b>
 
 The Outcast is a modifier that makes the Impostor with it and other Impostors not see eachother.\
-In exchange the Outcast's kill cooldown is lower than normally.
+In exchange the Outcast's kill cooldown is lower than normal.
 
 Game Options:
 | Name | Description | Default |
