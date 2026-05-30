@@ -491,6 +491,19 @@ Game Options:
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
+The Necromancer is a role that can Reanimate dead bodies turning them into Undead.\
+The Undead lose their original win condition, and try get the Necromancer to win.\
+When Necromancer dies, all of the Undead also die.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Max Undead | Maximum amount of Undead. | 3 |
+| Reanimate Cooldown | Cooldown of the Reanimate ability. | 25s |
+| Show Arrows Pointing To Dead Bodies | Whether to show the arrows pointing to bodies to the Necromancer. | False |
+| Dead Body Arrow Delay | Delay of the body arrows. | 0.5s |
+| Dead Body Arrow Duration | Duration of the body arrows. | 10s |
+
 ### Pirate <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Town Of Salem 1 & 2 (Pirate)</b>
