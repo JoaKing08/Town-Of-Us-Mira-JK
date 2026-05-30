@@ -20,6 +20,7 @@ using TownOfUs.Roles.Impostor;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUs.Utilities.Appearances;
+using TownOfUsMiraJK.Modifiers.Game.Impostor;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Crewmate;
 using UnityEngine;
@@ -40,7 +41,7 @@ public static class RegisterBuiltInChats
             var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
             return MeetingHud.Instance != null &&
                    (PlayerControl.LocalPlayer.IsImpostorAligned() || PlayerControl.LocalPlayer.Is((RoleTypes)RoleId.Get<UndercoverRole>())) &&
-                   genOpt is { FFAImpostorMode: false, ImpostorChat.Value: true };
+                   genOpt is { FFAImpostorMode: false, ImpostorChat.Value: true } && !PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
         };
         // TO BE ABSOLUTELY SURE THE VALUE IS CHANGED
         ExtensionTeamChatRegistry.RegisteredHandlers[impChatIdx] = impChat;
@@ -58,7 +59,7 @@ public static class RpcSendImpTeamChat
             return false;
         }
         var shouldMarkUnread = false;
-        if ((PlayerControl.LocalPlayer.IsImpostorAligned()) ||
+        if ((PlayerControl.LocalPlayer.IsImpostorAligned() && !PlayerControl.LocalPlayer.HasModifier<OutcastModifier>()) ||
             (DeathHandlerModifier.IsFullyDead(PlayerControl.LocalPlayer) && OptionGroupSingleton<GeneralOptions>.Instance.TheDeadKnow))
         {
             MiscUtils.AddTeamChat(player.Data,

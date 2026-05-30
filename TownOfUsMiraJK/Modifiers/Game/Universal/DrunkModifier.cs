@@ -21,6 +21,7 @@ using TownOfUs.Utilities;
 using TownOfUs.Utilities.Appearances;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Options.Modifiers;
+using TownOfUsMiraJK.Options.Modifiers.Impostor;
 using TownOfUsMiraJK.Options.Modifiers.Universal;
 using UnityEngine;
 

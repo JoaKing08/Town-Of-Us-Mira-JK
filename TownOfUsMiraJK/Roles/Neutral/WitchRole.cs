@@ -43,7 +43,6 @@ using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Modifiers;
 using TownOfUsMiraJK.Modifiers.Crewmate;
 using TownOfUsMiraJK.Options.Roles.Neutral;
-using TownOfUsMiraJK.Roles.Neutral.WitchReveal;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -202,21 +201,6 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
             case WitchLearns.Nothing:
                 return "Unknown";
             case WitchLearns.Faction:
-                if (!player.HasModifier<BaseRevealModifier>(x => x.Visible))
-                {
-                    if (player.IsCrewmate())
-                    {
-                        player.AddModifier<WitchRevealModifier>(RoleId.Get<CrewmateFaction>());
-                    }
-                    else if (player.IsImpostor())
-                    {
-                        player.AddModifier<WitchRevealModifier>(RoleId.Get<ImpostorFaction>());
-                    }
-                    else
-                    {
-                        player.AddModifier<WitchRevealModifier>(RoleId.Get<NeutralFaction>());
-                    }
-                }
                 if (player.IsCrewmate())
                 {
                     return $"{Palette.CrewmateBlue.ToTextColor()}{TouLocale.Get("CrewmateKeyword")}</color>";
@@ -230,63 +214,6 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
                     return $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.Get("NeutralKeyword")}</color>";
                 }
             case WitchLearns.Alignment:
-                if (!player.HasModifier<BaseRevealModifier>(x => x.Visible))
-                {
-                    switch (player.Data.Role.GetRoleAlignment())
-                    {
-                        case RoleAlignment.CrewmateInvestigative:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<CrewmateInvestigative>());
-                            break;
-                        case RoleAlignment.CrewmateKilling:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<CrewmateKilling>());
-                            break;
-                        case RoleAlignment.CrewmateProtective:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<CrewmateProtective>());
-                            break;
-                        case RoleAlignment.CrewmatePower:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<CrewmatePower>());
-                            break;
-                        case RoleAlignment.CrewmateSupport:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<CrewmateSupport>());
-                            break;
-                        case RoleAlignment.ImpostorConcealing:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<ImpostorConcealing>());
-                            break;
-                        case RoleAlignment.ImpostorKilling:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<ImpostorKilling>());
-                            break;
-                        case RoleAlignment.ImpostorPower:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<ImpostorPower>());
-                            break;
-                        case RoleAlignment.ImpostorSupport:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<ImpostorSupport>());
-                            break;
-                        case RoleAlignment.NeutralBenign:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<NeutralBenign>());
-                            break;
-                        case RoleAlignment.NeutralEvil:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<NeutralEvil>());
-                            break;
-                        case RoleAlignment.NeutralOutlier:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<NeutralOutlier>());
-                            break;
-                        case RoleAlignment.NeutralKilling:
-                            player.AddModifier<WitchRevealModifier>(RoleId.Get<NeutralKilling>());
-                            break;
-                    }
-                    if (player.IsCrewmate())
-                    {
-                        player.AddModifier<WitchRevealModifier>(RoleId.Get<CrewmateFaction>());
-                    }
-                    else if (player.IsImpostor())
-                    {
-                        player.AddModifier<WitchRevealModifier>(RoleId.Get<ImpostorFaction>());
-                    }
-                    else
-                    {
-                        player.AddModifier<WitchRevealModifier>(RoleId.Get<NeutralFaction>());
-                    }
-                }
                 if (player.IsCrewmate())
                 {
                     return $"{Palette.CrewmateBlue.ToTextColor()}{TouLocale.Get(player.Data.Role.GetRoleAlignment().ToString())}</color>";
@@ -300,10 +227,6 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
                     return $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.Get(player.Data.Role.GetRoleAlignment().ToString())}</color>";
                 }
             case WitchLearns.Role:
-                if (!player.HasModifier<BaseRevealModifier>(x => x.Visible))
-                {
-                    player.AddModifier<WitchRevealModifier>((ushort)player.Data.Role.Role);
-                }
                 return $"{player.Data.Role.NameColor.ToTextColor()}{player.Data.Role.GetRoleName()}</color>";
             default:
                 return "<color=red>Error</color>";

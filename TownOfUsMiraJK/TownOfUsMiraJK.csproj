@@ -28,7 +28,6 @@
 
     <ItemGroup>
       <Folder Include="Buttons\Secret\" />
-      <Folder Include="Events\Modifiers\" />
       <Folder Include="Events\Secret\" />
       <Folder Include="Modifiers\Impostor\" />
       <Folder Include="Options\Roles\Secret\" />

@@ -23,4 +23,7 @@ public sealed class ImpostorModifierJKOptions : AbstractOptionGroup
         {
             Visible = () => OptionGroupSingleton<ImpostorModifierJKOptions>.Instance.TaskerChance > 0
         };
+
+    public ModdedNumberOption OutcastChance { get; } =
+        new("Tasker Chance", 50f, 0, 100f, 10f, MiraNumberSuffixes.Percent);
 }

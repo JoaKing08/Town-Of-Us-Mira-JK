@@ -12,6 +12,7 @@ public static class ModifierIcons
 
     // Impostor
     public static LoadableAsset<Sprite> Tasker { get; } = new LoadableResourceAsset($"{ShortPath}.ModifierIcons.Tasker.png", 200);
+    public static LoadableAsset<Sprite> Outcast { get; } = new LoadableResourceAsset($"{ShortPath}.ModifierIcons.Outcast.png", 200);
 
     // Alliance
     public static LoadableAsset<Sprite> Prophet { get; } = new LoadableResourceAsset($"{ShortPath}.ModifierIcons.Prophet.png", 200);

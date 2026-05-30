@@ -94,7 +94,7 @@ public class SanctifierCircle
         var result = false;
         foreach (var circle in SanctifierCircles)
         {
-            if (circle?.GameObject?.transform != null && Vector2.Distance(circle.GameObject.transform.position, transform.position) <= circle._scale)
+            if (circle?.GameObject?.transform != null && Vector2.Distance(circle.GameObject.transform.position, transform.position) <= circle._scale / 2)
             {
                 result = true;
             }

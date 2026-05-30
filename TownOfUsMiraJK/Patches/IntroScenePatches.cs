@@ -23,6 +23,7 @@ using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUs.Utilities.Appearances;
 using TownOfUsMiraJK.Modifiers.Game.Alliance;
+using TownOfUsMiraJK.Modifiers.Game.Impostor;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Roles.Crewmate;
@@ -49,10 +50,10 @@ public static class JKIntroScenePatches
         var player = __instance.CreatePlayer(0, 1, PlayerControl.LocalPlayer.Data, true);
         __instance.ourCrewmate = player;
 
-        if (!OptionGroupSingleton<GeneralOptions>.Instance.FFAImpostorMode)
+        if (!OptionGroupSingleton<GeneralOptions>.Instance.FFAImpostorMode && !PlayerControl.LocalPlayer.HasModifier<OutcastModifier>())
         {
             var i = 1;
-            foreach (var impostor in PlayerControl.AllPlayerControls.ToArray().Where(x => !x.AmOwner && (x.IsImpostor() || x.Is((RoleTypes)RoleId.Get<UndercoverRole>()))))
+            foreach (var impostor in PlayerControl.AllPlayerControls.ToArray().Where(x => !x.AmOwner && (x.IsImpostor() || x.Is((RoleTypes)RoleId.Get<UndercoverRole>())) && !x.HasModifier<OutcastModifier>()))
             {
                 __instance.CreatePlayer(i++, 1, impostor.Data, true);
             }
@@ -91,12 +92,5 @@ public static class JKIntroScenePatches
         }
 
         return true;
-    }
-    [HarmonyPatch(typeof(IntroCutscene), nameof(IntroCutscene.BeginCrewmate))]
-    [HarmonyPatch(typeof(IntroCutscene), nameof(IntroCutscene.BeginImpostor))]
-    [HarmonyPriority(Priority.Last)]
-    [HarmonyPrefix]
-    public static void RecruitBeginPatch(IntroCutscene __instance, [HarmonyArgument(0)] ref Il2CppSystem.Collections.Generic.List<PlayerControl> yourTeam)
-    {
     }
 }

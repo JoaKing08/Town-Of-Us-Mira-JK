@@ -23,6 +23,7 @@ using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
+using TownOfUsMiraJK.Modifiers;
 using TownOfUsMiraJK.Modules;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Options.Roles.Neutral;
@@ -96,5 +97,9 @@ public sealed class WitchControlButton : TownOfUsRoleButton<WitchRole, PlayerCon
         }
 
         WitchRole.RpcWitchControl(PlayerControl.LocalPlayer, Marked);
+        if (!Marked.HasModifier<WitchRevealModifier>() && OptionGroupSingleton<WitchOptions>.Instance.Learns != WitchLearns.Nothing)
+        {
+            Marked.AddModifier<WitchRevealModifier>();
+        }
     }
 }

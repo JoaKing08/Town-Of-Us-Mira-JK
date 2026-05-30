@@ -23,7 +23,6 @@ using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Modules;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Roles.Neutral;
-using TownOfUsMiraJK.Roles.Neutral.WitchReveal;
 using TownOfUsMiraJK.Utilities;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;

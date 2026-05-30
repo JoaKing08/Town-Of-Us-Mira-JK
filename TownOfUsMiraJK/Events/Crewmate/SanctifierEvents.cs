@@ -57,9 +57,9 @@ public static class SanctifierEvents
     [RegisterEvent(-800)]
     public static void MiraButtonClickEventHandler(MiraButtonClickEvent @event)
     {
-        var button = @event.Button as CustomActionButton<PlayerControl>;
+        var button = @event.Button;
         var source = PlayerControl.LocalPlayer;
-        var target = button?.Target;
+        var target = (button as CustomActionButton<PlayerControl>)?.Target;
 
         if (button == null || !button.CanClick())
         {

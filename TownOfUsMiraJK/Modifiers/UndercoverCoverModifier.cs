@@ -17,6 +17,7 @@ using TownOfUs.Options.Roles.Crewmate;
 using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
+using TownOfUsMiraJK.Modifiers.Game.Impostor;
 using TownOfUsMiraJK.Utilities;
 using UnityEngine;
 
@@ -45,7 +46,7 @@ namespace TownOfUsMiraJK.Modifiers
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            Visible = OptionGroupSingleton<GeneralOptions>.Instance.ImpsKnowRoles && PlayerControl.LocalPlayer.IsImpostorAligned();
+            Visible = (OptionGroupSingleton<GeneralOptions>.Instance.ImpsKnowRoles && PlayerControl.LocalPlayer.IsImpostorAligned() && !PlayerControl.LocalPlayer.HasModifier<OutcastModifier>()) || (PlayerControl.LocalPlayer.HasDied() && OptionGroupSingleton<GeneralOptions>.Instance.TheDeadKnow && PlayerControl.LocalPlayer.DiedOtherRound());
         }
     }
 }

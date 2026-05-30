@@ -40,10 +40,14 @@ namespace TownOfUsMiraJK.Utilities
     [HarmonyPatch]
     public static class AddSanctifierModifier
     {
-        [HarmonyPatch(typeof(HudManager), nameof(HudManager.Update))]
-        [HarmonyPrefix]
-        public static void Prefix()
+        [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.FixedUpdate))]
+        [HarmonyPostfix]
+        public static void Postfix(PlayerControl __instance)
         {
+            if (!__instance.AmOwner)
+            {
+                return;
+            }
             if (!PlayerControl.LocalPlayer.IsHost() && !TutorialManager.Instance)
             {
                 return;

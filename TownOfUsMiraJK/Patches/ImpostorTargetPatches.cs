@@ -22,6 +22,7 @@ using TownOfUs.Roles.Impostor;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUs.Utilities.Appearances;
+using TownOfUsMiraJK.Modifiers.Game.Impostor;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Crewmate;
 using static UnityEngine.GraphicsBuffer;
@@ -45,10 +46,10 @@ public static class ImpostorTargetPatch
             return false;
         }
         var isImp = target.Object.IsImpostorAligned() || target.Object.Is((RoleTypes)RoleId.Get<UndercoverRole>());
-        var killImps = (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) || genOpt.FFAImpostorMode || (PlayerControl.LocalPlayer.IsLover() && loveOpt.LoverKillTeammates);
+        var killImps = (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) || genOpt.FFAImpostorMode || (PlayerControl.LocalPlayer.IsLover() && loveOpt.LoverKillTeammates) || __instance.Player.HasModifier<OutcastModifier>() || target.Object.HasModifier<OutcastModifier>();
         var killAnyone = saboOpt.KillDuringCamoComms && target.Object.GetAppearanceType() == TownOfUsAppearances.Camouflage;
         var isLover = !loveOpt.LoversKillEachOther && target.Object.IsLover() && PlayerControl.LocalPlayer.IsLover();
-        var isUnkillable = (target.Object.TryGetModifier<DisabledModifier>(out var mod) == true && !mod.CanBeInteractedWith);
+        var isUnkillable = (target.Object.TryGetModifier<DisabledModifier>(out var mod) && !mod.CanBeInteractedWith);
 
         __result = !isUnkillable && (!isImp || killImps || killAnyone) && (!isLover || killAnyone);
         return false;
@@ -90,7 +91,9 @@ public static class GetTargetParasite
                 plr != null &&
                 plr != PlayerControl.LocalPlayer &&
                 !plr.HasDied() &&
-                !((plr.IsImpostorAligned() || plr.Is((RoleTypes)RoleId.Get<UndercoverRole>())) && !(OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay)) &&
+                !((plr.IsImpostorAligned() || plr.Is((RoleTypes)RoleId.Get<UndercoverRole>())) &&
+                !(OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) &&
+                !PlayerControl.LocalPlayer.HasModifier<OutcastModifier>() && !plr.HasModifier<OutcastModifier>()) &&
                 !plr.IsInTargetingAnimState() &&
                 !plr.GetModifiers<BaseModifier>().Any(x => x is IUncontrollable) &&
                 !plr.HasModifier<ParasiteInfectedModifier>());
@@ -111,15 +114,15 @@ public static class GetTargetHerbalist
         msModifier => msModifier.Herbalist.AmOwner;
     public static bool Prefix(HerbalistAbilityHerbButton __instance, ref PlayerControl? __result)
     {
-        var isFfa = OptionGroupSingleton<GeneralOptions>.Instance.FFAImpostorMode || (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay);
+        var isFfa = OptionGroupSingleton<GeneralOptions>.Instance.FFAImpostorMode || (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
         if (__instance.CurrentAbility is HerbAbilities.Expose)
         {
-            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, false, x => (isFfa || !(x.IsImpostorAligned() || x.Is((RoleTypes)RoleId.Get<UndercoverRole>()))) && !x.HasModifier(ExposedPredicate));
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, false, x => (isFfa || !(x.IsImpostorAligned() || x.Is((RoleTypes)RoleId.Get<UndercoverRole>())) || x.HasModifier<OutcastModifier>()) && !x.HasModifier(ExposedPredicate));
             return false;
         }
         if (__instance.CurrentAbility is HerbAbilities.Confuse)
         {
-            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, false, x => (isFfa || !(x.IsImpostorAligned() || x.Is((RoleTypes)RoleId.Get<UndercoverRole>()))) && !x.HasModifier(ConfusedPredicate));
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, false, x => (isFfa || !(x.IsImpostorAligned() || x.Is((RoleTypes)RoleId.Get<UndercoverRole>())) || x.HasModifier<OutcastModifier>()) && !x.HasModifier(ConfusedPredicate));
             return false;
         }
         if (__instance.CurrentAbility is HerbAbilities.Protect)
@@ -147,7 +150,9 @@ public static class GetTargetPuppeter
                     plr != PlayerControl.LocalPlayer &&
                     !plr.HasDied() &&
                     !plr.IsInTargetingAnimState() &&
-                    !((plr.IsImpostorAligned() || plr.Is((RoleTypes)RoleId.Get<UndercoverRole>())) && !(OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay)));
+                    !((plr.IsImpostorAligned() || plr.Is((RoleTypes)RoleId.Get<UndercoverRole>())) &&
+                    !(OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) &&
+                !PlayerControl.LocalPlayer.HasModifier<OutcastModifier>() && !plr.HasModifier<OutcastModifier>()));
             return false;
         }
         __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(
@@ -163,7 +168,14 @@ public static class GetTargetSpellslinger
 {
     public static bool Prefix(SpellslingerHexButton __instance, ref PlayerControl? __result)
     {
-        PlayerControl.LocalPlayer.GetClosestLivingPlayer(UndercoverRole.InPlay, __instance.Distance, predicate: x => !x.HasModifier<SpellslingerHexedModifier>());
+        if (UndercoverRole.InPlay)
+        {
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, predicate: x => !x.HasModifier<SpellslingerHexedModifier>());
+        }
+        else
+        {
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, predicate: x => !x.HasModifier<SpellslingerHexedModifier>() && (!x.IsImpostor() || x.HasModifier<OutcastModifier>() || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>()));
+        }
         return false;
     }
 }
@@ -173,8 +185,15 @@ public static class GetTargetHypnotist
 {
     public static bool Prefix(HypnotistHypnotizeButton __instance, ref PlayerControl? __result)
     {
-        PlayerControl.LocalPlayer.GetClosestLivingPlayer(UndercoverRole.InPlay, __instance.Distance, false,
-            player => !player.HasModifier<HypnotisedModifier>());
+        if (UndercoverRole.InPlay)
+        {
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, predicate: x => !x.HasModifier<HypnotisedModifier>());
+        }
+        else
+        {
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, predicate: x => !x.HasModifier<HypnotisedModifier>() && (!x.IsImpostor() || x.HasModifier<OutcastModifier>() || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>()));
+        }
+        return false;
         return false;
     }
 }
@@ -193,16 +212,17 @@ public static class GetTargetWarlock
                               OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) ||
                              (saboOpt.KillDuringCamoComms &&
                               closePlayer?.GetAppearanceType() == TownOfUsAppearances.Camouflage) ||
-                              (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay);
+                              (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) ||
+                              closePlayer?.HasModifier<OutcastModifier>() == true || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
         if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
         {
             __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, false,
-                x => !__instance.MarkedTargets.Contains(x) && (!x.IsLover() || !(x.IsImpostorAligned() && !includePostors)));
+                x => !__instance.MarkedTargets.Contains(x) && (!x.IsLover() || !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors)));
             return false;
         }
 
         __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, false,
-            x => !__instance.MarkedTargets.Contains(x) && !(x.IsImpostorAligned() && !includePostors));
+            x => !__instance.MarkedTargets.Contains(x) && !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors));
         return false;
     }
 }
@@ -221,14 +241,15 @@ public static class GetImpostorTarget
                               OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) ||
                              (saboOpt.KillDuringCamoComms &&
                               closePlayer?.GetAppearanceType() == TownOfUsAppearances.Camouflage) ||
-                              (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay);
+                              (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) ||
+                              closePlayer?.HasModifier<OutcastModifier>() == true || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
         if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
         {
-            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, distance, false, x => !x.IsLover() || !(x.IsImpostorAligned() && !includePostors));
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, distance, false, x => !x.IsLover() || !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors));
             return false;
         }
 
-        __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, distance, false, x => !(x.IsImpostorAligned() && !includePostors));
+        __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, distance, false, x => !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors));
         return false;
     }
 }
@@ -243,7 +264,8 @@ public static class IsExempt
                __instance.Player.Data.IsDead ||
                voteArea!.AmDead ||
                (__instance.Player.IsImpostorAligned() && (votePlayer?.IsImpostorAligned() == true || votePlayer?.Is((RoleTypes)RoleId.Get<UndercoverRole>()) == true) &&
-               !OptionGroupSingleton<GeneralOptions>.Instance.FFAImpostorMode && !(UndercoverRole.InPlay && OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother)) ||
+               !OptionGroupSingleton<GeneralOptions>.Instance.FFAImpostorMode && !(UndercoverRole.InPlay && OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother) &&
+               !votePlayer.HasModifier<OutcastModifier>() && !__instance.Player.HasModifier<OutcastModifier>()) ||
                (__instance.Player.Data.Role is VampireRole && votePlayer?.Data.Role is VampireRole) ||
                (votePlayer?.Data.Role is MayorRole mayor && mayor.Revealed) ||
                votePlayer.IsRevealed() ||
