@@ -11,7 +11,7 @@ public sealed class NecromancerOptions : AbstractOptionGroup<NecromancerRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleNecromancer", "Necromancer");
 
-    [ModdedNumberOption("TouJKNecromancerMaxUndead", 1, 7, 1)]
+    [ModdedNumberOption("TouJKNecromancerMaxUndead", 1, 5, 1)]
     public float MaxUndead { get; set; } = 3;
 
     [ModdedNumberOption("TouJKNecromancerReanimateCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]

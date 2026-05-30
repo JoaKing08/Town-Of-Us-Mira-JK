@@ -264,7 +264,7 @@
 	<!-- Pirate Options -->
 	<string name="TouJKPirateDuelsToWin">Duels To Win</string>
 	<string name="TouJKPirateDuelCooldown">Duel Cooldown</string>
-	<string name="TouJKPirateContinuesGame">Pirate Continues The Game</string>
+	<string name="TouJKPirateContinuesGame">Pirate Continues Game In Final 3</string>
 	<!-- Bloodhound -->
 	<string name="TouJKRoleBloodhound">Bloodhound</string>
 	<string name="TouJKRoleBloodhoundIntroBlurb">Kill players to fill out your bloodlust.</string>
