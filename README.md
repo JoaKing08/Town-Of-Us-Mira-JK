@@ -1,3 +1,6 @@
+> [!WARNING]
+> This extension is currently in production and should not be played on in current state!
+
 > [!NOTE]
 > This is an extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira), and will not work without it.
 
