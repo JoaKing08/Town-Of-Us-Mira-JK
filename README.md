@@ -210,10 +210,19 @@ Game Options:
 Alignment: <b>Crewmate Protective</b>\
 Inspiration: <b>[xChipseq](https://github.com/xChipseq) (Aurial)</b>
 
-The Sanctifier is a role that can Sanctify an area to prevent players to use all abilities in that area.
+The Sanctifier is a role that can Sanctify an area to create a Magic Circle.\
+Players inside Magic Circles can't use their abilities nor be interacted with.
 
 Game Options:
-WIP
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Sanctify Cooldown | Cooldown of the Sanctify ability. | 25s |
+| Magic Circle Visible | Whether to show the Magic Circles to other players. | True |
+| Magic Circle Visibility Delay | Delay between Magic Circle appearence and it's visibility to other players. | 10s |
+| Initial Number Of Uses | Initial amount of uses for Sanctify ability. | 3 |
+| Magic Circle Size | Size of the Magic Circles. | x0.5 |
+| Circles Reset After Each Round | Whether Magic Circles reset after each round. | True |
+| Get More Uses From Completing Tasks | Whether to gain additional Sanctify uses by doing tasks. | False |
 
 ### Tavern Keeper <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" />
 Alignment: <b>Crewmate Support</b>\
@@ -466,6 +475,17 @@ Game Options:
 ### Manhunter <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manhunter.png" />
 Alignment: <b>Neutral Outlier</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
+
+The Manhunter is a role that must kill their targets.\
+If Manhunter's target was killed by anything other than Manhunter themself, a new target is assigned.\
+Newly assigned target will become the killer of their last target (if any), or a random player.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Kill Cooldown | Cooldown of Manhunter's kill button. | 25s |
+| Manhunter Continues Game In Final 3 | Whether Manhunter continues the game in the final 3. | True |
+| Manhunter's Targets | Initial amount of Manhunter's targets. | 4 |
 
 ### Necromancer <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Necromancer.png" />
 Alignment: <b>Neutral Outlier</b>\
