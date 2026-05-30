@@ -553,16 +553,45 @@ Game Options:
 
 ## Modifiers
 ### Prophet <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Prophet.png" />
+Faction: <b>Crewmate Alliance</b>\
 Inspiration: <b>Better Town Of Salem 2 (Apoc Town Traitor)</b>
 
+The Prophet is a modifier that makes the player work with the Apocalypse instead.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Prophet Replaces An Apocalypse Member | Whether the Prophet replaces a regular Apocalypse member when they appear. | True |
+
 ### Tasker <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" />
+Faction: <b>Impostor Passive</b>\
 Inspiration: <b>Community Sugestion (Tasker by [CraftR](https://github.com/CraftManiakpl))</b>
 
+The Tasker is a modifier that allows the Impostor to do tasks.
+
 ### Outcast <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Outcast.png" />
+Faction: <b>Impostor Utility</b>\
 Inspiration: <b>Community Sugestion (Unknown by @brzozuwka)</b>
 
+The Outcast is a modifier that makes the Impostor with it and other Impostors not see eachother.\
+In exchange the Outcast's kill cooldown is lower than normally.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Kill Cooldown Decrease | Whether the Prophet replaces a regular Apocalypse member when they appear. | 10s |
+
 ### Drunk <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" />
+Faction: <b>Universal Visibility</b>\
 Inspiration: <b>Town Of Us (Drunk)</b>
+
+The Drunk is a modifier that makes inverts the movement of the player.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Drunk Expires | Whether the Drunk modifier is removed after certain amount of rounds. | True |
+| Drunk Rounds | Amount of rounds after which the Drunk modifier is removed. | 3 |
 
 -----------------------
 # Credits
