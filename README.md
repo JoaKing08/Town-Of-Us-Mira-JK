@@ -192,6 +192,7 @@ Game Options:
 |----------|:-------------:|:------:|
 | Guard Cooldown | Cooldown of the Guard ability. | 25s |
 | Guard Duration | Duration of the Guard ability. | 30s |
+| Guard Max Distance | The distance from the Guarded player the Bodyguard needs to remain in. | 1.5x |
 
 ### Crusader <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Crusader.png" />
 Alignment: <b>Crewmate Protective</b>\
@@ -205,6 +206,7 @@ Game Options:
 | Fortify Cooldown | Cooldown of the Fortify ability. | 25s |
 | Fortify Duration | Duration of the Fortify ability. | 30s |
 | Max Uses of Fortify | Maximum amount of Fortify uses. | 5 |
+| Fortify Max Distance | The distance from the Fortified player the Crusader needs to remain in. | 2.5x |
 
 ### Sanctifier <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sanctifier.png" />
 Alignment: <b>Crewmate Protective</b>\
@@ -220,7 +222,7 @@ Game Options:
 | Magic Circle Visible | Whether to show the Magic Circles to other players. | True |
 | Magic Circle Visibility Delay | Delay between Magic Circle appearence and it's visibility to other players. | 10s |
 | Initial Number Of Uses | Initial amount of uses for Sanctify ability. | 3 |
-| Magic Circle Size | Size of the Magic Circles. | x0.5 |
+| Magic Circle Size | Size of the Magic Circles. | 0.5x |
 | Circles Reset After Each Round | Whether Magic Circles reset after each round. | True |
 | Get More Uses From Completing Tasks | Whether to gain additional Sanctify uses by doing tasks. | False |
 
@@ -439,7 +441,7 @@ Game Options:
 | Vanish Cooldown | Cooldown of the Vanish ability. | 25s |
 | Vanish Duration | How long the Vanish ability lasts. | 10s |
 | Shadow Transparency During Vanish | Shadow's opacity during Vanish. | 5% |
-| Shadow Speed During Vanish | Shadow's speed multiplier during Vanish. | x1.25 |
+| Shadow Speed During Vanish | Shadow's speed multiplier during Vanish. | 1.25x |
 | Darkness Cooldown | Cooldown of the Darkness ability. | 25s |
 | Darkness Duration | How long the Darkness ability lasts. | 10s |
 | Shadow Can Vent | Whether the Shadow can Vent. | False |
