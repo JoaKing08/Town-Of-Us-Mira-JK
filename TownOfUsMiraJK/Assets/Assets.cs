@@ -11,4 +11,6 @@ public static class ToUJKAssets
     public static LoadableAsset<Sprite> Banner { get; } = new LoadableResourceAsset($"{ShortPath}.Banner.png");
     public static LoadableAsset<GameObject> SanctifierCircle { get; }
         = new LoadableBundleAsset<GameObject>("SanctifierCircle", MainBundle);
+    public static LoadableAsset<GameObject> GuardLine { get; }
+        = new LoadableBundleAsset<GameObject>("GuardLine", MainBundle);
 }

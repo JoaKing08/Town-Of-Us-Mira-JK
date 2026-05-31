@@ -16,4 +16,7 @@ public sealed class BodyguardOptions : AbstractOptionGroup<BodyguardRole>
 
     [ModdedNumberOption("TouJKOptionBodyguardGuardDuration", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds, "0.0")]
     public float GuardDuration { get; set; } = 30f;
+
+    [ModdedNumberOption("TouJKOptionBodyguardGuardDistance", 0f, 5f, 0.25f, MiraNumberSuffixes.Multiplier, "0.00", true)]
+    public float GuardDistance { get; set; } = 1.5f;
 }

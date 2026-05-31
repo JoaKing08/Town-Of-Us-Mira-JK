@@ -28,6 +28,8 @@
 	<string name="DiedToAmmit">Devoured</string>
 	<string name="DiedToShadow">Faded</string>
 	<string name="DiedToManhunter">Hunted</string>
+	<!-- Prosecutor -->
+	<string name="TouJKOptionProsecutorReveal">Reveal Role After Prosecuting</string>
 	<!-- Monster Hunter -->
 	<string name="TouJKRoleMonsterHunter">Monster Hunter</string>
 	<string name="TouJKRoleMonsterHunterIntroBlurb">Stake the monsters to kill them.</string>
@@ -126,6 +128,7 @@
 	<!-- Bodyguard Options -->
 	<string name="TouJKOptionBodyguardGuardCooldown">Guard Cooldown</string>
 	<string name="TouJKOptionBodyguardGuardDuration">Guard Duration</string>
+	<string name="TouJKOptionBodyguardGuardDistance">Guard Max Distance</string>
 	<!-- Crusader -->
 	<string name="TouJKRoleCrusader">Crusader</string>
 	<string name="TouJKRoleCrusaderIntroBlurb">Kill anyone who tries to interact with the protected.</string>
@@ -139,6 +142,7 @@
 	<string name="TouJKOptionCrusaderFortifyCooldown">Fortify Cooldown</string>
 	<string name="TouJKOptionCrusaderFortifyDuration">Fortify Duration</string>
 	<string name="TouJKOptionCrusaderFortifyMaxUses">Max Uses of Fortify</string>
+	<string name="TouJKOptionCrusaderFortifyDistance">Fortify Max Distance</string>
 	<!-- Gunslinger -->
 	<string name="TouJKRoleGunslinger">Gunslinger</string>
 	<string name="TouJKRoleGunslingerIntroBlurb">Aim at the players to execute them during meetings.</string>

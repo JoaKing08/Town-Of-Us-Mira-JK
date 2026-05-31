@@ -19,4 +19,7 @@ public sealed class CrusaderOptions : AbstractOptionGroup<CrusaderRole>
 
     [ModdedNumberOption("TouJKOptionCrusaderFortifyMaxUses", 1, 15, 1)]
     public float FortifyMaxUses { get; set; } = 5;
+
+    [ModdedNumberOption("TouJKOptionCrusaderFortifyDistance", 0f, 5f, 0.25f, MiraNumberSuffixes.Multiplier, "0.00", true)]
+    public float FortifyDistance { get; set; } = 2.5f;
 }
