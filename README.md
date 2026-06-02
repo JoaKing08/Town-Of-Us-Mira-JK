@@ -18,7 +18,9 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 <p align="center">
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewInvest.png" align="center" />
   <a href="#coroner-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Coroner.png" /></a>
+  <a href="#gossip-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Gossip.png" /></a>
   <a href="#inspector-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" /></a>
+  <a href="#psychic-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Psychic.png" /></a>
   <a href="#watcher-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewKilling.png" align="center" />
   <a href="#gunslinger-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Gunslinger.png" /></a>
@@ -43,6 +45,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutBenign.png" align="center" />
   <a href="#cursed-soul-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/CursedSoul.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutEvil.png" align="center" />
+  <a href="#anarchist-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Anarchist.png" /></a>
   <a href="#witch-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutKilling.png" align="center" />
   <a href="#ammit-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Ammit.png" /></a>
@@ -71,6 +74,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 -----------------------
 # Other changes
 - Imitator's Wiki entry now automatically detects all roles with Crew Variants and updates them.
+- Prosecutor gains a setting that makes them reveal their role to everyone after Prosecuting.
 
 -----------------------
 # Apocalypse
@@ -110,6 +114,10 @@ Game Options:
 Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>Town Of Us Reactivated (old Detective)</b>, <b>Town Of Salem (Investigator)</b>
 
+### Inspector <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+Alignment: <b>Crewmate Investigative</b>\
+Inspiration: <b>Town Of Us Reactivated (old Detective)</b>, <b>Town Of Salem (Investigator)</b>
+
 The Inspector is a role that can Inspect players to learn what roles they may be.\
 If the `Use Doomsayer Results` option is turned on, the results will be identical to the Doomsayer's Observe.\
 Otherwise the result will be composed of random roles in amounts configured by options, one of which is that of the Inspected player.
@@ -122,6 +130,25 @@ Game Options:
 | Crewmate Roles In Report | The amount of crewmate roles in the report. | 3 |
 | Neutral Roles In Report | The amount of neutral roles in the report. | 2 |
 | Impostor Roles In Report | The amount of impostor roles in the report. | 2 |
+
+### Psychic <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Psychic.png" />
+Alignment: <b>Crewmate Investigative</b>\
+Inspiration: <b>Town Of Us Reactivated (old Aurial)</b>
+
+The Psychic is a role that can Radiate players to learn their roles.\
+The Psychic cannot distinguish between players.\
+When Radiating every player in specified radius has a chance to gain a charge of Radiation.\
+After reaching the specified amount of charges of Radiation, the Psychic learns their Faction/Alignment/Role.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Radiate Range | Range of the Inspect ability. | 1.0x |
+| Radiate Cooldown | Cooldown of the Radiate ability. | 25s |
+| Radiate Uses To See | How many Radiation charges are needed for the Psychic to see the targets role. | 3 |
+| Radiate Success Chance | Chance for the player to gain charge of Radiation after being Radiated. | 100% |
+| Radiate Reveals | What does the Psychic learn about Radiated players. | Faction |
+| See Delay | Time at the start of the round, during which all players are invisible to the Psychic. | 10s |
 
 ### Watcher <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" />
 Alignment: <b>Crewmate Investigative</b>\
@@ -348,6 +375,10 @@ Game Options:
 | Can Swap With Neutral Apocalypse | Whether the Cursed Soul can Soul Swap with Neutral Apocalypse. | False |
 | Kill On Non-Valid Swap | Whether the Cursed Soul dies on non-valid swap,\if false the Cursed Soul will always get an random person's role after targeting a non-valid target. | True |
 | Swapped Player Becomes | What the target becomes after Soul Swap. | Cursed Soul |
+
+### Anarchist <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Anarchist.png" />
+Alignment: <b>Neutral Evil</b>\
+Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
 ### Witch <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" />
 Alignment: <b>Neutral Evil</b>\
