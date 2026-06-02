@@ -389,6 +389,15 @@ Game Options:
 Alignment: <b>Neutral Evil</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
 
+The Anarchist is a role which goal is to eject a set amount of Crewmates.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Misejects To Win | Amount of wrongful ejects, after which the Anarchist wins. | 2 |
+| Learns Crew | Whether Anarchist sees who is a Crewmate. | False |
+| Anarchist Win | What happens after Anarchist wins. | Nothing |
+
 ### Witch <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" />
 Alignment: <b>Neutral Evil</b>\
 Inspiration: <b>Town Of Salem (Witch)</b>
