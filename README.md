@@ -114,6 +114,15 @@ Game Options:
 Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>Community Sugestion (Gossip by [CraftR](https://github.com/CraftManiakpl))</b>
 
+The Gossip is a role that can Chat with players to learn what role them or few other players can be.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Chat Cooldown | Cooldown of the Chat ability. | 25s |
+| Players In Report | The amount of players in the report. | 3 |
+| Allow Dead | Whether the report can contain dead players. | False |
+
 ### Inspector <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
 Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>Town Of Us Reactivated (old Detective)</b>, <b>Town Of Salem (Investigator)</b>
