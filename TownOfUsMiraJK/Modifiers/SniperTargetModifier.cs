@@ -1,5 +1,4 @@
 ﻿using MiraAPI.GameOptions;
-using MiraAPI.Roles;
 using TownOfUs.Modules.RainbowMod;
 using TownOfUsMiraJK.Options.Roles.Impostor;
 using UnityEngine;

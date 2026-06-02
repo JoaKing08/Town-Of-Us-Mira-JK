@@ -2,12 +2,8 @@
 using MiraAPI.GameOptions.Attributes;
 using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
-using TownOfUs.Modifiers.Game.Alliance;
 using TownOfUs.Modules.Localization;
-using TownOfUsMiraJK.Events.Modifiers;
-using TownOfUsMiraJK.Modifiers.Game.Alliance;
 using TownOfUsMiraJK.Modifiers.Game.Impostor;
-using TownOfUsMiraJK.Modifiers.Game.Universal;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Options.Modifiers.Impostor;

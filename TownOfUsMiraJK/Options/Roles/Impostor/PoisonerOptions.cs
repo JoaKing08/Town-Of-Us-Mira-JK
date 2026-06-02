@@ -3,9 +3,7 @@ using MiraAPI.GameOptions.Attributes;
 using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
 using TownOfUs.Modules.Localization;
-using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Roles.Impostor;
-using TownOfUsMiraJK.Roles.Neutral;
 
 namespace TownOfUsMiraJK.Options.Roles.Impostor;
 

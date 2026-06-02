@@ -1,11 +1,5 @@
 ﻿using MiraAPI.Roles;
 using MiraAPI.Utilities;
-using MS.Internal.Xml.XPath;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TownOfUs.Modifiers.Crewmate.Coroner;
 using TownOfUs.Modules.Localization;
 

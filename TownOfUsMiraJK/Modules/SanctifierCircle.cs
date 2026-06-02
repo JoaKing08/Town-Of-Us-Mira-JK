@@ -1,11 +1,11 @@
 using HarmonyLib;
-using UnityEngine;
-using TownOfUsMiraJK.Assets;
+using MiraAPI.GameOptions;
 using Reactor.Utilities.Extensions;
 using TownOfUs.Utilities;
-using TownOfUsMiraJK.Roles.Crewmate;
+using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
-using MiraAPI.GameOptions;
+using TownOfUsMiraJK.Roles.Crewmate;
+using UnityEngine;
 
 public class SanctifierCircle
 {

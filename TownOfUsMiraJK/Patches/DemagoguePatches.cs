@@ -1,10 +1,6 @@
 ﻿using HarmonyLib;
-using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
-using TownOfUs.Events;
-using TownOfUs.Modifiers.Crewmate;
-using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using TownOfUs.Utilities.Appearances;

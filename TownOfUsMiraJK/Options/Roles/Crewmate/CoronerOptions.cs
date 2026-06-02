@@ -2,7 +2,6 @@
 using MiraAPI.GameOptions.Attributes;
 using MiraAPI.Utilities;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Crewmate;
 
 namespace TownOfUsMiraJK.Options.Roles.Crewmate;

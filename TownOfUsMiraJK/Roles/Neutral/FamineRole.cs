@@ -1,5 +1,4 @@
 using AmongUs.GameOptions;
-using HarmonyLib;
 using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
 using MiraAPI.Hud;
@@ -23,7 +22,6 @@ using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Networking;
 using TownOfUs.Options.Modifiers.Alliance;
-using TownOfUs.Options.Roles.Neutral;
 using TownOfUs.Roles;
 using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Neutral;

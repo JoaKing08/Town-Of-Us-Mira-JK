@@ -1,26 +1,14 @@
-﻿using MiraAPI.Events;
-using MiraAPI.GameOptions;
+﻿using MiraAPI.GameOptions;
 using MiraAPI.Hud;
-using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
-using MiraAPI.Utilities.Assets;
-using PowerTools;
 using Reactor.Utilities;
 using Reactor.Utilities.Extensions;
-using Rewired.Platforms;
 using System.Collections;
-using TownOfUs.Events.TouEvents;
-using TownOfUs.Modules;
-using TownOfUs.Modules.Anims;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Options;
-using TownOfUs.Options.Roles.Crewmate;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Buttons.Neutral;
-using TownOfUsMiraJK.Enums;
-using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using UnityEngine;
 

@@ -1,6 +1,4 @@
-﻿using AmongUs.GameOptions;
-using Il2CppInterop.Runtime.Attributes;
-using InnerNet;
+﻿using InnerNet;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Patches.Stubs;
@@ -12,27 +10,20 @@ using Reactor.Utilities;
 using System.Collections;
 using TownOfUs;
 using TownOfUs.Assets;
-using TownOfUs.Events;
 using TownOfUs.Extensions;
-using TownOfUs.Modifiers;
-using TownOfUs.Modifiers.Crewmate;
-using TownOfUs.Modifiers.Game;
 using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Options;
 using TownOfUs.Options.Roles.Neutral;
 using TownOfUs.Roles;
-using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Roles.Other;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Modifiers;
-using TownOfUsMiraJK.Options.Roles.Impostor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace TownOfUsMiraJK.Roles.Impostor;
 

@@ -1,25 +1,18 @@
 ﻿using AmongUs.GameOptions;
 using MiraAPI.GameOptions;
-using MiraAPI.Hud;
 using MiraAPI.Keybinds;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
 using TownOfUs;
 using TownOfUs.Buttons;
-using TownOfUs.Buttons.Impostor;
-using TownOfUs.Interfaces.BaseGame;
 using TownOfUs.Modifiers.Impostor;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Options.Roles.Impostor;
-using TownOfUs.Roles.Impostor;
 using TownOfUs.Utilities;
-using TownOfUs.Utilities.Appearances;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Options.Roles.Impostor;
 using TownOfUsMiraJK.Roles.Impostor;
 using UnityEngine;
-using static Sentry.MeasurementUnit;
 
 namespace TownOfUsMiraJK.Buttons.Impostor;
 

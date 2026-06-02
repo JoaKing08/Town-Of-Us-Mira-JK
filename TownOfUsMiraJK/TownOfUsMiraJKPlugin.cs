@@ -3,7 +3,6 @@ using BepInEx.Configuration;
 using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
 using MiraAPI;
-using MiraAPI.Patches.LocalSettings;
 using MiraAPI.PluginLoading;
 using Reactor;
 using Reactor.Networking;
@@ -12,7 +11,6 @@ using Reactor.Utilities;
 using System.Globalization;
 using System.Reflection;
 using TownOfUs;
-using TownOfUs.Options;
 
 namespace TownOfUsMiraJK;
 

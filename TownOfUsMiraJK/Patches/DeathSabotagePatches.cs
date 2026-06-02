@@ -1,8 +1,6 @@
 using HarmonyLib;
 using Hazel;
 using MiraAPI.GameOptions;
-using TownOfUs.Modules.Components;
-using TownOfUs.Options.Roles.Impostor;
 using TownOfUsMiraJK.Modules.Components;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using UnityEngine;

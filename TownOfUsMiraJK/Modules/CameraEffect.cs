@@ -1,8 +1,6 @@
 using Il2CppInterop.Runtime.Injection;
-using System;
-using System.Collections.Generic;
-using UnityEngine;
 using Reactor.Utilities.Extensions;
+using UnityEngine;
 
 namespace TownOfUsMiraJK.Modules
 {

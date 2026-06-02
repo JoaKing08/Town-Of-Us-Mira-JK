@@ -3,14 +3,10 @@ using MiraAPI.Keybinds;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
-using TownOfUs;
 using TownOfUs.Assets;
 using TownOfUs.Buttons;
 using TownOfUs.Modifiers.Neutral;
-using TownOfUs.Modules;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Options.Roles.Crewmate;
-using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
@@ -32,7 +28,7 @@ public sealed class PsychicRadiateButton : TownOfUsRoleButton<PsychicRole>
     }
     public override bool CanUse()
     {
-        return base.CanUse() && Helpers.GetClosestPlayers(PlayerControl.LocalPlayer, OptionGroupSingleton<PsychicOptions>.Instance.RadiateRange * ShipStatus.Instance.MaxLightRadius).Count != 0;
+        return base.CanUse() && Helpers.GetClosestPlayers(PlayerControl.LocalPlayer, OptionGroupSingleton<PsychicOptions>.Instance.RadiateRange * ShipStatus.Instance.MaxLightRadius).Any(x => !x.HasModifier<PsychicColoredModifier>(y => y.Charges >= OptionGroupSingleton<PsychicOptions>.Instance.RadiateCount));
     }
 
     protected override void OnClick()

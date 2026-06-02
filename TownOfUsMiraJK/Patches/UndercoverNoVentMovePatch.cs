@@ -1,6 +1,5 @@
 using HarmonyLib;
 using MiraAPI.GameOptions;
-using TownOfUs.Roles.Neutral;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Crewmate;
 

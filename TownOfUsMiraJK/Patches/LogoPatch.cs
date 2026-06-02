@@ -1,7 +1,7 @@
 using HarmonyLib;
 using MiraAPI.Utilities.Assets;
-using TownOfUsMiraJK.Assets;
 using TownOfUs.Assets;
+using TownOfUsMiraJK.Assets;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Patches;

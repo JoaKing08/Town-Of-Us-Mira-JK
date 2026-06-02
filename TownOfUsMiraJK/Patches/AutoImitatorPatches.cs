@@ -5,7 +5,6 @@ using MiraAPI.Utilities;
 using TownOfUs.Extensions;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles.Crewmate;
-using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 
 namespace TownOfUsMiraJK.Patches;

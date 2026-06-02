@@ -1,32 +1,17 @@
 ﻿using HarmonyLib;
-using Il2CppSystem.Xml.Schema;
 using MiraAPI.Events;
-using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities;
-using MiraAPI.Utilities.Assets;
-using PowerTools;
 using Reactor.Utilities;
-using Reactor.Utilities.Extensions;
 using TownOfUs.Events;
 using TownOfUs.Events.TouEvents;
-using TownOfUs.Modifiers.Game.Universal;
 using TownOfUs.Modifiers.Neutral;
-using TownOfUs.Modules;
-using TownOfUs.Modules.Anims;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Options;
-using TownOfUs.Options.Roles.Crewmate;
 using TownOfUs.Utilities;
-using TownOfUs.Utilities.Appearances;
 using TownOfUsMiraJK;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
-using TownOfUsMiraJK.Modifiers.Game.Universal;
-using TownOfUsMiraJK.Options.Roles.Crewmate;
 using UnityEngine;
-using static AmongUs.QuickChat.QuickChatPhraseBuilderResult;
-using static UnityEngine.GraphicsBuffer;
 
 namespace TownOfUs.Modifiers.Crewmate;
 

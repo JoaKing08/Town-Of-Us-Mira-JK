@@ -1,15 +1,10 @@
-﻿using HarmonyLib;
-using MiraAPI.GameOptions;
-using MiraAPI.Modifiers;
+﻿using MiraAPI.GameOptions;
 using MiraAPI.Utilities.Assets;
-using TownOfUs.Assets;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
-using TownOfUs.Options.Modifiers;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
-using TownOfUsMiraJK.Modifiers.Game.Universal;
 using TownOfUsMiraJK.Options.Modifiers;
 using UnityEngine;
 

@@ -1,11 +1,9 @@
 using MiraAPI.Events;
 using MiraAPI.GameOptions;
-using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using TownOfUs.Events.TouEvents;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
-using TownOfUsMiraJK.Options.Roles.Neutral;
 
 namespace TownOfUs.Modifiers.Neutral;
 

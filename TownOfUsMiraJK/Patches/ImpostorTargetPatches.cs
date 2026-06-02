@@ -10,7 +10,6 @@ using TownOfUs.Interfaces;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Modifiers.Game;
-using TownOfUs.Modifiers.Game.Impostor;
 using TownOfUs.Modifiers.Impostor;
 using TownOfUs.Modifiers.Impostor.Herbalist;
 using TownOfUs.Options;
@@ -25,7 +24,6 @@ using TownOfUs.Utilities.Appearances;
 using TownOfUsMiraJK.Modifiers.Game.Impostor;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Crewmate;
-using static UnityEngine.GraphicsBuffer;
 
 namespace TownOfUs.Patches.Roles;
 

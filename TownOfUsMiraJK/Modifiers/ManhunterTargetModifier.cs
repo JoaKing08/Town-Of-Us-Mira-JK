@@ -1,5 +1,4 @@
 using MiraAPI.Modifiers;
-using TownOfUs.Modules;
 
 namespace TownOfUsMiraJK.Modifiers;
 

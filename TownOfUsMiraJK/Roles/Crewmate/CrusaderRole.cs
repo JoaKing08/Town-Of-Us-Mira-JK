@@ -1,23 +1,17 @@
-﻿using System.Text;
-using Il2CppInterop.Runtime.Attributes;
-using MiraAPI.GameOptions;
+﻿using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.Modifiers;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
-using Reactor.Networking.Attributes;
-using Reactor.Utilities;
+using System.Text;
 using TownOfUs;
 using TownOfUs.Assets;
 using TownOfUs.Extensions;
 using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
-using TownOfUs.Options.Roles.Crewmate;
 using TownOfUs.Roles;
-using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
-using TownOfUsMiraJK.Enums;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Crewmate;

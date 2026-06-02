@@ -5,8 +5,6 @@ using MiraAPI.Utilities.Assets;
 using Reactor.Utilities;
 using TownOfUs.Buttons;
 using TownOfUs.Options.Modifiers.Alliance;
-using TownOfUs.Options.Roles.Neutral;
-using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Options.Roles.Neutral;

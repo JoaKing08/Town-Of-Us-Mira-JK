@@ -8,13 +8,8 @@ using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using MiraAPI.Voting;
-using TownOfUs.Events;
-using TownOfUs.Events.Misc;
 using TownOfUs.Modifiers;
-using TownOfUs.Modifiers.Game;
-using TownOfUs.Modifiers.Game.Crewmate;
 using TownOfUs.Options.Roles.Crewmate;
-using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Roles.Crewmate;
 

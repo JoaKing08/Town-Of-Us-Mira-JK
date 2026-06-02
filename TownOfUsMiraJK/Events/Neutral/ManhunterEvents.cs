@@ -12,7 +12,6 @@ using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace TownOfUsMiraJK.Events.Neutral;
 

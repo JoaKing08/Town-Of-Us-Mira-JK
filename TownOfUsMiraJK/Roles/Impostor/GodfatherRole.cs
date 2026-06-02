@@ -1,8 +1,6 @@
 ﻿using AmongUs.GameOptions;
 using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
-using MiraAPI.Modifiers;
-using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
@@ -10,7 +8,6 @@ using Reactor.Networking.Rpc;
 using TownOfUs;
 using TownOfUs.Assets;
 using TownOfUs.Extensions;
-using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles;
@@ -20,7 +17,6 @@ using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Options.Roles.Impostor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace TownOfUsMiraJK.Roles.Impostor;
 

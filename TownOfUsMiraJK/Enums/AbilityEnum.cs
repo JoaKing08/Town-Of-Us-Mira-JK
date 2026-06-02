@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TownOfUsMiraJK.Enums
+﻿namespace TownOfUsMiraJK.Enums
 {
     public enum JKAbilityType
     {
@@ -27,5 +21,7 @@ namespace TownOfUsMiraJK.Enums
         ShadowVanish,
         ShadowAppear,
         ShadowDarkness,
+        PsychicRadiate,
+        GossipChat,
     }
 }

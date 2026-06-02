@@ -1,34 +1,15 @@
-using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
-using MiraAPI.Hud;
 using MiraAPI.Keybinds;
 using MiraAPI.Modifiers;
-using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
-using TownOfUs;
-using TownOfUs.Assets;
 using TownOfUs.Buttons;
-using TownOfUs.Buttons.Neutral;
-using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Modifiers.Crewmate.Coroner;
-using TownOfUs.Modifiers.Neutral;
-using TownOfUs.Modules;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Networking;
-using TownOfUs.Options.Modifiers.Alliance;
-using TownOfUs.Options.Roles.Neutral;
-using TownOfUs.Roles.Neutral;
-using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
-using TownOfUsMiraJK.Modules;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
-using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Roles.Crewmate;
-using TownOfUsMiraJK.Roles.Neutral;
-using TownOfUsMiraJK.Utilities;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace TownOfUsMiraJK.Buttons.Neutral;
 

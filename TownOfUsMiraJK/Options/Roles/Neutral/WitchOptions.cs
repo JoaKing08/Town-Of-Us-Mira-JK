@@ -3,7 +3,6 @@ using MiraAPI.GameOptions.Attributes;
 using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Options.Roles.Neutral;
 using TownOfUsMiraJK.Roles.Neutral;
 
 namespace TownOfUsMiraJK.Options.Roles.Neutral;

@@ -244,6 +244,24 @@
 	<string name="TouJKPsychicRadiateVisibilityAlignment">Alignment</string>
 	<string name="TouJKPsychicRadiateVisibilityRole">Role</string>
 	<string name="TouJKPsychicInvis">See Delay</string>
+	<!-- Gossip -->
+	<string name="TouJKRoleGossip">Gossip</string>
+	<string name="TouJKRoleGossipIntroBlurb">Chat about what roles run around in the crew.</string>
+	<string name="TouJKRoleGossipTabDescription">Chat with players to learn what role they and others can be.</string>
+	<!-- Gossip Wiki -->
+	<string name="TouJKRoleGossipWikiDescription">The Gossip is a Crewmate Investigative role with an ability to Chat with players to get a list of players who can have a certain role.</string>
+	<string name="TouJKRoleGossipChat">Chat</string>
+	<string name="TouJKRoleGossipChatWikiDescription">Get what role this and other players can be.</string>
+	<string name="TouJKRoleGossipChatNotif">You will receive a report in the following meeting, containing players who can have a specified role.</string>
+	<!-- Gossip Options -->
+	<string name="TouJKGossipChatCooldown">Chat Cooldown</string>
+	<string name="TouJKGossipPlayers">Players In Report</string>
+	<string name="TouJKGossipUseDead">Allow Dead</string>
+	<!-- Gossip Feedback -->
+	<string name="TouJKRoleGossipChatTitle">Gossip Report</string>
+	<string name="TouJKRoleGossipChatResult">Your chat revealed that \%players\% is \%role\%!</string>
+	<string name="TouJKRoleGossipChatResultOr"> or </string>
+	<string name="TouJKRoleGossipChatResultNotEnoughPlayers">Your chat failed due to small amount of players.</string>
 	<!-- Pirate -->
 	<string name="TouJKRolePirate">Pirate</string>
 	<string name="TouJKRolePirateIntroBlurb">Duel with those pesky landlubbers to get their treasures.</string>

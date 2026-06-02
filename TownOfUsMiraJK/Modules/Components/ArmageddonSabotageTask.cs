@@ -1,4 +1,3 @@
-using System.Collections;
 using AmongUs.Data;
 using BepInEx.Unity.IL2CPP.Utils.Collections;
 using Il2CppInterop.Runtime.Attributes;
@@ -6,11 +5,11 @@ using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities;
 using Reactor.Utilities.Attributes;
+using System.Collections;
 using TownOfUs.Assets;
 using TownOfUs.Modifiers.Game.Universal;
 using TownOfUs.Modules.Anims;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Options.Roles.Impostor;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Options.Roles.Neutral;

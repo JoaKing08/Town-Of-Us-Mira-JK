@@ -1,6 +1,5 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.OptionTypes;
-using TownOfUs.Modifiers.Game.Alliance;
 using TownOfUs.Modules.Localization;
 using TownOfUsMiraJK.Modifiers.Game.Alliance;
 using UnityEngine;

@@ -1,13 +1,9 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.Keybinds;
 using MiraAPI.Utilities.Assets;
-using TownOfUs;
 using TownOfUs.Assets;
 using TownOfUs.Buttons;
-using TownOfUs.Modules;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Options.Roles.Crewmate;
-using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Options.Roles.Crewmate;

@@ -3,7 +3,6 @@ using MiraAPI.GameOptions.Attributes;
 using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
 using TownOfUs.Options;
-using UnityEngine;
 
 namespace TownOfUsMiraJK.Options.Modifiers;
 

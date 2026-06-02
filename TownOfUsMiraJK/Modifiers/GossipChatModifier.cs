@@ -5,17 +5,17 @@ using TownOfUsMiraJK.Enums;
 
 namespace TownOfUs.Modifiers.Crewmate;
 
-public sealed class InspectorInspectModifier(PlayerControl inspector) : BaseModifier
+public sealed class GossipChatModifier(PlayerControl gossip) : BaseModifier
 {
-    public override string ModifierName => "Confess";
+    public override string ModifierName => "Chat";
     public override bool HideOnUi => true;
-    public PlayerControl Inspector { get; } = inspector;
+    public PlayerControl Gossip { get; } = gossip;
 
     public override void OnActivate()
     {
         base.OnActivate();
 
-        var touAbilityEvent = new TouAbilityEvent((AbilityType)JKAbilityType.InspectorInspect, Inspector, Player);
+        var touAbilityEvent = new TouAbilityEvent((AbilityType)JKAbilityType.GossipChat, Gossip, Player);
         MiraEventManager.InvokeEvent(touAbilityEvent);
     }
 

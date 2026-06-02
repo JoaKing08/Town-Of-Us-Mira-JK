@@ -12,7 +12,6 @@ using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Neutral;
-using UnityEngine;
 
 namespace TownOfUsMiraJK.Utilities
 {

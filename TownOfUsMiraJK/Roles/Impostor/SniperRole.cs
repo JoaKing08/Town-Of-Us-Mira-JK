@@ -22,7 +22,6 @@ using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Options.Roles.Impostor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace TownOfUsMiraJK.Roles.Impostor;
 

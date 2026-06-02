@@ -5,7 +5,6 @@ using Reactor.Utilities.Attributes;
 using TownOfUs.Events;
 using TownOfUs.Modifiers;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Roles.Impostor;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Roles.Neutral;
 using TownOfUsMiraJK.Utilities;

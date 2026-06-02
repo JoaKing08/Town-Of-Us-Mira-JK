@@ -1,9 +1,6 @@
 using MiraAPI.Events;
 using MiraAPI.GameOptions;
-using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
-using MiraAPI.Networking;
-using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using TownOfUs.Events.TouEvents;
 using TownOfUs.Modules.Localization;
@@ -12,7 +9,6 @@ using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Options.Roles.Impostor;
-using TownOfUsMiraJK.Roles.Impostor;
 using UnityEngine;
 
 namespace TownOfUs.Modifiers.Impostor;

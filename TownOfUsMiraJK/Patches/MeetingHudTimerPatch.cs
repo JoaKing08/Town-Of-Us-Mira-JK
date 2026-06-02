@@ -1,17 +1,6 @@
 using HarmonyLib;
-using MiraAPI.GameOptions;
-using MiraAPI.Modifiers;
 using TownOfUs;
-using TownOfUs.Events;
-using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Options;
-using TownOfUs.Options.Roles.Crewmate;
-using TownOfUs.Options.Roles.Impostor;
-using TownOfUs.Options.Roles.Neutral;
-using TownOfUs.Roles.Crewmate;
-using TownOfUs.Roles.Impostor;
-using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Roles.Crewmate;
 

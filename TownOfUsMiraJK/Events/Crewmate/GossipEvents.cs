@@ -9,12 +9,12 @@ using TownOfUsMiraJK.Roles.Crewmate;
 
 namespace TownOfUs.Events.Crewmate;
 
-public static class InspectorEvents
+public static class GossipEvents
 {
     [RegisterEvent]
     public static void StartMeetingEventHandler(StartMeetingEvent @event)
     {
-        CustomRoleUtils.GetActiveRolesOfType<InspectorRole>().Do(x => x.ReportOnInspect());
+        CustomRoleUtils.GetActiveRolesOfType<GossipRole>().Do(x => x.ReportOnChat());
     }
 
     [RegisterEvent]
@@ -30,7 +30,7 @@ public static class InspectorEvents
             return;
         }
 
-        ModifierUtils.GetPlayersWithModifier<InspectorInspectModifier>()
-            .Do(x => x.RpcRemoveModifier<InspectorInspectModifier>());
+        ModifierUtils.GetPlayersWithModifier<GossipChatModifier>()
+            .Do(x => x.RpcRemoveModifier<GossipChatModifier>());
     }
 }

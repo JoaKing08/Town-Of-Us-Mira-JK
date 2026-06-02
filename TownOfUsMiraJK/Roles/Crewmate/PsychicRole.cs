@@ -5,27 +5,17 @@ using MiraAPI.Modifiers;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
-using Reactor.Networking.Attributes;
-using Reactor.Utilities;
-using Sentry.Unity.NativeUtils;
-using System.Text;
-using TownOfUs;
 using TownOfUs.Assets;
 using TownOfUs.Extensions;
-using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
-using TownOfUs.Options.Roles.Crewmate;
 using TownOfUs.Roles;
-using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
-using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Modules;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using UnityEngine;
-using UnityEngine.UIElements.Internal;
 
 namespace TownOfUsMiraJK.Roles.Crewmate;
 

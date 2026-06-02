@@ -1,7 +1,7 @@
 
-using System.Reflection;
 using BepInEx.Logging;
 using MiraAPI.Utilities;
+using System.Reflection;
 using TownOfUs.Modules.Localization;
 
 namespace TownOfUsMiraJK.Modules;

@@ -1,15 +1,8 @@
-using MiraAPI.Events;
 using MiraAPI.GameOptions;
-using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
-using Reactor.Utilities;
 using Reactor.Utilities.Extensions;
-using TownOfUs.Events.TouEvents;
-using TownOfUs.Options.Roles.Neutral;
 using TownOfUs.Utilities;
-using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Options.Roles.Impostor;
-using TownOfUsMiraJK.Options.Roles.Neutral;
 using UnityEngine;
 
 namespace TownOfUs.Modifiers.Impostor;

@@ -4,26 +4,17 @@ using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TownOfUs;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
-using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
-using TownOfUsMiraJK.Modifiers.Game.Alliance;
 using TownOfUsMiraJK.Options.Roles.Impostor;
 using TownOfUsMiraJK.Roles.Impostor;
-using TownOfUsMiraJK.Roles.Neutral;
 using TownOfUsMiraJK.Utilities;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace TownOfUsMiraJK.Modifiers
 {

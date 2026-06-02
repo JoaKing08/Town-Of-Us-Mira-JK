@@ -2,7 +2,6 @@ using MiraAPI.Events;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.PluginLoading;
-using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using TownOfUs.Events.TouEvents;
 using TownOfUs.Modules;
@@ -13,7 +12,6 @@ using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace TownOfUs.Modifiers.Crewmate.Coroner;
 
