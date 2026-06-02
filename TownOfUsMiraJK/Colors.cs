@@ -17,6 +17,8 @@ public static class Colors
     public static Color Gunslinger => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(170, 170, 170, 255);
     public static Color Coroner => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(180, 160, 160, 255);
     public static Color Secretary => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(153, 255, 51, 255);
+    public static Color Psychic => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(202, 123, 186, 255);
+    public static Color Gossip => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(255, 201, 92, 255);
 
     // Neutral Colors
     public static Color Baker => new Color32(255, 191, 128, 255);
@@ -32,6 +34,7 @@ public static class Colors
     public static Color Necromancer => new Color32(103, 149, 86, 255);
     public static Color Jackal => new Color32(102, 102, 102, 255);
     public static Color Harbinger => new Color32(51, 76, 102, 255);
+    public static Color Anarchist => new Color32(192, 58, 0, 255);
 
     // Modifiers
     public static Color Drunk => new Color32(117, 128, 0, 255);

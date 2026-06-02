@@ -225,6 +225,25 @@
 	<string name="TouJKOptionSanctifierSanctifySize">Magic Circle Size</string>
 	<string name="TouJKOptionSanctifierResetSanctify">Circles Reset After Each Round</string>
 	<string name="TouJKOptionSanctifierGetUsesFromTasks">Get More Uses From Completing Tasks</string>
+	<!-- Psychic -->
+	<string name="TouJKRolePsychic">Psychic</string>
+	<string name="TouJKRolePsychicIntroBlurb">Learn the roles of players by looking at their auras.</string>
+	<string name="TouJKRolePsychicTabDescription">Radiate players to learn their roles.</string>
+	<string name="TouJKRolePsychicUnknown">Unknown</string>
+	<!-- Psychic Wiki -->
+	<string name="TouJKRolePsychicWikiDescription">The Psychic is a Crewmate Investigative role that can see the player auras. The Psychic cannot distinguish between players, instead after they Radiate them enough they will see the role of the player.</string>
+	<string name="TouJKRolePsychicRadiate">Radiate</string>
+	<string name="TouJKRolePsychicRadiateDescription">Radiate all surrounding players to learn their roles.</string>
+	<!-- Psychic Options -->
+	<string name="TouJKPsychicRadiateRange">Radiate Range</string>
+	<string name="TouJKPsychicRadiateCooldown">Radiate Cooldown</string>
+	<string name="TouJKPsychicRadiateCount">Radiate Uses To See</string>
+	<string name="TouJKPsychicRadiateSucceedChance">Radiate Success Chance</string>
+	<string name="TouJKPsychicRadiateVisibility">Radiate Reveals</string>
+	<string name="TouJKPsychicRadiateVisibilityFaction">Faction</string>
+	<string name="TouJKPsychicRadiateVisibilityAlignment">Alignment</string>
+	<string name="TouJKPsychicRadiateVisibilityRole">Role</string>
+	<string name="TouJKPsychicInvis">See Delay</string>
 	<!-- Pirate -->
 	<string name="TouJKRolePirate">Pirate</string>
 	<string name="TouJKRolePirateIntroBlurb">Duel with those pesky landlubbers to get their treasures.</string>

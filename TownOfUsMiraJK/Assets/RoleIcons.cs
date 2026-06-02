@@ -19,6 +19,8 @@ public static class RoleIcons
     public static LoadableAsset<Sprite> Coroner { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Coroner.png", 200);
     public static LoadableAsset<Sprite> Secretary { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Secretary.png", 200);
     public static LoadableAsset<Sprite> Sanctifier { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Sanctifier.png", 200);
+    public static LoadableAsset<Sprite> Psychic { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Psychic.png", 200);
+    public static LoadableAsset<Sprite> Gossip { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Gossip.png", 200);
 
     // Neutrals
     public static LoadableAsset<Sprite> Baker { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Baker.png", 200);
@@ -36,6 +38,7 @@ public static class RoleIcons
     public static LoadableAsset<Sprite> Ammit { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Ammit.png", 200);
     public static LoadableAsset<Sprite> Shadow { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Shadow.png", 200);
     public static LoadableAsset<Sprite> Manhunter { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Manhunter.png", 200);
+    public static LoadableAsset<Sprite> Anarchist { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Anarchist.png", 200);
 
     // Impostors
     public static LoadableAsset<Sprite> Poisoner { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Poisoner.png", 200);

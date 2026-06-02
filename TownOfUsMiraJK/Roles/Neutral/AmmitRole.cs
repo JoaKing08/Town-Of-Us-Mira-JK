@@ -53,6 +53,20 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
             MiscUtils.AppendOptionsText(GetType());
     }
 
+    [HideFromIl2Cpp]
+    public List<CustomButtonWikiDescription> Abilities
+    {
+        get
+        {
+            return new List<CustomButtonWikiDescription>
+            {
+                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Devour", "Devour"),
+                    TouLocale.GetParsed($"TouJKRole{LocaleKey}DevourWikiDescription"),
+                    RoleIcons.Death)
+            };
+        }
+    }
+
     public Color RoleColor => Colors.Ammit;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
