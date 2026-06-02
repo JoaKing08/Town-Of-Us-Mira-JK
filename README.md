@@ -396,6 +396,7 @@ Game Options:
 |----------|:-------------:|:------:|
 | Misejects To Win | Amount of wrongful ejects, after which the Anarchist wins. | 2 |
 | Learns Crew | Whether Anarchist sees who is a Crewmate. | False |
+| Can Button | Whether Anarchist can call an Emergency Meeting. | True |
 | Anarchist Win | What happens after Anarchist wins. | Nothing |
 
 ### Witch <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Witch.png" />
