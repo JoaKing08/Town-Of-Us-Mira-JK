@@ -11,6 +11,7 @@ using TownOfUs;
 using TownOfUs.Extensions;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Crewmate;
+using TownOfUs.Modifiers.Game;
 using TownOfUs.Modifiers.Game.Universal;
 using TownOfUs.Modifiers.Impostor;
 using TownOfUs.Modifiers.Neutral;
@@ -745,6 +746,20 @@ namespace TownOfUsMiraJK.Patches
                     || player.HasModifier<CrusaderFortifyModifier>() && isDead)
                 {
                     __result += $"<color=#{Colors.Crusader.ToHtmlStringRGBA()}> {{}}</color>";
+                }
+            }
+        }
+
+        [HarmonyPatch]
+        public static class UpdateTargetColor
+        {
+            [HarmonyPatch(typeof(TownOfUs.Utilities.PlayerRoleTextExtensions), nameof(TownOfUs.Utilities.PlayerRoleTextExtensions.UpdateTargetColor), new Type[] { typeof(Color), typeof(PlayerControl), typeof(bool) })]
+            [HarmonyPostfix]
+            public static void Postfix(PlayerControl player, ref Color __result)
+            {
+                if (player.IsCrewmate() && !player.HasModifier<AllianceGameModifier>() && PlayerControl.LocalPlayer.IsRole<AnarchistRole>() && OptionGroupSingleton<AnarchistOptions>.Instance.LearnCrew)
+                {
+                    __result = Palette.CrewmateBlue;
                 }
             }
         }

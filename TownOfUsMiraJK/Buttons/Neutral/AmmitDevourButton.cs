@@ -20,7 +20,7 @@ public sealed class AmmitDevourButton : TownOfUsKillRoleButton<AmmitRole, Player
     public override string Name => TouLocale.GetParsed("TouJKRoleAmmitDevour", "Devour");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
     public override Color TextOutlineColor => Colors.Ammit;
-    public override float Cooldown => BaseCooldown + (OptionGroupSingleton<AmmitOptions>.Instance.DevourCooldownIncrease * Role.TryCast<AmmitRole>()?.Devoured.Count ?? 0);
+    public override float Cooldown => BaseCooldown + (OptionGroupSingleton<AmmitOptions>.Instance.DevourCooldownIncrease * Role?.TryCast<AmmitRole>()?.Devoured?.Count ?? 0);
     public float BaseCooldown => Math.Clamp(OptionGroupSingleton<AmmitOptions>.Instance.DevourCooldown + MapCooldown, 5f, 120f);
     public override LoadableAsset<Sprite> Sprite => NeutAssets.AmmitDevourSprite;
     public override int MaxUses => (int)OptionGroupSingleton<AmmitOptions>.Instance.MaxDevoured;

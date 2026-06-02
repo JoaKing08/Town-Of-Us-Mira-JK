@@ -37,4 +37,5 @@ public static class NeutAssets
     public static LoadableAsset<Sprite> ShadowAppearSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ShadowAppearSprite.png");
     public static LoadableAsset<Sprite> ShadowDarknessSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ShadowDarknessSprite.png");
     public static LoadableAsset<Sprite> ManhunterKillSprite { get; } = new LoadableResourceAsset($"{ShortPath}.ManhunterKillSprite.png");
+    public static LoadableAsset<Sprite> AnarchistAssaultSprite { get; } = new LoadableResourceAsset($"{ShortPath}.AnarchistAssaultSprite.png");
 }

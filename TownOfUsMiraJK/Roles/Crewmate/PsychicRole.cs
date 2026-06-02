@@ -79,7 +79,7 @@ public sealed class PsychicRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUs
     {
         public static void Postfix(PlayerControl __instance)
         {
-            if (!PlayerControl.LocalPlayer.IsRole<PsychicRole>() || __instance.AmOwner || __instance.HasDied())
+            if (PlayerControl.LocalPlayer?.IsRole<PsychicRole>() != true || __instance.AmOwner || __instance.HasDied())
             {
                 return;
             }

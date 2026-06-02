@@ -93,11 +93,10 @@ public sealed class GossipRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsR
             }
         }
         var role = players.Random()!.Data.Role;
-        var lastPlayer = players[-1];
+        var lastPlayer = players[^1];
         players.Remove(lastPlayer);
-        string playerString = new string(players.SelectMany(x => x.Data.PlayerName + ", ").ToArray());
-        playerString = playerString.Remove(playerString.Length - 2);
+        string playerString = string.Join(", ", players.Select(x => x.Data.PlayerName));
         playerString += TouLocale.GetParsed("TouJKRoleGossipChatResultOr") + lastPlayer.Data.PlayerName;
-        return TouLocale.GetParsed("TouJKRoleGossipChatResult").Replace("<players>", playerString).Replace("role", MiscUtils.GetHyperlinkText(role));
+        return TouLocale.GetParsed("TouJKRoleGossipChatResult").Replace("<players>", playerString).Replace("<role>", MiscUtils.GetHyperlinkText(role));
     }
 }
