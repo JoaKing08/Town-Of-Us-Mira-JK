@@ -110,9 +110,9 @@ Game Options:
 | Show Autopsy Result During Round | Show Autopsy results immidiately. | True |
 | Track Killer's Movement For | Time after murder up until which escape direction and escape method are updated. | 10s |
 
-### Inspector <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
+### Gossip <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Gossip.png" />
 Alignment: <b>Crewmate Investigative</b>\
-Inspiration: <b>Town Of Us Reactivated (old Detective)</b>, <b>Town Of Salem (Investigator)</b>
+Inspiration: <b>Community Sugestion (Gossip by [CraftR](https://github.com/CraftManiakpl))</b>
 
 ### Inspector <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" />
 Alignment: <b>Crewmate Investigative</b>\
