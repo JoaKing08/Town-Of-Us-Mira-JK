@@ -581,13 +581,13 @@ In exchange the Outcast's kill cooldown is lower than normal.
 Game Options:
 | Name | Description | Default |
 |----------|:-------------:|:------:|
-| Kill Cooldown Decrease | Whether the Prophet replaces a regular Apocalypse member when they appear. | 10s |
+| Kill Cooldown Decrease | Time taken from actual cooldown. | 10s |
 
 ### Drunk <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Drunk.png" />
 Faction: <b>Universal Visibility</b>\
 Inspiration: <b>Town Of Us (Drunk)</b>
 
-The Drunk is a modifier that makes inverts the movement of the player.
+The Drunk is a modifier that inverts the movement of the player for set amount of rounds.
 
 Game Options:
 | Name | Description | Default |
