@@ -146,19 +146,19 @@ Game Options:
 Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>Town Of Us Reactivated (old Aurial)</b>
 
-The Psychic is a role that can Radiate players to learn their roles.\
+The Psychic is a role that can Mindscan players to learn their roles.\
 The Psychic cannot distinguish between players.\
-When Radiating every player in specified radius has a chance to gain a charge of Radiation.\
-After reaching the specified amount of charges of Radiation, the Psychic learns their Faction/Alignment/Role.
+When Mindscanning every player in specified radius has a chance to gain a charge of Mindscan.\
+After reaching the specified amount of charges of Mindscan, the Psychic learns their Faction/Alignment/Role.
 
 Game Options:
 | Name | Description | Default |
 |----------|:-------------:|:------:|
-| Radiate Range | Range of the Inspect ability. | 1.0x |
-| Radiate Cooldown | Cooldown of the Radiate ability. | 25s |
-| Radiate Uses To See | How many Radiation charges are needed for the Psychic to see the targets role. | 3 |
-| Radiate Success Chance | Chance for the player to gain charge of Radiation after being Radiated. | 100% |
-| Radiate Reveals | What does the Psychic learn about Radiated players. | Faction |
+| Mindscan Range | Range of the Mindscan ability. | 1.0x |
+| Mindscan Cooldown | Cooldown of the Mindscan ability. | 25s |
+| Mindscan Uses To See | How many Mindscan charges are needed for the Psychic to see the targets role. | 3 |
+| Mindscan Success Chance | Chance for the player to gain charge of Mindscan after being Mindscanned. | 100% |
+| Mindscan Reveals | What does the Psychic learn about Mindscanned players. | Faction |
 | See Delay | Time at the start of the round, during which all players are invisible to the Psychic. | 10s |
 
 ### Watcher <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" />
