@@ -64,6 +64,8 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/AllianceMods.png" />
   <a href="#prophet-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Prophet.png" /></a>
+  <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewMods.png" />
+  <a href="#explorer-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Explorer.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/ImpMods.png" />
   <a href="#tasker-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" /></a>
   <a href="#outcast-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Outcast.png" /></a>
@@ -614,6 +616,19 @@ Game Options:
 | Name | Description | Default |
 |----------|:-------------:|:------:|
 | Prophet Replaces An Apocalypse Member | Whether the Prophet replaces a regular Apocalypse member when they appear. | True |
+
+### Explorer <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Explorer.png" />
+Faction: <b>Crewmate Utility</b>\
+Inspiration: <b>Community Sugestion (Explorer by [CraftR](https://github.com/CraftManiakpl))</b>
+
+The Explorer is a modifier that allows the player to vent.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Vent Cooldown | Cooldown of the Vent button. | 25s |
+| Vent Duration | Maximum amount of time the Explorer can stay in vents. | 10s |
+| Max Vents | Maximum amount of Vent uses per game. | 5 |
 
 ### Tasker <img width="5%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Tasker.png" />
 Faction: <b>Impostor Passive</b>\
