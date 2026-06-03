@@ -1,21 +1,24 @@
 using HarmonyLib;
+using Il2CppInterop.Runtime.Injection;
 using MiraAPI.GameOptions;
 using Reactor.Utilities.Extensions;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
+using TownOfUsMiraJK.Modules;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Crewmate;
 using UnityEngine;
 
-public class SanctifierCircle
+public class SanctifierCircle : MonoBehaviour
 {
-    public static List<SanctifierCircle> SanctifierCircles { get; set; } = new();
+    static SanctifierCircle() => ClassInjector.RegisterTypeInIl2Cpp<CameraEffect>();
+    public SanctifierCircle(IntPtr ptr) : base(ptr) { }
+    public static List<SanctifierCircle> SanctifierCircles => GameObject.FindObjectsOfType<SanctifierCircle>().ToList();
     public float RotationSpeed { get; set; } = -10f;
     public float MinimumAlpha { get; set; } = 0f;
     public float MaximumAlpha { get; set; } = 1f;
     public float CycleDuration { get; set; } = 10f;
-    public SpriteRenderer Renderer { get; set; }
-    public GameObject GameObject { get; set; }
+    public SpriteRenderer Renderer => gameObject.GetComponent<SpriteRenderer>();
     private float _timer;
     private bool _fading;
     private float _scale;
@@ -28,11 +31,6 @@ public class SanctifierCircle
     }
     public void Update()
     {
-        if (GameObject == null)
-        {
-            Destroy();
-            return;
-        }
         if (!_shown)
         {
             _showTimer += Time.deltaTime;
@@ -42,7 +40,7 @@ public class SanctifierCircle
                 _shown = true;
             }
         }
-        GameObject.transform.Rotate(0, 0, RotationSpeed * Time.deltaTime);
+        gameObject.transform.Rotate(0, 0, RotationSpeed * Time.deltaTime);
         _timer -= Time.deltaTime;
         if (_timer <= 0)
         {
@@ -66,13 +64,10 @@ public class SanctifierCircle
         }
         gameObject.transform.localScale *= scale;
         gameObject.transform.position = position;
-        var circle = new SanctifierCircle();
-        circle.Renderer = gameObject.GetComponent<SpriteRenderer>();
+        var circle = gameObject.AddComponent<SanctifierCircle>();
         circle.Renderer.enabled = PlayerControl.LocalPlayer.IsRole<SanctifierRole>();
         circle._scale = scale;
         circle._shown = PlayerControl.LocalPlayer.IsRole<SanctifierRole>() || OptionGroupSingleton<SanctifierOptions>.Instance.ShowSanctify;
-        circle.GameObject = gameObject;
-        SanctifierCircles.Add(circle);
         circle.Start();
         return circle;
     }
@@ -80,36 +75,23 @@ public class SanctifierCircle
     {
         foreach(var circle in SanctifierCircles)
         {
-            circle.GameObject.Destroy();
+            circle.gameObject.Destroy();
         }
-        SanctifierCircles.Clear();
     }
     public void Destroy()
     {
-        SanctifierCircles.Remove(this);
-        GameObject?.Destroy();
+        gameObject.Destroy();
     }
     public static bool IsInCircle(Transform transform)
     {
         var result = false;
         foreach (var circle in SanctifierCircles)
         {
-            if (circle?.GameObject?.transform != null && Vector2.Distance(circle.GameObject.transform.position, transform.position) <= circle._scale / 2)
+            if (circle?.gameObject?.transform != null && Vector2.Distance(circle.gameObject.transform.position, transform.position) <= circle._scale / 2)
             {
                 result = true;
             }
         }
         return result;
-    }
-}
-[HarmonyPatch(typeof(HudManager), nameof(HudManager.Update))]
-public static class UpdateSanctifierCircles
-{
-    public static void Postfix(HudManager __instance)
-    {
-        foreach (var circle in SanctifierCircle.SanctifierCircles)
-        {
-            circle.Update();
-        }
     }
 }
