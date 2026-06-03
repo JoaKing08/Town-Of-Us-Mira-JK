@@ -68,7 +68,6 @@ public class SanctifierCircle : MonoBehaviour
         circle.Renderer.enabled = PlayerControl.LocalPlayer.IsRole<SanctifierRole>();
         circle._scale = scale;
         circle._shown = PlayerControl.LocalPlayer.IsRole<SanctifierRole>() || OptionGroupSingleton<SanctifierOptions>.Instance.ShowSanctify;
-        circle.Start();
         return circle;
     }
     public static void Clear()

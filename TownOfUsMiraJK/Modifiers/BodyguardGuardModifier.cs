@@ -22,41 +22,24 @@ public sealed class BodyguardGuardModifier(PlayerControl bodyguard) : BaseShield
     public override bool HideOnUi => true;
 
     public PlayerControl Bodyguard { get; } = bodyguard;
-    public GameObject GuardLine { get; set; }
-
-    private float _timer = 0;
+    public GuardLine GuardLineComp { get; set; }
 
     public override void OnActivate()
     {
         var touAbilityEvent = new TouAbilityEvent((AbilityType)JKAbilityType.BodyguardGuard, Bodyguard, Player);
         MiraEventManager.InvokeEvent(touAbilityEvent);
-        if (Bodyguard.AmOwner && OptionGroupSingleton<BodyguardOptions>.Instance.GuardDistance > 0)
+        var distance = OptionGroupSingleton<BodyguardOptions>.Instance.GuardDistance;
+        if (Bodyguard.AmOwner && distance > 0)
         {
-            GuardLine = GameObject.Instantiate(ToUJKAssets.GuardLine.LoadAsset(), Player.transform);
-            GuardLine.transform.SetParent(Player.transform, false);
-            UpdateGuardLine();
-        }
-    }
-    public void UpdateGuardLine(float angleOffset = 0)
-    {
-        var radius = OptionGroupSingleton<BodyguardOptions>.Instance.GuardDistance * ShipStatus.Instance.MaxLightRadius;
-        var lineRenderer = GuardLine.GetComponent<LineRenderer>();
-        lineRenderer.positionCount = (int)(360 * OptionGroupSingleton<BodyguardOptions>.Instance.GuardDistance);
-        lineRenderer.SetColors(Colors.Bodyguard, Colors.Bodyguard);
-        for (float i = 0; i < lineRenderer.positionCount; i++)
-        {
-            var angle = i + angleOffset;
-            var position = GuardLine.transform.position;
-            position.x += Mathf.Cos(angle * Mathf.PI * 2f / lineRenderer.positionCount) * radius;
-            position.y += Mathf.Sin(angle * Mathf.PI * 2f / lineRenderer.positionCount) * radius;
-            lineRenderer.SetPosition((int)i, position);
+            GuardLineComp = GuardLine.Create(Player.transform, (int)(360 * distance),
+                Colors.Bodyguard, distance * ShipStatus.Instance.MaxLightRadius, distance * -10f);
         }
     }
     public override void OnDeactivate()
     {
-        if (GuardLine != null)
+        if (GuardLineComp != null)
         {
-            GuardLine.Destroy();
+            GuardLineComp.Destroy();
         }
     }
 
@@ -72,11 +55,6 @@ public sealed class BodyguardGuardModifier(PlayerControl bodyguard) : BaseShield
         {
             CustomButtonSingleton<BodyguardGuardButton>.Instance.ResetCooldownAndOrEffect();
             Player.RpcRemoveModifier<BodyguardGuardModifier>();
-        }
-        if (GuardLine != null)
-        {
-            _timer += Time.deltaTime;
-            UpdateGuardLine(_timer * OptionGroupSingleton<BodyguardOptions>.Instance.GuardDistance * -10f);
         }
     }
 

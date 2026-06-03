@@ -362,6 +362,10 @@ public static class AmbassadorClick
                 {
                     impRoles.Remove((ushort)role!.Role);
                 }
+                if (role is UndercoverRole && role?.Player.TryGetModifier<UndercoverCoverModifier>(out var cover) == true && cover.ShownRole)
+                {
+                    impRoles.Remove((ushort)cover.ShownRole!.Role);
+                }
 
                 if (player2.TryGetModifier<AmbassadorRetrainedModifier>(out var retrained))
                 {

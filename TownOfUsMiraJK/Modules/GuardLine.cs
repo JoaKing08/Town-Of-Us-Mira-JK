@@ -1,0 +1,63 @@
+using HarmonyLib;
+using Il2CppInterop.Runtime.Injection;
+using MiraAPI.GameOptions;
+using Reactor.Utilities.Extensions;
+using TownOfUs.Utilities;
+using TownOfUsMiraJK;
+using TownOfUsMiraJK.Assets;
+using TownOfUsMiraJK.Modules;
+using TownOfUsMiraJK.Options.Roles.Crewmate;
+using TownOfUsMiraJK.Roles.Crewmate;
+using UnityEngine;
+
+public class GuardLine : MonoBehaviour
+{
+    static GuardLine() => ClassInjector.RegisterTypeInIl2Cpp<CameraEffect>();
+    public GuardLine(IntPtr ptr) : base(ptr) { }
+    public int Points { get; set; } = 360;
+    public Color Color { get; set; } = Color.white;
+    public float Radius { get; set; } = 1f;
+    public float RotationSpeed { get; set; } = 1f;
+    public LineRenderer Renderer => gameObject.GetComponent<LineRenderer>();
+    private float _timer;
+    public void UpdateGuardLine(float angleOffset = 0)
+    {
+        Renderer.positionCount = Points;
+        Renderer.SetColors(Color, Color);
+        for (float i = 0; i < Renderer.positionCount; i++)
+        {
+            var angle = i + angleOffset;
+            var position = gameObject.transform.position;
+            position.x += Mathf.Cos(angle * Mathf.PI * 2f / Renderer.positionCount) * Radius;
+            position.y += Mathf.Sin(angle * Mathf.PI * 2f / Renderer.positionCount) * Radius;
+            Renderer.SetPosition((int)i, position);
+        }
+    }
+    public void Start()
+    {
+        UpdateGuardLine();
+    }
+    public void Update()
+    {
+        _timer += Time.deltaTime;
+        UpdateGuardLine(_timer * RotationSpeed);
+    }
+    public static GuardLine Create(Transform parent = null, int points = 360, Color? color = null, float radius = 1f, float rotationSpeed = 1f)
+    {
+        var gameObject = GameObject.Instantiate(ToUJKAssets.GuardLine.LoadAsset());
+        if (parent != null)
+        {
+            gameObject.transform.SetParent(parent);
+        }
+        var line = gameObject.AddComponent<GuardLine>();
+        line.Points = points;
+        line.Color = color ?? Color.white;
+        line.Radius = radius;
+        line.RotationSpeed = rotationSpeed;
+        return line;
+    }
+    public void Destroy()
+    {
+        gameObject.Destroy();
+    }
+}
