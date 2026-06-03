@@ -21,7 +21,7 @@
         ShadowVanish,
         ShadowAppear,
         ShadowDarkness,
-        PsychicRadiate,
+        PsychicMindscan,
         GossipChat,
     }
 }

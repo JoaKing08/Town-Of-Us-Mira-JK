@@ -15,20 +15,20 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Crewmate;
 
-public sealed class PsychicRadiateButton : TownOfUsRoleButton<PsychicRole>
+public sealed class PsychicMindscanButton : TownOfUsRoleButton<PsychicRole>
 {
-    public override string Name => TouLocale.GetParsed("TouJKRolePsychicRadiate", "Radiate");
+    public override string Name => TouLocale.GetParsed("TouJKRolePsychicMindscan", "Mindscan");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
     public override Color TextOutlineColor => Colors.Psychic;
-    public override float Cooldown => Math.Clamp(OptionGroupSingleton<PsychicOptions>.Instance.RadiateCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.PsychicRadiateSprite;
+    public override float Cooldown => Math.Clamp(OptionGroupSingleton<PsychicOptions>.Instance.MindscanCooldown + MapCooldown, 5f, 120f);
+    public override LoadableAsset<Sprite> Sprite => CrewAssets.PsychicMindscanSprite;
     public override bool Enabled(RoleBehaviour? role)
     {
-        return base.Enabled(role) && OptionGroupSingleton<PsychicOptions>.Instance.RadiateCount > 0;
+        return base.Enabled(role) && OptionGroupSingleton<PsychicOptions>.Instance.MindscanCount > 0;
     }
     public override bool CanUse()
     {
-        return base.CanUse() && Helpers.GetClosestPlayers(PlayerControl.LocalPlayer, OptionGroupSingleton<PsychicOptions>.Instance.RadiateRange * ShipStatus.Instance.MaxLightRadius).Any(x => !x.HasModifier<PsychicColoredModifier>(y => y.Charges >= OptionGroupSingleton<PsychicOptions>.Instance.RadiateCount));
+        return base.CanUse() && Helpers.GetClosestPlayers(PlayerControl.LocalPlayer, OptionGroupSingleton<PsychicOptions>.Instance.MindscanRange * ShipStatus.Instance.MaxLightRadius).Any(x => !x.HasModifier<PsychicColoredModifier>(y => y.Charges >= OptionGroupSingleton<PsychicOptions>.Instance.MindscanCount));
     }
 
     protected override void OnClick()
@@ -40,9 +40,9 @@ public sealed class PsychicRadiateButton : TownOfUsRoleButton<PsychicRole>
             return;
         }
 
-        foreach (var player in Helpers.GetClosestPlayers(PlayerControl.LocalPlayer, OptionGroupSingleton<PsychicOptions>.Instance.RadiateRange * ShipStatus.Instance.MaxLightRadius))
+        foreach (var player in Helpers.GetClosestPlayers(PlayerControl.LocalPlayer, OptionGroupSingleton<PsychicOptions>.Instance.MindscanRange * ShipStatus.Instance.MaxLightRadius))
         {
-            if (player.TryGetModifier<PsychicColoredModifier>(out var modifier) && UnityEngine.Random.RandomRangeInt(1, 101) <= OptionGroupSingleton<PsychicOptions>.Instance.RadiateSucceedChance)
+            if (player.TryGetModifier<PsychicColoredModifier>(out var modifier) && UnityEngine.Random.RandomRangeInt(1, 101) <= OptionGroupSingleton<PsychicOptions>.Instance.MindscanSucceedChance)
             {
                 modifier.Charges++;
             }

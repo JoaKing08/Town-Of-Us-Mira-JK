@@ -6,6 +6,7 @@ using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
+using System.Reflection;
 using TownOfUs.Assets;
 using TownOfUs.Buttons.Impostor;
 using TownOfUs.Extensions;
@@ -300,8 +301,8 @@ public static class IsAmbassadorExempt
 [HarmonyPatch(typeof(AmbassadorRole), nameof(AmbassadorRole.Click))]
 public static class AmbassadorClick
 {
-    public static MeetingMenu? GetMeetingMenu(AmbassadorRole x) => typeof(AmbassadorRole).GetField("meetingMenu")?.GetValue(x) as MeetingMenu;
-    public static void RpcRetrain(AmbassadorRole x, PlayerControl player, byte playerId = byte.MaxValue, ushort role = 0) => typeof(AmbassadorRole).GetMethod("RpcRetrain")?.Invoke(x, [player, playerId, role]);
+    public static MeetingMenu? GetMeetingMenu(AmbassadorRole x) => typeof(AmbassadorRole).GetField("meetingMenu", BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(x) as MeetingMenu;
+    public static void RpcRetrain(AmbassadorRole x, PlayerControl player, byte playerId = byte.MaxValue, ushort role = 0) => typeof(AmbassadorRole).GetMethod("RpcRetrain", BindingFlags.NonPublic | BindingFlags.Static)?.Invoke(x, [player, playerId, role]);
     public static bool Prefix(PlayerVoteArea voteArea, MeetingHud __, AmbassadorRole __instance)
     {
         var meetingMenu = GetMeetingMenu(__instance);
@@ -418,16 +419,8 @@ public static class AmbassadorClick
                 {
                     if (role != null)
                     {
-                        if (player._object?.IsRole<UndercoverRole>() == true)
-                        {
-                            meetingMenu.Actives[voteArea.TargetPlayerId] = true;
-                            RpcFakeRetrain(PlayerControl.LocalPlayer, player.PlayerId, (ushort)role.Role);
-                        }
-                        else
-                        {
-                            meetingMenu.Actives[voteArea.TargetPlayerId] = true;
-                            RpcRetrain(__instance, PlayerControl.LocalPlayer, player.PlayerId, (ushort)role.Role);
-                        }
+                        meetingMenu.Actives[voteArea.TargetPlayerId] = true;
+                        RpcRetrain(__instance, PlayerControl.LocalPlayer, player.PlayerId, (ushort)role.Role);
                     }
 
                     trainMenu.Close();
@@ -436,8 +429,18 @@ public static class AmbassadorClick
         }
         return false;
     }
-    [MethodRpc((uint)TownOfUsJKRpc.RetrainUndercover)]
-    private static void RpcFakeRetrain(PlayerControl player, byte playerId = byte.MaxValue, ushort role = 0)
+}
+
+[HarmonyPatch(typeof(Utilities.Extensions), nameof(Utilities.Extensions.ChangeRole))]
+public static class UndercoverChangeRole
+{
+    public static bool Prefix(PlayerControl player, ushort newRoleType, bool recordRole)
     {
+        if (player.IsRole<UndercoverRole>() && RoleManager.Instance.GetRole((RoleTypes)newRoleType).IsImpostor() && newRoleType != RoleId.Get<TraitorRole>() && newRoleType != RoleId.Get<MafiosoRole>())
+        {
+            player.GetModifier<UndercoverCoverModifier>().ShownRole = RoleManager.Instance.GetRole((RoleTypes)newRoleType);
+            return false;
+        }
+        return true;
     }
 }

@@ -232,18 +232,18 @@
 	<string name="TouJKRolePsychicTabDescription">Radiate players to learn their roles.</string>
 	<string name="TouJKRolePsychicUnknown">Unknown</string>
 	<!-- Psychic Wiki -->
-	<string name="TouJKRolePsychicWikiDescription">The Psychic is a Crewmate Investigative role that can see the player auras. The Psychic cannot distinguish between players, instead after they Radiate them enough they will see the role of the player.</string>
-	<string name="TouJKRolePsychicRadiate">Radiate</string>
-	<string name="TouJKRolePsychicRadiateDescription">Radiate all surrounding players to learn their roles.</string>
+	<string name="TouJKRolePsychicWikiDescription">The Psychic is a Crewmate Investigative role that can see the player auras. The Psychic cannot distinguish between players, instead after they Mindscan them enough they will see the role of the player.</string>
+	<string name="TouJKRolePsychicMindscan">Mindscan</string>
+	<string name="TouJKRolePsychicMindscanDescription">Mindscan all surrounding players to learn their roles.</string>
 	<!-- Psychic Options -->
-	<string name="TouJKPsychicRadiateRange">Radiate Range</string>
-	<string name="TouJKPsychicRadiateCooldown">Radiate Cooldown</string>
-	<string name="TouJKPsychicRadiateCount">Radiate Uses To See</string>
-	<string name="TouJKPsychicRadiateSucceedChance">Radiate Success Chance</string>
-	<string name="TouJKPsychicRadiateVisibility">Radiate Reveals</string>
-	<string name="TouJKPsychicRadiateVisibilityFaction">Faction</string>
-	<string name="TouJKPsychicRadiateVisibilityAlignment">Alignment</string>
-	<string name="TouJKPsychicRadiateVisibilityRole">Role</string>
+	<string name="TouJKPsychicMindscanRange">Mindscan Range</string>
+	<string name="TouJKPsychicMindscanCooldown">Mindscan Cooldown</string>
+	<string name="TouJKPsychicMindscanCount">Mindscan Uses To See</string>
+	<string name="TouJKPsychicMindscanSucceedChance">Mindscan Success Chance</string>
+	<string name="TouJKPsychicMindscanVisibility">Mindscan Reveals</string>
+	<string name="TouJKPsychicMindscanVisibilityFaction">Faction</string>
+	<string name="TouJKPsychicMindscanVisibilityAlignment">Alignment</string>
+	<string name="TouJKPsychicMindscanVisibilityRole">Role</string>
 	<string name="TouJKPsychicInvis">See Delay</string>
 	<!-- Gossip -->
 	<string name="TouJKRoleGossip">Gossip</string>

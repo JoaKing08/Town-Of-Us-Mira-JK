@@ -90,9 +90,9 @@ public sealed class PsychicRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUs
                 color = Color.clear;
                 roleName = "";
             }
-            else if (__instance.TryGetModifier<PsychicColoredModifier>(out var modifier) && modifier.Charges >= OptionGroupSingleton<PsychicOptions>.Instance.RadiateCount)
+            else if (__instance.TryGetModifier<PsychicColoredModifier>(out var modifier) && modifier.Charges >= OptionGroupSingleton<PsychicOptions>.Instance.MindscanCount)
             {
-                switch (OptionGroupSingleton<PsychicOptions>.Instance.RadiateVisibility)
+                switch (OptionGroupSingleton<PsychicOptions>.Instance.MindscanVisibility)
                 {
                     case PsychicSees.Faction:
                         if (__instance.IsCrewmate())
