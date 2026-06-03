@@ -647,9 +647,13 @@
 	<string name="TouJKOptionDemagogueCanBeKilledNonCrew">Demagogue Can Be Killed By Non-Crew Roles</string>
 	<string name="TouJKOptionDemagogueGiveHints">Give Hints About Who Isn't Immunity</string>
 	<string name="TouJKOptionDemagogueAnnounceImmunityDeath">Announce Immunity Death</string>
+	<!-- Explorer Wiki / Description -->
+	<string name="TouJKModifierExplorer">Explorer</string>
+	<string name="TouJKModifierExplorerTabDescription">You can vent!</string>
+	<string name="TouJKModifierExplorerWikiDescription">You can vent.</string>
 	<!-- Drunk Wiki / Description -->
 	<string name="TouJKModifierDrunk">Drunk</string>
-	<string name="TouJKModifierDrunkTabDescriptionExpires">Your movement is inverted for \%time\% rounds!</string>
+	<string name="TouJKModifierDrunkTabDescriptionExpires">Your movement is inverted for \%time\% round(s)!</string>
 	<string name="TouJKModifierDrunkTabDescription">Your movement is inverted!</string>
 	<string name="TouJKModifierDrunkWikiDescription">Your movement is inverted.</string>
 	<!-- Tasker Wiki / Description -->

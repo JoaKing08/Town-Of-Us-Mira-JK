@@ -36,6 +36,7 @@ public static class Colors
     public static Color Anarchist => new Color32(192, 58, 0, 255);
 
     // Modifiers
+    public static Color Explorer => new Color32(174, 55, 0, 255);
     public static Color Drunk => new Color32(117, 128, 0, 255);
 
     // Secret

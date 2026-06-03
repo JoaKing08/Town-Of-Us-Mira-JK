@@ -42,6 +42,6 @@ public sealed class OutcastModifier : TouGameModifier, IWikiDiscoverable
 
     public override bool IsModifierValidOn(RoleBehaviour role)
     {
-        return base.IsModifierValidOn(role) && role.IsImpostor();
+        return base.IsModifierValidOn(role) && role.IsImpostor() && role.GetRoleAlignment() != TownOfUs.Roles.RoleAlignment.ImpostorPower;
     }
 }

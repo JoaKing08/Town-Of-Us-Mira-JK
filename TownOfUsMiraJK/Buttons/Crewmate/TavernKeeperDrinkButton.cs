@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Crewmate;
 
-public sealed class TavernKeeperDrinkButton : TownOfUsKillRoleButton<TavernKeeperRole, PlayerControl>
+public sealed class TavernKeeperDrinkButton : TownOfUsRoleButton<TavernKeeperRole, PlayerControl>
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleTavernKeeperDrink", "Drink");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;

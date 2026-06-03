@@ -23,8 +23,6 @@ using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Modifiers;
-using TownOfUsMiraJK.Options.Roles.Neutral;
-using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Impostor;

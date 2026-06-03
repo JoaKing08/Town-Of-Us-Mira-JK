@@ -31,5 +31,6 @@
         AddManhunterTarget,
         ManhunterWin,
         SanctifierSanctify,
+        RetrainUndercover,
     }
 }

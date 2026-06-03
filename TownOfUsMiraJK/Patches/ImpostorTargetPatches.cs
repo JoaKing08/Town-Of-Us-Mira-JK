@@ -5,25 +5,37 @@ using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
+using Reactor.Networking.Attributes;
+using TownOfUs.Assets;
 using TownOfUs.Buttons.Impostor;
+using TownOfUs.Extensions;
 using TownOfUs.Interfaces;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modifiers.Impostor;
 using TownOfUs.Modifiers.Impostor.Herbalist;
+using TownOfUs.Modules;
+using TownOfUs.Modules.Components;
+using TownOfUs.Modules.Localization;
 using TownOfUs.Options;
 using TownOfUs.Options.Maps;
 using TownOfUs.Options.Modifiers.Alliance;
+using TownOfUs.Options.Roles.Impostor;
 using TownOfUs.Patches.Options;
+using TownOfUs.Roles;
 using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Impostor;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUs.Utilities.Appearances;
+using TownOfUsMiraJK.Enums;
+using TownOfUsMiraJK.Modifiers;
 using TownOfUsMiraJK.Modifiers.Game.Impostor;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Crewmate;
+using TownOfUsMiraJK.Roles.Impostor;
+using UnityEngine;
 
 namespace TownOfUs.Patches.Roles;
 
@@ -253,7 +265,7 @@ public static class GetImpostorTarget
 }
 
 [HarmonyPatch(typeof(AssassinModifier), nameof(AssassinModifier.IsExempt))]
-public static class IsExempt
+public static class IsAssassinExempt
 {
     public static bool Prefix(PlayerVoteArea voteArea, AssassinModifier __instance, ref bool __result)
     {
@@ -270,5 +282,162 @@ public static class IsExempt
                (__instance.Player.IsLover() && votePlayer?.IsLover() == true) ||
                votePlayer?.HasModifier<JailedModifier>() == true;
         return false;
+    }
+}
+
+[HarmonyPatch(typeof(AmbassadorRole), "IsExempt")]
+public static class IsAmbassadorExempt
+{
+    public static bool Prefix(PlayerVoteArea voteArea, AmbassadorRole __instance, ref bool __result)
+    {
+        __result = __instance.Player.Data.IsDead || voteArea.AmDead || (voteArea.GetPlayer()?.IsImpostor() == false && voteArea.GetPlayer()?.IsRole<UndercoverRole>() == false) || voteArea.GetPlayer()?.HasModifier<OutcastModifier>() == true || voteArea.GetPlayer()?.IsRole<MafiosoRole>() == true ||
+               voteArea.GetPlayer()?.HasModifier<AmbassadorRetrainedModifier>() == true
+               || OptionGroupSingleton<GeneralOptions>.Instance.FFAImpostorMode && !__instance.Player.AmOwner;
+        return false;
+    }
+}
+
+[HarmonyPatch(typeof(AmbassadorRole), nameof(AmbassadorRole.Click))]
+public static class AmbassadorClick
+{
+    public static MeetingMenu? GetMeetingMenu(AmbassadorRole x) => typeof(AmbassadorRole).GetField("meetingMenu")?.GetValue(x) as MeetingMenu;
+    public static void RpcRetrain(AmbassadorRole x, PlayerControl player, byte playerId = byte.MaxValue, ushort role = 0) => typeof(AmbassadorRole).GetMethod("RpcRetrain")?.Invoke(x, [player, playerId, role]);
+    public static bool Prefix(PlayerVoteArea voteArea, MeetingHud __, AmbassadorRole __instance)
+    {
+        var meetingMenu = GetMeetingMenu(__instance);
+        var player = GameData.Instance.GetPlayerById(voteArea.TargetPlayerId);
+
+        if (__instance.SelectedPlr == player)
+        {
+            RpcRetrain(__instance, PlayerControl.LocalPlayer);
+            meetingMenu!.Actives[voteArea.TargetPlayerId] = false;
+            return false;
+        }
+
+        if (__instance.SelectedPlr != null)
+        {
+            meetingMenu!.Actives[voteArea.TargetPlayerId] = false;
+            meetingMenu!.Actives[__instance.SelectedPlr.PlayerId] = false;
+            RpcRetrain(__instance, PlayerControl.LocalPlayer);
+        }
+
+        var opt = OptionGroupSingleton<AmbassadorOptions>.Instance;
+        if ((int)opt.KillsNeeded > 0)
+        {
+            var killedAmbassPlayers = GameHistory.KilledPlayers.Count(x =>
+                x.KillerId == __instance.Player.PlayerId && x.VictimId != __instance.Player.PlayerId);
+
+            var killedPlayerPlayers = GameHistory.KilledPlayers.Count(x =>
+                x.KillerId == voteArea.GetPlayer()?.PlayerId && x.VictimId != voteArea.GetPlayer()?.PlayerId);
+
+            if (killedAmbassPlayers < (int)opt.KillsNeeded && killedPlayerPlayers < (int)opt.KillsNeeded)
+            {
+                var text =
+                    TouLocale.GetParsed("TouRoleAmbassadorNeedKills")
+                        .Replace("<requiredKills>", $"{(int)opt.KillsNeeded}");
+                var notif1 =
+                    Helpers.CreateAndShowNotification(text, Color.white, new Vector3(0f, 1f, -20f),
+                        spr: TouRoleIcons.Ambassador.LoadAsset());
+
+                notif1.AdjustNotification();
+                return false;
+            }
+        }
+
+        var excluded = MiscUtils.AllRegisteredRoles
+            .Where(x => x is ISpawnChange { NoSpawn: true } || x.Role is RoleTypes.Impostor || x.IsDead || x is ITownOfUsRole
+            {
+                RoleAlignment: RoleAlignment.ImpostorPower
+            }).Select(x => x.Role).ToList();
+        var impRoles = MiscUtils.GetRolesToAssign(ModdedRoleTeams.Impostor, x => !excluded.Contains(x.Role))
+            .Select(x => x.RoleType).ToList();
+
+        foreach (var player2 in PlayerControl.AllPlayerControls)
+        {
+            if (player2.IsImpostor() && !player2.AmOwner)
+            {
+                var role = player2.GetRoleWhenAlive();
+                if (role)
+                {
+                    impRoles.Remove((ushort)role!.Role);
+                }
+
+                if (player2.TryGetModifier<AmbassadorRetrainedModifier>(out var retrained))
+                {
+                    impRoles.Remove((ushort)retrained.PreviousRole.Role);
+                }
+            }
+        }
+
+        var roleList = MiscUtils.GetPotentialRoles()
+            .Where(role => impRoles.Contains((ushort)role.Role))
+            .ToList();
+
+        if (TutorialManager.InstanceExists)
+        {
+            impRoles = MiscUtils.GetRegisteredRoles(ModdedRoleTeams.Impostor)
+                .Where(x => !excluded.Contains(x.Role))
+                .Select(x => (ushort)x.Role).ToList();
+            roleList = MiscUtils.AllRegisteredRoles
+                .Where(role => impRoles.Contains((ushort)role.Role))
+                .ToList();
+        }
+
+        if (!player._object.Is(RoleAlignment.ImpostorKilling) && !player._object.Is(RoleAlignment.ImpostorPower) &&
+            player._object.GetModifier<UndercoverCoverModifier>()?.ShownRole?.GetRoleAlignment() != RoleAlignment.ImpostorKilling &&
+            player._object.GetModifier<UndercoverCoverModifier>()?.ShownRole?.GetRoleAlignment() != RoleAlignment.ImpostorPower)
+        {
+            var curRoleList = MiscUtils.GetPotentialRoles()
+                .Where(role => impRoles.Contains(RoleId.Get(role.GetType())))
+                .ToList();
+
+            if (TutorialManager.InstanceExists)
+            {
+                impRoles = MiscUtils.GetRegisteredRoles(ModdedRoleTeams.Impostor)
+                    .Where(x => !excluded.Contains(x.Role))
+                    .Select(x => (ushort)x.Role).ToList();
+                curRoleList = MiscUtils.AllRegisteredRoles
+                    .Where(role => impRoles.Contains(RoleId.Get(role.GetType())))
+                    .ToList();
+            }
+            foreach (var roleBehaviour in curRoleList)
+            {
+                if (roleBehaviour.GetRoleAlignment() == RoleAlignment.ImpostorKilling)
+                {
+                    roleList.Remove(roleBehaviour);
+                }
+            }
+        }
+
+        if (!Minigame.Instance)
+        {
+            var trainMenu = AmbassadorSelectionMinigame.Create();
+            trainMenu.Open(
+                roleList,
+                role =>
+                {
+                    if (role != null)
+                    {
+                        if (player._object?.IsRole<UndercoverRole>() == true)
+                        {
+                            meetingMenu.Actives[voteArea.TargetPlayerId] = true;
+                            RpcFakeRetrain(PlayerControl.LocalPlayer, player.PlayerId, (ushort)role.Role);
+                        }
+                        else
+                        {
+                            meetingMenu.Actives[voteArea.TargetPlayerId] = true;
+                            RpcRetrain(__instance, PlayerControl.LocalPlayer, player.PlayerId, (ushort)role.Role);
+                        }
+                    }
+
+                    trainMenu.Close();
+                }
+            );
+        }
+        return false;
+    }
+    [MethodRpc((uint)TownOfUsJKRpc.RetrainUndercover)]
+    private static void RpcFakeRetrain(PlayerControl player, byte playerId = byte.MaxValue, ushort role = 0)
+    {
     }
 }

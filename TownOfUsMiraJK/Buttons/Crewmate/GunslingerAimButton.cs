@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Crewmate;
 
-public sealed class GunslingerAimButton : TownOfUsKillRoleButton<GunslingerRole, PlayerControl>
+public sealed class GunslingerAimButton : TownOfUsRoleButton<GunslingerRole, PlayerControl>
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleGunslingerAim", "Aim");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;

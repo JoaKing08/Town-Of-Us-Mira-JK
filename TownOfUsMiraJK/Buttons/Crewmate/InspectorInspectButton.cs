@@ -15,7 +15,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Crewmate;
 
-public sealed class InspectorInspectButton : TownOfUsKillRoleButton<InspectorRole, PlayerControl>
+public sealed class InspectorInspectButton : TownOfUsRoleButton<InspectorRole, PlayerControl>
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleInspectorInspect", "Inspect");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;

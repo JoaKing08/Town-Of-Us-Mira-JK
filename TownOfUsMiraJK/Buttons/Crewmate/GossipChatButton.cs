@@ -15,7 +15,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Crewmate;
 
-public sealed class GossipChatButton : TownOfUsKillRoleButton<GossipRole, PlayerControl>
+public sealed class GossipChatButton : TownOfUsRoleButton<GossipRole, PlayerControl>
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleGossipChat", "Chat");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;

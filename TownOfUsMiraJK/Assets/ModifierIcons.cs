@@ -6,7 +6,10 @@ namespace TownOfUsMiraJK.Assets;
 public static class ModifierIcons
 {
     private const string ShortPath = "TownOfUsMiraJK.Resources";
-    
+
+    // Crewmate
+    public static LoadableAsset<Sprite> Explorer { get; } = new LoadableResourceAsset($"{ShortPath}.ModifierIcons.Explorer.png", 200);
+
     // Universal
     public static LoadableAsset<Sprite> Drunk { get; } = new LoadableResourceAsset($"{ShortPath}.ModifierIcons.Drunk.png", 200);
 

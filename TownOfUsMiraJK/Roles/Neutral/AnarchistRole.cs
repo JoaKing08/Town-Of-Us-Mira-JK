@@ -1,35 +1,20 @@
-using System.Collections;
 using AmongUs.GameOptions;
-using HarmonyLib;
 using Il2CppInterop.Runtime.Attributes;
-using InnerNet;
 using MiraAPI.GameOptions;
-using MiraAPI.Modifiers;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
-using MiraAPI.Utilities;
-using Reactor.Networking.Attributes;
-using Reactor.Utilities;
 using TownOfUs;
 using TownOfUs.Assets;
 using TownOfUs.Extensions;
-using TownOfUs.Modifiers;
-using TownOfUs.Modifiers.Game;
-using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
-using TownOfUs.Options;
-using TownOfUs.Options.Roles.Neutral;
 using TownOfUs.Roles;
-using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Neutral;
-using TownOfUs.Roles.Other;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Roles.Crewmate;
 using UnityEngine;
-using Random = System.Random;
 
 namespace TownOfUsMiraJK.Roles.Neutral;
 

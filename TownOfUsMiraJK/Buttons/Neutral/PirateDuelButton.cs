@@ -15,7 +15,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Crewmate;
 
-public sealed class PirateDuelButton : TownOfUsKillRoleButton<PirateRole, PlayerControl>
+public sealed class PirateDuelButton : TownOfUsRoleButton<PirateRole, PlayerControl>
 {
     public override string Name => TouLocale.GetParsed("TouJKRolePirateDuel", "Duel");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;

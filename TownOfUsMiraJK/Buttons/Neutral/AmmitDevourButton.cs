@@ -15,7 +15,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Neutral;
 
-public sealed class AmmitDevourButton : TownOfUsKillRoleButton<AmmitRole, PlayerControl>
+public sealed class AmmitDevourButton : TownOfUsRoleButton<AmmitRole, PlayerControl>
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleAmmitDevour", "Devour");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
