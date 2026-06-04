@@ -11,31 +11,31 @@ public sealed class CursedSoulOptions : AbstractOptionGroup<CursedSoulRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleCursedSoul", "CursedSoul");
 
-    [ModdedNumberOption("TouJKCursedSoulSoulSwapCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouJKOptionCursedSoulSoulSwapCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float SoulSwapCooldown { get; set; } = 25f;
 
-    [ModdedNumberOption("TouJKCursedSoulRandomSwapChance", 0, 100, 10f, MiraNumberSuffixes.Percent)]
+    [ModdedNumberOption("TouJKOptionCursedSoulRandomSwapChance", 0, 100, 10f, MiraNumberSuffixes.Percent)]
     public float RandomSwapChance { get; set; } = 50;
 
-    [ModdedToggleOption("TouJKCursedSoulSwapFactionModifier")]
+    [ModdedToggleOption("TouJKOptionCursedSoulSwapFactionModifier")]
     public bool SwapFactionModifier { get; set; } = true;
 
-    [ModdedToggleOption("TouJKCursedSoulSwapAssassinModifier")]
+    [ModdedToggleOption("TouJKOptionCursedSoulSwapAssassinModifier")]
     public bool SwapAssassinModifier { get; set; } = true;
 
-    [ModdedToggleOption("TouJKCursedSoulSwapWithImpostor")]
+    [ModdedToggleOption("TouJKOptionCursedSoulSwapWithImpostor")]
     public bool SwapWithImpostor { get; set; } = false;
 
-    [ModdedToggleOption("TouJKCursedSoulSwapWithNeutralKiller")]
+    [ModdedToggleOption("TouJKOptionCursedSoulSwapWithNeutralKiller")]
     public bool SwapWithNeutralKiller { get; set; } = true;
 
-    [ModdedToggleOption("TouJKCursedSoulSwapWithNeutralApocalypse")]
+    [ModdedToggleOption("TouJKOptionCursedSoulSwapWithNeutralApocalypse")]
     public bool SwapWithNeutralApocalypse { get; set; } = false;
 
-    [ModdedToggleOption("TouJKCursedSoulKillOnNonValidSwap")]
+    [ModdedToggleOption("TouJKOptionCursedSoulKillOnNonValidSwap")]
     public bool KillOnNonValidSwap { get; set; } = true;
 
-    [ModdedEnumOption("TouJKCursedSoulSwappedPlayerBecomes", typeof(SwappedRole), ["CrewmateKeyword", "TouRoleAmnesiac", "TouRoleSurvivor", "TouRoleMercenary", "TouRoleJester", "TouJKRoleCursedSoul"])]
+    [ModdedEnumOption("TouJKOptionCursedSoulSwappedPlayerBecomes", typeof(SwappedRole), ["CrewmateKeyword", "TouRoleAmnesiac", "TouRoleSurvivor", "TouRoleMercenary", "TouRoleJester", "TouJKRoleCursedSoul", "TouJKRoleAnarchist"])]
     public SwappedRole SwappedPlayerBecomes { get; set; } = SwappedRole.CursedSoul;
 }
 
@@ -46,5 +46,6 @@ public enum SwappedRole
     Survivor,
     Mercenary,
     Jester,
-    CursedSoul
+    CursedSoul,
+    Anarchist
 }

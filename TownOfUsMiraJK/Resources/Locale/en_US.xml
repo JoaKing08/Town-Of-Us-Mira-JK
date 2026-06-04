@@ -42,11 +42,11 @@
 	<string name="TouJKRoleMonsterHunterStake">Stake</string>
 	<string name="TouJKRoleMonsterHunterStakeWikiDescription">Check if the player is a monster (Werewolf, Vampire or Undead), and attack them if they are.</string>
 	<!-- Monster Hunter Options -->
-	<string name="TouJKMonsterHunterStakeCooldown">Stake Cooldown</string>
-	<string name="TouJKMonsterHunterMaxStakes">Max Failed Stakes Per Game</string>
-	<string name="TouJKMonsterHunterStakeRoundOne">Can Stake Round One</string>
-	<string name="TouJKMonsterHunterSuicide">Self Kill When Run Out of Stakes</string>
-	<string name="TouJKMonsterHunterOnMonsterDeath">Becomes on Monsters Death</string>
+	<string name="TouJKOptionMonsterHunterStakeCooldown">Stake Cooldown</string>
+	<string name="TouJKOptionMonsterHunterMaxStakes">Max Failed Stakes Per Game</string>
+	<string name="TouJKOptionMonsterHunterStakeRoundOne">Can Stake Round One</string>
+	<string name="TouJKOptionMonsterHunterSuicide">Self Kill When Run Out of Stakes</string>
+	<string name="TouJKOptionMonsterHunterOnMonsterDeath">Becomes on Monsters Death</string>
 	<!-- Inspector -->
 	<string name="TouJKRoleInspector">Inspector</string>
 	<string name="TouJKRoleInspectorIntroBlurb">Learn what roles players can be.</string>
@@ -57,11 +57,11 @@
 	<string name="TouJKRoleInspectorInspectWikiDescription">Get the target's possible roles on the next meeting.</string>
 	<string name="TouJKRoleInspectorInspectNotif">You will receive a report on \%player\% in the following meeting, containing their possible roles.</string>
 	<!-- Inspector Options -->
-	<string name="TouJKInspectorInspectCooldown">Inspect Cooldown</string>
-	<string name="TouJKInspectorUseDoomResults">Use Doomsayer Results</string>
-	<string name="TouJKInspectorCrewRoles">Crewmate Roles In Report</string>
-	<string name="TouJKInspectorNeutRoles">Neutral Roles In Report</string>
-	<string name="TouJKInspectorImpRoles">Impostor Roles In Report</string>
+	<string name="TouJKOptionInspectorInspectCooldown">Inspect Cooldown</string>
+	<string name="TouJKOptionInspectorUseDoomResults">Use Doomsayer Results</string>
+	<string name="TouJKOptionInspectorCrewRoles">Crewmate Roles In Report</string>
+	<string name="TouJKOptionInspectorNeutRoles">Neutral Roles In Report</string>
+	<string name="TouJKOptionInspectorImpRoles">Impostor Roles In Report</string>
 	<!-- Inspector Feedback -->
 	<string name="TouJKRoleInspectorInspectTitle">Inspector Report</string>
 	<string name="TouJKRoleInspectorRoleHintPerception">You inspect that \%player\% has an altered perception of reality</string>
@@ -84,10 +84,10 @@
 	<string name="TouJKRoleTavernKeeperDrinkWikiDescription">Prevents the target from using their abilities for a set duration.</string>
 	<string name="TouJKRoleTavernKeeperDrinkNotif">You are felling a bit tipsy and can't concentrate, \%role\% has blocked your ability.</string>
 	<!-- Tavern Keeper Options -->
-	<string name="TouJKTavernKeeperDrinkCooldown">Drink Cooldown</string>
-	<string name="TouJKTavernKeeperDrinksResetEveryRound">Reset Drinks Every Round</string>
-	<string name="TouJKTavernKeeperMaxDrinks">Max Drinks</string>
-	<string name="TouJKTavernKeeperDrinkDuration">Drunk Duration</string>
+	<string name="TouJKOptionTavernKeeperDrinkCooldown">Drink Cooldown</string>
+	<string name="TouJKOptionTavernKeeperDrinksResetEveryRound">Reset Drinks Every Round</string>
+	<string name="TouJKOptionTavernKeeperMaxDrinks">Max Drinks</string>
+	<string name="TouJKOptionTavernKeeperDrinkDuration">Drunk Duration</string>
 	<!-- Undercover -->
 	<string name="TouJKRoleUndercover">Undercover</string>
 	<string name="TouJKRoleUndercoverIntroBlurb">Disguise yourself as an impostor.</string>
@@ -98,13 +98,13 @@
 	<string name="TouJKRoleUndercoverCoverWikiDescription">On the start of the game, you are given a impostor role as which the other impostors see you.</string>
 	<string name="TouJKRoleUndercoverTabCoverInfo">You are seen by impostors as a \%role\%.</string>
 	<!-- Undercover Options -->
-	<string name="TouJKUndercoverImpsKillEachother">Impostors Can Kill Eachother With Undercover Present</string>
-	<string name="TouJKUndercoverCanBeConcealing">Cover Can Be Impostor Concealing</string>
-	<string name="TouJKUndercoverCanBeKilling">Cover Can Be Impostor Killing</string>
-	<string name="TouJKUndercoverCanBePower">Cover Can Be Impostor Power</string>
-	<string name="TouJKUndercoverCanBeSupport">Cover Can Be Impostor Support</string>
-	<string name="TouJKUndercoverCanVent">Undercover Can Vent</string>
-	<string name="TouJKUndercoverCanMoveInVent">Undercover Can Move In Vents</string>
+	<string name="TouJKOptionUndercoverImpsKillEachother">Impostors Can Kill Eachother With Undercover Present</string>
+	<string name="TouJKOptionUndercoverCanBeConcealing">Cover Can Be Impostor Concealing</string>
+	<string name="TouJKOptionUndercoverCanBeKilling">Cover Can Be Impostor Killing</string>
+	<string name="TouJKOptionUndercoverCanBePower">Cover Can Be Impostor Power</string>
+	<string name="TouJKOptionUndercoverCanBeSupport">Cover Can Be Impostor Support</string>
+	<string name="TouJKOptionUndercoverCanVent">Undercover Can Vent</string>
+	<string name="TouJKOptionUndercoverCanMoveInVent">Undercover Can Move In Vents</string>
 	<!-- Watcher -->
 	<string name="TouJKRoleWatcher">Watcher</string>
 	<string name="TouJKRoleWatcherIntroBlurb">See through walls.</string>
@@ -114,9 +114,9 @@
 	<string name="TouJKRoleWatcherWatch">Watch</string>
 	<string name="TouJKRoleWatcherWatchWikiDescription">Temporarely see through walls, while watching you can't move.</string>
 	<!-- Watcher Options -->
-	<string name="TouJKWatcherWatchCooldown">Watch Cooldown</string>
-	<string name="TouJKWatcherWatchDuration">Watch Duration</string>
-	<string name="TouJKWatcherWatchVisionMult">Watch Vision Multiplier</string>
+	<string name="TouJKOptionWatcherWatchCooldown">Watch Cooldown</string>
+	<string name="TouJKOptionWatcherWatchDuration">Watch Duration</string>
+	<string name="TouJKOptionWatcherWatchVisionMult">Watch Vision Multiplier</string>
 	<!-- Bodyguard -->
 	<string name="TouJKRoleBodyguard">Bodyguard</string>
 	<string name="TouJKRoleBodyguardIntroBlurb">Sacrifice yourself to protect the crew.</string>
@@ -236,15 +236,15 @@
 	<string name="TouJKRolePsychicMindscan">Mindscan</string>
 	<string name="TouJKRolePsychicMindscanDescription">Mindscan all surrounding players to learn their roles.</string>
 	<!-- Psychic Options -->
-	<string name="TouJKPsychicMindscanRange">Mindscan Range</string>
-	<string name="TouJKPsychicMindscanCooldown">Mindscan Cooldown</string>
-	<string name="TouJKPsychicMindscanCount">Mindscan Uses To See</string>
-	<string name="TouJKPsychicMindscanSucceedChance">Mindscan Success Chance</string>
-	<string name="TouJKPsychicMindscanVisibility">Mindscan Reveals</string>
-	<string name="TouJKPsychicMindscanVisibilityFaction">Faction</string>
-	<string name="TouJKPsychicMindscanVisibilityAlignment">Alignment</string>
-	<string name="TouJKPsychicMindscanVisibilityRole">Role</string>
-	<string name="TouJKPsychicInvis">See Delay</string>
+	<string name="TouJKOptionPsychicMindscanRange">Mindscan Range</string>
+	<string name="TouJKOptionPsychicMindscanCooldown">Mindscan Cooldown</string>
+	<string name="TouJKOptionPsychicMindscanCount">Mindscan Uses To See</string>
+	<string name="TouJKOptionPsychicMindscanSucceedChance">Mindscan Success Chance</string>
+	<string name="TouJKOptionPsychicMindscanVisibility">Mindscan Reveals</string>
+	<string name="TouJKOptionPsychicMindscanVisibilityFaction">Faction</string>
+	<string name="TouJKOptionPsychicMindscanVisibilityAlignment">Alignment</string>
+	<string name="TouJKOptionPsychicMindscanVisibilityRole">Role</string>
+	<string name="TouJKOptionPsychicInvis">See Delay</string>
 	<!-- Gossip -->
 	<string name="TouJKRoleGossip">Gossip</string>
 	<string name="TouJKRoleGossipIntroBlurb">Chat about what roles run around in the crew.</string>
@@ -255,9 +255,9 @@
 	<string name="TouJKRoleGossipChatWikiDescription">Get what role this and other players can be.</string>
 	<string name="TouJKRoleGossipChatNotif">You will receive a report in the following meeting, containing players who can have a specified role.</string>
 	<!-- Gossip Options -->
-	<string name="TouJKGossipChatCooldown">Chat Cooldown</string>
-	<string name="TouJKGossipPlayers">Players In Report</string>
-	<string name="TouJKGossipUseDead">Allow Dead</string>
+	<string name="TouJKOptionGossipChatCooldown">Chat Cooldown</string>
+	<string name="TouJKOptionGossipPlayers">Players In Report</string>
+	<string name="TouJKOptionGossipUseDead">Allow Dead</string>
 	<!-- Gossip Feedback -->
 	<string name="TouJKRoleGossipChatTitle">Gossip Report</string>
 	<string name="TouJKRoleGossipChatResult">Your chat revealed that \%players\% is \%role\%!</string>
@@ -304,9 +304,9 @@
 	<string name="TouJKRolePirateDuelLostTargetPistol_BackpedalScimitar_Sidestep">Someone tried to shoot you with Pistol, but you Sidestepped their attack.</string>
 	<string name="TouJKRolePirateDuelLostTargetPistol_BackpedalRapier_Chainmail">Someone tried to shoot you with Pistol, but you put on a Chainmail.</string>
 	<!-- Pirate Options -->
-	<string name="TouJKPirateDuelsToWin">Duels To Win</string>
-	<string name="TouJKPirateDuelCooldown">Duel Cooldown</string>
-	<string name="TouJKPirateContinuesGame">Pirate Continues Game In Final 3</string>
+	<string name="TouJKOptionPirateDuelsToWin">Duels To Win</string>
+	<string name="TouJKOptionPirateDuelCooldown">Duel Cooldown</string>
+	<string name="TouJKOptionPirateContinuesGame">Pirate Continues Game In Final 3</string>
 	<!-- Bloodhound -->
 	<string name="TouJKRoleBloodhound">Bloodhound</string>
 	<string name="TouJKRoleBloodhoundIntroBlurb">Kill players to fill out your bloodlust.</string>
@@ -350,12 +350,12 @@
 	<string name="TouJKRoleWitchControlTargetNotifSecondary">You were forced by a \%role\% to use your secondary ability.</string>
 	<string name="TouJKRoleWitchControlTargetNotifTertiary">You were forced by a \%role\% to use your tertiary ability.</string>
 	<!-- Witch Options -->
-	<string name="TouJKWitchControlCooldown">Control Cooldown</string>
-	<string name="TouJKWitchLearns">Witch Learns</string>
-	<string name="TouJKWitchLearnsNothing">Nothing</string>
-	<string name="TouJKWitchLearnsFaction">Faction</string>
-	<string name="TouJKWitchLearnsAlignment">Alignment</string>
-	<string name="TouJKWitchLearnsRole">Role</string>
+	<string name="TouJKOptionWitchControlCooldown">Control Cooldown</string>
+	<string name="TouJKOptionWitchLearns">Witch Learns</string>
+	<string name="TouJKOptionWitchLearnsNothing">Nothing</string>
+	<string name="TouJKOptionWitchLearnsFaction">Faction</string>
+	<string name="TouJKOptionWitchLearnsAlignment">Alignment</string>
+	<string name="TouJKOptionWitchLearnsRole">Role</string>
 	<!-- Cursed Soul -->
 	<string name="TouJKRoleCursedSoul">Cursed Soul</string>
 	<string name="TouJKRoleCursedSoulIntroBlurb">Swap roles with players.</string>
@@ -367,15 +367,15 @@
 	<string name="TouJKRoleCursedSoulSoulSwap">Soul Swap</string>
 	<string name="TouJKRoleCursedSoulSoulSwapWikiDescription">Attempt to swap roles with a player, with a chance to swap with a random player instead.</string>
 	<!-- Cursed Soul Options -->
-	<string name="TouJKCursedSoulSoulSwapCooldown">Soul Swap Cooldown</string>
-	<string name="TouJKCursedSoulRandomSwapChance">Random Swap Target Chance</string>
-	<string name="TouJKCursedSoulSwapFactionModifier">Swap Faction Modifier</string>
-	<string name="TouJKCursedSoulSwapAssassinModifier">Swap Assassin Modifier</string>
-	<string name="TouJKCursedSoulSwapWithImpostor">Can Swap With Impostor</string>
-	<string name="TouJKCursedSoulSwapWithNeutralKiller">Can Swap With Neutral Killer</string>
-	<string name="TouJKCursedSoulSwapWithNeutralApocalypse">Can Swap With Neutral Apocalypse</string>
-	<string name="TouJKCursedSoulKillOnNonValidSwap">Kill On Non-Valid Swap</string>
-	<string name="TouJKCursedSoulSwappedPlayerBecomes">Swapped Player Becomes</string>
+	<string name="TouJKOptionCursedSoulSoulSwapCooldown">Soul Swap Cooldown</string>
+	<string name="TouJKOptionCursedSoulRandomSwapChance">Random Swap Target Chance</string>
+	<string name="TouJKOptionCursedSoulSwapFactionModifier">Swap Faction Modifier</string>
+	<string name="TouJKOptionCursedSoulSwapAssassinModifier">Swap Assassin Modifier</string>
+	<string name="TouJKOptionCursedSoulSwapWithImpostor">Can Swap With Impostor</string>
+	<string name="TouJKOptionCursedSoulSwapWithNeutralKiller">Can Swap With Neutral Killer</string>
+	<string name="TouJKOptionCursedSoulSwapWithNeutralApocalypse">Can Swap With Neutral Apocalypse</string>
+	<string name="TouJKOptionCursedSoulKillOnNonValidSwap">Kill On Non-Valid Swap</string>
+	<string name="TouJKOptionCursedSoulSwappedPlayerBecomes">Swapped Player Becomes</string>
 	<!-- Necromancer -->
 	<string name="TouJKRoleNecromancer">Necromancer</string>
 	<string name="TouJKRoleNecromancerIntroBlurb">Ressurect players to create an army of dead.</string>
@@ -387,27 +387,11 @@
 	<string name="TouJKRoleNecromancerReanimate">Reanimate</string>
 	<string name="TouJKRoleNecromancerReanimateWikiDescription">Resurrect a player to join the ranks of undead.</string>
 	<!-- Necromancer Options -->
-	<string name="TouJKNecromancerMaxUndead">Max Undead</string>
-	<string name="TouJKNecromancerReanimateCooldown">Reanimate Cooldown</string>
-	<string name="TouJKNecromancerNotifyKills">Show Arrows Pointing To Dead Bodies</string>
-	<string name="TouJKNecromancerArrowDelay">Dead Body Arrow Delay</string>
-	<string name="TouJKNecromancerArrowDuration">Dead Body Arrow Duration</string>
-	<!-- Jackal -->
-	<string name="TouJKRoleJackal">Jackal</string>
-	<string name="TouJKRoleJackalIntroBlurb">Lead your recruits to victory!</string>
-	<string name="TouJKRoleJackalTabDescription">Wait until your recruits kill off the crew.</string>
-	<string name="TouJKRoleJackalTabDescriptionRecDead">Murder the crew by yourself!</string>
-	<string name="TouJKRoleJackalRecDeadNotif">\%player\%, one of your recruits died.</string>
-	<string name="TouJKRoleJackalKillUnlockNotif">In result of your recruits death, you decided to take the matter into your own hands. You have gained the ability to kill.</string>
-	<!-- Jackal Wiki -->
-	<string name="TouJKRoleJackalWikiDescription">The Jackal is a Neutral Outlier role that starts with two recruits from two diffrent factions. Recruits lose their original win condidtion and their goal is to help the Jackal win. If all recruits are dead Jackal gains the ability to kill.</string>
-	<string name="TouJKRoleJackalReanimate">Reanimate</string>
-	<string name="TouJKRoleJackalReanimateWikiDescription">Resurrect a player to join the ranks of undead.</string>
-	<!-- Jackal Options -->
-	<string name="TouJKJackalKillCooldown">Kill Cooldown</string>
-	<string name="TouJKJackalCanVent">Jackal Can Vent</string>
-	<string name="TouJKJackalRecruitsDieTogether">Recruits Die Together</string>
-	<string name="TouJKJackalRecruitsSeeJackal">Recruits See Jackal</string>
+	<string name="TouJKOptionNecromancerMaxUndead">Max Undead</string>
+	<string name="TouJKOptionNecromancerReanimateCooldown">Reanimate Cooldown</string>
+	<string name="TouJKOptionNecromancerNotifyKills">Show Arrows Pointing To Dead Bodies</string>
+	<string name="TouJKOptionNecromancerArrowDelay">Dead Body Arrow Delay</string>
+	<string name="TouJKOptionNecromancerArrowDuration">Dead Body Arrow Duration</string>
 	<!-- Plaguebearer -->
     <string name="TouRolePlaguebearerWikiDescription">The Plaguebearer is a Neutral Killing role that needs to infect all other players to turn into the Pestilence. They win with other apocalypse members.</string>
 	<!-- Pestilence -->
@@ -436,18 +420,18 @@
 	<string name="TouJKRoleBakerBread">Bread</string>
 	<string name="TouJKRoleBakerBreadWikiDescription">Feeds the player bread. After a set amount of bread was given, Baker transforms into Famine.</string>
 	<!-- Baker Options -->
-	<string name="TouJKBakerBreadToFamine">Bread Needed To Transform</string>
-	<string name="TouJKBakerBreadCooldown">Bread Cooldown</string>
-	<string name="TouJKBakerBreadLasts">Bread Lasts For</string>
-	<string name="TouJKBakerNotEnoughPlayers">Not Enough Players Effect</string>
-	<string name="TouJKBakerNotEnoughPlayersEnumTransforms">Transform</string>
-	<string name="TouJKBakerNotEnoughPlayersEnumNothing">Nothing</string>
-	<string name="TouJKBakerNotEnoughPlayersEnumDies">Suicide</string>
-	<string name="TouJKBakerAnnounceTransformationDelay">Announce Famine Transformation Delay</string>
-	<string name="TouJKBakerFamineCanVent">Famine Can Vent</string>
-	<string name="TouJKBakerFamineStarveCooldown">Starve Ability Cooldown</string>
-	<string name="TouJKBakerStarveStrength">Starve Ability Strength</string>
-	<string name="TouJKBakerPassiveStarvingCooldown">Passive Starving Interval</string>
+	<string name="TouJKOptionBakerBreadToFamine">Bread Needed To Transform</string>
+	<string name="TouJKOptionBakerBreadCooldown">Bread Cooldown</string>
+	<string name="TouJKOptionBakerBreadLasts">Bread Lasts For</string>
+	<string name="TouJKOptionBakerNotEnoughPlayers">Not Enough Players Effect</string>
+	<string name="TouJKOptionBakerNotEnoughPlayersEnumTransforms">Transform</string>
+	<string name="TouJKOptionBakerNotEnoughPlayersEnumNothing">Nothing</string>
+	<string name="TouJKOptionBakerNotEnoughPlayersEnumDies">Suicide</string>
+	<string name="TouJKOptionBakerAnnounceTransformationDelay">Announce Famine Transformation Delay</string>
+	<string name="TouJKOptionBakerFamineCanVent">Famine Can Vent</string>
+	<string name="TouJKOptionBakerFamineStarveCooldown">Starve Ability Cooldown</string>
+	<string name="TouJKOptionBakerStarveStrength">Starve Ability Strength</string>
+	<string name="TouJKOptionBakerPassiveStarvingCooldown">Passive Starving Interval</string>
 	<!-- Berserker -->
 	<string name="TouJKRoleBerserker">Berserker</string>
 	<string name="TouJKRoleBerserkerIntroBlurb">Kill players in order to transform.</string>
@@ -479,14 +463,14 @@
 	<!-- Reaper Wiki -->
 	<string name="TouJKRoleReaperWikiDescription">The Reaper is a Neutral Outlier role that needs to collect certain amount of souls from dead bodies to transform into Death. They win with other apocalypse members.</string>
 	<string name="TouJKRoleReaperReap">Reap</string>
-	<string name="TouJKRoleReaperReapWikiDescription">Collect a soul from a dead body. After a set amount of souls were collected, Reaper transforms into Death.</string>
+	<string name="TouJKRoleReaperReapWikiDescription">Collect a soul from a dead body. After a set amount of souls were collected, transform into Death.</string>
 	<!-- Reaper Options -->
-	<string name="TouJKReaperSoulsToTransform">Souls Needed</string>
-	<string name="TouJKReaperReapCooldown">Reap Cooldown</string>
-	<string name="TouJKReaperNotifyKills">Show Arrows Pointing To Dead Bodies</string>
-	<string name="TouJKReaperArrowDelay">Dead Body Arrow Delay</string>
-	<string name="TouJKReaperArrowDuration">Dead Body Arrow Duration</string>
-	<string name="TouJKReaperArmageddonTimer">Armageddon Countdown Duration</string>
+	<string name="TouJKOptionReaperSoulsToTransform">Souls Needed</string>
+	<string name="TouJKOptionReaperReapCooldown">Reap Cooldown</string>
+	<string name="TouJKOptionReaperNotifyKills">Show Arrows Pointing To Dead Bodies</string>
+	<string name="TouJKOptionReaperArrowDelay">Dead Body Arrow Delay</string>
+	<string name="TouJKOptionReaperArrowDuration">Dead Body Arrow Duration</string>
+	<string name="TouJKOptionReaperArmageddonTimer">Armageddon Countdown Duration</string>
 	<!-- Death -->
 	<string name="TouJKRoleDeath">Death</string>
 	<string name="TouJKRoleDeathIntroBlurb">Horseman of the Apocalypse!</string>
@@ -675,10 +659,6 @@
 	<string name="TouJKModifierUndead">Undead</string>
 	<string name="TouJKModifierUndeadShortName">Und</string>
 	<string name="TouJKModifierUndeadTabDescription">Help the Necromancer win as a part of his army!</string>
-	<!-- Recruit Description -->
-	<string name="TouJKModifierRecruit">Recruit</string>
-	<string name="TouJKModifierRecruitShortName">Rec</string>
-	<string name="TouJKModifierRecruitTabDescription">Lead the Jackal to victory!</string>
 	<!-- Task Text Info -->
 	<string name="TouJKNeutralApocalypseTaskHeader">Bring forth the apocalypse upon crew and impostors alike!\%nl\%Fake Tasks:</string>
 	<!-- End Game Summary Details -->

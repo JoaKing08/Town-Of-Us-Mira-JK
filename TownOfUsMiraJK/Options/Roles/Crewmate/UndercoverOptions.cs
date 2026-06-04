@@ -10,22 +10,22 @@ public sealed class UndercoverOptions : AbstractOptionGroup<UndercoverRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleUndercover", "Undercover");
 
-    [ModdedToggleOption("TouJKUndercoverImpsKillEachother")]
+    [ModdedToggleOption("TouJKOptionUndercoverImpsKillEachother")]
     public bool ImpsKillEachother { get; set; } = true;
 
-    [ModdedToggleOption("TouJKUndercoverCanBeConcealing")]
+    [ModdedToggleOption("TouJKOptionUndercoverCanBeConcealing")]
     public bool CanBeConcealing { get; set; } = true;
 
-    [ModdedToggleOption("TouJKUndercoverCanBeKilling")]
+    [ModdedToggleOption("TouJKOptionUndercoverCanBeKilling")]
     public bool CanBeKilling { get; set; } = true;
 
-    [ModdedToggleOption("TouJKUndercoverCanBePower")]
+    [ModdedToggleOption("TouJKOptionUndercoverCanBePower")]
     public bool CanBePower { get; set; } = true;
 
-    [ModdedToggleOption("TouJKUndercoverCanBeSupport")]
+    [ModdedToggleOption("TouJKOptionUndercoverCanBeSupport")]
     public bool CanBeSupport { get; set; } = false;
 
-    [ModdedToggleOption("TouJKUndercoverCanVent")]
+    [ModdedToggleOption("TouJKOptionUndercoverCanVent")]
     public bool CanVent { get; set; } = true;
 
     public ModdedToggleOption CanMoveInVent { get; set; } =

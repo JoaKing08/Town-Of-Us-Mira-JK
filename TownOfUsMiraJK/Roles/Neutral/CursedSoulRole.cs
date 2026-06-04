@@ -191,6 +191,7 @@ public sealed class CursedSoulRole(IntPtr cppPtr)
             SwappedRole.Amnesiac => RoleId.Get<AmnesiacRole>(),
             SwappedRole.Mercenary => RoleId.Get<MercenaryRole>(),
             SwappedRole.CursedSoul => RoleId.Get<CursedSoulRole>(),
+            SwappedRole.Anarchist => RoleId.Get<AnarchistRole>(),
             _ => (ushort)RoleTypes.Crewmate
         };
 

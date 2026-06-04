@@ -11,10 +11,10 @@ public sealed class WitchOptions : AbstractOptionGroup<WitchRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleWitch", "Witch");
 
-    [ModdedNumberOption("TouJKWitchControlCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouJKOptionWitchControlCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float ControlCooldown { get; set; } = 25f;
 
-    [ModdedEnumOption("TouJKWitchLearns", typeof(NotEnoughPlayersEffect), ["TouJKWitchLearnsNothing", "TouJKWitchLearnsFaction", "TouJKWitchLearnsAlignment", "TouJKWitchLearnsRole"])]
+    [ModdedEnumOption("TouJKOptionWitchLearns", typeof(NotEnoughPlayersEffect), ["TouJKOptionWitchLearnsNothing", "TouJKOptionWitchLearnsFaction", "TouJKOptionWitchLearnsAlignment", "TouJKOptionWitchLearnsRole"])]
     public WitchLearns Learns { get; set; } = WitchLearns.Alignment;
 }
 public enum WitchLearns

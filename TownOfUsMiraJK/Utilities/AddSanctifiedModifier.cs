@@ -13,11 +13,11 @@ namespace TownOfUsMiraJK.Utilities
         [HarmonyPostfix]
         public static void Postfix(PlayerControl __instance)
         {
-            if (!__instance.AmOwner)
+            if (LobbyBehaviour.Instance)
             {
                 return;
             }
-            if (!PlayerControl.LocalPlayer.IsHost() && !TutorialManager.Instance)
+            if (!PlayerControl.LocalPlayer.IsHost())
             {
                 return;
             }

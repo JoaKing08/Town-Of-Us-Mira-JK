@@ -11,12 +11,12 @@ public sealed class GossipOptions : AbstractOptionGroup<GossipRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleGossip", "Gossip");
 
-    [ModdedNumberOption("TouJKGossipChatCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouJKOptionGossipChatCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float ChatCooldown { get; set; } = 25f;
 
-    [ModdedNumberOption("TouJKGossipPlayers", 2f, 5f, 1f)]
+    [ModdedNumberOption("TouJKOptionGossipPlayers", 2f, 5f, 1f)]
     public float Players { get; set; } = 3f;
 
-    [ModdedToggleOption("TouJKGossipUseDead")]
+    [ModdedToggleOption("TouJKOptionGossipUseDead")]
     public bool UseDead { get; set; } = false;
 }

@@ -38,14 +38,20 @@ public sealed class PsychicRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUs
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
-        CameraEffect.Initialize();
-        CameraEffect.singleton.materials.Clear();
-        CameraEffect.singleton.materials.Add(ToUJKAssets.SoundV.LoadAsset());
+        if (Player.AmOwner)
+        {
+            CameraEffect.Initialize();
+            CameraEffect.singleton.materials.Clear();
+            CameraEffect.singleton.materials.Add(ToUJKAssets.SoundV.LoadAsset());
+        }
     }
 
     public override void Deinitialize(PlayerControl targetPlayer)
     {
-        CameraEffect.singleton.materials.Clear();
+        if (Player.AmOwner)
+        {
+            CameraEffect.singleton.materials.Clear();
+        }
     }
 
     [HideFromIl2Cpp]

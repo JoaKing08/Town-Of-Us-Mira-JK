@@ -11,19 +11,19 @@ public sealed class MonsterHunterOptions : AbstractOptionGroup<MonsterHunterRole
 {
     public override string GroupName => TouLocale.Get("TouJKRoleMonsterHunter", "Monster Hunter");
 
-    [ModdedNumberOption("TouJKMonsterHunterStakeCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouJKOptionMonsterHunterStakeCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float StakeCooldown { get; set; } = 25f;
 
-    [ModdedNumberOption("TouJKMonsterHunterMaxStakes", 1, 10, 1)]
+    [ModdedNumberOption("TouJKOptionMonsterHunterMaxStakes", 1, 10, 1)]
     public float MaxStakes { get; set; } = 5;
 
-    [ModdedToggleOption("TouJKMonsterHunterStakeRoundOne")]
+    [ModdedToggleOption("TouJKOptionMonsterHunterStakeRoundOne")]
     public bool StakeRoundOne { get; set; } = false;
 
-    [ModdedToggleOption("TouJKMonsterHunterSuicide")]
+    [ModdedToggleOption("TouJKOptionMonsterHunterSuicide")]
     public bool Suicide { get; set; } = false;
 
-    [ModdedEnumOption("TouJKMonsterHunterOnMonsterDeath", typeof(BecomesOnMonsterDeath), ["CrewmateKeyword", "TouRoleDeputy", "TouRoleHunter", "TouRoleOfficer", "TouRoleSheriff", "TouRoleVeteran", "TouRoleVigilante", "TouJKRoleGunslinger"])]
+    [ModdedEnumOption("TouJKOptionMonsterHunterOnMonsterDeath", typeof(BecomesOnMonsterDeath), ["CrewmateKeyword", "TouRoleDeputy", "TouRoleHunter", "TouRoleOfficer", "TouRoleSheriff", "TouRoleVeteran", "TouRoleVigilante", "TouJKRoleGunslinger"])]
     public BecomesOnMonsterDeath BecomesOnMonsterDeath { get; set; } = BecomesOnMonsterDeath.Crewmate;
 }
 public enum BecomesOnMonsterDeath

@@ -303,7 +303,7 @@ public static class AmbassadorClick
 {
     public static MeetingMenu? GetMeetingMenu(AmbassadorRole x) => typeof(AmbassadorRole).GetField("meetingMenu", BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(x) as MeetingMenu;
     public static void RpcRetrain(AmbassadorRole x, PlayerControl player, byte playerId = byte.MaxValue, ushort role = 0) => typeof(AmbassadorRole).GetMethod("RpcRetrain", BindingFlags.NonPublic | BindingFlags.Static)?.Invoke(x, [player, playerId, role]);
-    public static bool Prefix(PlayerVoteArea voteArea, MeetingHud __, AmbassadorRole __instance)
+    public static bool Prefix(PlayerVoteArea voteArea, AmbassadorRole __instance)
     {
         var meetingMenu = GetMeetingMenu(__instance);
         var player = GameData.Instance.GetPlayerById(voteArea.TargetPlayerId);
@@ -362,7 +362,7 @@ public static class AmbassadorClick
                 {
                     impRoles.Remove((ushort)role!.Role);
                 }
-                if (role is UndercoverRole && role?.Player.TryGetModifier<UndercoverCoverModifier>(out var cover) == true && cover.ShownRole)
+                if (role is UndercoverRole && player2.TryGetModifier<UndercoverCoverModifier>(out var cover) && cover.ShownRole)
                 {
                     impRoles.Remove((ushort)cover.ShownRole!.Role);
                 }
@@ -435,16 +435,16 @@ public static class AmbassadorClick
     }
 }
 
-[HarmonyPatch(typeof(Utilities.Extensions), nameof(Utilities.Extensions.ChangeRole))]
+/*[HarmonyPatch(typeof(Utilities.Extensions), nameof(Utilities.Extensions.ChangeRole))]
 public static class UndercoverChangeRole
 {
     public static bool Prefix(PlayerControl player, ushort newRoleType, bool recordRole)
     {
-        if (player.IsRole<UndercoverRole>() && RoleManager.Instance.GetRole((RoleTypes)newRoleType).IsImpostor() && newRoleType != RoleId.Get<TraitorRole>() && newRoleType != RoleId.Get<MafiosoRole>())
+        if (player?.IsRole<UndercoverRole>() == true && RoleManager.Instance?.GetRole((RoleTypes)newRoleType)?.IsImpostor() == true && newRoleType != RoleId.Get<TraitorRole>() && newRoleType != RoleId.Get<MafiosoRole>())
         {
             player.GetModifier<UndercoverCoverModifier>().ShownRole = RoleManager.Instance.GetRole((RoleTypes)newRoleType);
             return false;
         }
         return true;
     }
-}
+}*/

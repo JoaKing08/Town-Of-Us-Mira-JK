@@ -11,23 +11,23 @@ public sealed class NecromancerOptions : AbstractOptionGroup<NecromancerRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleNecromancer", "Necromancer");
 
-    [ModdedNumberOption("TouJKNecromancerMaxUndead", 1, 5, 1)]
+    [ModdedNumberOption("TouJKOptionNecromancerMaxUndead", 1, 5, 1)]
     public float MaxUndead { get; set; } = 3;
 
-    [ModdedNumberOption("TouJKNecromancerReanimateCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouJKOptionNecromancerReanimateCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float ReanimateCooldown { get; set; } = 25f;
 
-    [ModdedToggleOption("TouJKNecromancerNotifyKills")]
+    [ModdedToggleOption("TouJKOptionNecromancerNotifyKills")]
     public bool NecromancerArrows { get; set; } = false;
 
     public ModdedNumberOption NecromancerArrowDelay { get; set; } =
-        new("TouJKNecromancerArrowDelay", 0.5f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0")
+        new("TouJKOptionNecromancerArrowDelay", 0.5f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0")
         {
             Visible = () => OptionGroupSingleton<NecromancerOptions>.Instance.NecromancerArrows
         };
 
     public ModdedNumberOption NecromancerArrowDuration { get; set; } =
-        new("TouJKNecromancerArrowDuration", 10f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0", zeroInfinity: true)
+        new("TouJKOptionNecromancerArrowDuration", 10f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0", zeroInfinity: true)
         {
             Visible = () => OptionGroupSingleton<NecromancerOptions>.Instance.NecromancerArrows
         };

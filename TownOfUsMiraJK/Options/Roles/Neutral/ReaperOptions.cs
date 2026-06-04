@@ -11,27 +11,27 @@ public sealed class ReaperJKOptions : AbstractOptionGroup<ReaperJKRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleReaper", "Reaper");
 
-    [ModdedNumberOption("TouJKReaperSoulsToTransform", 1, 7, 1)]
+    [ModdedNumberOption("TouJKOptionReaperSoulsToTransform", 1, 7, 1)]
     public float SoulsToTransform { get; set; } = 4;
 
-    [ModdedNumberOption("TouJKReaperReapCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouJKOptionReaperReapCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float ReapCooldown { get; set; } = 25f;
 
-    [ModdedToggleOption("TouJKReaperNotifyKills")]
+    [ModdedToggleOption("TouJKOptionReaperNotifyKills")]
     public bool ReaperArrows { get; set; } = true;
 
     public ModdedNumberOption ReaperArrowDelay { get; set; } =
-        new("TouJKReaperArrowDelay", 0.5f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0")
+        new("TouJKOptionReaperArrowDelay", 0.5f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0")
         {
             Visible = () => OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrows
         };
 
     public ModdedNumberOption ReaperArrowDuration { get; set; } =
-        new("TouJKReaperArrowDuration", 10f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0", zeroInfinity: true)
+        new("TouJKOptionReaperArrowDuration", 10f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0", zeroInfinity: true)
         {
             Visible = () => OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrows
         };
 
-    [ModdedNumberOption("TouJKReaperArmageddonTimer", 10f, 180f, 5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouJKOptionReaperArmageddonTimer", 10f, 180f, 5f, MiraNumberSuffixes.Seconds)]
     public float ArmageddonTimer { get; set; } = 45f;
 }

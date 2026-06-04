@@ -11,15 +11,15 @@ public sealed class TavernKeeperOptions : AbstractOptionGroup<TavernKeeperRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleTavernKeeper", "TavernKeeper");
 
-    [ModdedNumberOption("TouJKTavernKeeperDrinkCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouJKOptionTavernKeeperDrinkCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float DrinkCooldown { get; set; } = 25f;
 
-    [ModdedToggleOption("TouJKTavernKeeperDrinksResetEveryRound")]
+    [ModdedToggleOption("TouJKOptionTavernKeeperDrinksResetEveryRound")]
     public bool ResetEveryRound { get; set; } = true;
 
-    [ModdedNumberOption("TouJKTavernKeeperMaxDrinks", 1, 15, 1)]
+    [ModdedNumberOption("TouJKOptionTavernKeeperMaxDrinks", 1, 15, 1)]
     public float MaxDrinks { get; set; } = 3;
 
-    [ModdedNumberOption("TouJKTavernKeeperDrinkDuration", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouJKOptionTavernKeeperDrinkDuration", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float DrinkDuration { get; set; } = 20f;
 }

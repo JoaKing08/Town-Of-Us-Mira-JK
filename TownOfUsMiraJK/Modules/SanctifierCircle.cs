@@ -11,7 +11,7 @@ using UnityEngine;
 
 public class SanctifierCircle : MonoBehaviour
 {
-    static SanctifierCircle() => ClassInjector.RegisterTypeInIl2Cpp<CameraEffect>();
+    static SanctifierCircle() => ClassInjector.RegisterTypeInIl2Cpp<SanctifierCircle>();
     public SanctifierCircle(IntPtr ptr) : base(ptr) { }
     public static List<SanctifierCircle> SanctifierCircles => GameObject.FindObjectsOfType<SanctifierCircle>().ToList();
     public float RotationSpeed { get; set; } = -10f;

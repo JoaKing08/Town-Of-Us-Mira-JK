@@ -12,7 +12,7 @@ using UnityEngine;
 
 public class GuardLine : MonoBehaviour
 {
-    static GuardLine() => ClassInjector.RegisterTypeInIl2Cpp<CameraEffect>();
+    static GuardLine() => ClassInjector.RegisterTypeInIl2Cpp<GuardLine>();
     public GuardLine(IntPtr ptr) : base(ptr) { }
     public int Points { get; set; } = 360;
     public Color Color { get; set; } = Color.white;
