@@ -77,6 +77,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 # Other changes
 - Imitator's Wiki entry now automatically detects all roles with Crew Variants and updates them.
 - Prosecutor gains a setting that makes them reveal their role to everyone after Prosecuting.
+- Three new dynamic colors: Grayscale, Fire and Galaxy.
 
 -----------------------
 # Apocalypse
@@ -664,6 +665,7 @@ Game Options:
 -----------------------
 # Credits
 [CraftR](https://github.com/CraftManiakpl) for role icons and buttons.
+[Town of Us Reactivated](https://github.com/eDonnes124/Town-Of-Us-R) for the shaders used for Psychic.
 
 # License
 This software is distributed under the GNU GPLv3 License. BepInEx is distributed under the LGPL-2.1 License.
