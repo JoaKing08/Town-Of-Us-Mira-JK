@@ -49,21 +49,21 @@ public sealed class GunslingerRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCr
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Aim", "Aim"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}AimWikiDescription"),
-                    CrewAssets.GunslingerAimSprite),
+                    ToUJKCrewAssets.GunslingerAimSprite),
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Shoot", "Shoot"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}ShootWikiDescription"),
-                    CrewAssets.GunslingerShootSprite)
+                    ToUJKCrewAssets.GunslingerShootSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Gunslinger;
+    public Color RoleColor => TownOfUsMiraJKColors.Gunslinger;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateKilling;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        Icon = RoleIcons.Gunslinger,
+        Icon = ToUJKRoleIcons.Gunslinger,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         IntroSound = TouAudio.DeputyIntroSound
     };
@@ -82,7 +82,7 @@ public sealed class GunslingerRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCr
                 this,
                 ClickGuess,
                 MeetingAbilityType.Click,
-                CrewAssets.GunslingerShootSprite,
+                ToUJKCrewAssets.GunslingerShootSprite,
                 null!,
                 IsExempt)
             {

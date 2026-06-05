@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK;
 
-public static class Colors
+public static class TownOfUsMiraJKColors
 {
     // Crew Colors
     public static Color MonsterHunter => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(178, 178, 230, 255);

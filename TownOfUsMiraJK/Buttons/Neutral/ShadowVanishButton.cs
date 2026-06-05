@@ -16,12 +16,12 @@ namespace TownOfUsMiraJK.Buttons.Neutral;
 
 public sealed class ShadowVanishButton : TownOfUsRoleButton<ShadowRole>, IAftermathableButton
 {
-    public override Color TextOutlineColor => Colors.Shadow;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Shadow;
     public override string Name => TouLocale.GetParsed("TouJKRoleShadowVanish", "Vanish");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<ShadowOptions>.Instance.VanishCooldown + MapCooldown, 5f, 120f);
     public override float EffectDuration => OptionGroupSingleton<ShadowOptions>.Instance.VanishDuration;
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.ShadowVanishSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.ShadowVanishSprite;
 
     public override bool ZeroIsInfinite { get; set; } = true;
 

@@ -25,9 +25,9 @@ public sealed class NecromancerReanimateButton : TownOfUsRoleButton<NecromancerR
     public override string Name => TouLocale.GetParsed("TouJKRoleNecromancerReanimate", "Reanimate");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
     public override int MaxUses => (int)OptionGroupSingleton<NecromancerOptions>.Instance.MaxUndead;
-    public override Color TextOutlineColor => Colors.Necromancer;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Necromancer;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<NecromancerOptions>.Instance.ReanimateCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.NecromancerReanimateSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.NecromancerReanimateSprite;
 
     protected override void OnClick()
     {
@@ -59,7 +59,7 @@ public sealed class NecromancerReanimateButton : TownOfUsRoleButton<NecromancerR
         var body = UnityEngine.Object.FindObjectsOfType<DeadBody>().FirstOrDefault(b => b.ParentId == target.PlayerId);
         var targetEmergencies = target.RemainingEmergencies;
         var necroEmergencies = necromancer.RemainingEmergencies;
-        ReviveUtilities.RevivePlayer(necromancer, target, body?.transform?.localPosition ?? necromancer.transform.localPosition, target.GetRoleWhenAlive(), Colors.Necromancer, TouLocale.GetParsed("TouJKRoleNecromancerReanimateTargetNotif").Replace("<player>", necromancer.Data.PlayerName).Replace("<role>", $"{Colors.Necromancer.ToTextColor()}{necromancer.Data.Role.GetRoleName()}</color>"), TouLocale.GetParsed("TouJKRoleNecromancerReanimateNotif").Replace("<player>", $"{Colors.Necromancer.ToTextColor()}{target.Data.PlayerName}</color>"), RoleIcons.Necromancer.LoadAsset());
+        ReviveUtilities.RevivePlayer(necromancer, target, body?.transform?.localPosition ?? necromancer.transform.localPosition, target.GetRoleWhenAlive(), TownOfUsMiraJKColors.Necromancer, TouLocale.GetParsed("TouJKRoleNecromancerReanimateTargetNotif").Replace("<player>", necromancer.Data.PlayerName).Replace("<role>", $"{TownOfUsMiraJKColors.Necromancer.ToTextColor()}{necromancer.Data.Role.GetRoleName()}</color>"), TouLocale.GetParsed("TouJKRoleNecromancerReanimateNotif").Replace("<player>", $"{TownOfUsMiraJKColors.Necromancer.ToTextColor()}{target.Data.PlayerName}</color>"), ToUJKRoleIcons.Necromancer.LoadAsset());
         target.RemainingEmergencies = targetEmergencies;
         necromancer.RemainingEmergencies = necroEmergencies;
         target.AddModifier<NecromancerUndeadModifier>();

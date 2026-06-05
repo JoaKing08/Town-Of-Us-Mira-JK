@@ -40,19 +40,19 @@ public sealed class MonsterHunterRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITo
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Stake", "Stake"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}StakeWikiDescription"),
-                    CrewAssets.MonsterHunterStakeSprite)
+                    ToUJKCrewAssets.MonsterHunterStakeSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.MonsterHunter;
+    public Color RoleColor => TownOfUsMiraJKColors.MonsterHunter;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateKilling;
     public bool IsPowerCrew => StakesLeft; // Always disable end game checks if the monster hunter has stakes
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        Icon = RoleIcons.MonsterHunter,
+        Icon = ToUJKRoleIcons.MonsterHunter,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         IntroSound = TouAudio.TrackerIntroSound,
         MaxRoleCount = 1

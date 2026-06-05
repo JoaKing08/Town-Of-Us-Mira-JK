@@ -11,7 +11,7 @@ public sealed class DrunkOptions : AbstractOptionGroup<DrunkModifier>
     public override Func<bool> GroupVisible => () => OptionGroupSingleton<TownOfUs.Options.RoleOptions>.Instance.IsClassicRoleAssignment;
     public override string GroupName => TouLocale.Get("TouJKModifierDrunk", "Drunk");
     public override uint GroupPriority => 10;
-    public override Color GroupColor => Colors.Drunk;
+    public override Color GroupColor => TownOfUsMiraJKColors.Drunk;
 
     public ModdedToggleOption DrunkExpires { get; set; } = new("Drunk Expires", true);
 

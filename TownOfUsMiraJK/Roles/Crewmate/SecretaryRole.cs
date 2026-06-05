@@ -89,12 +89,12 @@ public sealed class SecretaryRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCre
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Store", "Store"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}StoreDescription"),
-                    RoleIcons.Secretary)
+                    ToUJKRoleIcons.Secretary)
             };
         }
     }
 
-    public Color RoleColor => Colors.Secretary;
+    public Color RoleColor => TownOfUsMiraJKColors.Secretary;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmatePower;
 
@@ -102,7 +102,7 @@ public sealed class SecretaryRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCre
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        Icon = RoleIcons.Secretary,
+        Icon = ToUJKRoleIcons.Secretary,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         IntroSound = TouAudio.ProsIntroSound
     };

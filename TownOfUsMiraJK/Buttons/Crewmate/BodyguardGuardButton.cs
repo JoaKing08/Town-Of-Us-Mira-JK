@@ -17,10 +17,10 @@ public sealed class BodyguardGuardButton : TownOfUsRoleButton<BodyguardRole, Pla
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleBodyguardGuard", "Guard");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Bodyguard;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Bodyguard;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<BodyguardOptions>.Instance.GuardCooldown + MapCooldown, 5f, 120f);
     public override float EffectDuration => OptionGroupSingleton<BodyguardOptions>.Instance.GuardDuration;
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.BodyguardGuardSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKCrewAssets.BodyguardGuardSprite;
 
     public override bool IsTargetValid(PlayerControl? target)
     {

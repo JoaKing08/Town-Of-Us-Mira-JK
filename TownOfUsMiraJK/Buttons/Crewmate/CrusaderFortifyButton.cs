@@ -17,11 +17,11 @@ public sealed class CrusaderFortifyButton : TownOfUsRoleButton<CrusaderRole, Pla
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleCrusaderFortify", "Fortify");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Crusader;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Crusader;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<CrusaderOptions>.Instance.FortifyCooldown + MapCooldown, 5f, 120f);
     public override float EffectDuration => OptionGroupSingleton<CrusaderOptions>.Instance.FortifyDuration;
     public override int MaxUses => (int)OptionGroupSingleton<CrusaderOptions>.Instance.FortifyMaxUses;
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.CrusaderFortifySprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKCrewAssets.CrusaderFortifySprite;
 
     public override bool IsTargetValid(PlayerControl? target)
     {

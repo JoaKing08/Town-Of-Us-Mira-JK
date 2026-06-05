@@ -19,9 +19,9 @@ public sealed class ExplorerModifier : TouGameModifier, IWikiDiscoverable, IColo
     public override string IntroInfo => "You can vent.";
     public override Color FreeplayFileColor => new Color32(255, 25, 25, 255);
 
-    public override LoadableAsset<Sprite>? ModifierIcon => ModifierIcons.Explorer;
+    public override LoadableAsset<Sprite>? ModifierIcon => ToUJKModifierIcons.Explorer;
     public override ModifierFaction FactionType => ModifierFaction.CrewmateUtility;
-    public Color ModifierColor => Colors.Explorer;
+    public Color ModifierColor => TownOfUsMiraJKColors.Explorer;
 
 
     public override string GetDescription()

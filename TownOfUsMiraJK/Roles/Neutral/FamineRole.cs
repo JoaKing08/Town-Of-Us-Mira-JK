@@ -46,7 +46,7 @@ public sealed class FamineRole(IntPtr cppPtr)
             return;
         }
         ImportantTextTask orCreateTask = PlayerTask.GetOrCreateTask<ImportantTextTask>(playerControl, 0);
-        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("TouNeutralOutlierTaskHeader")}</color>";
+        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralOutlierTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
 
@@ -78,15 +78,15 @@ public sealed class FamineRole(IntPtr cppPtr)
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}PassiveStarve", "Passive Starvation"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}PassiveStarveWikiDescription"),
-                    NeutAssets.FamineStarveSprite),
+                    ToUJKNeutAssets.FamineStarveSprite),
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Starve", "Starve"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}StarveWikiDescription"),
-                    NeutAssets.FamineStarveSprite),
+                    ToUJKNeutAssets.FamineStarveSprite),
             };
         }
     }
 
-    public Color RoleColor => Colors.Famine;
+    public Color RoleColor => TownOfUsMiraJKColors.Famine;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralOutlier;
     public bool HasImpostorVision => true;
@@ -100,7 +100,7 @@ public sealed class FamineRole(IntPtr cppPtr)
         DefaultRoleCount = 0,
         MaxRoleCount = 0,
         IntroSound = TouAudio.ChefSound,
-        Icon = RoleIcons.Famine,
+        Icon = ToUJKRoleIcons.Famine,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()
     };
 
@@ -149,8 +149,8 @@ public sealed class FamineRole(IntPtr cppPtr)
 
         if (Player.AmOwner)
         {
-            HudManager.Instance.ImpostorVentButton.graphic.sprite = NeutAssets.FamineVentSprite.LoadAsset();
-            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(Colors.Famine);
+            HudManager.Instance.ImpostorVentButton.graphic.sprite = ToUJKNeutAssets.FamineVentSprite.LoadAsset();
+            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(TownOfUsMiraJKColors.Famine);
         }
 
         PassiveStarvation = OptionGroupSingleton<BakerOptions>.Instance.PassiveStarvingCooldown;
@@ -187,11 +187,11 @@ public sealed class FamineRole(IntPtr cppPtr)
             if (AnnounceIn <= 0f)
             {
                 Announced = true;
-                var title = $"<color=#{Colors.Baker.ToHtmlStringRGBA()}>{TouLocale.Get("TouJKRoleFamineMessageTitle")}</color>";
+                var title = $"<color=#{TownOfUsMiraJKColors.Baker.ToHtmlStringRGBA()}>{TouLocale.Get("TouJKRoleFamineMessageTitle")}</color>";
                 var msg = TouLocale.GetParsed("TouJKRoleFamineAnnounceMessage");
 
                 var notif1 = Helpers.CreateAndShowNotification(
-                    $"<b>{msg.Replace("<role>", $"{Colors.Famine.ToTextColor()}{RoleName}</color>")}</b>", Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Famine.LoadAsset());
+                    $"<b>{msg.Replace("<role>", $"{TownOfUsMiraJKColors.Famine.ToTextColor()}{RoleName}</color>")}</b>", Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Famine.LoadAsset());
 
                 notif1.AdjustNotification();
 
@@ -228,7 +228,7 @@ public sealed class FamineRole(IntPtr cppPtr)
     public void DoPassiveStarve()
     {
         var notif1 = Helpers.CreateAndShowNotification(
-            TouLocale.GetParsed((PlayerControl.LocalPlayer.IsApocalypse() && !(Player.IsLover() && OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) && OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) || (Player.IsLover() && PlayerControl.LocalPlayer.IsLover() && !OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther) ? "TouJKRoleFamineStarveMessageApoc" : "TouJKRoleFamineStarveMessage").Replace("<role>", $"{Colors.Famine.ToTextColor()}{RoleName}</color>"), Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Famine.LoadAsset());
+            TouLocale.GetParsed((PlayerControl.LocalPlayer.IsApocalypse() && !(Player.IsLover() && OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) && OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) || (Player.IsLover() && PlayerControl.LocalPlayer.IsLover() && !OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther) ? "TouJKRoleFamineStarveMessageApoc" : "TouJKRoleFamineStarveMessage").Replace("<role>", $"{TownOfUsMiraJKColors.Famine.ToTextColor()}{RoleName}</color>"), Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Famine.LoadAsset());
 
         notif1.AdjustNotification();
         foreach (var player in Helpers.GetAlivePlayers().Where(x => (!x.IsApocalypseAligned() || (Player.IsLover() && OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) && (!Player.IsLover() || !x.IsLover() || OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther)))

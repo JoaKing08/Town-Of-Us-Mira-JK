@@ -123,13 +123,13 @@ namespace TownOfUsMiraJK.Utilities
                 {
                     return true;
                 }
-                endGameManager.BackgroundBar.material.SetColor(ShaderID.Color, Colors.Apocalypse);
+                endGameManager.BackgroundBar.material.SetColor(ShaderID.Color, TownOfUsMiraJKColors.Apocalypse);
 
                 var text = UnityEngine.Object.Instantiate(endGameManager.WinText);
                 var winText = TouLocale.GetParsed("TouJKApocalypseWin");
                 text.text = $"{winText}!";
-                text.color = Colors.Apocalypse;
-                GameHistory.WinningFaction = $"<color=#{Colors.Apocalypse.ToHtmlStringRGBA()}>{TouLocale.GetParsed("TouJKApocalypseWin")}</color>";
+                text.color = TownOfUsMiraJKColors.Apocalypse;
+                GameHistory.WinningFaction = $"<color=#{TownOfUsMiraJKColors.Apocalypse.ToHtmlStringRGBA()}>{TouLocale.GetParsed("TouJKApocalypseWin")}</color>";
 
                 var pos = endGameManager.WinText.transform.localPosition;
                 pos.y = 1.5f;

@@ -45,16 +45,16 @@ public static class PirateEvents
                 if (pirate.Player.AmOwner)
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
-                        TouLocale.GetParsed("TouJKRolePirateVictoryMessageSelf").Replace("<role>", $"{Colors.Pirate.ToTextColor()}{pirate.RoleName}</color>"),
-                        Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
+                        TouLocale.GetParsed("TouJKRolePirateVictoryMessageSelf").Replace("<role>", $"{TownOfUsMiraJKColors.Pirate.ToTextColor()}{pirate.RoleName}</color>"),
+                        Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Pirate.LoadAsset());
 
                     notif1.AdjustNotification();
                 }
                 else
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
-                        TouLocale.GetParsed("TouJKRolePirateVictoryMessage").Replace("<player>", pirate.Player.Data.PlayerName).Replace("<role>", $"{Colors.Pirate.ToTextColor()}{pirate.RoleName}</color>"),
-                        Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
+                        TouLocale.GetParsed("TouJKRolePirateVictoryMessage").Replace("<player>", pirate.Player.Data.PlayerName).Replace("<role>", $"{TownOfUsMiraJKColors.Pirate.ToTextColor()}{pirate.RoleName}</color>"),
+                        Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Pirate.LoadAsset());
 
                     notif1.AdjustNotification();
                 }

@@ -33,5 +33,6 @@
         SanctifierSanctify,
         RetrainUndercover,
         SendApocTeamChat,
+        SendUndeadTeamChat,
     }
 }

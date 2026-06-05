@@ -49,19 +49,19 @@ public sealed class UndercoverRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Cover", "Cover"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}CoverWikiDescription"),
-                    RoleIcons.Undercover)
+                    ToUJKRoleIcons.Undercover)
             };
         }
     }
 
-    public Color RoleColor => Colors.Undercover;
+    public Color RoleColor => TownOfUsMiraJKColors.Undercover;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateSupport;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
         CanUseVent = OptionGroupSingleton<UndercoverOptions>.Instance.CanVent && CoverCanVent,
-        Icon = RoleIcons.Undercover,
+        Icon = ToUJKRoleIcons.Undercover,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         IntroSound = TouAudio.SpyIntroSound
     };

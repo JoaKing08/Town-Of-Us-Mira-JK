@@ -39,7 +39,7 @@ public sealed class BakerRole(IntPtr cppPtr)
             return;
         }
         ImportantTextTask orCreateTask = PlayerTask.GetOrCreateTask<ImportantTextTask>(playerControl, 0);
-        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("TouNeutralOutlierTaskHeader")}</color>";
+        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralOutlierTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
 
@@ -93,19 +93,19 @@ public sealed class BakerRole(IntPtr cppPtr)
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Bread", "Bread"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}BreadWikiDescription"),
-                    NeutAssets.BakerBreadSprite),
+                    ToUJKNeutAssets.BakerBreadSprite),
             };
         }
     }
 
-    public Color RoleColor => Colors.Baker;
+    public Color RoleColor => TownOfUsMiraJKColors.Baker;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralOutlier;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
         IntroSound = TouAudio.ChefSound,
-        Icon = RoleIcons.Baker,
+        Icon = ToUJKRoleIcons.Baker,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
         MaxRoleCount = 1,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()

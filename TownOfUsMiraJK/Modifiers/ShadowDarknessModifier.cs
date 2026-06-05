@@ -43,7 +43,7 @@ public sealed class ShadowDarknessModifier(PlayerControl player) : DisabledModif
         if (Player.AmOwner && !Shadow.AmOwner)
         {
             var notif1 = Helpers.CreateAndShowNotification(
-                TouLocale.GetParsed("TouJKRoleShadowDarknessNotif").Replace("<role>", $"{Colors.Shadow.ToTextColor()}{Shadow.Data.Role.GetRoleName()}</color>"), Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Shadow.LoadAsset());
+                TouLocale.GetParsed("TouJKRoleShadowDarknessNotif").Replace("<role>", $"{TownOfUsMiraJKColors.Shadow.ToTextColor()}{Shadow.Data.Role.GetRoleName()}</color>"), Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Shadow.LoadAsset());
 
             notif1.AdjustNotification();
         }
@@ -75,12 +75,12 @@ public sealed class ShadowDarknessModifier(PlayerControl player) : DisabledModif
         {
             VisionPerc = 0f;
         }
-        HudManager.Instance.ShadowQuad.material.color = Color.Lerp(Colors.Shadow.SetAlpha(ShadowQuadColor.a), ShadowQuadColor, VisionPerc);
+        HudManager.Instance.ShadowQuad.material.color = Color.Lerp(TownOfUsMiraJKColors.Shadow.SetAlpha(ShadowQuadColor.a), ShadowQuadColor, VisionPerc);
 
         if (Shadow.AmOwner || (PlayerControl.LocalPlayer.HasDied() &&
             OptionGroupSingleton<PostmortemOptions>.Instance.TheDeadKnow))
         {
-            Player.cosmetics.currentBodySprite.BodySprite.material.SetColor(ShaderID.VisorColor, Colors.Shadow);
+            Player.cosmetics.currentBodySprite.BodySprite.material.SetColor(ShaderID.VisorColor, TownOfUsMiraJKColors.Shadow);
         }
     }
 

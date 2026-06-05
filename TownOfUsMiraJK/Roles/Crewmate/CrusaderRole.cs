@@ -63,12 +63,12 @@ public sealed class CrusaderRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfU
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Fortify", "Fortify"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}FortifyWikiDescription"),
-                    CrewAssets.CrusaderFortifySprite)
+                    ToUJKCrewAssets.CrusaderFortifySprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Crusader;
+    public Color RoleColor => TownOfUsMiraJKColors.Crusader;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateProtective;
 
@@ -76,6 +76,6 @@ public sealed class CrusaderRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfU
     {
         IntroSound = TouAudio.WarlockIntroSound,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
-        Icon = RoleIcons.Crusader
+        Icon = ToUJKRoleIcons.Crusader
     };
 }

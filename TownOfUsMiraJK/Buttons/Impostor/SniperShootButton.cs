@@ -19,7 +19,7 @@ public sealed class SniperShootButton : TownOfUsRoleButton<SniperRole>, IAfterma
     public override string Name => TouLocale.GetParsed("TouJKRoleSniperShoot", "Shoot");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
     public override Color TextOutlineColor => TownOfUsColors.Impostor;
-    public override LoadableAsset<Sprite> Sprite => ImpAssets.SniperShootSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKImpAssets.SniperShootSprite;
     public override float Cooldown => PlayerControl.LocalPlayer.GetKillCooldown();
 
     public override bool Enabled(RoleBehaviour? role)

@@ -46,7 +46,7 @@ public sealed class GodfatherRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
     public CustomRoleConfiguration Configuration => new(this)
     {
         OptionsScreenshot = TouBanners.ImpostorRoleBanner,
-        Icon = RoleIcons.Godfather,
+        Icon = ToUJKRoleIcons.Godfather,
         UseVanillaKillButton = OptionGroupSingleton<GodfatherOptions>.Instance.CanKill || (!MafiosoAlive && (Recruited || OptionGroupSingleton<GodfatherOptions>.Instance.CanKillBeforeMafioso))
     };
 
@@ -59,7 +59,7 @@ public sealed class GodfatherRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Recruit", "Recruit"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}RecruitWikiDescription"),
-                    ImpAssets.GodfatherRecruitSprite)
+                    ToUJKImpAssets.GodfatherRecruitSprite)
             };
         }
     }
@@ -76,7 +76,7 @@ public sealed class GodfatherRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
         {
             var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRoleGodfatherRecruitOwnerNotif").Replace("<player>", target.Data.PlayerName).Replace("<role>", $"{TownOfUsColors.Impostor.ToTextColor()}{CustomRoleUtils.GetRegisteredRole((RoleTypes)RoleId.Get<MafiosoRole>())?.GetRoleName() ?? ""}</color>"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Godfather.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Godfather.LoadAsset());
 
             notif1.AdjustNotification();
         }
@@ -84,7 +84,7 @@ public sealed class GodfatherRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
         {
             var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRoleGodfatherRecruitTargetNotif").Replace("<player>", target.Data.PlayerName).Replace("<new_role>", $"{TownOfUsColors.Impostor.ToTextColor()}{CustomRoleUtils.GetRegisteredRole((RoleTypes)RoleId.Get<MafiosoRole>())?.GetRoleName() ?? ""}</color>").Replace("<role>", $"{TownOfUsColors.Impostor.ToTextColor()}{CustomRoleUtils.GetRegisteredRole((RoleTypes)RoleId.Get<GodfatherRole>())?.GetRoleName() ?? ""}</color>"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Mafioso.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Mafioso.LoadAsset());
 
             notif1.AdjustNotification();
         }

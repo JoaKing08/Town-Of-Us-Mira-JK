@@ -35,18 +35,18 @@ public sealed class WatcherRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUs
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Watch", "Watch"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}WatchWikiDescription"),
-                    CrewAssets.WatcherWatchSprite)
+                    ToUJKCrewAssets.WatcherWatchSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Watcher;
+    public Color RoleColor => TownOfUsMiraJKColors.Watcher;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateInvestigative;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        Icon = RoleIcons.Watcher,
+        Icon = ToUJKRoleIcons.Watcher,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         IntroSound = TouAudio.SpyIntroSound
     };

@@ -17,9 +17,9 @@ public sealed class AnarchistAssaultButton : TownOfUsButton
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleAnarchistAssault", "Assault");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override Color TextOutlineColor => Colors.Anarchist;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Anarchist;
     public override float Cooldown => 0.01f;
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.AnarchistAssaultSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.AnarchistAssaultSprite;
     public override ButtonLocation Location => ButtonLocation.BottomRight;
     public override bool ShouldPauseInVent => false;
     public override bool UsableInDeath => true;

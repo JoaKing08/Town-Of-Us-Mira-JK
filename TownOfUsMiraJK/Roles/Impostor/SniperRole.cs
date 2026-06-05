@@ -48,7 +48,7 @@ public sealed class SniperRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
     public CustomRoleConfiguration Configuration => new(this)
     {
         OptionsScreenshot = TouBanners.ImpostorRoleBanner,
-        Icon = RoleIcons.Sniper,
+        Icon = ToUJKRoleIcons.Sniper,
         UseVanillaKillButton = OptionGroupSingleton<SniperOptions>.Instance.CanKill
     };
 
@@ -61,10 +61,10 @@ public sealed class SniperRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Aim", "Aim"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}AimWikiDescription"),
-                    ImpAssets.SniperAimSprite),
+                    ToUJKImpAssets.SniperAimSprite),
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Shoot", "Shoot"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}ShootWikiDescription"),
-                    ImpAssets.SniperShootSprite)
+                    ToUJKImpAssets.SniperShootSprite)
             };
         }
     }
@@ -99,7 +99,7 @@ public sealed class SniperRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
             {
                 var notif1 = Helpers.CreateAndShowNotification(
                     TouLocale.GetParsed("TouJKRoleSniperShootOwnerNotif").Replace("<player>", $"{TownOfUsColors.Impostor.ToTextColor()}{target.Data.PlayerName}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Sniper.LoadAsset());
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Sniper.LoadAsset());
 
                 notif1.AdjustNotification();
             }
@@ -107,7 +107,7 @@ public sealed class SniperRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
             {
                 var notif1 = Helpers.CreateAndShowNotification(
                     TouLocale.GetParsed("TouJKRoleSniperShootNotif").Replace("<role>", $"{TownOfUsColors.Impostor.ToTextColor()}{sniper.Data.Role.GetRoleName()}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Sniper.LoadAsset());
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Sniper.LoadAsset());
 
                 notif1.AdjustNotification();
             }

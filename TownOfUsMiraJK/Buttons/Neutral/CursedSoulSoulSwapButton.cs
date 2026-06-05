@@ -18,9 +18,9 @@ public sealed class CursedSoulSoulSwapButton : TownOfUsRoleButton<CursedSoulRole
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleCursedSoulSoulSwap", "Soul Swap");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.CursedSoul;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.CursedSoul;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<CursedSoulOptions>.Instance.SoulSwapCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.CursedSoulSoulSwapSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.CursedSoulSoulSwapSprite;
 
     public override PlayerControl? GetTarget()
     {return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance);

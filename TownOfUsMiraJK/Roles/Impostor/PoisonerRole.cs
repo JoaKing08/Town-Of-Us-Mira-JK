@@ -40,7 +40,7 @@ public sealed class PoisonerRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfU
     public CustomRoleConfiguration Configuration => new(this)
     {
         OptionsScreenshot = TouBanners.ImpostorRoleBanner,
-        Icon = RoleIcons.Poisoner,
+        Icon = ToUJKRoleIcons.Poisoner,
         UseVanillaKillButton = OptionGroupSingleton<PoisonerOptions>.Instance.CanKill
     };
 
@@ -53,7 +53,7 @@ public sealed class PoisonerRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfU
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Poison", "Poison"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}PoisonWikiDescription"),
-                    ImpAssets.PoisonerPoisonSprite)
+                    ToUJKImpAssets.PoisonerPoisonSprite)
             };
         }
     }

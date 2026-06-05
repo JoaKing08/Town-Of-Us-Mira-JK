@@ -32,10 +32,10 @@ public sealed class BloodhoundBloodlustModifier() : TimedModifier
         {
             Tint = GameObject.Instantiate(HudManager.Instance.FullScreen, HudManager.Instance.FullScreen.transform.parent);
             Tint.gameObject.SetActive(true);
-            Tint.color = new Color(Colors.Bloodhound.r, Colors.Bloodhound.g, Colors.Bloodhound.b, 0.2f);
+            Tint.color = new Color(TownOfUsMiraJKColors.Bloodhound.r, TownOfUsMiraJKColors.Bloodhound.g, TownOfUsMiraJKColors.Bloodhound.b, 0.2f);
             var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRoleBloodhoundBloodlustNotif"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Bloodhound.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Bloodhound.LoadAsset());
 
             notif1.AdjustNotification();
             CustomButtonSingleton<BloodhoundKillButton>.Instance.SetTimer(OptionGroupSingleton<BloodhoundOptions>.Instance.BloodlustCooldown);
@@ -51,7 +51,7 @@ public sealed class BloodhoundBloodlustModifier() : TimedModifier
             {
                 var notif1 = Helpers.CreateAndShowNotification(
                     TouLocale.GetParsed("TouJKRoleBloodhoundBloodlustEndNotif"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Bloodhound.LoadAsset());
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Bloodhound.LoadAsset());
 
                 notif1.AdjustNotification();
                 Coroutines.Start(CoEndFlash(Tint));

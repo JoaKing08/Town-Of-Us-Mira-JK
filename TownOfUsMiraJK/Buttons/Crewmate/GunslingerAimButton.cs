@@ -18,9 +18,9 @@ public sealed class GunslingerAimButton : TownOfUsRoleButton<GunslingerRole, Pla
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleGunslingerAim", "Aim");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Gunslinger;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Gunslinger;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<GunslingerOptions>.Instance.AimCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.GunslingerAimSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKCrewAssets.GunslingerAimSprite;
     public override int MaxUses => (int)OptionGroupSingleton<GunslingerOptions>.Instance.AimMaxUses;
     public override bool CanUse()
     {
@@ -44,8 +44,8 @@ public sealed class GunslingerAimButton : TownOfUsRoleButton<GunslingerRole, Pla
         Target.RpcAddModifier<GunslingerAimedModifier>(PlayerControl.LocalPlayer);
 
         var notif1 = Helpers.CreateAndShowNotification(
-            TouLocale.GetParsed("TouJKRoleGunslingerAimNotif").Replace("<player>", $"{Colors.Gunslinger.ToTextColor()}{Target.Data.PlayerName}</color>"),
-            Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Gunslinger.LoadAsset());
+            TouLocale.GetParsed("TouJKRoleGunslingerAimNotif").Replace("<player>", $"{TownOfUsMiraJKColors.Gunslinger.ToTextColor()}{Target.Data.PlayerName}</color>"),
+            Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Gunslinger.LoadAsset());
 
         notif1.AdjustNotification();
     }

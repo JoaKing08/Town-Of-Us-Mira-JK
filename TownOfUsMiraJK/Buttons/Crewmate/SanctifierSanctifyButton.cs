@@ -16,10 +16,10 @@ public sealed class SanctifierSanctifyButton : TownOfUsRoleButton<SanctifierRole
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleSanctifierSanctify", "Sanctify");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Sanctifier;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Sanctifier;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<SanctifierOptions>.Instance.SanctifyCooldown + MapCooldown, 5f, 120f);
     public override int MaxUses => (int)OptionGroupSingleton<SanctifierOptions>.Instance.MaxSanctifies;
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.SanctifierSanctifySprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKCrewAssets.SanctifierSanctifySprite;
     public int ExtraUses { get; set; }
 
     protected override void OnClick()

@@ -642,10 +642,10 @@ namespace TownOfUsMiraJK.Patches
 
                 if (player.TryGetModifier<ManhunterTargetModifier>(out var mhmod) && (PlayerControl.LocalPlayer.IsRole<ManhunterRole>() || isDead))
                 {
-                    var color = Colors.Manhunter;
+                    var color = TownOfUsMiraJKColors.Manhunter;
                     if (!mhmod.KilledByManhunter && player.HasDied())
                     {
-                        color = Color.Lerp(Colors.Manhunter, Color.red, 0.75f);
+                        color = Color.Lerp(TownOfUsMiraJKColors.Manhunter, Color.red, 0.75f);
                     }
                     __result += $"<color=#{color.ToHtmlStringRGBA()}> /</color>";
                 }
@@ -664,15 +664,15 @@ namespace TownOfUsMiraJK.Patches
                 var isDead = visibility is DataVisibility.Show || PlayerControl.LocalPlayer.HasDied() && genOpt.TheDeadKnow && !hidden;
                 if (player.IsCrewmate() && player.TryGetModifier<ProphetModifier>(out var prophetMod) && (ProphetModifier.ProphetVisibilityFlag(player) || isDead))
                 {
-                    __result += $"<color=#FFFFFF> (<color=#{Colors.Apocalypse.ToHtmlStringRGBA()}>{prophetMod.ShortName}</color>)</color>";
+                    __result += $"<color=#FFFFFF> (<color=#{TownOfUsMiraJKColors.Apocalypse.ToHtmlStringRGBA()}>{prophetMod.ShortName}</color>)</color>";
                 }
                 if (player.TryGetModifier<NecromancerUndeadModifier>(out var undeadMod) && (NecromancerUndeadModifier.UndeadVisibilityFlag(player) || isDead))
                 {
-                    __result += $"<color=#FFFFFF> (<color=#{Colors.Necromancer.ToHtmlStringRGBA()}>{undeadMod.ShortName}</color>)</color>";
+                    __result += $"<color=#FFFFFF> (<color=#{TownOfUsMiraJKColors.Necromancer.ToHtmlStringRGBA()}>{undeadMod.ShortName}</color>)</color>";
                 }
                 if (player.Is((RoleTypes)RoleId.Get<UndercoverRole>()) && isDead)
                 {
-                    __result += $"<color=#{Colors.Undercover.ToHtmlStringRGBA()}> €</color>";
+                    __result += $"<color=#{TownOfUsMiraJKColors.Undercover.ToHtmlStringRGBA()}> €</color>";
                 }
             }
         }
@@ -692,7 +692,7 @@ namespace TownOfUsMiraJK.Patches
                 if (player.HasModifier(BakerPredicate) && (PlayerControl.LocalPlayer.IsRole<BakerRole>() || PlayerControl.LocalPlayer.IsRole<FamineRole>())
                     || player.HasModifier<BakerFedModifier>() && isDead)
                 {
-                    __result += $"<color=#{Colors.Baker.ToHtmlStringRGBA()}> ";
+                    __result += $"<color=#{TownOfUsMiraJKColors.Baker.ToHtmlStringRGBA()}> ";
                     for (int i = 0; i < player.GetModifier<BakerFedModifier>().BreadLeft; i++)
                     {
                         __result += "ß";
@@ -702,17 +702,17 @@ namespace TownOfUsMiraJK.Patches
                 if (player.HasModifier(TavernKeeperPredicate) && PlayerControl.LocalPlayer.IsRole<TavernKeeperRole>()
                     || player.HasModifier<TavernKeeperDrunkModifier>() && isDead)
                 {
-                    __result += $"<color=#{Colors.TavernKeeper.ToHtmlStringRGBA()}> ø</color>";
+                    __result += $"<color=#{TownOfUsMiraJKColors.TavernKeeper.ToHtmlStringRGBA()}> ø</color>";
                 }
                 if (player.HasModifier(GunslingerPredicate) && PlayerControl.LocalPlayer.IsRole<GunslingerRole>()
                     || player.HasModifier<GunslingerAimedModifier>() && isDead)
                 {
-                    __result += $"<color=#{Colors.Gunslinger.ToHtmlStringRGBA()}> ‡</color>";
+                    __result += $"<color=#{TownOfUsMiraJKColors.Gunslinger.ToHtmlStringRGBA()}> ‡</color>";
                 }
                 if (player.HasModifier(WitchPredicate) && PlayerControl.LocalPlayer.IsRole<WitchRole>()
                     || player.HasModifier<WitchMarkModifier>() && isDead)
                 {
-                    __result += $"<color=#{Colors.Witch.ToHtmlStringRGBA()}> ð</color>";
+                    __result += $"<color=#{TownOfUsMiraJKColors.Witch.ToHtmlStringRGBA()}> ð</color>";
                 }
                 if (player.HasModifier(PoisonerPredicate) && PlayerControl.LocalPlayer.IsRole<PoisonerRole>()
                     || player.HasModifier<PoisonerPoisonModifier>() && isDead)
@@ -740,12 +740,12 @@ namespace TownOfUsMiraJK.Patches
                 if (player.HasModifier(BodyguardPredicate) && PlayerControl.LocalPlayer.IsRole<BodyguardRole>()
                     || player.HasModifier<BodyguardGuardModifier>() && isDead)
                 {
-                    __result += $"<color=#{Colors.Bodyguard.ToHtmlStringRGBA()}> ()</color>";
+                    __result += $"<color=#{TownOfUsMiraJKColors.Bodyguard.ToHtmlStringRGBA()}> ()</color>";
                 }
                 if (player.HasModifier(CrusaderPredicate) && PlayerControl.LocalPlayer.IsRole<CrusaderRole>()
                     || player.HasModifier<CrusaderFortifyModifier>() && isDead)
                 {
-                    __result += $"<color=#{Colors.Crusader.ToHtmlStringRGBA()}> {{}}</color>";
+                    __result += $"<color=#{TownOfUsMiraJKColors.Crusader.ToHtmlStringRGBA()}> {{}}</color>";
                 }
             }
         }

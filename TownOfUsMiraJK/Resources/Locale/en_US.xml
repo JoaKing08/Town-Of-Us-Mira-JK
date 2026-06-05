@@ -392,6 +392,7 @@
 	<string name="TouJKOptionNecromancerNotifyKills">Show Arrows Pointing To Dead Bodies</string>
 	<string name="TouJKOptionNecromancerArrowDelay">Dead Body Arrow Delay</string>
 	<string name="TouJKOptionNecromancerArrowDuration">Dead Body Arrow Duration</string>
+	<string name="TouJKOptionNecromancerUndeadChat">Undead Get A Private Meeting Chat</string>
 	<!-- Plaguebearer -->
     <string name="TouRolePlaguebearerWikiDescription">The Plaguebearer is a Neutral Killing role that needs to infect all other players to turn into the Pestilence. They win with other apocalypse members.</string>
 	<!-- Pestilence -->
@@ -659,6 +660,7 @@
 	<string name="TouJKModifierUndead">Undead</string>
 	<string name="TouJKModifierUndeadShortName">Und</string>
 	<string name="TouJKModifierUndeadTabDescription">Help the Necromancer win as a part of his army!</string>
+	<string name="TouJKUndeadChatTitle">\%player\% (Undead Chat)</string>
 	<!-- Apocalypse -->
 	<string name="TouJKApocalypseWin">Apocalypse Is Nigh</string>
 	<string name="TouJKApocalypseChatTitle">\%player\% (Apocalypse Chat)</string>

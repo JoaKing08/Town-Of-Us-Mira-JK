@@ -20,8 +20,8 @@ public sealed class BerserkerKillButton : TownOfUsKillRoleButton<BerserkerRole, 
 {
     public override string Name => TranslationController.Instance.GetStringWithDefault(StringNames.KillLabel, "Kill");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override Color TextOutlineColor => Colors.Berserker;
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.BerserkerKillSprite;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Berserker;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.BerserkerKillSprite;
     public override float Cooldown => GetCooldown();
 
     public override void CreateButton(Transform parent)

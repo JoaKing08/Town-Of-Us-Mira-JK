@@ -51,14 +51,14 @@ public sealed class AnarchistRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
             MiscUtils.AppendOptionsText(GetType());
     }
 
-    public Color RoleColor => Colors.Anarchist;
+    public Color RoleColor => TownOfUsMiraJKColors.Anarchist;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralEvil;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
         IntroSound = TouAudio.TribunalSound,
-        Icon = RoleIcons.Anarchist,
+        Icon = ToUJKRoleIcons.Anarchist,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()
     };

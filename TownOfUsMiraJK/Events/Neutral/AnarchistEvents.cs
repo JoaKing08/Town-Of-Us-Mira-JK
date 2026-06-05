@@ -76,8 +76,8 @@ public static class AnarchistEvents
             if (ana.Player.AmOwner)
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    $"<b>{TouLocale.GetParsed("TouJKRoleAnarchistWonSelf").Replace("<role>", $"{Colors.Anarchist.ToTextColor()}{ana.RoleName}</color>")}</b>",
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Anarchist.LoadAsset());
+                    $"<b>{TouLocale.GetParsed("TouJKRoleAnarchistWonSelf").Replace("<role>", $"{TownOfUsMiraJKColors.Anarchist.ToTextColor()}{ana.RoleName}</color>")}</b>",
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Anarchist.LoadAsset());
 
                 notif1.AdjustNotification();
 
@@ -104,8 +104,8 @@ public static class AnarchistEvents
             else
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    $"<b>{TouLocale.GetParsed("TouJKRoleAnarchistWonOther").Replace("<player>", ana.Player.Data.PlayerName).Replace("<role>", $"{Colors.Anarchist.ToTextColor()}{ana.RoleName}</color>")}</b>",
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Anarchist.LoadAsset());
+                    $"<b>{TouLocale.GetParsed("TouJKRoleAnarchistWonOther").Replace("<player>", ana.Player.Data.PlayerName).Replace("<role>", $"{TownOfUsMiraJKColors.Anarchist.ToTextColor()}{ana.RoleName}</color>")}</b>",
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Anarchist.LoadAsset());
 
                 notif1.AdjustNotification();
             }

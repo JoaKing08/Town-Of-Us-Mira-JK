@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Assets;
 
-public static class CrewAssets
+public static class ToUJKCrewAssets
 {
     private const string ShortPath = "TownOfUsMiraJK.Resources.CrewButtons";
     public static LoadableAsset<Sprite> MonsterHunterStakeSprite { get; } = new LoadableResourceAsset($"{ShortPath}.MonsterHunterStakeSprite.png");

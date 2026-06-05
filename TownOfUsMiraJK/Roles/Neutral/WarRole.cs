@@ -38,7 +38,7 @@ public sealed class WarRole(IntPtr cppPtr)
             return;
         }
         ImportantTextTask orCreateTask = PlayerTask.GetOrCreateTask<ImportantTextTask>(playerControl, 0);
-        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("TouNeutralKillingTaskHeader")}</color>";
+        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralKillingTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
 
@@ -59,7 +59,7 @@ public sealed class WarRole(IntPtr cppPtr)
             MiscUtils.AppendOptionsText(GetType());
     }
 
-    public Color RoleColor => Colors.War;
+    public Color RoleColor => TownOfUsMiraJKColors.War;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
     public bool HasImpostorVision => true;
@@ -73,7 +73,7 @@ public sealed class WarRole(IntPtr cppPtr)
         DefaultRoleCount = 0,
         MaxRoleCount = 0,
         IntroSound = TouAudio.WarlockIntroSound,
-        Icon = RoleIcons.War,
+        Icon = ToUJKRoleIcons.War,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()
     };
 
@@ -127,8 +127,8 @@ public sealed class WarRole(IntPtr cppPtr)
 
         if (Player.AmOwner)
         {
-            HudManager.Instance.ImpostorVentButton.graphic.sprite = NeutAssets.WarVentSprite.LoadAsset();
-            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(Colors.War);
+            HudManager.Instance.ImpostorVentButton.graphic.sprite = ToUJKNeutAssets.WarVentSprite.LoadAsset();
+            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(TownOfUsMiraJKColors.War);
         }
 
         Announced = !OptionGroupSingleton<BerserkerOptions>.Instance.AnnounceWar;
@@ -159,11 +159,11 @@ public sealed class WarRole(IntPtr cppPtr)
             return;
         }
         Announced = true;
-        var title = $"<color=#{Colors.Berserker.ToHtmlStringRGBA()}>{TouLocale.Get("TouJKRoleWarMessageTitle")}</color>";
+        var title = $"<color=#{TownOfUsMiraJKColors.Berserker.ToHtmlStringRGBA()}>{TouLocale.Get("TouJKRoleWarMessageTitle")}</color>";
         var msg = TouLocale.GetParsed("TouJKRoleWarAnnounceMessage");
 
         var notif1 = Helpers.CreateAndShowNotification(
-            $"<b>{msg.Replace("<role>", $"{Colors.War.ToTextColor()}{RoleName}</color>")}</b>", Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.War.LoadAsset());
+            $"<b>{msg.Replace("<role>", $"{TownOfUsMiraJKColors.War.ToTextColor()}{RoleName}</color>")}</b>", Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.War.LoadAsset());
 
         notif1.AdjustNotification();
 

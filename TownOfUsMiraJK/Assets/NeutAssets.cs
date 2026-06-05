@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Assets;
 
-public static class NeutAssets
+public static class ToUJKNeutAssets
 {
     private const string ShortPath = "TownOfUsMiraJK.Resources.NeutButtons";
     public static LoadableAsset<Sprite> FamineVentSprite { get; } = new LoadableResourceAsset($"{ShortPath}.FamineVentSprite.png");

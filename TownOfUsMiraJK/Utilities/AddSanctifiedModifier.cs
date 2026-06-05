@@ -23,7 +23,11 @@ namespace TownOfUsMiraJK.Utilities
             {
                 return;
             }
-            if (!PlayerControl.LocalPlayer.HasDied() && SanctifierCircle.IsInCircle(PlayerControl.LocalPlayer.transform))
+            if (!PlayerControl.LocalPlayer.IsHost())
+            {
+                return;
+            }
+            if (SanctifierCircle.SanctifierCircles.Count != 0 && !PlayerControl.LocalPlayer.HasDied() && SanctifierCircle.IsInCircle(PlayerControl.LocalPlayer.transform))
             {
                 if (!PlayerControl.LocalPlayer.HasModifier<SanctifiedModifier>())
                 {

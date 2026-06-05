@@ -46,7 +46,7 @@ public static class ReaperEvents
         {
             if (soulCollector.AmOwner)
             {
-                soulCollector.AddModifier<ReaperArrowModifier>(deadBody, Colors.Reaper);
+                soulCollector.AddModifier<ReaperArrowModifier>(deadBody, TownOfUsMiraJKColors.Reaper);
             }
         }
     }

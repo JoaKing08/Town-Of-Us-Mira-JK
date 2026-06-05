@@ -37,7 +37,7 @@ public sealed class NecromancerUndeadModifier : AllianceGameModifier, IColoredMo
     public override AlliedFaction TrueFactionType => AlliedFaction.RoleSpecific;
 
     public override Color FreeplayFileColor => new Color32(220, 220, 220, 255);
-    public override LoadableAsset<Sprite>? ModifierIcon => RoleIcons.Necromancer;
+    public override LoadableAsset<Sprite>? ModifierIcon => ToUJKRoleIcons.Necromancer;
 
     public int Priority { get; set; } = -1;
     public List<CustomButtonWikiDescription> Abilities { get; } = [];
@@ -101,5 +101,5 @@ public sealed class NecromancerUndeadModifier : AllianceGameModifier, IColoredMo
         return undeadCount >= Helpers.GetAlivePlayers().Count - undeadCount;
     }
 
-    public Color ModifierColor => Colors.Necromancer;
+    public Color ModifierColor => TownOfUsMiraJKColors.Necromancer;
 }

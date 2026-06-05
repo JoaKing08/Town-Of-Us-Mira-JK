@@ -17,7 +17,7 @@ public sealed class OutcastModifier : TouGameModifier, IWikiDiscoverable
     public override string IntroInfo => "You don't know the other Impostors.";
     public override Color FreeplayFileColor => new Color32(255, 25, 25, 255);
 
-    public override LoadableAsset<Sprite>? ModifierIcon => ModifierIcons.Outcast;
+    public override LoadableAsset<Sprite>? ModifierIcon => ToUJKModifierIcons.Outcast;
     public override ModifierFaction FactionType => ModifierFaction.ImpostorUtility;
 
     public override string GetDescription()

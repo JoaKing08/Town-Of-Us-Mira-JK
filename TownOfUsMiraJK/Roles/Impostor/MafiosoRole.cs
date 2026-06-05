@@ -40,7 +40,7 @@ public sealed class MafiosoRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUs
         DefaultChance = 0,
         DefaultRoleCount = 0,
         MaxRoleCount = 0,
-        Icon = RoleIcons.Mafioso
+        Icon = ToUJKRoleIcons.Mafioso
     };
     public override void Initialize(PlayerControl player)
     {

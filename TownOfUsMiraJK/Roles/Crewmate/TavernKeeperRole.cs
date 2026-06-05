@@ -35,18 +35,18 @@ public sealed class TavernKeeperRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITow
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Drink", "Drink"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}DrinkWikiDescription"),
-                    CrewAssets.TavernKeeperDrinkSprite)
+                    ToUJKCrewAssets.TavernKeeperDrinkSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.TavernKeeper;
+    public Color RoleColor => TownOfUsMiraJKColors.TavernKeeper;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateSupport;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        Icon = RoleIcons.TavernKeeper,
+        Icon = ToUJKRoleIcons.TavernKeeper,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         IntroSound = TouAudio.CrewmateIntroSound
     };

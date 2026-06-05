@@ -19,9 +19,9 @@ public sealed class GossipChatButton : TownOfUsRoleButton<GossipRole, PlayerCont
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleGossipChat", "Chat");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Gossip;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Gossip;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<GossipOptions>.Instance.ChatCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.GossipChatSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKCrewAssets.GossipChatSprite;
 
     public override PlayerControl? GetTarget()
     {
@@ -44,7 +44,7 @@ public sealed class GossipChatButton : TownOfUsRoleButton<GossipRole, PlayerCont
 
         var notif1 = Helpers.CreateAndShowNotification(
             TouLocale.GetParsed("TouJKRoleGossipChatNotif"),
-            Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Gossip.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Gossip.LoadAsset());
 
         notif1.AdjustNotification();
     }

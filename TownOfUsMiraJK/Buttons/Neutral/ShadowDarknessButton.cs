@@ -17,10 +17,10 @@ public sealed class ShadowDarknessButton : TownOfUsRoleButton<ShadowRole>
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleShadowDarkness", "Darkness");
     public override BaseKeybind Keybind => Keybinds.TertiaryAction;
-    public override Color TextOutlineColor => Colors.Shadow;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Shadow;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<ShadowOptions>.Instance.DarknessCooldown + MapCooldown, 5f, 120f);
     public override float EffectDuration => OptionGroupSingleton<ShadowOptions>.Instance.DarknessDuration;
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.ShadowDarknessSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.ShadowDarknessSprite;
 
     public override bool ZeroIsInfinite { get; set; } = true;
 

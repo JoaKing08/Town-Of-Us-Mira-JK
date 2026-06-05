@@ -19,9 +19,9 @@ public sealed class PsychicMindscanButton : TownOfUsRoleButton<PsychicRole>
 {
     public override string Name => TouLocale.GetParsed("TouJKRolePsychicMindscan", "Mindscan");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Psychic;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Psychic;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<PsychicOptions>.Instance.MindscanCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.PsychicMindscanSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKCrewAssets.PsychicMindscanSprite;
     public override bool Enabled(RoleBehaviour? role)
     {
         return base.Enabled(role) && OptionGroupSingleton<PsychicOptions>.Instance.MindscanCount > 0;

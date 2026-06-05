@@ -18,9 +18,9 @@ public sealed class CoronerAutopsyButton : TownOfUsRoleButton<CoronerRole, DeadB
     public override string Name => TouLocale.GetParsed("TouJKRoleCoronerAutopsy", "Autopsy");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
     public override int MaxUses => Target == null ? -1 : (int)OptionGroupSingleton<CoronerOptions>.Instance.MaxAutopsy;
-    public override Color TextOutlineColor => Colors.Coroner;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Coroner;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<CoronerOptions>.Instance.AutopsyCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.CoronerAutopsySprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKCrewAssets.CoronerAutopsySprite;
 
     public override bool CanUse()
     {

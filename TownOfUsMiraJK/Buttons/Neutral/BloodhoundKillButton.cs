@@ -20,8 +20,8 @@ public sealed class BloodhoundKillButton : TownOfUsKillRoleButton<BloodhoundRole
 {
     public override string Name => TranslationController.Instance.GetStringWithDefault(StringNames.KillLabel, "Kill");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override Color TextOutlineColor => Colors.Bloodhound;
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.BloodhoundKillSprite;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Bloodhound;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.BloodhoundKillSprite;
     public override float Cooldown => Role?.Player != null && Role.Player.HasModifier<BloodhoundBloodlustModifier>(x => !x.IsDestroyed) ? OptionGroupSingleton<BloodhoundOptions>.Instance.BloodlustCooldown : OptionGroupSingleton<BloodhoundOptions>.Instance.KillCooldown + MapCooldown;
 
     public override void CreateButton(Transform parent)

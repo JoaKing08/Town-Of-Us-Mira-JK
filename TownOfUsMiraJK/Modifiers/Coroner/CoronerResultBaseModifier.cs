@@ -33,10 +33,10 @@ public abstract class CoronerResultBaseModifier(DeadBody body) : BaseModifier
 
         if (Player.AmOwner)
         {
-            var notifMessage = (OptionGroupSingleton<CoronerOptions>.Instance.InfoDuringRound ? NotificationMessage() : TouLocale.Get("TouJKRoleCoronerAutopsyNotif")).Replace("<player>", $"{Colors.Coroner.ToTextColor()}{CoronerData?.VictimName ?? ""}</color>");
+            var notifMessage = (OptionGroupSingleton<CoronerOptions>.Instance.InfoDuringRound ? NotificationMessage() : TouLocale.Get("TouJKRoleCoronerAutopsyNotif")).Replace("<player>", $"{TownOfUsMiraJKColors.Coroner.ToTextColor()}{CoronerData?.VictimName ?? ""}</color>");
             if (!string.IsNullOrWhiteSpace(notifMessage))
             {
-                var notif1 = Helpers.CreateAndShowNotification(notifMessage, Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Coroner.LoadAsset());
+                var notif1 = Helpers.CreateAndShowNotification(notifMessage, Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Coroner.LoadAsset());
                 notif1.AdjustNotification();
             }
         }

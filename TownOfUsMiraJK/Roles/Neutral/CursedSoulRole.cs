@@ -8,6 +8,7 @@ using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
+using Reactor.Networking.Rpc;
 using TownOfUs;
 using TownOfUs.Assets;
 using TownOfUs.Events.TouEvents;
@@ -65,12 +66,12 @@ public sealed class CursedSoulRole(IntPtr cppPtr)
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}SoulSwap", "Soul Swap"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}SoulSwapWikiDescription"),
-                    NeutAssets.CursedSoulSoulSwapSprite)
+                    ToUJKNeutAssets.CursedSoulSoulSwapSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.CursedSoul;
+    public Color RoleColor => TownOfUsMiraJKColors.CursedSoul;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
 
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralBenign;
@@ -80,7 +81,7 @@ public sealed class CursedSoulRole(IntPtr cppPtr)
         IntroSound = TouAudio.PhantomIntroSound,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>(),
-        Icon = RoleIcons.CursedSoul
+        Icon = ToUJKRoleIcons.CursedSoul
     };
 
     public override void Deinitialize(PlayerControl targetPlayer)
@@ -94,7 +95,7 @@ public sealed class CursedSoulRole(IntPtr cppPtr)
         return false;
     }
 
-    [MethodRpc((uint)TownOfUsJKRpc.SoulSwap)]
+    [MethodRpc((uint)TownOfUsJKRpc.SoulSwap, LocalHandling = RpcLocalHandling.Before)]
     public static void RpcSoulSwap(PlayerControl player, PlayerControl target)
     {
         if (LobbyBehaviour.Instance)
@@ -202,7 +203,7 @@ public sealed class CursedSoulRole(IntPtr cppPtr)
             var text = TouLocale.GetParsed("TouJKRoleCursedSoulSoulSwapOwnerNotif");
             var notif1 = Helpers.CreateAndShowNotification(
                 $"<b>{text.Replace("<role>", $"{player.Data.Role.TeamColor.ToTextColor()}{player.Data.Role.GetRoleName()}</color>")}</b>",
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.CursedSoul.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.CursedSoul.LoadAsset());
             notif1.AdjustNotification();
         }
 
@@ -210,8 +211,8 @@ public sealed class CursedSoulRole(IntPtr cppPtr)
         {
             var text = TouLocale.GetParsed("TouJKRoleCursedSoulSoulSwapTargetNotif");
             var notif1 = Helpers.CreateAndShowNotification(
-                $"<b>{text.Replace("<role>", $"{Colors.CursedSoul.ToTextColor()}{target.Data.Role.GetRoleName()}</color>")}</b>",
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.CursedSoul.LoadAsset());
+                $"<b>{text.Replace("<role>", $"{TownOfUsMiraJKColors.CursedSoul.ToTextColor()}{target.Data.Role.GetRoleName()}</color>")}</b>",
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.CursedSoul.LoadAsset());
             notif1.AdjustNotification();
         }
 

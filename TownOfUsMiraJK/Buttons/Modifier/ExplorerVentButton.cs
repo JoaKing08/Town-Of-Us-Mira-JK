@@ -20,14 +20,14 @@ public sealed class ExplorerVentButton : TownOfUsTargetButton<Vent>
 {
     public override string Name => TranslationController.Instance.GetStringWithDefault(StringNames.VentLabel, "Vent");
     public override BaseKeybind Keybind => Keybinds.VentAction;
-    public override Color TextOutlineColor => Colors.Explorer;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Explorer;
 
     public override float Cooldown =>
         Math.Clamp(OptionGroupSingleton<ExplorerOptions>.Instance.VentCooldown + MapCooldown, 0.001f, 120f);
 
     public override float EffectDuration => OptionGroupSingleton<ExplorerOptions>.Instance.VentDuration;
     public override int MaxUses => (int)OptionGroupSingleton<ExplorerOptions>.Instance.MaxVents;
-    public override LoadableAsset<Sprite> Sprite => ModifAssets.ExplorerVentSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKModifAssets.ExplorerVentSprite;
     public override bool ShouldPauseInVent => false;
     public override bool Enabled(RoleBehaviour? role)
     {

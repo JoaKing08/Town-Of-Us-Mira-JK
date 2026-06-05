@@ -55,7 +55,7 @@ public sealed class ProphetModifier : AllianceGameModifier, IWikiDiscoverable, I
     public override bool CountTowardsTrueFaction =>
         OptionGroupSingleton<ProphetOptions>.Instance.ProphetReplacesApocalypse.Value;
     public override Color FreeplayFileColor => new Color32(220, 220, 220, 255);
-    public override LoadableAsset<Sprite>? ModifierIcon => ModifierIcons.Prophet;
+    public override LoadableAsset<Sprite>? ModifierIcon => ToUJKModifierIcons.Prophet;
 
     public int Priority { get; set; } = -1;
     public List<CustomButtonWikiDescription> Abilities { get; } = [];
@@ -211,5 +211,5 @@ public sealed class ProphetModifier : AllianceGameModifier, IWikiDiscoverable, I
         return ApocalypseUtils.ApocalypseWinConditionMet(null);
     }
 
-    public Color ModifierColor => Colors.Apocalypse;
+    public Color ModifierColor => TownOfUsMiraJKColors.Apocalypse;
 }

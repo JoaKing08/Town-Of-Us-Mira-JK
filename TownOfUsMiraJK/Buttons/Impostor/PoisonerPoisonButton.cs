@@ -23,7 +23,7 @@ public sealed class PoisonerPoisonButton : TownOfUsRoleButton<PoisonerRole, Play
     public override Color TextOutlineColor => TownOfUsColors.Impostor;
     public override float Cooldown => PlayerControl.LocalPlayer.GetKillCooldown();
     public override float EffectDuration => OptionGroupSingleton<PoisonerOptions>.Instance.PoisonDuration;
-    public override LoadableAsset<Sprite> Sprite => ImpAssets.PoisonerPoisonSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKImpAssets.PoisonerPoisonSprite;
 
     protected override void OnClick()
     {
@@ -34,7 +34,7 @@ public sealed class PoisonerPoisonButton : TownOfUsRoleButton<PoisonerRole, Play
 
         var notif1 = Helpers.CreateAndShowNotification(
             TouLocale.GetParsed("TouJKRolePoisonerPoisonOwnerNotif").Replace("<player>", $"{TownOfUsColors.Impostor.ToTextColor()}{Target.Data.PlayerName}</color>").Replace("<time>", OptionGroupSingleton<PoisonerOptions>.Instance.PoisonDuration.ToString("0")),
-            Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Poisoner.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Poisoner.LoadAsset());
 
         notif1.AdjustNotification();
 

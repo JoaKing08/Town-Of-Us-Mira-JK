@@ -33,16 +33,16 @@ public sealed class AmmitDevouredModifier(PlayerControl ammit) : DisabledModifie
         if (Ammit?.AmOwner == true)
         {
             var notif1 = Helpers.CreateAndShowNotification(
-                TouLocale.GetParsed("TouJKRoleAmmitDevourOwnerNotif").Replace("<player>", $"{Colors.Ammit.ToTextColor()}{Player?.Data.PlayerName}</color>"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Ammit.LoadAsset());
+                TouLocale.GetParsed("TouJKRoleAmmitDevourOwnerNotif").Replace("<player>", $"{TownOfUsMiraJKColors.Ammit.ToTextColor()}{Player?.Data.PlayerName}</color>"),
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Ammit.LoadAsset());
 
             notif1.AdjustNotification();
         }
         if (Player?.AmOwner == true)
         {
             var notif1 = Helpers.CreateAndShowNotification(
-                TouLocale.GetParsed("TouJKRoleAmmitDevourTargetNotif").Replace("<player>", Ammit?.Data.PlayerName).Replace("<role>", $"{Colors.Ammit.ToTextColor()}{Ammit?.Data.Role.GetRoleName()}</color>"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Ammit.LoadAsset());
+                TouLocale.GetParsed("TouJKRoleAmmitDevourTargetNotif").Replace("<player>", Ammit?.Data.PlayerName).Replace("<role>", $"{TownOfUsMiraJKColors.Ammit.ToTextColor()}{Ammit?.Data.Role.GetRoleName()}</color>"),
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Ammit.LoadAsset());
 
             notif1.AdjustNotification();
         }

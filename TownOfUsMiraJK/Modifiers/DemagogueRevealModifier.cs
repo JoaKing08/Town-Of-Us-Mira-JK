@@ -34,7 +34,7 @@ namespace TownOfUsMiraJK.Modifiers
             base.OnActivate();
             var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRoleDemagogueNotif").Replace("<player>", $"{TownOfUsColors.Impostor.ToTextColor()}{Player.Data.PlayerName}</color>").Replace("<role>", $"{TownOfUsColors.Impostor.ToTextColor()}{ShownRole?.GetRoleName()}</color>").Replace("<alignment>", MiscUtils.GetParsedRoleAlignment((Player.Data.Role as DemagogueRole)?.Immunity?.Data.Role ?? Player.Data.Role, true)),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Demagogue.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Demagogue.LoadAsset());
 
             notif1.AdjustNotification();
             MiscUtils.AddFakeChat(Player.Data, TouLocale.GetParsed("TouJKRoleDemagogueNotifTitle"), TouLocale.GetParsed("TouJKRoleDemagogueNotif").Replace("<player>", Player.Data.PlayerName).Replace("<role>", MiscUtils.GetHyperlinkText(Player.Data.Role)).Replace("<alignment>", MiscUtils.GetParsedRoleAlignment((Player.Data.Role as DemagogueRole)?.Immunity?.Data.Role ?? Player.Data.Role, true)));
@@ -58,7 +58,7 @@ namespace TownOfUsMiraJK.Modifiers
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
                         TouLocale.GetParsed("TouJKRoleDemagogueImmunityDeathNotif").Replace("<player>", $"{TownOfUsColors.Impostor.ToTextColor()}{Player.Data.PlayerName}</color>").Replace("<role>", $"{TownOfUsColors.Impostor.ToTextColor()}{ShownRole?.GetRoleName()}</color>"),
-                        Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Demagogue.LoadAsset());
+                        Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Demagogue.LoadAsset());
 
                     notif1.AdjustNotification();
                     MiscUtils.AddFakeChat(Player.Data, TouLocale.GetParsed("TouJKRoleDemagogueImmunityDeathNotifTitle"), TouLocale.GetParsed("TouJKRoleDemagogueImmunityDeathNotif").Replace("<player>", Player.Data.PlayerName).Replace("<role>", MiscUtils.GetHyperlinkText(Player.Data.Role)));
@@ -96,7 +96,7 @@ namespace TownOfUsMiraJK.Modifiers
             }
             var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRoleDemagogueHint").Replace("<player>", $"{TownOfUsColors.Impostor.ToTextColor()}{hinted.Data.PlayerName}</color>"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Demagogue.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Demagogue.LoadAsset());
 
             notif1.AdjustNotification();
             MiscUtils.AddFakeChat(hinted.Data, TouLocale.GetParsed("TouJKRoleDemagogueHintTitle"), TouLocale.GetParsed("TouJKRoleDemagogueHint").Replace("<player>", hinted.Data.PlayerName));

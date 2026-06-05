@@ -54,16 +54,16 @@ public static class ManhunterEvents
             if (manhunter.Player.AmOwner)
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKRoleManhunterVictoryMessageSelf").Replace("<role>", $"{Colors.Manhunter.ToTextColor()}{manhunter.RoleName}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Manhunter.LoadAsset());
+                    TouLocale.GetParsed("TouJKRoleManhunterVictoryMessageSelf").Replace("<role>", $"{TownOfUsMiraJKColors.Manhunter.ToTextColor()}{manhunter.RoleName}</color>"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Manhunter.LoadAsset());
 
                 notif1.AdjustNotification();
             }
             else
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKRoleManhunterVictoryMessage").Replace("<player>", manhunter.Player.Data.PlayerName).Replace("<role>", $"{Colors.Manhunter.ToTextColor()}{manhunter.RoleName}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Manhunter.LoadAsset());
+                    TouLocale.GetParsed("TouJKRoleManhunterVictoryMessage").Replace("<player>", manhunter.Player.Data.PlayerName).Replace("<role>", $"{TownOfUsMiraJKColors.Manhunter.ToTextColor()}{manhunter.RoleName}</color>"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Manhunter.LoadAsset());
 
                 notif1.AdjustNotification();
             }
@@ -89,16 +89,16 @@ public static class ManhunterEvents
             if (manhunter.Player.AmOwner)
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKRoleManhunterVictoryMessageSelf").Replace("<role>", $"{Colors.Manhunter.ToTextColor()}{manhunter.RoleName}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Manhunter.LoadAsset());
+                    TouLocale.GetParsed("TouJKRoleManhunterVictoryMessageSelf").Replace("<role>", $"{TownOfUsMiraJKColors.Manhunter.ToTextColor()}{manhunter.RoleName}</color>"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Manhunter.LoadAsset());
 
                 notif1.AdjustNotification();
             }
             else
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKRoleManhunterVictoryMessage").Replace("<player>", manhunter.Player.Data.PlayerName).Replace("<role>", $"{Colors.Manhunter.ToTextColor()}{manhunter.RoleName}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Manhunter.LoadAsset());
+                    TouLocale.GetParsed("TouJKRoleManhunterVictoryMessage").Replace("<player>", manhunter.Player.Data.PlayerName).Replace("<role>", $"{TownOfUsMiraJKColors.Manhunter.ToTextColor()}{manhunter.RoleName}</color>"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Manhunter.LoadAsset());
 
                 notif1.AdjustNotification();
             }

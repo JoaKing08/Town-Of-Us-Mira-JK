@@ -18,9 +18,9 @@ public sealed class FamineStarveButton : TownOfUsRoleButton<FamineRole, PlayerCo
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleFamineStarve", "Starve");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override Color TextOutlineColor => Colors.Famine;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Famine;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<BakerOptions>.Instance.StarveCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.FamineStarveSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.FamineStarveSprite;
 
     public override PlayerControl? GetTarget()
     {

@@ -17,7 +17,7 @@ namespace TownOfUsMiraJK.Modifiers
     public sealed class UndercoverCoverModifier(ushort coverId)
     : BaseRevealModifier
     {
-        public override LoadableAsset<Sprite>? ModifierIcon => RoleIcons.Undercover;
+        public override LoadableAsset<Sprite>? ModifierIcon => ToUJKRoleIcons.Undercover;
         public override string ModifierName => "Cover";
         public override bool HideOnUi => false;
 

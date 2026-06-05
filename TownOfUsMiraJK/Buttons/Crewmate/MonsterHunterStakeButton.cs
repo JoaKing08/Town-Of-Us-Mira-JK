@@ -29,9 +29,9 @@ public sealed class MonsterHunterStakeButton : TownOfUsKillRoleButton<MonsterHun
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleMonsterHunterStake", "Stake");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override Color TextOutlineColor => Colors.MonsterHunter;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.MonsterHunter;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<MonsterHunterOptions>.Instance.StakeCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.MonsterHunterStakeSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKCrewAssets.MonsterHunterStakeSprite;
     public override int MaxUses => (int)OptionGroupSingleton<MonsterHunterOptions>.Instance.MaxStakes;
 
     public static bool Usable =>
@@ -56,7 +56,7 @@ public sealed class MonsterHunterStakeButton : TownOfUsKillRoleButton<MonsterHun
         {
             UsesLeft += 1;
             Button.SetUsesRemaining(UsesLeft);
-            Helpers.CreateAndShowNotification($"<color={TownOfUsColors.ImpSoft.ToTextColor()}><b>{TouLocale.GetParsed("TouJKRoleMonsterHunterCorrectStake").Replace("<player>", Target.Data.PlayerName)}</b></color>", Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.MonsterHunter.LoadAsset());
+            Helpers.CreateAndShowNotification($"<color={TownOfUsColors.ImpSoft.ToTextColor()}><b>{TouLocale.GetParsed("TouJKRoleMonsterHunterCorrectStake").Replace("<player>", Target.Data.PlayerName)}</b></color>", Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.MonsterHunter.LoadAsset());
 
             if (Target.HasModifier<FirstDeadShield>())
             {
@@ -74,7 +74,7 @@ public sealed class MonsterHunterStakeButton : TownOfUsKillRoleButton<MonsterHun
         {
             var touAbilityEvent = new TouAbilityEvent((AbilityType)JKAbilityType.MonsterHunsterIncorrectStake, Role.Player!, Target);
             MiraEventManager.InvokeEvent(touAbilityEvent);
-            Helpers.CreateAndShowNotification($"{Palette.CrewmateBlue.ToTextColor()}<b>{TouLocale.GetParsed("TouJKRoleMonsterHunterWrongStake").Replace("<player>", Target.Data.PlayerName)}</b></color>", Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.MonsterHunter.LoadAsset());
+            Helpers.CreateAndShowNotification($"{Palette.CrewmateBlue.ToTextColor()}<b>{TouLocale.GetParsed("TouJKRoleMonsterHunterWrongStake").Replace("<player>", Target.Data.PlayerName)}</b></color>", Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.MonsterHunter.LoadAsset());
             MonsterHunterRole.RpcWrongStake(Role.Player, UsesLeft > 0);
             if (UsesLeft <= 0 && OptionGroupSingleton<MonsterHunterOptions>.Instance.Suicide)
             {

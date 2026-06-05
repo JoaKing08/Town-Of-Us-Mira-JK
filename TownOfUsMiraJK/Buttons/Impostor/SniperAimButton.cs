@@ -23,7 +23,7 @@ public sealed class SniperAimButton : TownOfUsRoleButton<SniperRole, PlayerContr
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
     public override Color TextOutlineColor => TownOfUsColors.Impostor;
     public override float Cooldown => OptionGroupSingleton<SniperOptions>.Instance.AimCooldown;
-    public override LoadableAsset<Sprite> Sprite => ImpAssets.SniperAimSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKImpAssets.SniperAimSprite;
     public override bool Enabled(RoleBehaviour? role)
     {
         return base.Enabled(role) && Targeted == null;
@@ -38,7 +38,7 @@ public sealed class SniperAimButton : TownOfUsRoleButton<SniperRole, PlayerContr
 
         var notif1 = Helpers.CreateAndShowNotification(
             TouLocale.GetParsed("TouJKRoleSniperAimNotif").Replace("<player>", $"{TownOfUsColors.Impostor.ToTextColor()}{Target.Data.PlayerName}</color>"),
-            Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Sniper.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Sniper.LoadAsset());
 
         notif1.AdjustNotification();
 

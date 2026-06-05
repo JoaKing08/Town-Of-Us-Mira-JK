@@ -44,12 +44,12 @@ public sealed class CoronerRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUs
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Autopsy", "Autopsy"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}AutopsyWikiDescription"),
-                    CrewAssets.CoronerAutopsySprite)
+                    ToUJKCrewAssets.CoronerAutopsySprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Coroner;
+    public Color RoleColor => TownOfUsMiraJKColors.Coroner;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateInvestigative;
 
@@ -57,7 +57,7 @@ public sealed class CoronerRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUs
     {
         IntroSound = TouAudio.DetectiveIntroSound,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
-        Icon = RoleIcons.Coroner
+        Icon = ToUJKRoleIcons.Coroner
     };
     public bool CanAutopsy(byte body)
     {

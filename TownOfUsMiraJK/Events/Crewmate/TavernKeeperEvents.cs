@@ -93,7 +93,7 @@ public static class TavernKeeperEvents
             var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRoleTavernKeeperDrinkNotif").Replace("<role>",
                 MiscUtils.GetHyperlinkText(MiscUtils.PlayerById(source.GetModifier<TavernKeeperDrunkModifier>()!.TavernKeeperId).Data.Role)),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.TavernKeeper.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.TavernKeeper.LoadAsset());
 
             notif1.AdjustNotification();
         }

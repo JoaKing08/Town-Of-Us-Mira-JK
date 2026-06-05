@@ -40,12 +40,12 @@ public sealed class SanctifierRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Sanctify", "Sanctify"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}SanctifyWikiDescription"),
-                    CrewAssets.SanctifierSanctifySprite)
+                    ToUJKCrewAssets.SanctifierSanctifySprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Sanctifier;
+    public Color RoleColor => TownOfUsMiraJKColors.Sanctifier;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateProtective;
 
@@ -53,7 +53,7 @@ public sealed class SanctifierRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
     {
         IntroSound = TouAudio.TimeLordIntroSound,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
-        Icon = RoleIcons.Sanctifier
+        Icon = ToUJKRoleIcons.Sanctifier
     };
 
     [MethodRpc((uint)TownOfUsJKRpc.SanctifierSanctify)]

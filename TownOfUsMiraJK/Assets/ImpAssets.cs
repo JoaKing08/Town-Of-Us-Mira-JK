@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Assets;
 
-public static class ImpAssets
+public static class ToUJKImpAssets
 {
     private const string ShortPath = "TownOfUsMiraJK.Resources.ImpButtons";
     public static LoadableAsset<Sprite> PoisonerPoisonSprite { get; } = new LoadableResourceAsset($"{ShortPath}.PoisonerPoisonSprite.png");

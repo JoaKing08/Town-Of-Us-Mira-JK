@@ -32,7 +32,7 @@ public sealed class CrusaderFortifyModifier(PlayerControl crusader) : BaseShield
         if (Crusader.AmOwner && distance > 0)
         {
             GuardLineComp = GuardLine.Create(Player.transform, (int)(360 * distance),
-                Colors.Crusader, distance * ShipStatus.Instance.MaxLightRadius, distance * -10f);
+                TownOfUsMiraJKColors.Crusader, distance * ShipStatus.Instance.MaxLightRadius, distance * -10f);
         }
     }
     public override void OnDeactivate()

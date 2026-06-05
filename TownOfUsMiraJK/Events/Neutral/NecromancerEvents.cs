@@ -66,7 +66,7 @@ public static class NecromancerEvents
         {
             if (necromancer.AmOwner)
             {
-                necromancer.AddModifier<NecromancerArrowModifier>(deadBody, Colors.Necromancer);
+                necromancer.AddModifier<NecromancerArrowModifier>(deadBody, TownOfUsMiraJKColors.Necromancer);
             }
         }
     }

@@ -20,9 +20,9 @@ public sealed class BakerBreadButton : TownOfUsRoleButton<BakerRole, PlayerContr
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleBakerBread", "Bread");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Baker;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Baker;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<BakerOptions>.Instance.BreadCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.BakerBreadSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.BakerBreadSprite;
 
     public override PlayerControl? GetTarget()
     {

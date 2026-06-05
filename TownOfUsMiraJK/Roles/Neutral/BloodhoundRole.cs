@@ -51,7 +51,7 @@ public sealed class BloodhoundRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOf
             MiscUtils.AppendOptionsText(GetType());
     }
 
-    public Color RoleColor => Colors.Bloodhound;
+    public Color RoleColor => TownOfUsMiraJKColors.Bloodhound;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
 
@@ -60,7 +60,7 @@ public sealed class BloodhoundRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOf
         CanUseVent = OptionGroupSingleton<BloodhoundOptions>.Instance.CanVent,
         IntroSound = TouAudio.WarlockIntroSound,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
-        Icon = RoleIcons.Bloodhound,
+        Icon = ToUJKRoleIcons.Bloodhound,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()
     };
 
@@ -99,8 +99,8 @@ public sealed class BloodhoundRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOf
         RoleBehaviourStubs.Initialize(this, player);
         if (Player.AmOwner)
         {
-            HudManager.Instance.ImpostorVentButton.graphic.sprite = NeutAssets.BloodhoundVentSprite.LoadAsset();
-            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(Colors.Bloodhound);
+            HudManager.Instance.ImpostorVentButton.graphic.sprite = ToUJKNeutAssets.BloodhoundVentSprite.LoadAsset();
+            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(TownOfUsMiraJKColors.Bloodhound);
         }
     }
 
@@ -147,7 +147,7 @@ public sealed class BloodhoundRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOf
         {
             var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRoleBloodhoundBloodlustProlongNotif"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Bloodhound.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Bloodhound.LoadAsset());
 
             notif1.AdjustNotification();
             modifier.ResetTimer();

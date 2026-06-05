@@ -58,8 +58,8 @@ public sealed class PirateDuelModifier(PlayerControl pirate) : BaseModifier
             if (Pirate.AmOwner)
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKRolePirateDuelStartOwner").Replace("<player>", $"{Colors.Pirate.ToTextColor()}{ModifierUtils.GetPlayersWithModifier<PirateDuelModifier>(x => x.Pirate.PlayerId == x.Pirate.PlayerId).FirstOrDefault().Data?.PlayerName}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
+                    TouLocale.GetParsed("TouJKRolePirateDuelStartOwner").Replace("<player>", $"{TownOfUsMiraJKColors.Pirate.ToTextColor()}{ModifierUtils.GetPlayersWithModifier<PirateDuelModifier>(x => x.Pirate.PlayerId == x.Pirate.PlayerId).FirstOrDefault().Data?.PlayerName}</color>"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Pirate.LoadAsset());
 
                 notif1.AdjustNotification();
                 GenButton(MeetingHud.Instance.playerStates.FirstOrDefault(x => x.TargetPlayerId == Pirate.PlayerId), DuelOption.Scimitar_Sidestep, true);
@@ -67,8 +67,8 @@ public sealed class PirateDuelModifier(PlayerControl pirate) : BaseModifier
             else if (Player.AmOwner)
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKRolePirateDuelStartTarget").Replace("<role>", $"{Colors.Pirate.ToTextColor()}{Pirate.Data.Role.GetRoleName()}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
+                    TouLocale.GetParsed("TouJKRolePirateDuelStartTarget").Replace("<role>", $"{TownOfUsMiraJKColors.Pirate.ToTextColor()}{Pirate.Data.Role.GetRoleName()}</color>"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Pirate.LoadAsset());
 
                 notif1.AdjustNotification();
                 GenButton(MeetingHud.Instance.playerStates.FirstOrDefault(x => x.TargetPlayerId == Player.PlayerId), DuelOption.Scimitar_Sidestep, false);
@@ -112,15 +112,15 @@ public sealed class PirateDuelModifier(PlayerControl pirate) : BaseModifier
         {
             case DuelOption.Scimitar_Sidestep:
                 DuelButtonText.GetComponent<TextMeshPro>().text = pirate ? TouLocale.GetParsed("TouJKRolePirateDuelScimitar") : TouLocale.GetParsed("TouJKRolePirateDuelSidestep");
-                DuelButton.GetComponent<SpriteRenderer>().sprite = pirate ? NeutAssets.PirateScimitarSprite.LoadAsset() : NeutAssets.PirateSidestepSprite.LoadAsset();
+                DuelButton.GetComponent<SpriteRenderer>().sprite = pirate ? ToUJKNeutAssets.PirateScimitarSprite.LoadAsset() : ToUJKNeutAssets.PirateSidestepSprite.LoadAsset();
                 break;
             case DuelOption.Rapier_Chainmail:
                 DuelButtonText.GetComponent<TextMeshPro>().text = pirate ? TouLocale.GetParsed("TouJKRolePirateDuelRapier") : TouLocale.GetParsed("TouJKRolePirateDuelChainmail");
-                DuelButton.GetComponent<SpriteRenderer>().sprite = pirate ? NeutAssets.PirateRapierSprite.LoadAsset() : NeutAssets.PirateChainmailSprite.LoadAsset();
+                DuelButton.GetComponent<SpriteRenderer>().sprite = pirate ? ToUJKNeutAssets.PirateRapierSprite.LoadAsset() : ToUJKNeutAssets.PirateChainmailSprite.LoadAsset();
                 break;
             case DuelOption.Pistol_Backpedal:
                 DuelButtonText.GetComponent<TextMeshPro>().text = pirate ? TouLocale.GetParsed("TouJKRolePirateDuelPistol") : TouLocale.GetParsed("TouJKRolePirateDuelBackpedal");
-                DuelButton.GetComponent<SpriteRenderer>().sprite = pirate ? NeutAssets.PiratePistolSprite.LoadAsset() : NeutAssets.PirateBackpedalSprite.LoadAsset();
+                DuelButton.GetComponent<SpriteRenderer>().sprite = pirate ? ToUJKNeutAssets.PiratePistolSprite.LoadAsset() : ToUJKNeutAssets.PirateBackpedalSprite.LoadAsset();
                 break;
         }
     }

@@ -45,18 +45,18 @@ public sealed class InspectorRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOf
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Inspect", "Inspect"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}InspectWikiDescription"),
-                    CrewAssets.InspectorInspectSprite)
+                    ToUJKCrewAssets.InspectorInspectSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Inspector;
+    public Color RoleColor => TownOfUsMiraJKColors.Inspector;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateInvestigative;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        Icon = RoleIcons.Inspector,
+        Icon = ToUJKRoleIcons.Inspector,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         IntroSound = TouAudio.DetectiveIntroSound
     };
@@ -77,7 +77,7 @@ public sealed class InspectorRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOf
 
         var report = BuildReport(inspected);
 
-        var title = $"<color=#{Colors.Inspector.ToHtmlStringRGBA()}>{TouLocale.GetParsed("TouJKRoleInspectorInspectTitle")}</color>";
+        var title = $"<color=#{TownOfUsMiraJKColors.Inspector.ToHtmlStringRGBA()}>{TouLocale.GetParsed("TouJKRoleInspectorInspectTitle")}</color>";
         MiscUtils.AddFakeChat(inspected.Data, title, report, false, true);
     }
     public string BuildReport(PlayerControl player)

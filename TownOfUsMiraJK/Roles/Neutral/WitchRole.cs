@@ -64,22 +64,22 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Mark", "Mark"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}MarkWikiDescription"),
-                    NeutAssets.WitchMarkSprite),
+                    ToUJKNeutAssets.WitchMarkSprite),
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Control", "Control"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}ControlWikiDescription"),
-                    NeutAssets.WitchControlSprite)
+                    ToUJKNeutAssets.WitchControlSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Witch;
+    public Color RoleColor => TownOfUsMiraJKColors.Witch;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralEvil;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
         IntroSound = TouAudio.ShapeshifterIntroSound,
-        Icon = RoleIcons.Witch,
+        Icon = ToUJKRoleIcons.Witch,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
         MaxRoleCount = 1,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()
@@ -145,8 +145,8 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
                 buttonUsed = ButtonUsed.Tertiary;
             }
             var notif1 = Helpers.CreateAndShowNotification(
-                TouLocale.GetParsed("TouJKRoleWitchControlTargetNotif" + buttonUsed.ToString()).Replace("<role>", $"{Colors.Witch.ToTextColor()}{CustomRoleUtils.GetRegisteredRole((RoleTypes)RoleId.Get<WitchRole>())?.GetRoleName()}</color>"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
+                TouLocale.GetParsed("TouJKRoleWitchControlTargetNotif" + buttonUsed.ToString()).Replace("<role>", $"{TownOfUsMiraJKColors.Witch.ToTextColor()}{CustomRoleUtils.GetRegisteredRole((RoleTypes)RoleId.Get<WitchRole>())?.GetRoleName()}</color>"),
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Witch.LoadAsset());
 
             notif1.AdjustNotification();
             RpcWitchFeedback(target, witch, (byte)buttonUsed);
@@ -171,16 +171,16 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
         if (OptionGroupSingleton<WitchOptions>.Instance.Learns == WitchLearns.Nothing)
         {
             var notif1 = Helpers.CreateAndShowNotification(
-                TouLocale.GetParsed("TouJKRoleWitchControlOwnerNotifNoRole" + _buttonUsed.ToString()).Replace("<player>", $"{Colors.Witch.ToTextColor()}{target.Data.PlayerName}</color>"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
+                TouLocale.GetParsed("TouJKRoleWitchControlOwnerNotifNoRole" + _buttonUsed.ToString()).Replace("<player>", $"{TownOfUsMiraJKColors.Witch.ToTextColor()}{target.Data.PlayerName}</color>"),
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Witch.LoadAsset());
 
             notif1.AdjustNotification();
         }
         else
         {
             var notif1 = Helpers.CreateAndShowNotification(
-                TouLocale.GetParsed("TouJKRoleWitchControlOwnerNotif" + _buttonUsed.ToString()).Replace("<player>", $"{Colors.Witch.ToTextColor()}{target.Data.PlayerName}</color>").Replace("<role>", WitchResult(target)),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
+                TouLocale.GetParsed("TouJKRoleWitchControlOwnerNotif" + _buttonUsed.ToString()).Replace("<player>", $"{TownOfUsMiraJKColors.Witch.ToTextColor()}{target.Data.PlayerName}</color>").Replace("<role>", WitchResult(target)),
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Witch.LoadAsset());
 
             notif1.AdjustNotification();
         }

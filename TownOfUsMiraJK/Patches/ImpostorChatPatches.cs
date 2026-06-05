@@ -15,8 +15,11 @@ using TownOfUs.Utilities;
 using TownOfUsMiraJK;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
+using TownOfUsMiraJK.Modifiers.Game.Alliance;
 using TownOfUsMiraJK.Modifiers.Game.Impostor;
+using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Roles.Crewmate;
+using TownOfUsMiraJK.Roles.Neutral;
 using TownOfUsMiraJK.Utilities;
 using UnityEngine;
 using static TownOfUs.Patches.Options.TeamChatPatches;
@@ -26,8 +29,14 @@ namespace TownOfUs.Patches.Roles;
 [HarmonyPatch(typeof(TeamChatManager), nameof(TeamChatManager.RegisterBuiltInChats))]
 public static class RegisterBuiltInChats
 {
+    private static bool _touJKChatsRegistered;
     public static void Postfix()
     {
+        if (_touJKChatsRegistered)
+        {
+            return;
+        }
+
         var impChat = ExtensionTeamChatRegistry.RegisteredHandlers.First(x => x.Priority == 30);
         var impChatIdx = ExtensionTeamChatRegistry.RegisteredHandlers.IndexOf(impChat);
         impChat.IsChatAvailable = () =>
@@ -50,9 +59,25 @@ public static class RegisterBuiltInChats
             },
             SendMessage = RpcSendApocTeamChat,
             GetDisplayText = () => "Apocalypse Chat",
-            DisplayTextColor = Colors.Apocalypse
+            DisplayTextColor = TownOfUsMiraJKColors.Apocalypse
         };
         ExtensionTeamChatRegistry.RegisterHandler(apocalypseHandler);
+
+        var undeadHandler = new ExtensionTeamChatHandler
+        {
+            Priority = 60,
+            IsForced = false,
+            IsChatAvailable = delegate
+            {
+                var instance = OptionGroupSingleton<NecromancerOptions>.Instance;
+                return (bool)MeetingHud.Instance && (PlayerControl.LocalPlayer.HasModifier<NecromancerUndeadModifier>() || PlayerControl.LocalPlayer.IsRole<NecromancerRole>()) && instance.UndeadChat;
+            },
+            SendMessage = RpcSendUndeadTeamChat,
+            GetDisplayText = () => "Undead Chat",
+            DisplayTextColor = TownOfUsMiraJKColors.Necromancer
+        };
+        ExtensionTeamChatRegistry.RegisterHandler(apocalypseHandler);
+        _touJKChatsRegistered = true;
     }
     [MethodRpc((uint)TownOfUsJKRpc.SendApocTeamChat)]
     public static void RpcSendApocTeamChat(PlayerControl player, string text)
@@ -67,7 +92,7 @@ public static class RegisterBuiltInChats
             (DeathHandlerModifier.IsFullyDead(PlayerControl.LocalPlayer) && OptionGroupSingleton<GeneralOptions>.Instance.TheDeadKnow))
         {
             MiscUtils.AddTeamChat(player.Data,
-                $"<color=#{Colors.Apocalypse.ToHtmlStringRGBA()}>{TouLocale.GetParsed("TouJKApocalypseChatTitle").Replace("<player>", player.Data.PlayerName)}</color>",
+                $"<color=#{TownOfUsMiraJKColors.Apocalypse.ToHtmlStringRGBA()}>{TouLocale.GetParsed("TouJKApocalypseChatTitle").Replace("<player>", player.Data.PlayerName)}</color>",
                 text, bubbleType: (BubbleType)6, onLeft: !player.AmOwner);
             shouldMarkUnread = true;
         }
@@ -77,9 +102,38 @@ public static class RegisterBuiltInChats
             var chats = TeamChatManager.GetAllAvailableChats();
             var hasForcedChat = chats.Any(c => c.IsForced);
             var currentChat = CurrentChatIndex >= 0 && CurrentChatIndex < chats.Count ? chats[CurrentChatIndex] : null;
-            if ((!TeamChatActive || currentChat == null || currentChat.Priority != 40) && !hasForcedChat)
+            if ((!TeamChatActive || currentChat == null || currentChat.Priority != 50) && !hasForcedChat)
             {
                 TeamChatManager.MarkChatAsUnread(50);
+            }
+        }
+    }
+    [MethodRpc((uint)TownOfUsJKRpc.SendUndeadTeamChat)]
+    public static void RpcSendUndeadTeamChat(PlayerControl player, string text)
+    {
+        if (LobbyBehaviour.Instance)
+        {
+            MiscUtils.RunAnticheatWarning(player);
+            return;
+        }
+        var shouldMarkUnread = false;
+        if (PlayerControl.LocalPlayer.HasModifier<NecromancerUndeadModifier>() || PlayerControl.LocalPlayer.IsRole<NecromancerRole>() ||
+            (DeathHandlerModifier.IsFullyDead(PlayerControl.LocalPlayer) && OptionGroupSingleton<GeneralOptions>.Instance.TheDeadKnow))
+        {
+            MiscUtils.AddTeamChat(player.Data,
+                $"<color=#{TownOfUsMiraJKColors.Necromancer.ToHtmlStringRGBA()}>{TouLocale.GetParsed("TouJKUndeadChatTitle").Replace("<player>", player.Data.PlayerName)}</color>",
+                text, bubbleType: (BubbleType)7, onLeft: !player.AmOwner);
+            shouldMarkUnread = true;
+        }
+
+        if (shouldMarkUnread && MeetingHud.Instance)
+        {
+            var chats = TeamChatManager.GetAllAvailableChats();
+            var hasForcedChat = chats.Any(c => c.IsForced);
+            var currentChat = CurrentChatIndex >= 0 && CurrentChatIndex < chats.Count ? chats[CurrentChatIndex] : null;
+            if ((!TeamChatActive || currentChat == null || currentChat.Priority != 60) && !hasForcedChat)
+            {
+                TeamChatManager.MarkChatAsUnread(60);
             }
         }
     }

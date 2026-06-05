@@ -20,7 +20,7 @@ public sealed class GodfatherRecruitButton : TownOfUsRoleButton<GodfatherRole, P
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
     public override Color TextOutlineColor => TownOfUsColors.Impostor;
     public override float Cooldown => 0.001f;
-    public override LoadableAsset<Sprite> Sprite => ImpAssets.GodfatherRecruitSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKImpAssets.GodfatherRecruitSprite;
     public override bool Enabled(RoleBehaviour? role)
     {
         return base.Enabled(role) && role is GodfatherRole godfather && !godfather.Recruited;
@@ -42,7 +42,7 @@ public sealed class GodfatherRecruitButton : TownOfUsRoleButton<GodfatherRole, P
         {
             var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRoleGodfatherRecruitFailedNotif").Replace("<player>", $"{TownOfUsColors.Impostor.ToTextColor()}{Target.Data.PlayerName}</color>"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Godfather.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Godfather.LoadAsset());
 
             notif1.AdjustNotification();
         }

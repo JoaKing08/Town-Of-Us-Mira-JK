@@ -22,8 +22,8 @@ public sealed class WitchControlButton : TownOfUsRoleButton<WitchRole, PlayerCon
     public PlayerControl Marked => ModifierUtils.GetPlayersWithModifier<WitchMarkModifier>(x => x.Witch.PlayerId == PlayerControl.LocalPlayer.PlayerId).FirstOrDefault();
     public override string Name => TouLocale.GetParsed("TouJKRoleWitchControl", "Control");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Witch;
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.WitchControlSprite;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Witch;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.WitchControlSprite;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<WitchOptions>.Instance.ControlCooldown + MapCooldown, 5f, 120f);
 
     public override bool Enabled(RoleBehaviour? role)

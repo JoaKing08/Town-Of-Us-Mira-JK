@@ -18,8 +18,8 @@ public sealed class WitchMarkButton : TownOfUsRoleButton<WitchRole, PlayerContro
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleWitchMark", "Mark");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Witch;
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.WitchMarkSprite;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Witch;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.WitchMarkSprite;
     public override float Cooldown => 0.001f;
     public override float InitialCooldown => 0.001f;
 

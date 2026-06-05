@@ -35,7 +35,7 @@ public sealed class PoisonerPoisonModifier(byte poisonerId) : TimedModifier
             {
                 var notif1 = Helpers.CreateAndShowNotification(
                     TouLocale.GetParsed("TouJKRolePoisonerPoisonTargetNotif").Replace("<role>", $"{TownOfUsColors.Impostor.ToTextColor()}{Poisoner.Data.Role.GetRoleName()}</color>").Replace("<time>", Duration.ToString("0")),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Poisoner.LoadAsset());
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Poisoner.LoadAsset());
 
                 notif1.AdjustNotification();
             }
@@ -51,7 +51,7 @@ public sealed class PoisonerPoisonModifier(byte poisonerId) : TimedModifier
             {
                 var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRolePoisonerPoisonTargetNotif").Replace("<role>", $"{TownOfUsColors.Impostor.ToTextColor()}{Poisoner.Data.Role.GetRoleName()}</color>").Replace("<time>", (Duration - OptionGroupSingleton<PoisonerOptions>.Instance.PoisonDelay.Value).ToString("0")),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Poisoner.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Poisoner.LoadAsset());
 
                 notif1.AdjustNotification();
             }
@@ -67,7 +67,7 @@ public sealed class PoisonerPoisonModifier(byte poisonerId) : TimedModifier
 
             var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRolePoisonerPoisonDiedNotif").Replace("<player>", $"{TownOfUsColors.Impostor.ToTextColor()}{Player.Data.PlayerName}</color>"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Poisoner.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Poisoner.LoadAsset());
 
             notif1.AdjustNotification();
         }

@@ -100,18 +100,18 @@ public sealed class ManhunterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
     public string GetAdvancedDescription()
     {
         return
-            TouLocale.GetParsed($"TouJKRole{LocaleKey}WikiDescription").Replace("<symbol>", Colors.Manhunter.ToTextColor() + "/</color>") +
+            TouLocale.GetParsed($"TouJKRole{LocaleKey}WikiDescription").Replace("<symbol>", TownOfUsMiraJKColors.Manhunter.ToTextColor() + "/</color>") +
             MiscUtils.AppendOptionsText(GetType());
     }
 
-    public Color RoleColor => Colors.Manhunter;
+    public Color RoleColor => TownOfUsMiraJKColors.Manhunter;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralOutlier;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
         IntroSound = TouAudio.ToppatIntroSound,
-        Icon = RoleIcons.Manhunter,
+        Icon = ToUJKRoleIcons.Manhunter,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
         MaxRoleCount = 1,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()

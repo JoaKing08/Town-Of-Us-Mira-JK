@@ -17,10 +17,10 @@ public sealed class WatcherWatchButton : TownOfUsRoleButton<WatcherRole>
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleWatcherWatch", "Watch");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Watcher;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Watcher;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<WatcherOptions>.Instance.WatchCooldown + MapCooldown, 5f, 120f);
     public override float EffectDuration => OptionGroupSingleton<WatcherOptions>.Instance.WatchDuration;
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.WatcherWatchSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKCrewAssets.WatcherWatchSprite;
 
     public override void ClickHandler()
     {

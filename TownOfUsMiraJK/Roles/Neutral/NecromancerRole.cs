@@ -62,12 +62,12 @@ public sealed class NecromancerRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownO
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Reanimate", "Reanimate"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}ReanimateWikiDescription"),
-                    NeutAssets.NecromancerReanimateSprite)
+                    ToUJKNeutAssets.NecromancerReanimateSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Necromancer;
+    public Color RoleColor => TownOfUsMiraJKColors.Necromancer;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralOutlier;
 
@@ -77,7 +77,7 @@ public sealed class NecromancerRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownO
     {
         IntroSound = TouAudio.MediumIntroSound,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
-        Icon = RoleIcons.Necromancer,
+        Icon = ToUJKRoleIcons.Necromancer,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>(),
         MaxRoleCount = 1
     };

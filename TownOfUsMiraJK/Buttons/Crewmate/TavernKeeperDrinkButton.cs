@@ -18,9 +18,9 @@ public sealed class TavernKeeperDrinkButton : TownOfUsRoleButton<TavernKeeperRol
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleTavernKeeperDrink", "Drink");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.TavernKeeper;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.TavernKeeper;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<TavernKeeperOptions>.Instance.DrinkCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.TavernKeeperDrinkSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKCrewAssets.TavernKeeperDrinkSprite;
     public override int MaxUses => (int)OptionGroupSingleton<TavernKeeperOptions>.Instance.MaxDrinks;
 
     public override PlayerControl? GetTarget()

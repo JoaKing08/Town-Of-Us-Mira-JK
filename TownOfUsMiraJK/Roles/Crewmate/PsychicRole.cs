@@ -63,12 +63,12 @@ public sealed class PsychicRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUs
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Guard", "Guard"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}GuardWikiDescription"),
-                    CrewAssets.BodyguardGuardSprite)
+                    ToUJKCrewAssets.BodyguardGuardSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Psychic;
+    public Color RoleColor => TownOfUsMiraJKColors.Psychic;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateInvestigative;
 
@@ -76,7 +76,7 @@ public sealed class PsychicRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUs
     {
         IntroSound = TouAudio.MediumIntroSound,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
-        Icon = RoleIcons.Psychic
+        Icon = ToUJKRoleIcons.Psychic
     };
 
     public static DateTime RoundStart = DateTime.UtcNow;

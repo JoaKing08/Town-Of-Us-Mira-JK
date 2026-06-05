@@ -30,7 +30,7 @@ public sealed class ShadowVanishModifier : ConcealedModifier, IVisualAppearance
     public VisualAppearance GetVisualAppearance()
     {
         var opacity = OptionGroupSingleton<ShadowOptions>.Instance.VanishOpacity.Value;
-        var playerColor = Colors.Shadow.SetAlpha(Player.AmOwner || (PlayerControl.LocalPlayer.DiedOtherRound() && OptionGroupSingleton<GeneralOptions>.Instance.TheDeadKnow) ? MathF.Max(0.1f, opacity / 100f) : opacity / 100f);
+        var playerColor = TownOfUsMiraJKColors.Shadow.SetAlpha(Player.AmOwner || (PlayerControl.LocalPlayer.DiedOtherRound() && OptionGroupSingleton<GeneralOptions>.Instance.TheDeadKnow) ? MathF.Max(0.1f, opacity / 100f) : opacity / 100f);
 
         var visualAppearance = new VisualAppearance(Player.GetDefaultModifiedAppearance(), TownOfUsAppearances.Swooper)
         {
@@ -68,7 +68,7 @@ public sealed class ShadowVanishModifier : ConcealedModifier, IVisualAppearance
         Player.cosmetics.ToggleNameVisible(false);
 
         var button = CustomButtonSingleton<ShadowVanishButton>.Instance;
-        button.OverrideSprite(NeutAssets.ShadowAppearSprite.LoadAsset());
+        button.OverrideSprite(ToUJKNeutAssets.ShadowAppearSprite.LoadAsset());
         button.OverrideName(TouLocale.Get("TouJKRoleShadowAppear", "Appear"));
 
         var touAbilityEvent = new TouAbilityEvent((AbilityType)JKAbilityType.ShadowVanish, Player);
@@ -94,7 +94,7 @@ public sealed class ShadowVanishModifier : ConcealedModifier, IVisualAppearance
         if (Player.AmOwner)
         {
             var button = CustomButtonSingleton<ShadowVanishButton>.Instance;
-            button.OverrideSprite(NeutAssets.ShadowVanishSprite.LoadAsset());
+            button.OverrideSprite(ToUJKNeutAssets.ShadowVanishSprite.LoadAsset());
             button.OverrideName(TouLocale.Get("TouJKRoleShadowVanish", "Vanish"));
             if (!MeetingHud.Instance)
             {

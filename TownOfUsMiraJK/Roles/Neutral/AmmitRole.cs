@@ -54,12 +54,12 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Devour", "Devour"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}DevourWikiDescription"),
-                    RoleIcons.Death)
+                    ToUJKRoleIcons.Death)
             };
         }
     }
 
-    public Color RoleColor => Colors.Ammit;
+    public Color RoleColor => TownOfUsMiraJKColors.Ammit;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
 
@@ -68,7 +68,7 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
         CanUseVent = OptionGroupSingleton<AmmitOptions>.Instance.CanVent,
         IntroSound = TouAudio.ViperIntroSound,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
-        Icon = RoleIcons.Ammit,
+        Icon = ToUJKRoleIcons.Ammit,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>(),
         MaxRoleCount = 1,
     };
@@ -97,8 +97,8 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
         RoleBehaviourStubs.Initialize(this, player);
         if (Player.AmOwner)
         {
-            HudManager.Instance.ImpostorVentButton.graphic.sprite = NeutAssets.AmmitVentSprite.LoadAsset();
-            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(Colors.Ammit);
+            HudManager.Instance.ImpostorVentButton.graphic.sprite = ToUJKNeutAssets.AmmitVentSprite.LoadAsset();
+            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(TownOfUsMiraJKColors.Ammit);
         }
         if (!Player.HasModifier<AmmitSizeModifier>())
         {

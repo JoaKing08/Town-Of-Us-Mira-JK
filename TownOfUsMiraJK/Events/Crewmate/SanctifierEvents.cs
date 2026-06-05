@@ -102,7 +102,7 @@ public static class SanctifierEvents
 
         if (TutorialManager.InstanceExists || source.AmOwner)
         {
-            Coroutines.Start(MiscUtils.CoFlash(OptionGroupSingleton<GameMechanicOptions>.Instance.AnonymousShields ? TownOfUsColors.NeutralWiki : Colors.Sanctifier));
+            Coroutines.Start(MiscUtils.CoFlash(OptionGroupSingleton<GameMechanicOptions>.Instance.AnonymousShields ? TownOfUsColors.NeutralWiki : TownOfUsMiraJKColors.Sanctifier));
         }
     }
 }

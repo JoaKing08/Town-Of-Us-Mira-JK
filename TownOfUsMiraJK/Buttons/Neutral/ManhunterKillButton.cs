@@ -19,8 +19,8 @@ public sealed class ManhunterKillButton : TownOfUsKillRoleButton<ManhunterRole, 
 {
     public override string Name => TranslationController.Instance.GetStringWithDefault(StringNames.KillLabel, "Kill");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override Color TextOutlineColor => Colors.Manhunter;
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.ManhunterKillSprite;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Manhunter;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.ManhunterKillSprite;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<ManhunterOptions>.Instance.KillCooldown + MapCooldown, 5f, 120f);
 
     public override void CreateButton(Transform parent)

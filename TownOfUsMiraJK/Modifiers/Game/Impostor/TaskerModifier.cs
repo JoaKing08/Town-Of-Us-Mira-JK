@@ -19,7 +19,7 @@ public sealed class TaskerModifier : TouGameModifier, IWikiDiscoverable
     public override string IntroInfo => "You can do tasks.";
     public override Color FreeplayFileColor => new Color32(255, 25, 25, 255);
 
-    public override LoadableAsset<Sprite>? ModifierIcon => ModifierIcons.Tasker;
+    public override LoadableAsset<Sprite>? ModifierIcon => ToUJKModifierIcons.Tasker;
     public override ModifierFaction FactionType => ModifierFaction.ImpostorPassive;
 
     public float Timer { get; set; }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Assets;
 
-public static class RoleIcons
+public static class ToUJKRoleIcons
 {
     private const string ShortPath = "TownOfUsMiraJK.Resources";
 

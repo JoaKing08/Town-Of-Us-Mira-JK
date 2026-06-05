@@ -2,7 +2,8 @@
 using MiraAPI.GameOptions;
 using TownOfUs.Modules;
 using TownOfUs.Roles.Crewmate;
-using TownOfUsMiraJK.Options.Roles.Crewmate;
+using TownOfUsMiraJK.Options;
+using TownOfUsMiraJK.Options.Roles;
 using TownOfUsMiraJK.Roles.Crewmate;
 
 namespace TownOfUs.Modifiers.Crewmate;
@@ -19,7 +20,7 @@ public sealed class ProsecutorRevealModifier(RoleBehaviour role)
 
     public override void OnActivate()
     {
-        if (!Player.AmOwner && Player.Data.Role is ProsecutorRole Prosecutor && Prosecutor.ProsecutionsCompleted > 0 && OptionGroupSingleton<ProsecutorJKOptions>.Instance.Reveal)
+        if (!Player.AmOwner && Player.Data.Role is ProsecutorRole Prosecutor && Prosecutor.ProsecutionsCompleted > 0 && OptionGroupSingleton<TouMTweaksOptions>.Instance.ProsecutorReveal)
         {
             MeetingMenu.Instances.Do(x => x.HideSingle(Player.PlayerId));
         }
@@ -34,6 +35,6 @@ public sealed class ProsecutorRevealModifier(RoleBehaviour role)
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        Visible = Player.Data.Role is ProsecutorRole Prosecutor && Prosecutor.ProsecutionsCompleted > 0 && OptionGroupSingleton<ProsecutorJKOptions>.Instance.Reveal;
+        Visible = Player.Data.Role is ProsecutorRole Prosecutor && Prosecutor.ProsecutionsCompleted > 0 && OptionGroupSingleton<TouMTweaksOptions>.Instance.ProsecutorReveal;
     }
 }

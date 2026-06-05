@@ -40,18 +40,18 @@ public sealed class GossipRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsR
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Chat", "Chat"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}ChatWikiDescription"),
-                    CrewAssets.GossipChatSprite)
+                    ToUJKCrewAssets.GossipChatSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Gossip;
+    public Color RoleColor => TownOfUsMiraJKColors.Gossip;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateInvestigative;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        Icon = RoleIcons.Gossip,
+        Icon = ToUJKRoleIcons.Gossip,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         IntroSound = TouAudio.PoliticianIntroSound
     };
@@ -72,7 +72,7 @@ public sealed class GossipRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsR
 
         var report = BuildReport(chated);
 
-        var title = $"<color=#{Colors.Gossip.ToHtmlStringRGBA()}>{TouLocale.GetParsed("TouJKRoleGossipChatTitle")}</color>";
+        var title = $"<color=#{TownOfUsMiraJKColors.Gossip.ToHtmlStringRGBA()}>{TouLocale.GetParsed("TouJKRoleGossipChatTitle")}</color>";
         MiscUtils.AddFakeChat(chated.Data, title, report, false, true);
     }
     public string BuildReport(PlayerControl player)

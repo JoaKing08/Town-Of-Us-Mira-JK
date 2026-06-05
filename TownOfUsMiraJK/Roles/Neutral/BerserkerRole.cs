@@ -35,7 +35,7 @@ public sealed class BerserkerRole(IntPtr cppPtr)
             return;
         }
         ImportantTextTask orCreateTask = PlayerTask.GetOrCreateTask<ImportantTextTask>(playerControl, 0);
-        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("TouNeutralKillingTaskHeader")}</color>";
+        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralKillingTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
     public int KillCount { get; set; }
@@ -53,14 +53,14 @@ public sealed class BerserkerRole(IntPtr cppPtr)
             MiscUtils.AppendOptionsText(GetType());
     }
 
-    public Color RoleColor => Colors.Berserker;
+    public Color RoleColor => TownOfUsMiraJKColors.Berserker;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
         IntroSound = TouAudio.WarlockIntroSound,
-        Icon = RoleIcons.Berserker,
+        Icon = ToUJKRoleIcons.Berserker,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
         MaxRoleCount = 1,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>(),
@@ -87,8 +87,8 @@ public sealed class BerserkerRole(IntPtr cppPtr)
         RoleBehaviourStubs.Initialize(this, player);
         if (Player.AmOwner)
         {
-            HudManager.Instance.ImpostorVentButton.graphic.sprite = NeutAssets.BerserkerVentSprite.LoadAsset();
-            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(Colors.Berserker);
+            HudManager.Instance.ImpostorVentButton.graphic.sprite = ToUJKNeutAssets.BerserkerVentSprite.LoadAsset();
+            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(TownOfUsMiraJKColors.Berserker);
         }
         if (Player.AmOwner && (int)OptionGroupSingleton<BerserkerOptions>.Instance.WarChance != 0)
         {

@@ -34,7 +34,7 @@ public sealed class ReaperJKRole(IntPtr cppPtr)
             return;
         }
         ImportantTextTask orCreateTask = PlayerTask.GetOrCreateTask<ImportantTextTask>(playerControl, 0);
-        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("TouNeutralOutlierTaskHeader")}</color>";
+        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralOutlierTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
 
@@ -63,19 +63,19 @@ public sealed class ReaperJKRole(IntPtr cppPtr)
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Reap", "Reap"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}ReapWikiDescription"),
-                    NeutAssets.ReaperReapSprite),
+                    ToUJKNeutAssets.ReaperReapSprite),
             };
         }
     }
 
-    public Color RoleColor => Colors.Reaper;
+    public Color RoleColor => TownOfUsMiraJKColors.Reaper;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralOutlier;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
         IntroSound = TouAudio.MediumIntroSound,
-        Icon = RoleIcons.Reaper,
+        Icon = ToUJKRoleIcons.Reaper,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
         MaxRoleCount = 1,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()

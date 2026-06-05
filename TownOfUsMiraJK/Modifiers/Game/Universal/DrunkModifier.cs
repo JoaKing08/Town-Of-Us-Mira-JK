@@ -20,13 +20,13 @@ public sealed class DrunkModifier : UniversalGameModifier, IWikiDiscoverable, IC
     public override string LocaleKey => "Drunk";
     public override string ModifierName => TouLocale.Get($"TouJKModifier{LocaleKey}");
     public override string IntroInfo => "Your movement is inverted.";
-    public override LoadableAsset<Sprite>? ModifierIcon => ModifierIcons.Drunk;
+    public override LoadableAsset<Sprite>? ModifierIcon => ToUJKModifierIcons.Drunk;
 
     public override ModifierFaction FactionType => ModifierFaction.UniversalVisibility;
     public override Color FreeplayFileColor => new Color32(180, 180, 180, 255);
     public int RoundsLeft { get; set; } = OptionGroupSingleton<DrunkOptions>.Instance.DrunkRounds;
     public override bool HideOnUi => !DrunkActive();
-    public Color ModifierColor => Colors.Drunk;
+    public Color ModifierColor => TownOfUsMiraJKColors.Drunk;
 
     public override string GetDescription()
     {

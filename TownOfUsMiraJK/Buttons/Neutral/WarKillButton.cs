@@ -26,9 +26,9 @@ public sealed class WarKillButton : TownOfUsKillRoleButton<WarRole, PlayerContro
 {
     public override string Name => TranslationController.Instance.GetStringWithDefault(StringNames.KillLabel, "Kill");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override Color TextOutlineColor => Colors.War;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.War;
     public override float Cooldown => OptionGroupSingleton<BerserkerOptions>.Instance.WarKillCooldown;
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.WarKillSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.WarKillSprite;
     public override float EffectDuration => OptionGroupSingleton<BerserkerOptions>.Instance.KillingSpree;
 
     public void SetDiseasedTimer(float multiplier)

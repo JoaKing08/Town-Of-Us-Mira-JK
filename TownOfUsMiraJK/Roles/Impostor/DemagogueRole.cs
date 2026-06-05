@@ -53,7 +53,7 @@ public sealed class DemagogueRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
     public CustomRoleConfiguration Configuration => new(this)
     {
         OptionsScreenshot = TouBanners.ImpostorRoleBanner,
-        Icon = RoleIcons.Demagogue
+        Icon = ToUJKRoleIcons.Demagogue
     };
 
     public int Priority { get; set; } = 2;

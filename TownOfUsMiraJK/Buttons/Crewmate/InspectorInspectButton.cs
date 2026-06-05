@@ -19,9 +19,9 @@ public sealed class InspectorInspectButton : TownOfUsRoleButton<InspectorRole, P
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleInspectorInspect", "Inspect");
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
-    public override Color TextOutlineColor => Colors.Inspector;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Inspector;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<InspectorOptions>.Instance.InspectorCooldown + MapCooldown, 5f, 120f);
-    public override LoadableAsset<Sprite> Sprite => CrewAssets.InspectorInspectSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKCrewAssets.InspectorInspectSprite;
 
     public override PlayerControl? GetTarget()
     {
@@ -43,8 +43,8 @@ public sealed class InspectorInspectButton : TownOfUsRoleButton<InspectorRole, P
         Target.RpcAddModifier<InspectorInspectModifier>(PlayerControl.LocalPlayer);
 
         var notif1 = Helpers.CreateAndShowNotification(
-            TouLocale.GetParsed("TouJKRoleInspectorInspectNotif").Replace("<player>", $"{Colors.Inspector.ToTextColor()}{Target.Data.PlayerName}</color>"),
-            Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Inspector.LoadAsset());
+            TouLocale.GetParsed("TouJKRoleInspectorInspectNotif").Replace("<player>", $"{TownOfUsMiraJKColors.Inspector.ToTextColor()}{Target.Data.PlayerName}</color>"),
+            Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Inspector.LoadAsset());
 
         notif1.AdjustNotification();
     }

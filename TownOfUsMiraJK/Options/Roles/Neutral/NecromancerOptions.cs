@@ -31,4 +31,7 @@ public sealed class NecromancerOptions : AbstractOptionGroup<NecromancerRole>
         {
             Visible = () => OptionGroupSingleton<NecromancerOptions>.Instance.NecromancerArrows
         };
+
+    [ModdedToggleOption("TouJKOptionNecromancerUndeadChat")]
+    public bool UndeadChat { get; set; } = true;
 }

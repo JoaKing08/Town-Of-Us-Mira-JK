@@ -18,8 +18,8 @@ public sealed class ShadowKillButton : TownOfUsKillRoleButton<ShadowRole, Player
 {
     public override string Name => TranslationController.Instance.GetStringWithDefault(StringNames.KillLabel, "Kill");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override Color TextOutlineColor => Colors.Shadow;
-    public override LoadableAsset<Sprite> Sprite => NeutAssets.ShadowKillSprite;
+    public override Color TextOutlineColor => TownOfUsMiraJKColors.Shadow;
+    public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.ShadowKillSprite;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<ShadowOptions>.Instance.KillCooldown + MapCooldown, 5f, 120f);
 
     public override void CreateButton(Transform parent)

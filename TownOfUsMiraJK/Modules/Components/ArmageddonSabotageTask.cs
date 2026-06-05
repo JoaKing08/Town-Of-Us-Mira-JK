@@ -59,18 +59,18 @@ public sealed class ArmageddonSabotageTask(nint cppPtr) : PlayerTask(cppPtr)
         _ogShakePeriod = HudManager.Instance.PlayerCam.shakePeriod;
         DataManager.Settings.Gameplay.ScreenShake = true;
         
-        var text = TouLocale.GetParsed("TouJKRoleDeathWarningNotif").Replace("<role>", $"{Colors.Death.ToTextColor()}{TouLocale.Get("TouJKRoleDeath")}</color>");
+        var text = TouLocale.GetParsed("TouJKRoleDeathWarningNotif").Replace("<role>", $"{TownOfUsMiraJKColors.Death.ToTextColor()}{TouLocale.Get("TouJKRoleDeath")}</color>");
 
         var notif1 = Helpers.CreateAndShowNotification(
             text.Replace("<time>", $"{(int)OptionGroupSingleton<ReaperJKOptions>.Instance.ArmageddonTimer}"),
-            Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Death.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Death.LoadAsset());
         notif1.AdjustNotification();
     }
 
     [HideFromIl2Cpp]
     private IEnumerator CoFlash()
     {
-        HudManager.Instance.FullScreen.color = new Color(Colors.Death.r, Colors.Death.g, Colors.Death.b, 0.34f);
+        HudManager.Instance.FullScreen.color = new Color(TownOfUsMiraJKColors.Death.r, TownOfUsMiraJKColors.Death.g, TownOfUsMiraJKColors.Death.b, 0.34f);
         var wait = new WaitForSeconds(1f);
         var playSound = false;
         while (_sabotage.TimeRemaining > 0)
@@ -78,7 +78,7 @@ public sealed class ArmageddonSabotageTask(nint cppPtr) : PlayerTask(cppPtr)
             var disableBlare = (MeetingHud.Instance != null || ExileController.Instance != null);
             if (_sabotage.Stage == ArmageddonStage.Countdown)
             {
-                HudManager.Instance.FullScreen.color = new Color(Colors.Death.r, Colors.Death.g, Colors.Death.b, playSound ? 0.18f : 0.34f);
+                HudManager.Instance.FullScreen.color = new Color(TownOfUsMiraJKColors.Death.r, TownOfUsMiraJKColors.Death.g, TownOfUsMiraJKColors.Death.b, playSound ? 0.18f : 0.34f);
                 HudManager.Instance.FullScreen.gameObject.SetActive(true);
                 HudManager.Instance.PlayerCam.shakeAmount = 0.03f;
                 HudManager.Instance.PlayerCam.shakePeriod = 16f;
@@ -123,7 +123,7 @@ public sealed class ArmageddonSabotageTask(nint cppPtr) : PlayerTask(cppPtr)
                     deathAnim.SetActive(false);
                     var deathRend = deathAnim.GetComponent<SpriteRenderer>();
                     deathRend.color = new Color(0f, 0f, 0f, 0.17254903f);
-                    deathBg.color = new Color(Colors.Death.r, Colors.Death.g, Colors.Death.b, 0.37254903f);
+                    deathBg.color = new Color(TownOfUsMiraJKColors.Death.r, TownOfUsMiraJKColors.Death.g, TownOfUsMiraJKColors.Death.b, 0.37254903f);
                     deathAnim.transform.localPosition += new Vector3((PlayerControl.LocalPlayer.MyPhysics.FlipX) ? 0f : -0.4f, 0.1f, deathBg.transform.localPosition.z - 100f);
                     deathBg.transform.localScale *= 20f;
                     deathAnim.gameObject.layer = deathBg.gameObject.layer;
@@ -138,7 +138,7 @@ public sealed class ArmageddonSabotageTask(nint cppPtr) : PlayerTask(cppPtr)
                     SoundManager.Instance.StopSound(TouAudio.HexBombAlarmSound.LoadAsset());
                     SoundManager.Instance.PlaySound(TouAudio.HexBombDetonateSound.LoadAsset(), false, 1f);
                     HudManager.Instance.FullScreen.gameObject.SetActive(true);
-                    HudManager.Instance.FullScreen.color = new Color(Colors.Death.r, Colors.Death.g, Colors.Death.b, 0.37254903f);
+                    HudManager.Instance.FullScreen.color = new Color(TownOfUsMiraJKColors.Death.r, TownOfUsMiraJKColors.Death.g, TownOfUsMiraJKColors.Death.b, 0.37254903f);
                     deathAnim.SetActive(true);
                     yield return MiscUtils.FadeInDualRenderers(deathBg, deathRend, 0.01f, 0.03f, 5f);
                     yield return new WaitForSeconds(10f);

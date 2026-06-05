@@ -66,12 +66,12 @@ public sealed class BodyguardRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOf
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Guard", "Guard"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}GuardWikiDescription"),
-                    CrewAssets.BodyguardGuardSprite)
+                    ToUJKCrewAssets.BodyguardGuardSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Bodyguard;
+    public Color RoleColor => TownOfUsMiraJKColors.Bodyguard;
     public ModdedRoleTeams Team => ModdedRoleTeams.Crewmate;
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmateProtective;
 
@@ -79,7 +79,7 @@ public sealed class BodyguardRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOf
     {
         IntroSound = TouAudio.VigiIntroSound,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
-        Icon = RoleIcons.Bodyguard
+        Icon = ToUJKRoleIcons.Bodyguard
     };
 
     [MethodRpc((uint)TownOfUsJKRpc.TeleportBodyguard)]

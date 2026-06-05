@@ -43,10 +43,10 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
             {
                 new(TouLocale.GetParsed($"TouRole{LocaleKey}Vanish", "Vanish"),
                     TouLocale.GetParsed($"TouRole{LocaleKey}VanishWikiDescription"),
-                    NeutAssets.ShadowVanishSprite),
+                    ToUJKNeutAssets.ShadowVanishSprite),
                 new(TouLocale.GetParsed($"TouRole{LocaleKey}Darkness", "Darkness"),
                     TouLocale.GetParsed($"TouRole{LocaleKey}DarknessWikiDescription"),
-                    NeutAssets.ShadowDarknessSprite)
+                    ToUJKNeutAssets.ShadowDarknessSprite)
             };
         }
     }
@@ -58,7 +58,7 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
             MiscUtils.AppendOptionsText(GetType());
     }
 
-    public Color RoleColor => Colors.Shadow;
+    public Color RoleColor => TownOfUsMiraJKColors.Shadow;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralKilling;
 
@@ -67,7 +67,7 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
         CanUseVent = OptionGroupSingleton<ShadowOptions>.Instance.CanVent,
         IntroSound = TouAudio.PhantomIntroSound,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
-        Icon = RoleIcons.Shadow,
+        Icon = ToUJKRoleIcons.Shadow,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>(),
         MaxRoleCount = 1,
     };
@@ -91,8 +91,8 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
         RoleBehaviourStubs.Initialize(this, player);
         if (Player.AmOwner)
         {
-            HudManager.Instance.ImpostorVentButton.graphic.sprite = NeutAssets.ShadowVentSprite.LoadAsset();
-            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(Colors.Shadow);
+            HudManager.Instance.ImpostorVentButton.graphic.sprite = ToUJKNeutAssets.ShadowVentSprite.LoadAsset();
+            HudManager.Instance.ImpostorVentButton.buttonLabelText.SetOutlineColor(TownOfUsMiraJKColors.Shadow);
         }
     }
 

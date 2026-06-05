@@ -27,16 +27,16 @@ public static class WitchEvents
             if (witch.Player.AmOwner)
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKPariahVictoryMessageSelf").Replace("<role>", $"{Colors.Witch.ToTextColor()}{witch.RoleName}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
+                    TouLocale.GetParsed("TouJKPariahVictoryMessageSelf").Replace("<role>", $"{TownOfUsMiraJKColors.Witch.ToTextColor()}{witch.RoleName}</color>"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Witch.LoadAsset());
 
                 notif1.AdjustNotification();
             }
             else
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKPariahVictoryMessage").Replace("<player>", witch.Player.Data.PlayerName).Replace("<role>", $"{Colors.Witch.ToTextColor()}{witch.RoleName}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
+                    TouLocale.GetParsed("TouJKPariahVictoryMessage").Replace("<player>", witch.Player.Data.PlayerName).Replace("<role>", $"{TownOfUsMiraJKColors.Witch.ToTextColor()}{witch.RoleName}</color>"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Witch.LoadAsset());
 
                 notif1.AdjustNotification();
             }
@@ -62,16 +62,16 @@ public static class WitchEvents
             if (witch.Player.AmOwner)
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKPariahVictoryMessageSelf").Replace("<role>", $"{Colors.Witch.ToTextColor()}{witch.RoleName}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
+                    TouLocale.GetParsed("TouJKPariahVictoryMessageSelf").Replace("<role>", $"{TownOfUsMiraJKColors.Witch.ToTextColor()}{witch.RoleName}</color>"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Witch.LoadAsset());
 
                 notif1.AdjustNotification();
             }
             else
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKPariahVictoryMessage").Replace("<player>", witch.Player.Data.PlayerName).Replace("<role>", $"{Colors.Witch.ToTextColor()}{witch.RoleName}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
+                    TouLocale.GetParsed("TouJKPariahVictoryMessage").Replace("<player>", witch.Player.Data.PlayerName).Replace("<role>", $"{TownOfUsMiraJKColors.Witch.ToTextColor()}{witch.RoleName}</color>"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Witch.LoadAsset());
 
                 notif1.AdjustNotification();
             }

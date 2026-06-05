@@ -72,22 +72,22 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Duel", "Duel"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}DuelWikiDescription"),
-                    NeutAssets.PirateDuelSprite),
+                    ToUJKNeutAssets.PirateDuelSprite),
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}DuelMech", "Duel Mechanics"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}DuelMechWikiDescription"),
-                    NeutAssets.PirateDuelSprite)
+                    ToUJKNeutAssets.PirateDuelSprite)
             };
         }
     }
 
-    public Color RoleColor => Colors.Pirate;
+    public Color RoleColor => TownOfUsMiraJKColors.Pirate;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralOutlier;
 
     public CustomRoleConfiguration Configuration => new(this)
     {
         IntroSound = TouAudio.SheriffIntroSound,
-        Icon = RoleIcons.Pirate,
+        Icon = ToUJKRoleIcons.Pirate,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
         MaxRoleCount = 1,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()
@@ -165,8 +165,8 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
                 if (pirate.AmOwner)
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
-                        TouLocale.GetParsed("TouJKRolePirateDuelWonOwner" + dueledModifier.ChosenOption.ToString()).Replace("<player>", $"{Colors.Pirate.ToTextColor()}{dueled.Data.PlayerName}</color>"),
-                        Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
+                        TouLocale.GetParsed("TouJKRolePirateDuelWonOwner" + dueledModifier.ChosenOption.ToString()).Replace("<player>", $"{TownOfUsMiraJKColors.Pirate.ToTextColor()}{dueled.Data.PlayerName}</color>"),
+                        Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Pirate.LoadAsset());
 
                     notif1.AdjustNotification();
                 }
@@ -174,7 +174,7 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
                         TouLocale.GetParsed("TouJKRolePirateDuelWonTarget" + dueledModifier.ChosenOption.ToString()),
-                        Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
+                        Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Pirate.LoadAsset());
 
                     notif1.AdjustNotification();
                 }
@@ -184,8 +184,8 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
                 if (pirate.AmOwner)
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
-                        TouLocale.GetParsed("TouJKRolePirateDuelLostOwner" + dueledModifier.ChosenOptionPirate.ToString() + dueledModifier.ChosenOption.ToString()).Replace("<player>", $"{Colors.Pirate.ToTextColor()}{dueled.Data.PlayerName}</color>"),
-                        Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
+                        TouLocale.GetParsed("TouJKRolePirateDuelLostOwner" + dueledModifier.ChosenOptionPirate.ToString() + dueledModifier.ChosenOption.ToString()).Replace("<player>", $"{TownOfUsMiraJKColors.Pirate.ToTextColor()}{dueled.Data.PlayerName}</color>"),
+                        Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Pirate.LoadAsset());
 
                     notif1.AdjustNotification();
                 }
@@ -193,7 +193,7 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
                 {
                     var notif1 = Helpers.CreateAndShowNotification(
                         TouLocale.GetParsed("TouJKRolePirateDuelLostTarget" + dueledModifier.ChosenOptionPirate.ToString() + dueledModifier.ChosenOption.ToString()),
-                        Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Pirate.LoadAsset());
+                        Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Pirate.LoadAsset());
 
                     notif1.AdjustNotification();
                 }

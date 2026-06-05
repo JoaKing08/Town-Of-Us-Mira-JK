@@ -38,7 +38,7 @@ public sealed class DeathRole(IntPtr cppPtr)
             return;
         }
         ImportantTextTask orCreateTask = PlayerTask.GetOrCreateTask<ImportantTextTask>(playerControl, 0);
-        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("TouNeutralOutlierTaskHeader")}</color>";
+        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralOutlierTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
 
@@ -67,12 +67,12 @@ public sealed class DeathRole(IntPtr cppPtr)
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Armageddon", "Armageddon"),
                     TouLocale.GetParsed($"TouJKRole{LocaleKey}ArmageddonWikiDescription"),
-                    RoleIcons.Death)
+                    ToUJKRoleIcons.Death)
             };
         }
     }
 
-    public Color RoleColor => Colors.Death;
+    public Color RoleColor => TownOfUsMiraJKColors.Death;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralOutlier;
 
@@ -84,7 +84,7 @@ public sealed class DeathRole(IntPtr cppPtr)
         DefaultRoleCount = 0,
         MaxRoleCount = 0,
         IntroSound = TouAudio.MediumIntroSound,
-        Icon = RoleIcons.Death,
+        Icon = ToUJKRoleIcons.Death,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()
     };
 
@@ -131,11 +131,11 @@ public sealed class DeathRole(IntPtr cppPtr)
             Player.AddModifier<InvulnerabilityModifier>(false, false, false);
         }
 
-        var title = $"<color=#{Colors.Reaper.ToHtmlStringRGBA()}>{TouLocale.Get("TouJKRoleDeathMessageTitle")}</color>";
+        var title = $"<color=#{TownOfUsMiraJKColors.Reaper.ToHtmlStringRGBA()}>{TouLocale.Get("TouJKRoleDeathMessageTitle")}</color>";
         var msg = TouLocale.GetParsed("TouJKRoleDeathAnnounceMessage");
 
         var notif1 = Helpers.CreateAndShowNotification(
-            $"<b>{msg.Replace("<role>", $"{Colors.Death.ToTextColor()}{RoleName}</color>")}</b>", Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Death.LoadAsset());
+            $"<b>{msg.Replace("<role>", $"{TownOfUsMiraJKColors.Death.ToTextColor()}{RoleName}</color>")}</b>", Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Death.LoadAsset());
 
         notif1.AdjustNotification();
 
