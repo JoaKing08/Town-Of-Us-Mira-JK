@@ -10,6 +10,7 @@ using TownOfUs;
 using TownOfUs.Buttons;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Neutral;
+using TownOfUs.Options;
 using TownOfUs.Options.Modifiers.Alliance;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
@@ -73,10 +74,10 @@ public sealed class WarKillButton : TownOfUsKillRoleButton<WarRole, PlayerContro
     {
         if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
         {
-            return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance, false, x => !MarkedTargets.Contains(x) && !x.IsLover() && (!x.IsApocalypse() || OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates));
+            return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance, false, x => !MarkedTargets.Contains(x) && !x.IsLover() && (!x.IsApocalypseAligned() || OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam));
         }
 
-        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance, false, x => !MarkedTargets.Contains(x) && !x.IsApocalypse());
+        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance, false, x => !MarkedTargets.Contains(x) && (!x.IsApocalypseAligned() || OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam));
     }
     public override void ClickHandler()
     {

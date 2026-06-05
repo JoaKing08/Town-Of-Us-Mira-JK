@@ -67,6 +67,11 @@ public sealed class GodfatherRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
     [MethodRpc((uint)TownOfUsJKRpc.GodfatherRecruit, LocalHandling = RpcLocalHandling.Before)]
     public static void RpcGodfatherRecruit(PlayerControl godfather, PlayerControl target)
     {
+        if (LobbyBehaviour.Instance)
+        {
+            MiscUtils.RunAnticheatWarning(godfather);
+            return;
+        }
         if (godfather.AmOwner)
         {
             var notif1 = Helpers.CreateAndShowNotification(

@@ -54,7 +54,7 @@ public static class JKIntroScenePatches
             ImpostorBeginPatch(__instance);
             return false;
         }
-        if (PlayerControl.LocalPlayer.IsApocalypseAligned())
+        if (PlayerControl.LocalPlayer.IsApocalypseAligned() && OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam)
         {
             var apocTeam = new Il2CppSystem.Collections.Generic.List<PlayerControl>();
 

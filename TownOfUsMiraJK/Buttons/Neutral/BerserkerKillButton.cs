@@ -4,6 +4,7 @@ using MiraAPI.Networking;
 using MiraAPI.Utilities.Assets;
 using Reactor.Utilities;
 using TownOfUs.Buttons;
+using TownOfUs.Options;
 using TownOfUs.Options.Modifiers.Alliance;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
@@ -51,10 +52,10 @@ public sealed class BerserkerKillButton : TownOfUsKillRoleButton<BerserkerRole, 
     {
         if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
         {
-            return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance, false, x => !x.IsLover() && (!x.IsApocalypse() || OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates));
+            return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance, false, x => !x.IsLover() && (!x.IsApocalypseAligned() || OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam));
         }
 
-        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance, false, x => !x.IsApocalypse());
+        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance, false, x => !x.IsApocalypse() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam);
     }
 
     public static float GetCooldown()

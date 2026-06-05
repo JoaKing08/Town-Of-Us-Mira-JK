@@ -659,10 +659,9 @@
 	<string name="TouJKModifierUndead">Undead</string>
 	<string name="TouJKModifierUndeadShortName">Und</string>
 	<string name="TouJKModifierUndeadTabDescription">Help the Necromancer win as a part of his army!</string>
-	<!-- Task Text Info -->
-	<string name="TouJKNeutralApocalypseTaskHeader">Bring forth the apocalypse upon crew and impostors alike!\%nl\%Fake Tasks:</string>
-	<!-- End Game Summary Details -->
+	<!-- Apocalypse -->
 	<string name="TouJKApocalypseWin">Apocalypse Is Nigh</string>
-	<!-- Role Alignment -->
-	<string name="None">None</string>
+	<string name="TouJKApocalypseChatTitle">\%player\% (Apocalypse Chat)</string>
+	<string name="TouJKOptionApocTeam">Apocalypse Works Together</string>
+	<string name="TouJKOptionApocChat">Apocalypse Gets A Private Meeting Chat</string>
 </resources>

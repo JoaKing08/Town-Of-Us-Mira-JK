@@ -134,6 +134,11 @@ public sealed class BloodhoundRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOf
     [MethodRpc((uint)TownOfUsJKRpc.TriggerBloodhound, LocalHandling = RpcLocalHandling.Before)]
     public static void RpcTriggerBloodlust(PlayerControl bloodhound)
     {
+        if (LobbyBehaviour.Instance)
+        {
+            MiscUtils.RunAnticheatWarning(bloodhound);
+            return;
+        }
         if (!bloodhound.TryGetModifier<BloodhoundBloodlustModifier>(out var modifier, x => !x.IsDestroyed))
         {
             bloodhound.AddModifier<BloodhoundBloodlustModifier>();

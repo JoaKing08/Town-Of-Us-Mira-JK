@@ -16,4 +16,5 @@ public static class ToUJKAssets
         = new LoadableBundleAsset<GameObject>("GuardLine", MainBundle);
     public static LoadableAsset<Material> SoundV { get; }
         = new LoadableBundleAsset<Material>("SoundV", SoundVBundle);
+    public static LoadableAsset<Sprite> ApocBubble { get; } = new LoadableResourceAsset($"{ShortPath}.ChatApocBubble.png");
 }

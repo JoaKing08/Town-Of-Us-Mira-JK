@@ -189,8 +189,8 @@ public sealed class ProphetModifier : AllianceGameModifier, IWikiDiscoverable, I
         }
     }
 
-    public override int CustomAmount => (int)OptionGroupSingleton<AllianceModifierJKOptions>.Instance.ProphetChance != 0 ? 1 : 0;
-    public override int CustomChance => (int)OptionGroupSingleton<AllianceModifierJKOptions>.Instance.ProphetChance;
+    public override int CustomAmount => (int)OptionGroupSingleton<AllianceModifierJKOptions>.Instance.ProphetChance != 0 && OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam ? 1 : 0;
+    public override int CustomChance => OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam ? (int)OptionGroupSingleton<AllianceModifierJKOptions>.Instance.ProphetChance : 0;
 
     public static bool ProphetVisibilityFlag(PlayerControl player)
     {
@@ -208,7 +208,7 @@ public sealed class ProphetModifier : AllianceGameModifier, IWikiDiscoverable, I
 
     public override bool? DidWin(GameOverReason reason)
     {
-        return ApocalypseUtils.ApocalypseWinConditionMet();
+        return ApocalypseUtils.ApocalypseWinConditionMet(null);
     }
 
     public Color ModifierColor => Colors.Apocalypse;

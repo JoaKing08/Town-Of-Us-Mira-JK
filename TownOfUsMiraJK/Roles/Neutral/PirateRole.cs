@@ -126,6 +126,11 @@ public sealed class PirateRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
     [MethodRpc((uint)TownOfUsJKRpc.ChangeDuel, LocalHandling = RpcLocalHandling.Before)]
     public static void RpcChangeDuelOption(PlayerControl player, bool pirate, byte option)
     {
+        if (LobbyBehaviour.Instance)
+        {
+            MiscUtils.RunAnticheatWarning(player);
+            return;
+        }
         if (!player.TryGetModifier<PirateDuelModifier>(out var modifier))
         {
             return;

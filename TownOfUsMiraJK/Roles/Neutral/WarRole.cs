@@ -15,6 +15,7 @@ using TownOfUs.Extensions;
 using TownOfUs.Modifiers;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
+using TownOfUs.Options;
 using TownOfUs.Roles;
 using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Neutral;
@@ -190,6 +191,11 @@ public sealed class WarRole(IntPtr cppPtr)
         ref Il2CppSystem.Collections.Generic.List<PlayerControl> yourTeam)
     {
         if (Player != PlayerControl.LocalPlayer)
+        {
+            return true;
+        }
+
+        if (!OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam)
         {
             return true;
         }

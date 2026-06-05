@@ -11,6 +11,7 @@ using TownOfUs.GameOver;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules;
 using TownOfUs.Modules.Localization;
+using TownOfUs.Options;
 using TownOfUs.Options.Modifiers.Alliance;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
@@ -46,21 +47,39 @@ namespace TownOfUsMiraJK.Utilities
         {
             return role.Player.IsApocalypseAligned();
         }
-        public static bool ApocalypseWinConditionMet()
+        public static bool ApocalypseWinConditionMet(RoleBehaviour role)
         {
-            if (ArmageddonSabotageSystem.ArmageddonFinished)
+            if (OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam)
             {
-                return true;
-            }
-            var apocalypseMembers = CustomRoleUtils.GetActiveRolesOfTeam(ModdedRoleTeams.Custom).Where(x => x.IsApocalypse() && !x.Player.HasDied());
-            var allApocalypseMembers = apocalypseMembers;
+                if (ArmageddonSabotageSystem.ArmageddonFinished)
+                {
+                    return true;
+                }
+                var apocalypseMembers = CustomRoleUtils.GetActiveRolesOfTeam(ModdedRoleTeams.Custom).Where(x => x.IsApocalypse() && !x.Player.HasDied());
+                var allApocalypseMembers = apocalypseMembers;
 
-            if (MiscUtils.KillersAliveCount > apocalypseMembers.Count())
-            {
-                return false;
+                if (MiscUtils.KillersAliveCount > apocalypseMembers.Count())
+                {
+                    return false;
+                }
+                var winConMet = allApocalypseMembers.Count() >= Helpers.GetAlivePlayers().Count - allApocalypseMembers.Count();
+                return winConMet;
             }
-            var winConMet = allApocalypseMembers.Count() >= Helpers.GetAlivePlayers().Count - allApocalypseMembers.Count();
-            return winConMet;
+            else
+            {
+                if (ArmageddonSabotageSystem.ArmageddonFinished)
+                {
+                    return role is DeathRole;
+                }
+                var apocCount = CustomRoleUtils.GetActiveRoles().Count(x => x.Role == role.Role && !x.Player.HasDied());
+
+                if (MiscUtils.KillersAliveCount > apocCount)
+                {
+                    return false;
+                }
+
+                return apocCount >= Helpers.GetAlivePlayers().Count - apocCount;
+            }
         }
 
         [HarmonyPatch]
@@ -69,9 +88,9 @@ namespace TownOfUsMiraJK.Utilities
             [HarmonyPatch(typeof(PlaguebearerRole), nameof(PlaguebearerRole.WinConditionMet))]
             [HarmonyPatch(typeof(PestilenceRole), nameof(PestilenceRole.WinConditionMet))]
             [HarmonyPrefix]
-            public static bool WinConditionMetPest(ref bool __result)
+            public static bool WinConditionMetPlague(RoleBehaviour __instance, ref bool __result)
             {
-                __result = ApocalypseWinConditionMet();
+                __result = ApocalypseWinConditionMet(__instance);
                 return false;
             }
             [HarmonyPatch(typeof(PestilenceKillButton), nameof(PestilenceKillButton.GetTarget))]
@@ -80,11 +99,11 @@ namespace TownOfUsMiraJK.Utilities
             {
                 if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
                 {
-                    __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, false, x => !x.IsLover() && !(x.IsApocalypse() && !OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates));
+                    __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, false, x => !x.IsLover() && (!(x.IsApocalypseAligned() && !OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam));
                     return false;
                 }
 
-                __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, false, x => !x.IsApocalypse());
+                __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, __instance.Distance, false, x => !x.IsApocalypseAligned() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam);
                 return false;
             }
         }
@@ -95,6 +114,10 @@ namespace TownOfUsMiraJK.Utilities
             [HarmonyPrefix]
             public static bool AfterEndGameSetup(NeutralGameOver __instance, EndGameManager endGameManager)
             {
+                if (!OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam)
+                {
+                    return true;
+                }
                 var _role = (RoleBehaviour?)typeof(NeutralGameOver)?.GetField("_role", BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(__instance);
                 if (_role?.IsApocalypse() != true)
                 {

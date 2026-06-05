@@ -47,6 +47,11 @@ public sealed class NecromancerReanimateButton : TownOfUsRoleButton<NecromancerR
     [MethodRpc((uint)TownOfUsJKRpc.NecromancerReanimate, LocalHandling = RpcLocalHandling.Before)]
     public static void RpcReanimate(PlayerControl necromancer, PlayerControl target)
     {
+        if (LobbyBehaviour.Instance)
+        {
+            MiscUtils.RunAnticheatWarning(necromancer);
+            return;
+        }
         foreach (var modifier in target.GetModifiers<AllianceGameModifier>())
         {
             target.RemoveModifier(modifier);

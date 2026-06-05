@@ -32,5 +32,6 @@
         ManhunterWin,
         SanctifierSanctify,
         RetrainUndercover,
+        SendApocTeamChat,
     }
 }

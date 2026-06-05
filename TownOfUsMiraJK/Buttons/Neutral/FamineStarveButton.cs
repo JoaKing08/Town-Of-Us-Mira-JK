@@ -3,6 +3,7 @@ using MiraAPI.Keybinds;
 using MiraAPI.Utilities.Assets;
 using TownOfUs.Buttons;
 using TownOfUs.Modules.Localization;
+using TownOfUs.Options;
 using TownOfUs.Options.Modifiers.Alliance;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
@@ -26,15 +27,15 @@ public sealed class FamineStarveButton : TownOfUsRoleButton<FamineRole, PlayerCo
         if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
         {
             return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance,
-            predicate: plr => !plr.IsApocalypse() && !plr.IsLover());
+            predicate: plr => (!plr.IsApocalypseAligned() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) && !plr.IsLover());
         }
         return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance,
-            predicate: plr => !plr.IsApocalypse());
+            predicate: plr => (!plr.IsApocalypseAligned() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam));
     }
 
     public override bool IsTargetValid(PlayerControl? target)
     {
-        return base.IsTargetValid(target) && !target!.IsApocalypse();
+        return base.IsTargetValid(target) && (!target!.IsApocalypseAligned() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam);
     }
 
     protected override void OnClick()

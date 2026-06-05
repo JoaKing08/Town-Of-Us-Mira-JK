@@ -165,7 +165,7 @@ namespace TownOfUsMiraJK.Patches
                         var revealed = revealMods.Any(x => x.Visible && x.RevealRole);
                         var localFairy = FairyRole.FairySeesRoleVisibilityFlag(player);
                         var localSleuth = SleuthModifier.SleuthVisibilityFlag(player);
-                        var apocFlag = PlayerControl.LocalPlayer.IsApocalypseAligned() && player.IsApocalypseAligned();
+                        var apocFlag = PlayerControl.LocalPlayer.IsApocalypseAligned() && player.IsApocalypseAligned() && OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam;
                         var undeadFlag = (PlayerControl.LocalPlayer.Is((RoleTypes)RoleId.Get<NecromancerRole>()) || PlayerControl.LocalPlayer.HasModifier<NecromancerUndeadModifier>()) && (player.Is((RoleTypes)RoleId.Get<NecromancerRole>()) || player.HasModifier<NecromancerUndeadModifier>());
                         var witchFlag = PlayerControl.LocalPlayer.IsRole<WitchRole>() && player.HasModifier<WitchRevealModifier>() &&
                             !(player.AmOwner || revealed || localGhost || localSleuth || undeadFlag ||
@@ -409,7 +409,7 @@ namespace TownOfUsMiraJK.Patches
                         var revealed = revealMods.Any(x => x.Visible && x.RevealRole);
                         var localFairy = FairyRole.FairySeesRoleVisibilityFlag(player);
                         var localSleuth = SleuthModifier.SleuthVisibilityFlag(player);
-                        var apocFlag = PlayerControl.LocalPlayer.IsApocalypseAligned() && player.IsApocalypseAligned();
+                        var apocFlag = PlayerControl.LocalPlayer.IsApocalypseAligned() && player.IsApocalypseAligned() && OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam;
                         var undeadFlag = (PlayerControl.LocalPlayer.Is((RoleTypes)RoleId.Get<NecromancerRole>()) || PlayerControl.LocalPlayer.HasModifier<NecromancerUndeadModifier>()) && (player.Is((RoleTypes)RoleId.Get<NecromancerRole>()) || player.HasModifier<NecromancerUndeadModifier>());
                         var witchFlag = PlayerControl.LocalPlayer.IsRole<WitchRole>() && player.HasModifier<WitchRevealModifier>() &&
                             !(player.AmOwner || revealed || localGhost || localSleuth || undeadFlag ||

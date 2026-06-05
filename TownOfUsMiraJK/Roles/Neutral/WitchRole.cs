@@ -110,6 +110,11 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
     [MethodRpc((uint)TownOfUsJKRpc.WitchControl, LocalHandling = RpcLocalHandling.Before)]
     public static void RpcWitchControl(PlayerControl witch, PlayerControl target)
     {
+        if (LobbyBehaviour.Instance)
+        {
+            MiscUtils.RunAnticheatWarning(witch);
+            return;
+        }
         var touAbilityEvent = new TouAbilityEvent((AbilityType)JKAbilityType.WitchControl, witch, target);
         MiraEventManager.InvokeEvent(touAbilityEvent);
         if (target.AmOwner)
@@ -151,25 +156,33 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
     [MethodRpc((uint)TownOfUsJKRpc.WitchFeedback, LocalHandling = RpcLocalHandling.Before)]
     public static void RpcWitchFeedback(PlayerControl target, PlayerControl witch, byte buttonUsed)
     {
-        ButtonUsed _buttonUsed = (ButtonUsed)buttonUsed;
-        if (witch.AmOwner)
+        if (LobbyBehaviour.Instance)
         {
-            if (OptionGroupSingleton<WitchOptions>.Instance.Learns == WitchLearns.Nothing)
-            {
-                var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKRoleWitchControlOwnerNotifNoRole" + _buttonUsed.ToString()).Replace("<player>", $"{Colors.Witch.ToTextColor()}{target.Data.PlayerName}</color>"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
+            MiscUtils.RunAnticheatWarning(target);
+            return;
+        }
 
-                notif1.AdjustNotification();
-            }
-            else
-            {
-                var notif1 = Helpers.CreateAndShowNotification(
-                    TouLocale.GetParsed("TouJKRoleWitchControlOwnerNotif" + _buttonUsed.ToString()).Replace("<player>", $"{Colors.Witch.ToTextColor()}{target.Data.PlayerName}</color>").Replace("<role>", WitchResult(target)),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
+        if (!witch.AmOwner)
+        {
+            return;
+        }
 
-                notif1.AdjustNotification();
-            }
+        ButtonUsed _buttonUsed = (ButtonUsed)buttonUsed;
+        if (OptionGroupSingleton<WitchOptions>.Instance.Learns == WitchLearns.Nothing)
+        {
+            var notif1 = Helpers.CreateAndShowNotification(
+                TouLocale.GetParsed("TouJKRoleWitchControlOwnerNotifNoRole" + _buttonUsed.ToString()).Replace("<player>", $"{Colors.Witch.ToTextColor()}{target.Data.PlayerName}</color>"),
+                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
+
+            notif1.AdjustNotification();
+        }
+        else
+        {
+            var notif1 = Helpers.CreateAndShowNotification(
+                TouLocale.GetParsed("TouJKRoleWitchControlOwnerNotif" + _buttonUsed.ToString()).Replace("<player>", $"{Colors.Witch.ToTextColor()}{target.Data.PlayerName}</color>").Replace("<role>", WitchResult(target)),
+                Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Witch.LoadAsset());
+
+            notif1.AdjustNotification();
         }
     }
     public static string WitchResult(PlayerControl player)

@@ -1,10 +1,12 @@
 using Hazel;
 using Il2CppInterop.Runtime.Injection;
+using MiraAPI.GameOptions;
 using MiraAPI.Roles;
 using Reactor.Utilities.Attributes;
 using TownOfUs.Events;
 using TownOfUs.Modifiers;
 using TownOfUs.Modules.Localization;
+using TownOfUs.Options;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Roles.Neutral;
 using TownOfUsMiraJK.Utilities;
@@ -91,7 +93,7 @@ public sealed class ArmageddonSabotageSystem(nint cppPtr) : Il2CppSystem.Object(
                 if (death != null)
                 {
                     foreach (var player in PlayerControl.AllPlayerControls.ToArray()
-                                 .Where(x => !x.HasDied() && !x.IsApocalypseAligned()))
+                                 .Where(x => !x.HasDied() && (!x.IsApocalypseAligned() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) && !x.AmOwner))
                     {
                         DeathHandlerModifier.UpdateDeathHandlerImmediate(player, TouLocale.Get("DiedToDeathArmageddon"), DeathEventHandlers.CurrentRound, DeathHandlerOverride.SetTrue,
                             TouLocale.GetParsed("DiedByStringBasic").Replace("<player>", death.Player.Data.PlayerName),

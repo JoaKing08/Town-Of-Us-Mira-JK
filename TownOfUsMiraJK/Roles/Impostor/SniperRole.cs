@@ -76,6 +76,11 @@ public sealed class SniperRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
     [MethodRpc((uint)TownOfUsJKRpc.SniperShoot, LocalHandling = RpcLocalHandling.Before)]
     public static void RpcSniperShoot(PlayerControl sniper, PlayerControl target)
     {
+        if (LobbyBehaviour.Instance)
+        {
+            MiscUtils.RunAnticheatWarning(sniper);
+            return;
+        }
         var opts = OptionGroupSingleton<SniperOptions>.Instance;
         if (opts.AnnounceShot)
         {

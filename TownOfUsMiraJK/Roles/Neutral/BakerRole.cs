@@ -15,6 +15,7 @@ using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Networking;
+using TownOfUs.Options;
 using TownOfUs.Roles;
 using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Neutral;
@@ -50,8 +51,8 @@ public sealed class BakerRole(IntPtr cppPtr)
         }
 
         var allFed =
-            ModifierUtils.GetPlayersWithModifier<BakerFedModifier>([HideFromIl2Cpp] (x) => !x.Player.HasDied() && x.BakerId == Player.PlayerId && !x.Player.IsApocalypse());
-        var transformAnyway = allFed.Count() >= Helpers.GetAlivePlayers().Count(x => !x.IsApocalypse()) && OptionGroupSingleton<BakerOptions>.Instance.NotEnoughPlayersEffect == NotEnoughPlayersEffect.Transforms;
+            ModifierUtils.GetPlayersWithModifier<BakerFedModifier>([HideFromIl2Cpp] (x) => !x.Player.HasDied() && x.BakerId == Player.PlayerId && (!x.Player.IsApocalypseAligned() || OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam));
+        var transformAnyway = allFed.Count() >= Helpers.GetAlivePlayers().Count(x => (!x.IsApocalypseAligned() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) && !(Player.IsLover() && x.IsLover())) && OptionGroupSingleton<BakerOptions>.Instance.NotEnoughPlayersEffect == NotEnoughPlayersEffect.Transforms;
 
         if ((allFed.Count() >= OptionGroupSingleton<BakerOptions>.Instance.BreadToFamine &&
             (!MeetingHud.Instance || Helpers.GetAlivePlayers().Count > 2)) || transformAnyway)
@@ -60,7 +61,7 @@ public sealed class BakerRole(IntPtr cppPtr)
             CustomButtonSingleton<FamineStarveButton>.Instance.SetTimer(OptionGroupSingleton<BakerOptions>
                 .Instance.StarveCooldown);
         }
-        if (Helpers.GetAlivePlayers().Count(x => !x.IsApocalypse()) < OptionGroupSingleton<BakerOptions>.Instance.BreadToFamine && OptionGroupSingleton<BakerOptions>.Instance.NotEnoughPlayersEffect == NotEnoughPlayersEffect.Dies)
+        if (Helpers.GetAlivePlayers().Count(x => (!x.IsApocalypseAligned() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) && !(Player.IsLover() && x.IsLover())) < OptionGroupSingleton<BakerOptions>.Instance.BreadToFamine && OptionGroupSingleton<BakerOptions>.Instance.NotEnoughPlayersEffect == NotEnoughPlayersEffect.Dies)
         {
             PlayerControl.LocalPlayer.RpcSpecialMurder(Player, MeetingCheck.Ignore,
                 isIndirect: true,
@@ -116,7 +117,7 @@ public sealed class BakerRole(IntPtr cppPtr)
         var stringB = ITownOfUsRole.SetNewTabText(this);
 
         var allFed = PlayerControl.AllPlayerControls.ToArray().Where(x =>
-            !x.HasDied() && !x.IsApocalypse() &&
+            !x.HasDied() && (!x.IsApocalypseAligned() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) && !(Player.IsLover() && x.IsLover()) &&
             x.GetModifier<BakerFedModifier>()?.BakerId == Player.PlayerId);
 
         if (allFed.HasAny())
@@ -128,7 +129,7 @@ public sealed class BakerRole(IntPtr cppPtr)
             }
         }
 
-        var breadLeft = Math.Min(OptionGroupSingleton<BakerOptions>.Instance.BreadToFamine, Helpers.GetAlivePlayers().Count(x => !x.IsApocalypse())) - allFed.Count();
+        var breadLeft = Math.Min(OptionGroupSingleton<BakerOptions>.Instance.BreadToFamine, Helpers.GetAlivePlayers().Count(x => (!x.IsApocalypseAligned() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) && !(Player.IsLover() && x.IsLover()))) - allFed.Count();
 
         stringB.Append(TownOfUsPlugin.Culture, $"\n\n<b>{TouLocale.GetParsed("TouJKRoleBakerTabBreadCounter").Replace("<count>", $"{breadLeft}")}</b>");
 
@@ -176,6 +177,10 @@ public sealed class BakerRole(IntPtr cppPtr)
         ref Il2CppSystem.Collections.Generic.List<PlayerControl> yourTeam)
     {
         if (Player != PlayerControl.LocalPlayer)
+        {
+            return true;
+        }
+        if (!OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam)
         {
             return true;
         }

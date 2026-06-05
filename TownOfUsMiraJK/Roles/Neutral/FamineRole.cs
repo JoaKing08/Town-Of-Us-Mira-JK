@@ -21,6 +21,7 @@ using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Networking;
+using TownOfUs.Options;
 using TownOfUs.Options.Modifiers.Alliance;
 using TownOfUs.Roles;
 using TownOfUs.Roles.Crewmate;
@@ -227,10 +228,10 @@ public sealed class FamineRole(IntPtr cppPtr)
     public void DoPassiveStarve()
     {
         var notif1 = Helpers.CreateAndShowNotification(
-            TouLocale.GetParsed((PlayerControl.LocalPlayer.IsApocalypse() && !(Player.IsLover() && OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates)) || (Player.IsLover() && PlayerControl.LocalPlayer.IsLover() && !OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther) ? "TouJKRoleFamineStarveMessageApoc" : "TouJKRoleFamineStarveMessage").Replace("<role>", $"{Colors.Famine.ToTextColor()}{RoleName}</color>"), Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Famine.LoadAsset());
+            TouLocale.GetParsed((PlayerControl.LocalPlayer.IsApocalypse() && !(Player.IsLover() && OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) && OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) || (Player.IsLover() && PlayerControl.LocalPlayer.IsLover() && !OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther) ? "TouJKRoleFamineStarveMessageApoc" : "TouJKRoleFamineStarveMessage").Replace("<role>", $"{Colors.Famine.ToTextColor()}{RoleName}</color>"), Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Famine.LoadAsset());
 
         notif1.AdjustNotification();
-        foreach (var player in Helpers.GetAlivePlayers().Where(x => (!x.IsApocalypse() || (Player.IsLover() && OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates)) && (!Player.IsLover() || !x.IsLover() || OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther)))
+        foreach (var player in Helpers.GetAlivePlayers().Where(x => (!x.IsApocalypseAligned() || (Player.IsLover() && OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) && (!Player.IsLover() || !x.IsLover() || OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther)))
         {
             if (!player.TryGetModifier<BakerFedModifier>(out var modifier))
             {
@@ -320,6 +321,11 @@ public sealed class FamineRole(IntPtr cppPtr)
         ref Il2CppSystem.Collections.Generic.List<PlayerControl> yourTeam)
     {
         if (Player != PlayerControl.LocalPlayer)
+        {
+            return true;
+        }
+
+        if (!OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam)
         {
             return true;
         }

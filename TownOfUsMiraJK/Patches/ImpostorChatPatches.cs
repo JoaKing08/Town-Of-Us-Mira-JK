@@ -3,14 +3,23 @@ using HarmonyLib;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Roles;
+using Reactor.Networking.Attributes;
 using Reactor.Utilities.Extensions;
+using System.Collections;
+using TownOfUs.Assets;
 using TownOfUs.Modifiers;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Options;
 using TownOfUs.Patches.Options;
+using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
+using TownOfUsMiraJK;
+using TownOfUsMiraJK.Assets;
+using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Modifiers.Game.Impostor;
 using TownOfUsMiraJK.Roles.Crewmate;
+using TownOfUsMiraJK.Utilities;
+using UnityEngine;
 using static TownOfUs.Patches.Options.TeamChatPatches;
 
 namespace TownOfUs.Patches.Roles;
@@ -31,6 +40,72 @@ public static class RegisterBuiltInChats
         };
         // TO BE ABSOLUTELY SURE THE VALUE IS CHANGED
         ExtensionTeamChatRegistry.RegisteredHandlers[impChatIdx] = impChat;
+        ExtensionTeamChatRegistry.RegisterHandler(new ExtensionTeamChatHandler
+        {
+            Priority = 40,
+            IsForced = false,
+            IsChatAvailable = delegate
+            {
+                var instance = OptionGroupSingleton<GeneralJKOptions>.Instance;
+                return (bool)MeetingHud.Instance && PlayerControl.LocalPlayer.IsApocalypseAligned() && instance is { ApocChat.Value: true, ApocTeam.Value: true };
+            },
+            SendMessage = RpcSendApocTeamChat,
+            GetDisplayText = () => "Apocalypse Chat",
+            DisplayTextColor = Colors.Apocalypse
+        });
+    }
+    [MethodRpc((uint)TownOfUsJKRpc.SendApocTeamChat)]
+    public static void RpcSendApocTeamChat(PlayerControl player, string text)
+    {
+        if (LobbyBehaviour.Instance)
+        {
+            MiscUtils.RunAnticheatWarning(player);
+            return;
+        }
+        var shouldMarkUnread = false;
+        if ((PlayerControl.LocalPlayer.IsApocalypseAligned()) ||
+            (DeathHandlerModifier.IsFullyDead(PlayerControl.LocalPlayer) && OptionGroupSingleton<GeneralOptions>.Instance.TheDeadKnow))
+        {
+            MiscUtils.AddTeamChat(player.Data,
+                $"<color=#{Colors.Apocalypse.ToHtmlStringRGBA()}>{TouLocale.GetParsed("TouJKApocalypseChatTitle").Replace("<player>", player.Data.PlayerName)}</color>",
+                text, bubbleType: (BubbleType)6, onLeft: !player.AmOwner);
+            shouldMarkUnread = true;
+        }
+
+        if (shouldMarkUnread && MeetingHud.Instance)
+        {
+            var chats = TeamChatManager.GetAllAvailableChats();
+            var hasForcedChat = chats.Any(c => c.IsForced);
+            var currentChat = CurrentChatIndex >= 0 && CurrentChatIndex < chats.Count ? chats[CurrentChatIndex] : null;
+            if ((!TeamChatActive || currentChat == null || currentChat.Priority != 40) && !hasForcedChat)
+            {
+                TeamChatManager.MarkChatAsUnread(50);
+            }
+        }
+    }
+}
+
+[HarmonyPatch(typeof(MiscUtils), "BouncePrivateChatDot")]
+class BouncePrivateChatDotPatch
+{
+    public static void Postfix(BubbleType bubbleType, ref IEnumerator __result)
+    {
+        if (bubbleType != (BubbleType)6)
+        {
+            return;
+        }
+        IEnumerator GetEnumerator()
+        {
+            if (PrivateChatDot == null)
+            {
+                CreateTeamChatBubble();
+            }
+            var sprite = PrivateChatDot!.GetComponent<SpriteRenderer>();
+            sprite.enabled = true;
+            sprite.sprite = ToUJKAssets.ApocBubble.LoadAsset();
+            yield return Effects.Bounce(sprite.transform, 0.3f, 0.125f);
+        }
+        __result = GetEnumerator();
     }
 }
 

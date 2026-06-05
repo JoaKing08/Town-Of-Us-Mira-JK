@@ -5,6 +5,7 @@ using MiraAPI.Utilities.Assets;
 using TownOfUs.Buttons;
 using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
+using TownOfUs.Options;
 using TownOfUs.Options.Modifiers.Alliance;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
@@ -28,10 +29,10 @@ public sealed class BakerBreadButton : TownOfUsRoleButton<BakerRole, PlayerContr
         if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
         {
             return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance,
-            predicate: plr => !plr.HasModifier<BakerFedModifier>() && !plr.IsApocalypse() && !plr.IsLover());
+            predicate: plr => !plr.HasModifier<BakerFedModifier>() && (!plr.IsApocalypseAligned() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam) && !plr.IsLover());
         }
         return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance,
-            predicate: plr => !plr.HasModifier<BakerFedModifier>() && !plr.IsApocalypse());
+            predicate: plr => !plr.HasModifier<BakerFedModifier>() && (!plr.IsApocalypseAligned() || !OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam));
     }
 
     public override bool IsTargetValid(PlayerControl? target)
