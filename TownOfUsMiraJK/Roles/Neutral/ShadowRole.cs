@@ -29,7 +29,6 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
         orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralKillingTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
-    public bool IsHiddenFromList => MiscUtils.CurrentGamemode() is not TouGamemode.Normal || !PlayerControl.LocalPlayer.IsRole<ShadowRole>();
     public string LocaleKey => "Shadow";
     public string RoleName => TouLocale.Get($"TouJKRole{LocaleKey}");
     public string RoleDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}IntroBlurb");
