@@ -1,4 +1,6 @@
-﻿using MiraAPI.GameOptions;
+﻿using HarmonyLib;
+using MiraAPI.GameOptions;
+using TownOfUs.Modules;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Crewmate;
 
@@ -14,6 +16,14 @@ public sealed class GunslingerRevealModifier(RoleBehaviour role)
     public override RoleBehaviour? ShownRole { get; set; } = role;
     public override bool RevealRole { get; set; } = true;
 
+    public override void OnActivate()
+    {
+        if (!Player.AmOwner && Player.Data.Role is GunslingerRole Gunslinger && Gunslinger.HasShot && OptionGroupSingleton<GunslingerOptions>.Instance.Reveal)
+        {
+            MeetingMenu.Instances.Do(x => x.HideSingle(Player.PlayerId));
+        }
+    }
+
     public override void OnDeath(DeathReason reason)
     {
         base.OnDeath(reason);
@@ -23,13 +33,6 @@ public sealed class GunslingerRevealModifier(RoleBehaviour role)
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (Player.Data.Role is GunslingerRole Gunslinger)
-        {
-            Visible = Gunslinger.HasShot && OptionGroupSingleton<GunslingerOptions>.Instance.Reveal;
-        }
-        else
-        {
-            Visible = false;
-        }
+        Visible = Player.Data.Role is GunslingerRole Gunslinger && Gunslinger.HasShot && OptionGroupSingleton<GunslingerOptions>.Instance.Reveal;
     }
 }

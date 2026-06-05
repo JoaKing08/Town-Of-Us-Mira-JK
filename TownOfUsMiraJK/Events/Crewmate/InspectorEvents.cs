@@ -25,12 +25,7 @@ public static class InspectorEvents
             return;
         }
 
-        if (!AmongUsClient.Instance.AmHost)
-        {
-            return;
-        }
-
         ModifierUtils.GetPlayersWithModifier<InspectorInspectModifier>()
-            .Do(x => x.RpcRemoveModifier<InspectorInspectModifier>());
+            .Do(x => x.RemoveModifier<InspectorInspectModifier>());
     }
 }

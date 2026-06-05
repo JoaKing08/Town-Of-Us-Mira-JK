@@ -353,7 +353,7 @@ public static class AmbassadorClick
 
         foreach (var player2 in PlayerControl.AllPlayerControls)
         {
-            if (player2.IsImpostor() && !player2.AmOwner)
+            if ((player2.IsImpostor() || player2.IsRole<UndercoverRole>()) && !player2.AmOwner)
             {
                 var role = player2.GetRoleWhenAlive();
                 if (role)

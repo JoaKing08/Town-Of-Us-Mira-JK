@@ -1,8 +1,10 @@
 ﻿using HarmonyLib;
 using MiraAPI.Modifiers;
+using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Utilities;
+using TownOfUsMiraJK.Roles.Crewmate;
 
 namespace TownOfUsMiraJK.Utilities
 {
@@ -17,25 +19,22 @@ namespace TownOfUsMiraJK.Utilities
             {
                 return;
             }
-            if (!PlayerControl.LocalPlayer.IsHost())
+            if (!CustomRoleUtils.GetActiveRolesOfType<SanctifierRole>().Any())
             {
                 return;
             }
-            foreach (var player in PlayerControl.AllPlayerControls.ToArray().Where(x => !x.Data.Disconnected))
+            if (!PlayerControl.LocalPlayer.HasDied() && SanctifierCircle.IsInCircle(PlayerControl.LocalPlayer.transform))
             {
-                if (!player.HasDied() && SanctifierCircle.IsInCircle(player.transform))
+                if (!PlayerControl.LocalPlayer.HasModifier<SanctifiedModifier>())
                 {
-                    if (!player.HasModifier<SanctifiedModifier>())
-                    {
-                        player.RpcAddModifier<SanctifiedModifier>();
-                    }
+                    PlayerControl.LocalPlayer.RpcAddModifier<SanctifiedModifier>();
                 }
-                else
+            }
+            else
+            {
+                if (PlayerControl.LocalPlayer.HasModifier<SanctifiedModifier>())
                 {
-                    if (player.HasModifier<SanctifiedModifier>())
-                    {
-                        player.RpcRemoveModifier<SanctifiedModifier>();
-                    }
+                    PlayerControl.LocalPlayer.RpcRemoveModifier<SanctifiedModifier>();
                 }
             }
         }

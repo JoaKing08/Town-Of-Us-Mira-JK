@@ -25,12 +25,7 @@ public static class GossipEvents
             return;
         }
 
-        if (!AmongUsClient.Instance.AmHost)
-        {
-            return;
-        }
-
         ModifierUtils.GetPlayersWithModifier<GossipChatModifier>()
-            .Do(x => x.RpcRemoveModifier<GossipChatModifier>());
+            .Do(x => x.RemoveModifier<GossipChatModifier>());
     }
 }

@@ -6,6 +6,7 @@ using MiraAPI.Roles;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities.Extensions;
 using System.Collections;
+using TownOfUs.Assets;
 using TownOfUs.Modifiers;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Options;
@@ -30,17 +31,17 @@ public static class RegisterBuiltInChats
         var impChat = ExtensionTeamChatRegistry.RegisteredHandlers.First(x => x.Priority == 30);
         var impChatIdx = ExtensionTeamChatRegistry.RegisteredHandlers.IndexOf(impChat);
         impChat.IsChatAvailable = () =>
-        {
-            var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
-            return MeetingHud.Instance != null &&
-                   (PlayerControl.LocalPlayer.IsImpostorAligned() || PlayerControl.LocalPlayer.Is((RoleTypes)RoleId.Get<UndercoverRole>())) &&
-                   genOpt is { FFAImpostorMode: false, ImpostorChat.Value: true } && !PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
-        };
+            MeetingHud.Instance != null &&
+            (PlayerControl.LocalPlayer.IsImpostorAligned() ||
+            PlayerControl.LocalPlayer.Is((RoleTypes)RoleId.Get<UndercoverRole>())) &&
+            OptionGroupSingleton<GeneralOptions>.Instance is { FFAImpostorMode: false, ImpostorChat.Value: true } &&
+            !PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
         // TO BE ABSOLUTELY SURE THE VALUE IS CHANGED
         ExtensionTeamChatRegistry.RegisteredHandlers[impChatIdx] = impChat;
-        ExtensionTeamChatRegistry.RegisterHandler(new ExtensionTeamChatHandler
+
+        var apocalypseHandler = new ExtensionTeamChatHandler
         {
-            Priority = 40,
+            Priority = 50,
             IsForced = false,
             IsChatAvailable = delegate
             {
@@ -50,7 +51,8 @@ public static class RegisterBuiltInChats
             SendMessage = RpcSendApocTeamChat,
             GetDisplayText = () => "Apocalypse Chat",
             DisplayTextColor = Colors.Apocalypse
-        });
+        };
+        ExtensionTeamChatRegistry.RegisterHandler(apocalypseHandler);
     }
     [MethodRpc((uint)TownOfUsJKRpc.SendApocTeamChat)]
     public static void RpcSendApocTeamChat(PlayerControl player, string text)
@@ -100,7 +102,7 @@ class BouncePrivateChatDotPatch
             }
             var sprite = PrivateChatDot!.GetComponent<SpriteRenderer>();
             sprite.enabled = true;
-            sprite.sprite = ToUJKAssets.ApocBubble.LoadAsset();
+            sprite.sprite = ToUJKAssets.ApocBubble?.LoadAsset() ?? TouChatAssets.ImpBubble.LoadAsset();
             yield return Effects.Bounce(sprite.transform, 0.3f, 0.125f);
         }
         __result = GetEnumerator();

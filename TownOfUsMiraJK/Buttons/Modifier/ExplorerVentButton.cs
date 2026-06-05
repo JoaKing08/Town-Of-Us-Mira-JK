@@ -31,7 +31,7 @@ public sealed class ExplorerVentButton : TownOfUsTargetButton<Vent>
     public override bool ShouldPauseInVent => false;
     public override bool Enabled(RoleBehaviour? role)
     {
-        return !Disabled && role.Player.HasModifier<ExplorerModifier>();
+        return !Disabled && role?.Player.HasModifier<ExplorerModifier>() == true && role?.Player.HasDied() == false;
     }
 
     public override Vent? GetTarget()

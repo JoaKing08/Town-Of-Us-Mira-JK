@@ -48,7 +48,7 @@ public sealed class SecretaryRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCre
             return;
         }
 
-        StoreButton.gameObject.SetActive(meeting.state == MeetingHud.VoteStates.NotVoted);
+        StoreButton.gameObject.SetActive(meeting.state == MeetingHud.VoteStates.NotVoted && !StoredVote && (!NormalVoteUsed || VotesStored > 0));
 
         if (!StoreButton.gameObject.active)
         {

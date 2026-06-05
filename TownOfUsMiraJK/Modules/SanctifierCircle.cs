@@ -84,7 +84,7 @@ public class SanctifierCircle : MonoBehaviour
         var result = false;
         foreach (var circle in SanctifierCircles)
         {
-            if (circle?.gameObject?.transform != null && Vector2.Distance(circle.gameObject.transform.position, transform.position) <= circle._scale / 2)
+            if (!result && circle?.gameObject?.transform != null && Vector2.Distance(circle.gameObject.transform.position, transform.position) <= circle._scale / 2)
             {
                 result = true;
             }

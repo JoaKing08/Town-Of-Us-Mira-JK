@@ -43,7 +43,7 @@ public sealed class ShadowDarknessModifier(PlayerControl player) : DisabledModif
         if (Player.AmOwner && !Shadow.AmOwner)
         {
             var notif1 = Helpers.CreateAndShowNotification(
-                TouLocale.GetParsed("TouJKRoleShadowDarknessNotif").Replace("<role>", $"{Colors.Shadow.ToTextColor()}{Shadow.Data.Role.TeamColor}</color>"), Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Shadow.LoadAsset());
+                TouLocale.GetParsed("TouJKRoleShadowDarknessNotif").Replace("<role>", $"{Colors.Shadow.ToTextColor()}{Shadow.Data.Role.GetRoleName()}</color>"), Color.white, new Vector3(0f, 1f, -20f), spr: RoleIcons.Shadow.LoadAsset());
 
             notif1.AdjustNotification();
         }
@@ -62,11 +62,6 @@ public sealed class ShadowDarknessModifier(PlayerControl player) : DisabledModif
         base.FixedUpdate();
 
         var opts = OptionGroupSingleton<ShadowOptions>.Instance;
-
-        if (PlayerControl.LocalPlayer.IsImpostorAligned())
-        {
-            Player.cosmetics.currentBodySprite.BodySprite.material.SetColor(ShaderID.VisorColor, Color.black);
-        }
 
         if (TimeRemaining > opts.DarknessDuration - 1f)
         {
@@ -100,5 +95,6 @@ public sealed class ShadowDarknessModifier(PlayerControl player) : DisabledModif
         {
             Player.cosmetics.currentBodySprite.BodySprite.material.SetColor(ShaderID.VisorColor, Palette.VisorColor);
         }
+        HudManager.Instance.ShadowQuad.material.color = ShadowQuadColor;
     }
 }

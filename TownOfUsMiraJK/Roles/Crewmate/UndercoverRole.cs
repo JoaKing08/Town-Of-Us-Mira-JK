@@ -91,12 +91,29 @@ public sealed class UndercoverRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
         var impKilPred = (RoleBehaviour x) => !(x.GetRoleAlignment() == RoleAlignment.ImpostorKilling && !OptionGroupSingleton<UndercoverOptions>.Instance.CanBeKilling);
         var impPowPred = (RoleBehaviour x) => !(x.GetRoleAlignment() == RoleAlignment.ImpostorPower && !OptionGroupSingleton<UndercoverOptions>.Instance.CanBePower);
         var impSupPred = (RoleBehaviour x) => !(x.GetRoleAlignment() == RoleAlignment.ImpostorSupport && !OptionGroupSingleton<UndercoverOptions>.Instance.CanBeSupport);
+        var notInPlay = (RoleBehaviour x) => CustomRoleUtils.GetActiveRoles().Count(y => x.GetType() == y.GetType()) < GameOptionsManager.Instance.CurrentGameOptions.RoleOptions.GetNumPerGame(x.Role);
 
         foreach (var unc in uncs)
         {
-            var cover =
-                MiscUtils.GetMaxRolesToAssign(ModdedRoleTeams.Impostor, 1, x => !excluded.Contains(x.Role) && impConPred(x) && impKilPred(x) && impPowPred(x) && impSupPred(x) && !CustomRoleUtils.GetActiveRoles().Any(y => x.Role == y.Role) && !ModifierUtils.GetActiveModifiers<UndercoverCoverModifier>(y => x.Role == y.ShownRole?.Role).Any()).FirstOrDefault();
-            if (cover == (ushort)RoleTypes.Crewmate)
+            var covers = new List<(ushort RoleType, int Chance)>();
+            if (OptionGroupSingleton<UndercoverOptions>.Instance.CanBeConcealing)
+            {
+                covers.AddRange(MiscUtils.GetRolesToAssign(RoleAlignment.ImpostorConcealing, notInPlay));
+            }
+            if (OptionGroupSingleton<UndercoverOptions>.Instance.CanBeKilling)
+            {
+                covers.AddRange(MiscUtils.GetRolesToAssign(RoleAlignment.ImpostorKilling, notInPlay));
+            }
+            if (OptionGroupSingleton<UndercoverOptions>.Instance.CanBePower)
+            {
+                covers.AddRange(MiscUtils.GetRolesToAssign(RoleAlignment.ImpostorPower, notInPlay));
+            }
+            if (OptionGroupSingleton<UndercoverOptions>.Instance.CanBeSupport)
+            {
+                covers.AddRange(MiscUtils.GetRolesToAssign(RoleAlignment.ImpostorSupport, notInPlay));
+            }
+            ushort cover = covers.Any() ? MiscUtils.GetMaxRolesToAssign(ModdedRoleTeams.Impostor, 1, (x) => covers.Any(y => y.RoleType == (ushort)x.Role)).FirstOrDefault() : (ushort)RoleTypes.Impostor;
+            if (cover == 0)
             {
                 cover = (ushort)RoleTypes.Impostor;
             }

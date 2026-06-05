@@ -2,9 +2,9 @@
 using MiraAPI.Events.Vanilla.Gameplay;
 using TownOfUs.Modules;
 
-namespace TownOfUsMiraJK.Events;
+namespace TownOfUsMiraJK.Events.Crewmate;
 
-public static class TownOfUsJKEvents
+public static class CoronerEvents
 {
     [RegisterEvent]
     public static void AfterMurderEventHandler(AfterMurderEvent murderEvent)
