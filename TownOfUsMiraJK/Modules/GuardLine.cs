@@ -1,13 +1,6 @@
-using HarmonyLib;
 using Il2CppInterop.Runtime.Injection;
-using MiraAPI.GameOptions;
 using Reactor.Utilities.Extensions;
-using TownOfUs.Utilities;
-using TownOfUsMiraJK;
 using TownOfUsMiraJK.Assets;
-using TownOfUsMiraJK.Modules;
-using TownOfUsMiraJK.Options.Roles.Crewmate;
-using TownOfUsMiraJK.Roles.Crewmate;
 using UnityEngine;
 
 public class GuardLine : MonoBehaviour

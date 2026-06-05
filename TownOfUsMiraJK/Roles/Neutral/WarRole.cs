@@ -79,7 +79,7 @@ public sealed class WarRole(IntPtr cppPtr)
 
     public bool WinConditionMet()
     {
-        return ApocalypseUtils.ApocalypseWinConditionMet();
+        return ApocalypseUtils.ApocalypseWinConditionMet(this);
     }
 
     [HideFromIl2Cpp]

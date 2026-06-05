@@ -269,7 +269,7 @@ public sealed class FamineRole(IntPtr cppPtr)
 
     public bool WinConditionMet()
     {
-        return ApocalypseUtils.ApocalypseWinConditionMet();
+        return ApocalypseUtils.ApocalypseWinConditionMet(this);
     }
 
     public void OffsetButtons()

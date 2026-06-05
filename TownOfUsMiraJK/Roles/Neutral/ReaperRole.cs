@@ -92,7 +92,7 @@ public sealed class ReaperJKRole(IntPtr cppPtr)
 
     public bool WinConditionMet()
     {
-        return ApocalypseUtils.ApocalypseWinConditionMet();
+        return ApocalypseUtils.ApocalypseWinConditionMet(this);
     }
 
     public override bool CanUse(IUsable usable)

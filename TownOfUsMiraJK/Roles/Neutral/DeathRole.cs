@@ -201,7 +201,7 @@ public sealed class DeathRole(IntPtr cppPtr)
 
     public bool WinConditionMet()
     {
-        return ApocalypseUtils.ApocalypseWinConditionMet();
+        return ApocalypseUtils.ApocalypseWinConditionMet(this);
     }
 
     public bool SetupIntroTeam(IntroCutscene instance,

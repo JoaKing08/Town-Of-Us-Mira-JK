@@ -79,7 +79,7 @@ public sealed class BerserkerRole(IntPtr cppPtr)
 
     public bool WinConditionMet()
     {
-        return ApocalypseUtils.ApocalypseWinConditionMet();
+        return ApocalypseUtils.ApocalypseWinConditionMet(this);
     }
 
     public override void Initialize(PlayerControl player)

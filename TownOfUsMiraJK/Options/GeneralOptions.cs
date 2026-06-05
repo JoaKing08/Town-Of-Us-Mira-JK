@@ -1,7 +1,5 @@
 ﻿using MiraAPI.GameOptions;
-using MiraAPI.GameOptions.Attributes;
 using MiraAPI.GameOptions.OptionTypes;
-using MiraAPI.Utilities;
 
 namespace TownOfUs.Options;
 
