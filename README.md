@@ -83,9 +83,9 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 # Apocalypse
 Apocalypse is a new faction to Neutral roles.\
 The goal of the Apocalypse is to reach majority with no other killers left alive.\
-All of the Apocalypse roles are in the same faction, and win together.\
+If `Apocalypse Works Together` option is turned on, all of the Apocalypse roles are in the same faction, and win together.\
 All of the Apocalypse roles have a goal to reach, after which they transform into a stronger version of itself.\
-To the Apocalypse roles belong: Baker, Famine, Berserker, War, Plaguebearer, Pestilence, Soul Collector and Death.
+To the Apocalypse roles belong: Baker, Famine, Berserker, War, Plaguebearer, Pestilence, Reaper and Death.
 
 -----------------------
 # Role Explanations
