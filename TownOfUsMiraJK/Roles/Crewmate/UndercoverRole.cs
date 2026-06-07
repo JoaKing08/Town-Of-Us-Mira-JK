@@ -84,14 +84,11 @@ public sealed class UndercoverRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
         }
 
         var uncs = PlayerControl.AllPlayerControls.ToArray()
-            .Where(x => x.IsRole<DemagogueRole>() && !x.HasDied());
+            .Where(x => x.IsRole<UndercoverRole>() && !x.HasDied());
 
         var excluded = MiscUtils.SpawnableRoles.Where(x => x is ISpawnChange { NoSpawn: true }).Select(x => x.Role).ToList();
-        var impConPred = (RoleBehaviour x) => !(x.GetRoleAlignment() == RoleAlignment.ImpostorConcealing && !OptionGroupSingleton<UndercoverOptions>.Instance.CanBeConcealing);
-        var impKilPred = (RoleBehaviour x) => !(x.GetRoleAlignment() == RoleAlignment.ImpostorKilling && !OptionGroupSingleton<UndercoverOptions>.Instance.CanBeKilling);
-        var impPowPred = (RoleBehaviour x) => !(x.GetRoleAlignment() == RoleAlignment.ImpostorPower && !OptionGroupSingleton<UndercoverOptions>.Instance.CanBePower);
-        var impSupPred = (RoleBehaviour x) => !(x.GetRoleAlignment() == RoleAlignment.ImpostorSupport && !OptionGroupSingleton<UndercoverOptions>.Instance.CanBeSupport);
-        var notInPlay = (RoleBehaviour x) => CustomRoleUtils.GetActiveRoles().Count(y => x.GetType() == y.GetType()) < GameOptionsManager.Instance.CurrentGameOptions.RoleOptions.GetNumPerGame(x.Role);
+        var coversTaken = new List<ushort>();
+        var notInPlay = (RoleBehaviour x) => CustomRoleUtils.GetActiveRoles().Count(y => x.GetType() == y.GetType()) + coversTaken.Count(y => (ushort)x.Role == y) < GameOptionsManager.Instance.CurrentGameOptions.RoleOptions.GetNumPerGame(x.Role);
 
         foreach (var unc in uncs)
         {
@@ -112,13 +109,14 @@ public sealed class UndercoverRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
             {
                 covers.AddRange(MiscUtils.GetRolesToAssign(RoleAlignment.ImpostorSupport, notInPlay));
             }
-            ushort cover = covers.Any() ? MiscUtils.GetMaxRolesToAssign(ModdedRoleTeams.Impostor, 1, (x) => covers.Any(y => y.RoleType == (ushort)x.Role)).FirstOrDefault() : (ushort)RoleTypes.Impostor;
+            covers.RemoveAll(x => excluded.Any(y => x.RoleType == (ushort)y));
+            ushort cover = covers.Count != 0 ? MiscUtils.GetMaxRolesToAssign(ModdedRoleTeams.Impostor, 1, (x) => covers.Any(y => y.RoleType == (ushort)x.Role)).FirstOrDefault() : (ushort)RoleTypes.Impostor;
             if (cover == 0)
             {
                 cover = (ushort)RoleTypes.Impostor;
             }
             Player.RpcAddModifier<UndercoverCoverModifier>(cover);
-            excluded.Add((RoleTypes)cover);
+            coversTaken.Add(cover);
         }
     }
     private static IEnumerator SetTutorialTargets(UndercoverRole unc)

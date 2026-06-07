@@ -14,6 +14,6 @@ public sealed class AllianceModifierJKOptions : AbstractOptionGroup
     public override bool ShowInModifiersMenu => true;
     public override uint GroupPriority => 0;
 
-    [ModdedNumberOption("Prophet Chance", 0, 100, 10f, MiraNumberSuffixes.Percent)]
+    [ModdedNumberOption("TouJKOptionProphetChance", 0, 100, 10f, MiraNumberSuffixes.Percent)]
     public float ProphetChance { get; set; } = 0;
 }

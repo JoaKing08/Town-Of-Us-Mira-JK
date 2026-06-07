@@ -16,7 +16,7 @@ public sealed class TaskerModifier : TouGameModifier, IWikiDiscoverable
 {
     public override string LocaleKey => "Tasker";
     public override string ModifierName => TouLocale.Get($"TouJKModifier{LocaleKey}");
-    public override string IntroInfo => "You can do tasks.";
+    public override string IntroInfo => TouLocale.Get($"TouJKModifier{LocaleKey}IntroBlurb");
     public override Color FreeplayFileColor => new Color32(255, 25, 25, 255);
 
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKModifierIcons.Tasker;

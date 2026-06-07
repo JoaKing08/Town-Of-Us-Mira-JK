@@ -13,5 +13,5 @@ public sealed class ProphetOptions : AbstractOptionGroup<ProphetModifier>
     public override uint GroupPriority => 10;
     public override Color GroupColor => TownOfUsMiraJKColors.Apocalypse;
 
-    public ModdedToggleOption ProphetReplacesApocalypse { get; set; } = new("Prophet Replaces An Apocalypse Member", true);
+    public ModdedToggleOption ProphetReplacesApocalypse { get; set; } = new("TouJKOptionProphetReplaceApoc", true);
 }

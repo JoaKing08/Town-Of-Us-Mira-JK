@@ -13,9 +13,9 @@ public sealed class DrunkOptions : AbstractOptionGroup<DrunkModifier>
     public override uint GroupPriority => 10;
     public override Color GroupColor => TownOfUsMiraJKColors.Drunk;
 
-    public ModdedToggleOption DrunkExpires { get; set; } = new("Drunk Expires", true);
+    public ModdedToggleOption DrunkExpires { get; set; } = new("TouJKOptionDrunkExpires", true);
 
-    public ModdedNumberOption DrunkRounds { get; set; } = new("Drunk Rounds", 3, 1, 15, 1, MiraAPI.Utilities.MiraNumberSuffixes.None)
+    public ModdedNumberOption DrunkRounds { get; set; } = new("TouJKOptionDrunkRounds", 3, 1, 15, 1, MiraAPI.Utilities.MiraNumberSuffixes.None)
     {
         Visible = () => OptionGroupSingleton<DrunkOptions>.Instance.DrunkExpires
     };

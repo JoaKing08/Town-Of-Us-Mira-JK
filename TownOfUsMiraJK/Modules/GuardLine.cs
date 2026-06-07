@@ -1,12 +1,30 @@
 using Il2CppInterop.Runtime.Injection;
+using Reactor.Utilities.Attributes;
 using Reactor.Utilities.Extensions;
 using TownOfUsMiraJK.Assets;
 using UnityEngine;
 
-public class GuardLine : MonoBehaviour
+public static class GuardLineManager
 {
-    static GuardLine() => ClassInjector.RegisterTypeInIl2Cpp<GuardLine>();
-    public GuardLine(IntPtr ptr) : base(ptr) { }
+    public static GuardLine Create(Transform parent = null, int points = 360, Color? color = null, float radius = 1f, float rotationSpeed = 1f)
+    {
+        var gameObject = GameObject.Instantiate(ToUJKAssets.GuardLine.LoadAsset());
+        if (parent != null)
+        {
+            gameObject.transform.SetParent(parent);
+        }
+        var line = gameObject.AddComponent<GuardLine>();
+        line.Points = points;
+        line.Color = color ?? Color.white;
+        line.Radius = radius;
+        line.RotationSpeed = rotationSpeed;
+        return line;
+    }
+}
+
+[RegisterInIl2Cpp]
+public class GuardLine(IntPtr ptr) : MonoBehaviour(ptr)
+{
     public int Points { get; set; } = 360;
     public Color Color { get; set; } = Color.white;
     public float Radius { get; set; } = 1f;
@@ -34,20 +52,6 @@ public class GuardLine : MonoBehaviour
     {
         _timer += Time.deltaTime;
         UpdateGuardLine(_timer * RotationSpeed);
-    }
-    public static GuardLine Create(Transform parent = null, int points = 360, Color? color = null, float radius = 1f, float rotationSpeed = 1f)
-    {
-        var gameObject = GameObject.Instantiate(ToUJKAssets.GuardLine.LoadAsset());
-        if (parent != null)
-        {
-            gameObject.transform.SetParent(parent);
-        }
-        var line = gameObject.AddComponent<GuardLine>();
-        line.Points = points;
-        line.Color = color ?? Color.white;
-        line.Radius = radius;
-        line.RotationSpeed = rotationSpeed;
-        return line;
     }
     public void Destroy()
     {

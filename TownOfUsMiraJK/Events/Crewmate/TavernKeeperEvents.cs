@@ -72,7 +72,11 @@ public static class TavernKeeperEvents
     public static void BeforeMurderEventHandler(BeforeMurderEvent @event)
     {
         var source = @event.Source;
-
+        var target = @event.Target;
+        if (source == null || target == source)
+        {
+            return;
+        }
         CheckForDrunk(@event, source);
     }
 

@@ -110,6 +110,11 @@ public sealed class DemagogueRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
     {
         RoleBehaviourStubs.Initialize(this, player);
 
+        if (Immunity == null)
+        {
+            Immunity = ModifierUtils.GetPlayersWithModifier<DemagogueImmunityModifier>().FirstOrDefault();
+        }
+
         if (TutorialManager.InstanceExists && Immunity == null &&
             AmongUsClient.Instance.GameState != InnerNetClient.GameStates.Started && PlayerControl.LocalPlayer.IsHost())
         {

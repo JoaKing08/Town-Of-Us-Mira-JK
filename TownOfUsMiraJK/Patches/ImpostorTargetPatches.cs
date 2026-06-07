@@ -391,7 +391,7 @@ public static class AmbassadorClick
             player._object.GetModifier<UndercoverCoverModifier>()?.ShownRole?.GetRoleAlignment() != RoleAlignment.ImpostorPower)
         {
             var curRoleList = MiscUtils.GetPotentialRoles()
-                .Where(role => impRoles.Contains(RoleId.Get(role.GetType())))
+                .Where(role => impRoles.Contains((ushort)role.Role))
                 .ToList();
 
             if (TutorialManager.InstanceExists)
@@ -400,7 +400,7 @@ public static class AmbassadorClick
                     .Where(x => !excluded.Contains(x.Role))
                     .Select(x => (ushort)x.Role).ToList();
                 curRoleList = MiscUtils.AllRegisteredRoles
-                    .Where(role => impRoles.Contains(RoleId.Get(role.GetType())))
+                    .Where(role => impRoles.Contains((ushort)role.Role))
                     .ToList();
             }
             foreach (var roleBehaviour in curRoleList)
@@ -433,16 +433,23 @@ public static class AmbassadorClick
     }
 }
 
-/*[HarmonyPatch(typeof(Utilities.Extensions), nameof(Utilities.Extensions.ChangeRole))]
+[HarmonyPatch(typeof(Utilities.Extensions), nameof(Utilities.Extensions.ChangeRole))]
 public static class UndercoverChangeRole
 {
     public static bool Prefix(PlayerControl player, ushort newRoleType, bool recordRole)
     {
-        if (player?.IsRole<UndercoverRole>() == true && RoleManager.Instance?.GetRole((RoleTypes)newRoleType)?.IsImpostor() == true && newRoleType != RoleId.Get<TraitorRole>() && newRoleType != RoleId.Get<MafiosoRole>())
+        try
         {
-            player.GetModifier<UndercoverCoverModifier>().ShownRole = RoleManager.Instance.GetRole((RoleTypes)newRoleType);
-            return false;
+            if (player?.IsRole<UndercoverRole>() == true && RoleManager.Instance?.GetRole((RoleTypes)newRoleType)?.IsImpostor() == true && newRoleType != RoleId.Get<TraitorRole>() && newRoleType != RoleId.Get<MafiosoRole>())
+            {
+                player.GetModifier<UndercoverCoverModifier>().ShownRole = RoleManager.Instance.GetRole((RoleTypes)newRoleType);
+                return false;
+            }
+        }
+        catch
+        {
+
         }
         return true;
     }
-}*/
+}

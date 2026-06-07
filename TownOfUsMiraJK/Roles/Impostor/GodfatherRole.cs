@@ -1,6 +1,8 @@
 ﻿using AmongUs.GameOptions;
 using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
+using MiraAPI.Modifiers;
+using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
@@ -8,6 +10,7 @@ using Reactor.Networking.Rpc;
 using TownOfUs;
 using TownOfUs.Assets;
 using TownOfUs.Extensions;
+using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles;
@@ -23,7 +26,7 @@ namespace TownOfUsMiraJK.Roles.Impostor;
 public sealed class GodfatherRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable, ICrewVariant
 {
     public bool Recruited { get; set; }
-    public MafiosoRole? Mafioso => CustomRoleUtils.GetActiveRolesOfType<MafiosoRole>()?.FirstOrDefault(x => x.Godfather.PlayerId == Player.PlayerId);
+    public MafiosoRole? Mafioso => CustomRoleUtils.GetActiveRolesOfType<MafiosoRole>()?.FirstOrDefault();
     public bool MafiosoAlive => Mafioso != null && !Mafioso.Player.HasDied();
     public DoomableType DoomHintType => DoomableType.Protective;
     public string LocaleKey => "Godfather";
@@ -90,5 +93,14 @@ public sealed class GodfatherRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
         }
         target.ChangeRole(RoleId.Get<MafiosoRole>());
         (target.Data.Role as MafiosoRole)!.Godfather = godfather;
+    }
+    public override void Initialize(PlayerControl player)
+    {
+        RoleBehaviourStubs.Initialize(this, player);
+
+        if (Mafioso != null)
+        {
+            Recruited = true;
+        }
     }
 }

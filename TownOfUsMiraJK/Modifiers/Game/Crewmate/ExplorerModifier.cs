@@ -16,7 +16,7 @@ public sealed class ExplorerModifier : TouGameModifier, IWikiDiscoverable, IColo
 {
     public override string LocaleKey => "Explorer";
     public override string ModifierName => TouLocale.Get($"TouJKModifier{LocaleKey}");
-    public override string IntroInfo => "You can vent.";
+    public override string IntroInfo => TouLocale.Get($"TouJKModifier{LocaleKey}IntroBlurb");
     public override Color FreeplayFileColor => new Color32(255, 25, 25, 255);
 
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKModifierIcons.Explorer;

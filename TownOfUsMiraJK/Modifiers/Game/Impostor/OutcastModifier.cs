@@ -14,7 +14,7 @@ public sealed class OutcastModifier : TouGameModifier, IWikiDiscoverable
 {
     public override string LocaleKey => "Outcast";
     public override string ModifierName => TouLocale.Get($"TouJKModifier{LocaleKey}");
-    public override string IntroInfo => "You don't know the other Impostors.";
+    public override string IntroInfo => TouLocale.Get($"TouJKModifier{LocaleKey}IntroBlurb");
     public override Color FreeplayFileColor => new Color32(255, 25, 25, 255);
 
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKModifierIcons.Outcast;

@@ -8,13 +8,16 @@ using Reactor.Utilities.Extensions;
 using System.Collections;
 using TownOfUs.Assets;
 using TownOfUs.Modifiers;
+using TownOfUs.Modules;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Options;
 using TownOfUs.Patches.Options;
+using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
+using TownOfUsMiraJK.Modifiers;
 using TownOfUsMiraJK.Modifiers.Game.Alliance;
 using TownOfUsMiraJK.Modifiers.Game.Impostor;
 using TownOfUsMiraJK.Options.Roles.Neutral;
@@ -76,7 +79,7 @@ public static class RegisterBuiltInChats
             GetDisplayText = () => "Undead Chat",
             DisplayTextColor = TownOfUsMiraJKColors.Necromancer
         };
-        ExtensionTeamChatRegistry.RegisterHandler(apocalypseHandler);
+        ExtensionTeamChatRegistry.RegisterHandler(undeadHandler);
         _touJKChatsRegistered = true;
     }
     [MethodRpc((uint)TownOfUsJKRpc.SendApocTeamChat)]
@@ -199,6 +202,36 @@ public static class RpcSendImpTeamChat
             {
                 TeamChatManager.MarkChatAsUnread(30);
             }
+        }
+        return false;
+    }
+}
+
+[HarmonyPatch(typeof(SetNamePatch), nameof(SetNamePatch.SetNamePostfix))]
+public static class SetNamePatchPatch
+{
+    public static bool Prefix([HarmonyArgument(0)] ChatBubble __instance, [HarmonyArgument(1)] string playerName, [HarmonyArgument(2)] Color color)
+    {
+        var player = PlayerControl.AllPlayerControls.ToArray()
+            .FirstOrDefault(x => x.Data.PlayerName == playerName);
+        if (player == null) return false;
+        var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
+        if ((genOpt.FFAImpostorMode || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>() || player.HasModifier<OutcastModifier>()) && PlayerControl.LocalPlayer.IsImpostorAligned() && !DeathHandlerModifier.IsFullyDead(PlayerControl.LocalPlayer) &&
+            !player.AmOwner && player.IsImpostorAligned() && MeetingHud.Instance)
+        {
+            __instance.NameText.color = Color.white;
+        }
+        else if (!genOpt.FFAImpostorMode && !PlayerControl.LocalPlayer.HasModifier<OutcastModifier>() && PlayerControl.LocalPlayer.IsImpostorAligned() && !DeathHandlerModifier.IsFullyDead(PlayerControl.LocalPlayer) && player.IsRole<UndercoverRole>())
+        {
+            __instance.NameText.color = player.GetModifier<UndercoverCoverModifier>()?.ShownRole?.NameColor ?? Palette.ImpostorRed;
+        }
+        else if (color == Color.white &&
+                 (player.AmOwner || player.Data.Role is MayorRole mayor && mayor.Revealed ||
+                  DeathHandlerModifier.IsFullyDead(PlayerControl.LocalPlayer) && genOpt.TheDeadKnow) && PlayerControl.AllPlayerControls
+                     .ToArray()
+                     .FirstOrDefault(x => x.Data.PlayerName == playerName) && MeetingHud.Instance)
+        {
+            __instance.NameText.color = (player.GetRoleWhenAlive() is ICustomRole custom) ? custom.RoleColor : player.GetRoleWhenAlive().TeamColor;
         }
         return false;
     }

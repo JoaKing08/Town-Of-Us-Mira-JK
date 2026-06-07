@@ -13,10 +13,10 @@ public sealed class UniversalModifierJKOptions : AbstractOptionGroup
     public override bool ShowInModifiersMenu => true;
     public override uint GroupPriority => 0;
 
-    [ModdedNumberOption("Drunk Amount", 0, 5)]
+    [ModdedNumberOption("TouJKOptionDrunkAmount", 0, 5)]
     public float DrunkAmount { get; set; } = 0;
 
-    public ModdedNumberOption DrunkChance { get; } = new("Drunk Chance", 50f, 0, 100f, 10f, MiraNumberSuffixes.Percent)
+    public ModdedNumberOption DrunkChance { get; } = new("TouJKOptionDrunkChance", 50f, 0, 100f, 10f, MiraNumberSuffixes.Percent)
     {
         Visible = () => OptionGroupSingleton<UniversalModifierJKOptions>.Instance.DrunkAmount > 0
     };

@@ -15,15 +15,15 @@ public sealed class ImpostorModifierJKOptions : AbstractOptionGroup
     public override bool ShowInModifiersMenu => true;
     public override uint GroupPriority => 3;
 
-    [ModdedNumberOption("Tasker Amount", 0, 5)]
+    [ModdedNumberOption("TouJKOptionTaskerAmount", 0, 5)]
     public float TaskerAmount { get; set; } = 0;
 
     public ModdedNumberOption TaskerChance { get; } =
-        new("Tasker Chance", 50f, 0, 100f, 10f, MiraNumberSuffixes.Percent)
+        new("TouJKOptionTaskerChance", 50f, 0, 100f, 10f, MiraNumberSuffixes.Percent)
         {
             Visible = () => OptionGroupSingleton<ImpostorModifierJKOptions>.Instance.TaskerAmount > 0
         };
 
     public ModdedNumberOption OutcastChance { get; } =
-        new("Outcast Chance", 50f, 0, 100f, 10f, MiraNumberSuffixes.Percent);
+        new("TouJKOptionOutcastChance", 50f, 0, 100f, 10f, MiraNumberSuffixes.Percent);
 }

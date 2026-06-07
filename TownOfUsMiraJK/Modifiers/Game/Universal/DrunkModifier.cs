@@ -19,7 +19,7 @@ public sealed class DrunkModifier : UniversalGameModifier, IWikiDiscoverable, IC
 {
     public override string LocaleKey => "Drunk";
     public override string ModifierName => TouLocale.Get($"TouJKModifier{LocaleKey}");
-    public override string IntroInfo => "Your movement is inverted.";
+    public override string IntroInfo => TouLocale.Get($"TouJKModifier{LocaleKey}IntroBlurb");
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKModifierIcons.Drunk;
 
     public override ModifierFaction FactionType => ModifierFaction.UniversalVisibility;

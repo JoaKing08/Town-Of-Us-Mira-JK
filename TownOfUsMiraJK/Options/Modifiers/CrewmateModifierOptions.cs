@@ -15,11 +15,11 @@ public sealed class CrewmateModifierJKOptions : AbstractOptionGroup
     public override bool ShowInModifiersMenu => true;
     public override uint GroupPriority => 2;
 
-    [ModdedNumberOption("Explorer Amount", 0, 5)]
+    [ModdedNumberOption("TouJKOptionExplorerAmount", 0, 5)]
     public float ExplorerAmount { get; set; } = 0;
 
     public ModdedNumberOption ExplorerChance { get; } =
-        new("Explorer Chance", 50f, 0, 100f, 10f, MiraNumberSuffixes.Percent)
+        new("TouJKOptionExplorerChance", 50f, 0, 100f, 10f, MiraNumberSuffixes.Percent)
         {
             Visible = () => OptionGroupSingleton<CrewmateModifierJKOptions>.Instance.ExplorerAmount > 0
         };

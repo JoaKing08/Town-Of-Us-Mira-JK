@@ -15,6 +15,6 @@ public sealed class OutcastOptions : AbstractOptionGroup<OutcastModifier>
     public override uint GroupPriority => 10;
     public override Color GroupColor => Palette.ImpostorRed;
 
-    [ModdedNumberOption("Kill Cooldown Decrease", 2.5f, 20f, 2.5f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouJKOptionOutcastKillCooldownDecrease", 2.5f, 20f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float KillCooldownDecrease { get; set; } = 10f;
 }

@@ -29,7 +29,7 @@ public sealed class BodyguardGuardModifier(PlayerControl bodyguard) : BaseShield
         var distance = OptionGroupSingleton<BodyguardOptions>.Instance.GuardDistance;
         if (Bodyguard.AmOwner && distance > 0)
         {
-            GuardLineComp = GuardLine.Create(Player.transform, (int)(360 * distance),
+            GuardLineComp = GuardLineManager.Create(Player.transform, (int)(360 * distance),
                 TownOfUsMiraJKColors.Bodyguard, distance * ShipStatus.Instance.MaxLightRadius, distance * -10f);
         }
     }

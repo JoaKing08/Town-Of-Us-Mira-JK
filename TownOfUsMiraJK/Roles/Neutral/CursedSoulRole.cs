@@ -23,6 +23,7 @@ using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
+using TownOfUsMiraJK.Modifiers;
 using TownOfUsMiraJK.Options.Roles.Neutral;
 using TownOfUsMiraJK.Utilities;
 using UnityEngine;
@@ -231,6 +232,13 @@ public sealed class CursedSoulRole(IntPtr cppPtr)
         {
             player.AddModifier(modifier.GetType());
             target.RemoveModifier(modifier);
+        }
+
+        var cover = target.GetModifiers<UndercoverCoverModifier>().FirstOrDefault();
+        if (cover != null)
+        {
+            player.AddModifier<UndercoverCoverModifier>((ushort)cover.ShownRole!.Role);
+            target.RemoveModifier(cover);
         }
 
         var touAbilityEvent2 = new TouAbilityEvent((AbilityType)JKAbilityType.CursedSoulPostSoulSwap, player, target);

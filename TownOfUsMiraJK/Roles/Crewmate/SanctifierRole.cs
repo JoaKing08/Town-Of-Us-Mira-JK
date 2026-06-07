@@ -66,6 +66,6 @@ public sealed class SanctifierRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
         }
         var v3pos = (Vector3)position;
         v3pos.z = z;
-        SanctifierCircle.Create(v3pos, scale: OptionGroupSingleton<SanctifierOptions>.Instance.SanctifySize * ShipStatus.Instance.MaxLightRadius * 2f);
+        SanctifierCircleManager.Create(v3pos, scale: OptionGroupSingleton<SanctifierOptions>.Instance.SanctifySize * ShipStatus.Instance.MaxLightRadius * 2f);
     }
 }

@@ -11,13 +11,13 @@ public sealed class SanctifierOptions : AbstractOptionGroup<SanctifierRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleSanctifier", "Sanctifier");
 
-    [ModdedNumberOption("TouJKOptionSanctifierSanctifyCooldown", 1f, 120f, 1f, MiraNumberSuffixes.Seconds)]
+    [ModdedNumberOption("TouJKOptionSanctifierSanctifyCooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float SanctifyCooldown { get; set; } = 25f;
 
     [ModdedToggleOption("TouJKOptionSanctifierShowSanctify")]
     public bool ShowSanctify { get; set; } = true;
 
-    public ModdedNumberOption ShowSanctifyDelay { get; } = new("TouJKOptionSanctifierShowSanctifyDelay", 10f, 0f, 30f, 1f, MiraNumberSuffixes.None)
+    public ModdedNumberOption ShowSanctifyDelay { get; } = new("TouJKOptionSanctifierShowSanctifyDelay", 10f, 0f, 30f, 1f, MiraNumberSuffixes.Seconds)
     {
         Visible = () => OptionGroupSingleton<SanctifierOptions>.Instance.ShowSanctify
     };

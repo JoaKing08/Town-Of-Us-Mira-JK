@@ -22,8 +22,6 @@ public sealed class CrusaderFortifyModifier(PlayerControl crusader) : BaseShield
     public PlayerControl Crusader { get; } = crusader;
     public GuardLine GuardLineComp { get; set; }
 
-    private float _timer = 0;
-
     public override void OnActivate()
     {
         var touAbilityEvent = new TouAbilityEvent((AbilityType)JKAbilityType.CrusaderFortify, Crusader, Player);
@@ -31,7 +29,7 @@ public sealed class CrusaderFortifyModifier(PlayerControl crusader) : BaseShield
         var distance = OptionGroupSingleton<CrusaderOptions>.Instance.FortifyDistance;
         if (Crusader.AmOwner && distance > 0)
         {
-            GuardLineComp = GuardLine.Create(Player.transform, (int)(360 * distance),
+            GuardLineComp = GuardLineManager.Create(Player.transform, (int)(360 * distance),
                 TownOfUsMiraJKColors.Crusader, distance * ShipStatus.Instance.MaxLightRadius, distance * -10f);
         }
     }

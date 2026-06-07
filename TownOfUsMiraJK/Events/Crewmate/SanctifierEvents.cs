@@ -38,7 +38,7 @@ public static class SanctifierEvents
     {
         if (OptionGroupSingleton<SanctifierOptions>.Instance.ResetSanctify)
         {
-            SanctifierCircle.Clear();
+            SanctifierCircleManager.Clear();
 
             if (PlayerControl.LocalPlayer.Data.Role is SanctifierRole)
             {
@@ -67,7 +67,10 @@ public static class SanctifierEvents
     {
         var source = @event.Source;
         var target = @event.Target;
-
+        if (source == null || target == source)
+        {
+            return;
+        }
         CheckForSanctifierCircle(@event, source, target);
     }
     private static void CheckForSanctifierCircle(MiraCancelableEvent @event, PlayerControl source, PlayerControl target)

@@ -1,0 +1,29 @@
+﻿using AmongUs.GameOptions;
+using Cpp2IL.Core.Utils;
+using HarmonyLib;
+using MiraAPI.Modifiers;
+using MiraAPI.Roles;
+using MiraAPI.Utilities;
+using TownOfUs.Extensions;
+using TownOfUs.Modules.Wiki;
+using TownOfUs.Roles.Crewmate;
+using TownOfUs.Roles.Neutral;
+using TownOfUs.Utilities;
+using TownOfUsMiraJK.Modifiers;
+
+namespace TownOfUsMiraJK.Patches;
+
+[HarmonyPatch]
+public static class AmnesiacRememberPatches
+{
+    [HarmonyPatch(typeof(AmnesiacRole), nameof(AmnesiacRole.RpcRemember))]
+    [HarmonyPostfix]
+    public static void Remember(PlayerControl player, PlayerControl target)
+    {
+        var cover = target.GetModifiers<UndercoverCoverModifier>().FirstOrDefault();
+        if (cover != null)
+        {
+            player.AddModifier<UndercoverCoverModifier>((ushort)(cover.ShownRole?.Role ?? RoleTypes.Impostor));
+        }
+    }
+}

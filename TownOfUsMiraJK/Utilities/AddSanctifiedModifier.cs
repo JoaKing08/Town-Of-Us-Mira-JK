@@ -27,7 +27,7 @@ namespace TownOfUsMiraJK.Utilities
             {
                 return;
             }
-            if (SanctifierCircle.SanctifierCircles.Count != 0 && !PlayerControl.LocalPlayer.HasDied() && SanctifierCircle.IsInCircle(PlayerControl.LocalPlayer.transform))
+            if (!MeetingHud.Instance && !ExileController.Instance && SanctifierCircleManager.SanctifierCircles.Count != 0 && !PlayerControl.LocalPlayer.HasDied() && SanctifierCircleManager.IsInCircle(PlayerControl.LocalPlayer.transform))
             {
                 if (!PlayerControl.LocalPlayer.HasModifier<SanctifiedModifier>())
                 {
