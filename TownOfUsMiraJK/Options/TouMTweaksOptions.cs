@@ -12,4 +12,7 @@ public sealed class TouMTweaksOptions : AbstractOptionGroup
 
     [ModdedToggleOption("TouJKOptionProsecutorReveal")]
     public bool ProsecutorReveal { get; set; } = false;
+
+    [ModdedToggleOption("TouJKOptionDeputyReveal")]
+    public bool DeputyReveal { get; set; } = false;
 }

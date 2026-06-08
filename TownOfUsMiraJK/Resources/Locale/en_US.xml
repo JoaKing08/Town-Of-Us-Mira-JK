@@ -33,8 +33,9 @@
 	<string name="DiedToShadow">Faded</string>
 	<string name="DiedToManhunter">Hunted</string>
 	<string name="DiedToAnarchist">Assaulted</string>
-	<!-- Prosecutor -->
+	<!-- ToUM Tweaks -->
 	<string name="TouJKOptionProsecutorReveal">Reveal Prosecutor After Prosecuting</string>
+	<string name="TouJKOptionDeputyReveal">Reveal Deputy After Shooting</string>
 	<!-- Monster Hunter -->
 	<string name="TouJKRoleMonsterHunter">Monster Hunter</string>
 	<string name="TouJKRoleMonsterHunterIntroBlurb">Stake the monsters to kill them.</string>

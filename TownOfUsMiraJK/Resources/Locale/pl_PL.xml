@@ -33,8 +33,9 @@
 	<string name="DiedToShadow">Wyblakły</string>
 	<string name="DiedToManhunter">Upolowany</string>
 	<string name="DiedToAnarchist">Napadnięty</string>
-	<!-- Prosecutor -->
+	<!-- ToUM Tweaks -->
 	<string name="TouJKOptionProsecutorReveal">Ujawnij Prokuratora Po Procesie</string>
+	<string name="TouJKOptionDeputyReveal">Ujawnij Zastępce Po Strzale</string>
 	<!-- Monster Hunter -->
 	<string name="TouJKRoleMonsterHunter">Łowca Potworów</string>
 	<string name="TouJKRoleMonsterHunterIntroBlurb">Przebij potwory kołkami by je zabić.</string>
@@ -404,36 +405,36 @@
 	<string name="TouJKRoleFamineTabDescription">Powoli wyczerp wszystkich siłę głodem.</string>
 	<string name="TouJKRoleFamineWikiDescription">The Famine is a Neutral Outlier role that starves the crew, killing them if they are out of bread. They are invincible to everything but being exiled or guessing incorrectly. They win with other apocalypse members.</string>
 	<string name="TouJKRoleFamineMessageTitle">Ostrzeżenie O Głodzie</string>
-	<string name="TouJKRoleFamineAnnounceMessage">All of the Crew's bread has been given out.\%nl\%\%role\%, Horseman of the Apocalypse, has emerged!</string>
-	<string name="TouJKRoleFamineStarveMessage">Mere existance of \%role\% drains power\%nl\%from you, your stomach is feeling empty.</string>
-	<string name="TouJKRoleFamineStarveMessageApoc">Mere existance of \%role\% drains power\%nl\%from the Crew, however you are able to\%nl\%keep it together.</string>
-	<string name="TouJKRoleFaminePassiveStarve">Passive Starvation</string>
+	<string name="TouJKRoleFamineAnnounceMessage">Cały chleb załogi został rozdany.\%nl\%\%role\%, Jeździec Apokalipsy, się wyłonił!</string>
+	<string name="TouJKRoleFamineStarveMessage">Samo istnienie \%role\% wysysa siłę z ciebie, twój żołądek wydaje się pusty.</string>
+	<string name="TouJKRoleFamineStarveMessageApoc">Samo istnienie \%role\% wysysa siłę z załogi, ale ty jesteś w stanie zacisnąć pasa.</string>
+	<string name="TouJKRoleFaminePassiveStarve">Pasywne Głodzenie</string>
 	<string name="TouJKRoleFaminePassiveStarveWikiDescription">Once every so often, and after meetings, all players lose one bread. If players don't have any bread they die instead.</string>
-	<string name="TouJKRoleFamineStarve">Starve</string>
+	<string name="TouJKRoleFamineStarve">Zagłódź</string>
 	<string name="TouJKRoleFamineStarveWikiDescription">Reduces bread of the player by a set amount. If this ability tries to take bread they don't have it kills instead.</string>
 	<!-- Baker -->
-	<string name="TouJKRoleBaker">Baker</string>
-	<string name="TouJKRoleBakerIntroBlurb">Give out bread, until there's nothing left.</string>
-	<string name="TouJKRoleBakerTabDescription">Feed the players bread to transform.</string>
-	<string name="TouJKRoleBakerTabBreadCounter">Bread Left: \%count\%</string>
-	<string name="TouJKRoleBakerTabFedInfo">Fed Players:</string>
+	<string name="TouJKRoleBaker">Piekarz</string>
+	<string name="TouJKRoleBakerIntroBlurb">Rozdawaj chleb, aż nic nie zostanie.</string>
+	<string name="TouJKRoleBakerTabDescription">Karm graczy by się przemienić.</string>
+	<string name="TouJKRoleBakerTabBreadCounter">Pozostało Chleba: \%count\%</string>
+	<string name="TouJKRoleBakerTabFedInfo">Nakarmieni Gracze:</string>
 	<!-- Baker Wiki -->
 	<string name="TouJKRoleBakerWikiDescription">The Baker is a Neutral Outlier role that needs to feed a certain amount of players to transform into Famine. They win with other apocalypse members.</string>
-	<string name="TouJKRoleBakerBread">Bread</string>
+	<string name="TouJKRoleBakerBread">Nakarm</string>
 	<string name="TouJKRoleBakerBreadWikiDescription">Feeds the player bread. After a set amount of bread was given, Baker transforms into Famine.</string>
 	<!-- Baker Options -->
-	<string name="TouJKOptionBakerBreadToFamine">Bread Needed To Transform</string>
-	<string name="TouJKOptionBakerBreadCooldown">Bread Cooldown</string>
-	<string name="TouJKOptionBakerBreadLasts">Bread Lasts For</string>
-	<string name="TouJKOptionBakerNotEnoughPlayers">Not Enough Players Effect</string>
-	<string name="TouJKOptionBakerNotEnoughPlayersEnumTransforms">Transform</string>
-	<string name="TouJKOptionBakerNotEnoughPlayersEnumNothing">Nothing</string>
-	<string name="TouJKOptionBakerNotEnoughPlayersEnumDies">Suicide</string>
-	<string name="TouJKOptionBakerAnnounceTransformationDelay">Announce Famine Transformation Delay</string>
-	<string name="TouJKOptionBakerFamineCanVent">Famine Can Vent</string>
-	<string name="TouJKOptionBakerFamineStarveCooldown">Starve Ability Cooldown</string>
-	<string name="TouJKOptionBakerStarveStrength">Starve Ability Strength</string>
-	<string name="TouJKOptionBakerPassiveStarvingCooldown">Passive Starving Interval</string>
+	<string name="TouJKOptionBakerBreadToFamine">Chleb Do Przemiany</string>
+	<string name="TouJKOptionBakerBreadCooldown">Odnowienie Karmienia</string>
+	<string name="TouJKOptionBakerBreadLasts">Chleb Pozostaje Przez</string>
+	<string name="TouJKOptionBakerNotEnoughPlayers">Efekt Na Za Małą Ilość Graczy</string>
+	<string name="TouJKOptionBakerNotEnoughPlayersEnumTransforms">Przemiana</string>
+	<string name="TouJKOptionBakerNotEnoughPlayersEnumNothing">Nic</string>
+	<string name="TouJKOptionBakerNotEnoughPlayersEnumDies">Samobójstwo</string>
+	<string name="TouJKOptionBakerAnnounceTransformationDelay">Opóźnienie Ogłoszenia Przemiany Głodu</string>
+	<string name="TouJKOptionBakerFamineCanVent">Głód Może Ventować</string>
+	<string name="TouJKOptionBakerFamineStarveCooldown">Odnowienie Umiejętności Głodzenia</string>
+	<string name="TouJKOptionBakerStarveStrength">Siła Umiejętności Głodzenia</string>
+	<string name="TouJKOptionBakerPassiveStarvingCooldown">Interwał Pasywnego Głodzenia</string>
 	<!-- Berserker -->
 	<string name="TouJKRoleBerserker">Berserker</string>
 	<string name="TouJKRoleBerserkerIntroBlurb">Kill players in order to transform.</string>
