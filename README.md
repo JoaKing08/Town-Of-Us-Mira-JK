@@ -76,7 +76,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 -----------------------
 # Other changes
 - Imitator's Wiki entry now automatically detects all roles with Crew Variants and updates them.
-- Prosecutor gains a setting that makes them reveal their role to everyone after Prosecuting.
+- Prosecutor and Deputy gain a setting that makes them reveal their role to everyone after using their ability.
 - Three new dynamic player colors: Grayscale, Fire and Galaxy.
 
 -----------------------
