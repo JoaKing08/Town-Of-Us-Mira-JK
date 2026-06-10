@@ -65,7 +65,7 @@ public static class BodyguardEvents
         var source = @event.Source;
         var target = @event.Target;
 
-        if (CheckForBodyguardGuard(@event, target, source))
+        if (!source.HasModifier<IndirectAttackerModifier>() && CheckForBodyguardGuard(@event, target, source))
         {
             ResetButtonTimer(source);
         }
@@ -81,7 +81,7 @@ public static class BodyguardEvents
 
         if (!target.HasModifier<BodyguardGuardModifier>() ||
             target.PlayerId == source.PlayerId ||
-            source.TryGetModifier<IndirectAttackerModifier>(out var indirect))
+            source.HasModifier<IndirectAttackerModifier>())
         {
             return false;
         }

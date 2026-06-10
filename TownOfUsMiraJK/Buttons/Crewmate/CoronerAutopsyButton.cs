@@ -16,7 +16,7 @@ namespace TownOfUsMiraJK.Buttons.Neutral;
 public sealed class CoronerAutopsyButton : TownOfUsRoleButton<CoronerRole, DeadBody>
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleCoronerAutopsy", "Autopsy");
-    public override BaseKeybind Keybind => Keybinds.PrimaryAction;
+    public override BaseKeybind Keybind => Keybinds.SecondaryAction;
     public override int MaxUses => Target == null ? -1 : (int)OptionGroupSingleton<CoronerOptions>.Instance.MaxAutopsy;
     public override Color TextOutlineColor => TownOfUsMiraJKColors.Coroner;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<CoronerOptions>.Instance.AutopsyCooldown + MapCooldown, 5f, 120f);
@@ -30,7 +30,7 @@ public sealed class CoronerAutopsyButton : TownOfUsRoleButton<CoronerRole, DeadB
     {
         if (Target == null)
         {
-            Error("Reaper Reap: Target is null");
+            Error("Coroner Autopsy: Target is null");
             return;
         }
 
@@ -56,10 +56,5 @@ public sealed class CoronerAutopsyButton : TownOfUsRoleButton<CoronerRole, DeadB
             Button?.usesRemainingText.gameObject.SetActive(true);
         }
         return target;
-    }
-
-    public override bool IsTargetValid(DeadBody? target)
-    {
-        return target && target?.Reported == false;
     }
 }

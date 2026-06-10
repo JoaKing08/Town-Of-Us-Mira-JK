@@ -34,5 +34,7 @@
         RetrainUndercover,
         SendApocTeamChat,
         SendUndeadTeamChat,
+        SetUndercoverCover,
+        DeputyReveal,
     }
 }

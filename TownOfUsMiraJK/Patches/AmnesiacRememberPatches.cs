@@ -5,11 +5,13 @@ using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using TownOfUs.Extensions;
+using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Modifiers;
+using TownOfUsMiraJK.Roles.Impostor;
 
 namespace TownOfUsMiraJK.Patches;
 
@@ -24,6 +26,12 @@ public static class AmnesiacRememberPatches
         if (cover != null)
         {
             player.AddModifier<UndercoverCoverModifier>((ushort)(cover.ShownRole?.Role ?? RoleTypes.Impostor));
+        }
+        if (player.HasModifier<DemagogueImmunityModifier>() && player.IsRole<DemagogueRole>())
+        {
+            player.RemoveModifier<DemagogueImmunityModifier>();
+            target.AddModifier<DemagogueImmunityModifier>();
+            player.GetRole<DemagogueRole>()!.Immunity = target;
         }
     }
 }

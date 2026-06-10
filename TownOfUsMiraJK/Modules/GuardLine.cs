@@ -13,6 +13,7 @@ public static class GuardLineManager
         {
             gameObject.transform.SetParent(parent);
         }
+        gameObject.transform.position = Vector3.zero;
         var line = gameObject.AddComponent<GuardLine>();
         line.Points = points;
         line.Color = color ?? Color.white;

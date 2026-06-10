@@ -6,16 +6,19 @@ using MiraAPI.Modifiers;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
+using Reactor.Networking.Attributes;
 using Reactor.Utilities;
 using System.Collections;
 using TownOfUs.Assets;
 using TownOfUs.Extensions;
+using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Options;
 using TownOfUs.Roles;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
+using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Modifiers;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Impostor;
@@ -115,7 +118,7 @@ public sealed class UndercoverRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
             {
                 cover = (ushort)RoleTypes.Impostor;
             }
-            Player.RpcAddModifier<UndercoverCoverModifier>(cover);
+            RpcSetUndercoverCover(unc, cover);
             coversTaken.Add(cover);
         }
     }
@@ -123,5 +126,22 @@ public sealed class UndercoverRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
     {
         yield return new WaitForSeconds(0.01f);
         unc.AssignTargets();
+    }
+
+    [MethodRpc((uint)TownOfUsJKRpc.SetUndercoverCover)]
+    public static void RpcSetUndercoverCover(PlayerControl player, ushort cover)
+    {
+        if (LobbyBehaviour.Instance)
+        {
+            MiscUtils.RunAnticheatWarning(player);
+            return;
+        }
+        if (player.Data.Role is not UndercoverRole)
+        {
+            Error("RpcSetUndercoverCover - Invalid undercover");
+            return;
+        }
+
+        player.AddModifier<UndercoverCoverModifier>(cover);
     }
 }

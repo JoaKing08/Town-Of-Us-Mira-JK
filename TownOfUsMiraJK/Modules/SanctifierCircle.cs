@@ -24,6 +24,7 @@ public static class SanctifierCircleManager
         circle.Renderer.enabled = PlayerControl.LocalPlayer.IsRole<SanctifierRole>();
         circle._scale = scale;
         circle._shown = PlayerControl.LocalPlayer.IsRole<SanctifierRole>() || OptionGroupSingleton<SanctifierOptions>.Instance.ShowSanctify;
+        SanctifierCircles.Add(circle);
         return circle;
     }
     public static void Clear()
@@ -40,9 +41,10 @@ public static class SanctifierCircleManager
         var result = false;
         foreach (var circle in SanctifierCircles)
         {
-            if (!result && circle?.gameObject?.transform != null && Vector2.Distance(circle.gameObject.transform.position, transform.position) <= circle._scale / 2)
+            if (circle?.gameObject?.transform != null && Vector2.Distance(circle.gameObject.transform.position, transform.position) <= circle._scale / 2)
             {
                 result = true;
+                break;
             }
         }
         return result;

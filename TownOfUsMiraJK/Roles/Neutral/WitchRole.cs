@@ -131,17 +131,17 @@ public sealed class WitchRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
             }
             else if (primaryButton != null)
             {
-                primaryButton.ClickHandler();
+                primaryButton.Button!.DoClick();
                 buttonUsed = ButtonUsed.Primary;
             }
             else if (secondaryButton != null)
             {
-                secondaryButton.ClickHandler();
+                secondaryButton.Button!.DoClick();
                 buttonUsed = ButtonUsed.Secondary;
             }
             else if (tertiaryButton != null)
             {
-                tertiaryButton.ClickHandler();
+                tertiaryButton.Button!.DoClick();
                 buttonUsed = ButtonUsed.Tertiary;
             }
             var notif1 = Helpers.CreateAndShowNotification(

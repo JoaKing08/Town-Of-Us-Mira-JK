@@ -25,6 +25,7 @@ using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Modifiers;
 using TownOfUsMiraJK.Options.Roles.Neutral;
+using TownOfUsMiraJK.Roles.Impostor;
 using TownOfUsMiraJK.Utilities;
 using UnityEngine;
 
@@ -183,6 +184,12 @@ public sealed class CursedSoulRole(IntPtr cppPtr)
                 // Makes the og vampire a bitten vampire so to speak, yes it makes it more confusing, but that's how it is, deal with it - Atony
                 target.AddModifier<VampireBittenModifier>();
             }
+        }
+        else if (player.Data.Role is DemagogueRole && player.HasModifier<DemagogueImmunityModifier>())
+        {
+            player.RemoveModifier<DemagogueImmunityModifier>();
+            target.AddModifier<DemagogueImmunityModifier>();
+            player.GetRole<DemagogueRole>()!.Immunity = target;
         }
 
         var newRoleType = opts.SwappedPlayerBecomes switch

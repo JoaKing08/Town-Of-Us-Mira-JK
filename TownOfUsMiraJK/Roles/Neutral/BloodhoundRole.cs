@@ -145,11 +145,14 @@ public sealed class BloodhoundRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOf
         }
         else
         {
-            var notif1 = Helpers.CreateAndShowNotification(
-                TouLocale.GetParsed("TouJKRoleBloodhoundBloodlustProlongNotif"),
-                Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Bloodhound.LoadAsset());
+            if (bloodhound.AmOwner)
+            {
+                var notif1 = Helpers.CreateAndShowNotification(
+                    TouLocale.GetParsed("TouJKRoleBloodhoundBloodlustProlongNotif"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Bloodhound.LoadAsset());
 
-            notif1.AdjustNotification();
+                notif1.AdjustNotification();
+            }
             modifier.ResetTimer();
             modifier.StartTimer();
         }

@@ -1,4 +1,5 @@
-﻿using MiraAPI.Events;
+﻿using AmongUs.GameOptions;
+using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Meeting;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
@@ -34,7 +35,7 @@ public static class ProsecutorEvents
 
             if (hasProsecuted)
             {
-                pros.Player.AddModifier<ProsecutorRevealModifier>(pros as RoleBehaviour);
+                pros.Player.AddModifier<ProsecutorRevealModifier>(RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<ProsecutorRole>()));
             }
         }
     }

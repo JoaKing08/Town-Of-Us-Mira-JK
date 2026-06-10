@@ -59,6 +59,11 @@ public sealed class WitchControlButton : TownOfUsRoleButton<WitchRole, PlayerCon
             return false;
         }
 
+        if (Timer > 0)
+        {
+            return false;
+        }
+
         var newTarget = GetTarget();
         if (newTarget != Target)
         {
