@@ -1,4 +1,3 @@
-using Il2CppInterop.Runtime.Injection;
 using MiraAPI.GameOptions;
 using Reactor.Utilities.Attributes;
 using Reactor.Utilities.Extensions;

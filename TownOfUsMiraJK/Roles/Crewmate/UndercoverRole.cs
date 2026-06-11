@@ -11,7 +11,6 @@ using Reactor.Utilities;
 using System.Collections;
 using TownOfUs.Assets;
 using TownOfUs.Extensions;
-using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Options;
@@ -21,7 +20,6 @@ using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Modifiers;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
-using TownOfUsMiraJK.Roles.Impostor;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Crewmate;

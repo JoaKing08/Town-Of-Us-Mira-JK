@@ -1,4 +1,3 @@
-using Il2CppInterop.Runtime.Injection;
 using Reactor.Utilities.Attributes;
 using Reactor.Utilities.Extensions;
 using TownOfUsMiraJK.Assets;
@@ -13,7 +12,7 @@ public static class GuardLineManager
         {
             gameObject.transform.SetParent(parent);
         }
-        gameObject.transform.position = Vector3.zero;
+        gameObject.transform.localPosition = Vector3.zero;
         var line = gameObject.AddComponent<GuardLine>();
         line.Points = points;
         line.Color = color ?? Color.white;

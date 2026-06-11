@@ -1,7 +1,6 @@
 using AmongUs.Data;
 using HarmonyLib;
 using TownOfUs;
-using TownOfUs.Modules.RainbowMod;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Modules.RainbowMod;
 using UnityEngine;

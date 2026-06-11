@@ -1,7 +1,5 @@
 using HarmonyLib;
-using Reactor.Utilities.Attributes;
 using TownOfUs.Modules.RainbowMod;
-using UnityEngine;
 
 namespace TownOfUsMiraJK.Modules.RainbowMod;
 

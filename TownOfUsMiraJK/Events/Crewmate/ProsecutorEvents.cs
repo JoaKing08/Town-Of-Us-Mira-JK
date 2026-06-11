@@ -7,7 +7,6 @@ using MiraAPI.Roles;
 using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Roles.Crewmate;
 using TownOfUsMiraJK.Options;
-using TownOfUsMiraJK.Options.Roles;
 
 namespace TownOfUsMiraJK.Events.Crewmate;
 

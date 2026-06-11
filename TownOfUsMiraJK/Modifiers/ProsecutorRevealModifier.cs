@@ -3,8 +3,6 @@ using MiraAPI.GameOptions;
 using TownOfUs.Modules;
 using TownOfUs.Roles.Crewmate;
 using TownOfUsMiraJK.Options;
-using TownOfUsMiraJK.Options.Roles;
-using TownOfUsMiraJK.Roles.Crewmate;
 
 namespace TownOfUs.Modifiers.Crewmate;
 
