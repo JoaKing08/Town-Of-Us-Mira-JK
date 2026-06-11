@@ -7,11 +7,14 @@ using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using Reactor.Utilities;
 using TownOfUs;
+using TownOfUs.Buttons;
+using TownOfUs.Buttons.Crewmate;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Options;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Buttons.Crewmate;
+using TownOfUsMiraJK.Buttons.Modifier;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Crewmate;
 
@@ -80,8 +83,18 @@ public static class SanctifierEvents
             return;
         }
 
-        if (!source.HasModifier<SanctifiedModifier>() && !(target?.HasModifier<SanctifiedModifier>() == true || 
+        if (source.HasDied())
+        {
+            return;
+        }
+
+        if (!source.HasModifier<SanctifiedModifier>() && (target?.HasModifier<SanctifiedModifier>() != true ||
             (source.TryGetModifier<IndirectAttackerModifier>(out var indirect) && indirect.IgnoreShield)))
+        {
+            return;
+        }
+
+        if (@event is MiraButtonClickEvent buttonClickEvent && buttonClickEvent.Button != null && (buttonClickEvent.Button is EngineerVentButton || buttonClickEvent.Button is ExplorerVentButton || buttonClickEvent.Button is FakeVentButton))
         {
             return;
         }
