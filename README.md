@@ -559,6 +559,7 @@ Game Options:
 | Show Arrows Pointing To Dead Bodies | Whether to show the arrows pointing to bodies to the Necromancer. | False |
 | Dead Body Arrow Delay | Delay of the arrows pointing to the bodies. | 0.5s |
 | Dead Body Arrow Duration | Duration of the arrows pointing to the bodies. | 10s |
+| Undead Get A Private Meeting Chat | Whether the Necromancer and the Undead can privately talk during meetings. | True |
 
 ### Pirate <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Pirate.png" />
 Alignment: <b>Neutral Outlier</b>\
