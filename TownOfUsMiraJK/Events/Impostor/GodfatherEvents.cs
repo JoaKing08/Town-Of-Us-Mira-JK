@@ -55,6 +55,15 @@ public static class GodfatherEvents
                     showAnim,
                     false);
                 break;
+            default:
+                if (MeetingHud.Instance || ExileController.Instance)
+                {
+                    goto case DeathReason.Exile;
+                }
+                else
+                {
+                    goto case DeathReason.Kill;
+                }
         }
     }
     [RegisterEvent(2)]

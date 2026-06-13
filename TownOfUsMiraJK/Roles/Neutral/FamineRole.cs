@@ -15,6 +15,7 @@ using Reactor.Utilities.Extensions;
 using System.Text;
 using TownOfUs;
 using TownOfUs.Assets;
+using TownOfUs.Events;
 using TownOfUs.Extensions;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Neutral;
@@ -235,15 +236,17 @@ public sealed class FamineRole(IntPtr cppPtr)
         {
             if (!player.TryGetModifier<BakerFedModifier>(out var modifier))
             {
-                if (Player.AmOwner)
-                {
-                    PlayerControl.LocalPlayer.RpcSpecialMurder(player, MeetingCheck.Ignore,
-                    teleportMurderer: false,
-                    isIndirect: true,
-                    ignoreShield: true,
-                    resetKillTimer: false,
-                    causeOfDeath: "Famine");
-                }
+                Player.AddModifier<IndirectAttackerModifier>(true);
+
+                DeathHandlerModifier.UpdateDeathHandlerImmediate(player, TouLocale.Get("DiedToFamine"),
+                    DeathEventHandlers.CurrentRound,
+                    !MeetingHud.Instance && !ExileController.Instance
+                        ? DeathHandlerOverride.SetTrue
+                        : DeathHandlerOverride.SetFalse, lockInfo: DeathHandlerOverride.SetTrue);
+
+                Player.CustomMurder(player, MurderResultFlags.Succeeded,
+                resetKillTimer: false,
+                teleportMurderer: false);
             }
             else
             {

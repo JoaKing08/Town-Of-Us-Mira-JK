@@ -1,16 +1,14 @@
-﻿using AmongUs.GameOptions;
-using HarmonyLib;
-using MiraAPI.Events;
-using MiraAPI.Events.Vanilla.Gameplay;
+﻿using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Player;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
+using MiraAPI.Networking;
 using MiraAPI.Roles;
-using MiraAPI.Utilities;
-using Reactor.Utilities;
 using System.Collections;
+using TownOfUs.Events;
+using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Neutral;
-using TownOfUs.Networking;
+using TownOfUs.Modules.Localization;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Modifiers.Game.Alliance;
 using TownOfUsMiraJK.Options.Roles.Neutral;
@@ -22,32 +20,49 @@ namespace TownOfUsMiraJK.Events.Neutral;
 public static class NecromancerEvents
 {
     [RegisterEvent]
-    public static void AfterMurderEventHandler(AfterMurderEvent @event)
-    {
-        if (!CustomRoleUtils.GetActiveRolesOfType<NecromancerRole>().HasAny())
-        {
-            return;
-        }
-
-        if (!OptionGroupSingleton<NecromancerOptions>.Instance.NecromancerArrows)
-        {
-            return;
-        }
-
-        Coroutines.Start(CoCreateNecromancerArrow(@event.Target));
-
-        if (PlayerControl.LocalPlayer.HasModifier<NecromancerUndeadModifier>() && !PlayerControl.LocalPlayer.HasDied() && !Helpers.GetAlivePlayers().Any(x => x.Is((RoleTypes)RoleId.Get<NecromancerRole>())))
-        {
-            PlayerControl.LocalPlayer.RpcSpecialMurder(PlayerControl.LocalPlayer, true, true, resetKillTimer: false, teleportMurderer: false, causeOfDeath: "Necromancer");
-        }
-    }
-
-    [RegisterEvent]
     public static void PlayerDeathEventHandler(PlayerDeathEvent @event)
     {
-        if (PlayerControl.LocalPlayer.HasModifier<NecromancerUndeadModifier>() && !PlayerControl.LocalPlayer.HasDied() && !Helpers.GetAlivePlayers().Any(x => x.Is((RoleTypes)RoleId.Get<NecromancerRole>())))
+        if (@event.Player.IsRole<NecromancerRole>())
         {
-            PlayerControl.LocalPlayer.RpcSpecialMurder(PlayerControl.LocalPlayer, true, true, resetKillTimer: false, teleportMurderer: false, causeOfDeath: "Necromancer");
+            foreach (var undead in ModifierUtils.GetPlayersWithModifier<NecromancerUndeadModifier>(x => !x.Player.HasDied()))
+            {
+                switch (@event.DeathReason)
+                {
+                    case DeathReason.Exile:
+                        DeathHandlerModifier.UpdateDeathHandlerImmediate(undead, TouLocale.Get("DiedToNecromancer"),
+                            DeathEventHandlers.CurrentRound, DeathHandlerOverride.SetFalse,
+                            lockInfo: DeathHandlerOverride.SetTrue);
+                        undead.Exiled();
+                        break;
+                    case DeathReason.Kill:
+                        var showAnim = MeetingHud.Instance == null && ExileController.Instance == null;
+                        var murderResultFlags2 = MurderResultFlags.DecisionByHost | MurderResultFlags.Succeeded;
+
+                        DeathHandlerModifier.UpdateDeathHandlerImmediate(undead, TouLocale.Get("DiedToNecromancer"),
+                            DeathEventHandlers.CurrentRound,
+                            !MeetingHud.Instance && !ExileController.Instance
+                                ? DeathHandlerOverride.SetTrue
+                                : DeathHandlerOverride.SetFalse, lockInfo: DeathHandlerOverride.SetTrue);
+                        undead.CustomMurder(
+                            undead,
+                            murderResultFlags2,
+                            false,
+                            showAnim,
+                            false,
+                            showAnim,
+                            false);
+                        break;
+                    default:
+                        if (MeetingHud.Instance || ExileController.Instance)
+                        {
+                            goto case DeathReason.Exile;
+                        }
+                        else
+                        {
+                            goto case DeathReason.Kill;
+                        }
+                }
+            }
         }
     }
 
