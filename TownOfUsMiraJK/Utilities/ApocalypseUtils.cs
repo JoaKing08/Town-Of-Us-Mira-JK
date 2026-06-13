@@ -15,6 +15,7 @@ using TownOfUs.Options;
 using TownOfUs.Options.Modifiers.Alliance;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
+using TownOfUsMiraJK.Modifiers.Game.Alliance;
 using TownOfUsMiraJK.Modules.Components;
 using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
@@ -49,11 +50,15 @@ namespace TownOfUsMiraJK.Utilities
         }
         public static bool ApocalypseWinConditionMet(RoleBehaviour role)
         {
+            if (role.Player.HasModifier<NecromancerUndeadModifier>())
+            {
+                return false;
+            }
             if (OptionGroupSingleton<GeneralJKOptions>.Instance.ApocTeam)
             {
                 if (ArmageddonSabotageSystem.ArmageddonFinished)
                 {
-                    return true;
+                    return CustomRoleUtils.GetActiveRolesOfType<DeathRole>().FirstOrDefault()?.Player.HasModifier<NecromancerUndeadModifier>() == false;
                 }
                 var apocalypseMembers = CustomRoleUtils.GetActiveRolesOfTeam(ModdedRoleTeams.Custom).Where(x => x.IsApocalypse() && !x.Player.HasDied());
                 var allApocalypseMembers = apocalypseMembers;

@@ -20,6 +20,7 @@ using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Modifiers.Game.Alliance;
+using TownOfUsMiraJK.Modules.Components;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Neutral;
@@ -87,6 +88,11 @@ public sealed class NecromancerRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownO
         if (Player.HasDied())
         {
             return false;
+        }
+
+        if (ArmageddonSabotageSystem.ArmageddonFinished)
+        {
+            return CustomRoleUtils.GetActiveRolesOfType<DeathRole>().FirstOrDefault()?.Player.HasModifier<NecromancerUndeadModifier>() == true;
         }
 
         var undeadCount = ModifierUtils.GetActiveModifiers<NecromancerUndeadModifier>().Count(x => !x.Player.HasDied()) + 1;
