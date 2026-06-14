@@ -8,6 +8,7 @@ using Reactor.Utilities.Extensions;
 using TownOfUs.Buttons;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Neutral;
+using TownOfUs.Modules;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Modifiers.Game.Crewmate;
@@ -16,7 +17,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Modifier;
 
-public sealed class ExplorerVentButton : TownOfUsTargetButton<Vent>
+public sealed class ExplorerVentButton : TownOfUsVentRoleButton<Vent>
 {
     public override string Name => TranslationController.Instance.GetStringWithDefault(StringNames.VentLabel, "Vent");
     public override BaseKeybind Keybind => Keybinds.VentAction;
@@ -36,33 +37,37 @@ public sealed class ExplorerVentButton : TownOfUsTargetButton<Vent>
 
     public override Vent? GetTarget()
     {
-        return TouRoleUtils.GetClosestUsableVent(true);
+        return HudManager.Instance.ImpostorVentButton.currentTarget;
     }
 
     public override bool CanUse()
     {
-        var newTarget = GetTarget();
-        if (newTarget != Target)
+        if (TimeLordRewindSystem.IsRewinding)
         {
-            Target?.SetOutline(false, false);
+            return false;
         }
 
-        Target = IsTargetValid(newTarget) ? newTarget : null;
-        SetOutline(true);
+        if (PlayerControl.LocalPlayer.HasDied())
+        {
+            return false;
+        }
 
         if (HudManager.Instance.Chat.IsOpenOrOpening || MeetingHud.Instance)
         {
             return false;
         }
 
-        if (PlayerControl.LocalPlayer.HasModifier<GlitchHackedModifier>() || PlayerControl.LocalPlayer
-                .GetModifiers<DisabledModifier>().Any(x => !x.CanUseAbilities))
+        if (PlayerControl.LocalPlayer.HasModifier<GlitchHackedModifier>() ||
+            PlayerControl.LocalPlayer.GetModifiers<DisabledModifier>().Any(x => !x.CanUseAbilities))
         {
             return false;
         }
 
-        return (Timer <= 0 && !PlayerControl.LocalPlayer.inVent && Target != null ||
-                PlayerControl.LocalPlayer.inVent) && (!LimitedUses || UsesLeft > 0);
+        var newTarget = GetTarget();
+        Target = IsTargetValid(newTarget) ? newTarget : null;
+
+        return (PlayerControl.LocalPlayer.inVent || Timer <= 0 && Target != null) &&
+            (!LimitedUses || UsesLeft > 0);
     }
 
     public override void ClickHandler()
@@ -115,7 +120,7 @@ public sealed class ExplorerVentButton : TownOfUsTargetButton<Vent>
     {
         if (PlayerControl.LocalPlayer.inVent)
         {
-            _ = Vent.currentVent.CanUse(PlayerControl.LocalPlayer.Data, true, out var couldUse);
+            _ = Vent.currentVent.CanUse(PlayerControl.LocalPlayer.Data, out var canUse, out var couldUse);
             Vent.currentVent.SetButtons(false);
             if (!couldUse)
             {

@@ -34,7 +34,7 @@ public sealed class PirateDuelModifier(PlayerControl pirate) : BaseModifier
     public override void OnDeactivate()
     {
         base.OnDeactivate();
-        DuelButton?.Destroy();
+        DuelButton?.DeepDestroy();
     }
 
     public bool IsExempt(PlayerVoteArea voteArea)

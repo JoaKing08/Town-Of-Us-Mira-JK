@@ -1,5 +1,6 @@
 using Reactor.Utilities.Attributes;
 using Reactor.Utilities.Extensions;
+using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using UnityEngine;
 
@@ -55,6 +56,6 @@ public class GuardLine(IntPtr ptr) : MonoBehaviour(ptr)
     }
     public void Destroy()
     {
-        gameObject.Destroy();
+        gameObject?.DeepDestroy();
     }
 }

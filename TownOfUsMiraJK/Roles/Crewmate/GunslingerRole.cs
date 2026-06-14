@@ -1,5 +1,6 @@
 ﻿using AmongUs.GameOptions;
 using Il2CppInterop.Runtime.Attributes;
+using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Networking;
 using MiraAPI.Patches.Stubs;
@@ -18,6 +19,7 @@ using TownOfUs.Roles;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
+using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Impostor;
 using UnityEngine;
 
@@ -71,10 +73,6 @@ public sealed class GunslingerRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCr
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
-        if (!Player.HasModifier<GunslingerRevealModifier>())
-        {
-            Player.AddModifier<GunslingerRevealModifier>(RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<GunslingerRole>()));
-        }
 
         if (Player.AmOwner)
         {
@@ -140,6 +138,11 @@ public sealed class GunslingerRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCr
         }
         var role = Gunslinger.Data.Role as GunslingerRole;
         role.HasShot = true;
+
+        if (!Gunslinger.HasModifier<GunslingerRevealModifier>() && OptionGroupSingleton<GunslingerOptions>.Instance.Reveal)
+        {
+            Gunslinger.AddModifier<GunslingerRevealModifier>(RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<GunslingerRole>()));
+        }
     }
 
     public override void Deinitialize(PlayerControl targetPlayer)

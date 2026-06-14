@@ -11,6 +11,7 @@ using MiraAPI.Utilities;
 using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Utilities;
+using TownOfUsMiraJK;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Buttons.Crewmate;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
@@ -96,7 +97,7 @@ public static class TavernKeeperEvents
         {
             var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRoleTavernKeeperDrinkNotif").Replace("<role>",
-                MiscUtils.GetHyperlinkText(MiscUtils.PlayerById(source.GetModifier<TavernKeeperDrunkModifier>()!.TavernKeeperId).Data.Role)),
+                $"{TownOfUsMiraJKColors.TavernKeeper.ToTextColor()}{TouLocale.Get("TouJKRoleTavernKeeper")}</color>"),
                 Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.TavernKeeper.LoadAsset());
 
             notif1.AdjustNotification();

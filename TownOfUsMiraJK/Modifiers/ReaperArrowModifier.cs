@@ -62,7 +62,7 @@ public sealed class ReaperArrowModifier(DeadBody deadBody, Color color) : TimedM
     {
         if (!_arrow.IsDestroyedOrNull())
         {
-            _arrow?.gameObject.Destroy();
+            _arrow?.gameObject.DeepDestroy();
             _arrow?.Destroy();
         }
     }

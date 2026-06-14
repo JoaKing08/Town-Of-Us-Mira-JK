@@ -1,5 +1,6 @@
 using Il2CppInterop.Runtime.Injection;
 using Reactor.Utilities.Extensions;
+using TownOfUs.Utilities;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Modules
@@ -12,7 +13,7 @@ namespace TownOfUsMiraJK.Modules
         public static CameraEffect singleton { get; private set; }
         public static void Initialize()
         {
-            if (singleton != null) singleton.Destroy();
+            if (singleton != null) singleton.gameObject?.DeepDestroy();
             singleton = Camera.main.gameObject.AddComponent<CameraEffect>();
         }
         public void OnRenderImage(RenderTexture source, RenderTexture destination)

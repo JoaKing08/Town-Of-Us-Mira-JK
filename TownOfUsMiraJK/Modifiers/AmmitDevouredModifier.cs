@@ -12,6 +12,7 @@ using TownOfUsMiraJK;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
 using UnityEngine;
+using static Rewired.Utils.Classes.Data.SerializedObject;
 
 namespace TownOfUs.Modifiers.Crewmate;
 
@@ -24,7 +25,6 @@ public sealed class AmmitDevouredModifier(PlayerControl ammit) : DisabledModifie
     public override bool HideOnUi => true;
 
     public PlayerControl Ammit { get; } = ammit;
-
 
     public override void OnActivate()
     {
@@ -115,6 +115,23 @@ public sealed class AmmitDevouredModifier(PlayerControl ammit) : DisabledModifie
         public static void Postfix(ref List<PlayerControl> __result)
         {
             __result = __result.Where(x => !x.HasModifier<AmmitDevouredModifier>()).ToList();
+        }
+    }
+    [HarmonyPatch]
+    public static class ShieldVisiblePatch
+    {
+        [HarmonyPatch(typeof(BaseShieldModifier), nameof(BaseShieldModifier.IsVisible), MethodType.Getter)]
+        [HarmonyPatch(typeof(FirstDeadShield), nameof(FirstDeadShield.IsVisible), MethodType.Getter)]
+        [HarmonyPatch(typeof(FirstDeadShieldDisguiseVisual), nameof(FirstDeadShieldDisguiseVisual.IsVisible), MethodType.Getter)]
+        [HarmonyPrefix]
+        public static bool Prefix(BaseModifier __instance, ref bool __result)
+        {
+            if (__instance.Player.HasModifier<AmmitDevouredModifier>())
+            {
+                __result = false;
+                return false;
+            }
+            return true;
         }
     }
 }

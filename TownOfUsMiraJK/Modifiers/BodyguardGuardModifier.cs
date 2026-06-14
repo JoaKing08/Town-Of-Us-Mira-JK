@@ -4,6 +4,7 @@ using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using TownOfUs.Buttons.Crewmate;
 using TownOfUs.Events.TouEvents;
+using TownOfUs.Utilities;
 using TownOfUsMiraJK;
 using TownOfUsMiraJK.Enums;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
@@ -37,7 +38,7 @@ public sealed class BodyguardGuardModifier(PlayerControl bodyguard) : BaseShield
     {
         if (GuardLineComp != null)
         {
-            GuardLineComp.Destroy();
+            GuardLineComp?.gameObject?.DeepDestroy();
         }
     }
 

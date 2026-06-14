@@ -106,13 +106,13 @@ public static class SanctifierEvents
             var button = buttonClick.Button;
             if (button != null)
             {
-                button.Timer += 1f;
+                button.Timer = OptionGroupSingleton<GameMechanicOptions>.Instance.TempSaveCdReset;
             }
         }
 
         if (@event is BeforeMurderEvent && source.IsImpostor())
         {
-            source.SetKillTimer(source.killTimer + 1f);
+            source.SetKillTimer(OptionGroupSingleton<GameMechanicOptions>.Instance.TempSaveCdReset);
         }
 
 

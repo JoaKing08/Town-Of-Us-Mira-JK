@@ -137,7 +137,7 @@
 	<string name="TouJKOptionBodyguardGuardDistance">Guard Max Distance</string>
 	<!-- Crusader -->
 	<string name="TouJKRoleCrusader">Crusader</string>
-	<string name="TouJKRoleCrusaderIntroBlurb">Kill anyone who tries to interact with the protected.</string>
+	<string name="TouJKRoleCrusaderIntroBlurb">Kill anyone who tries to interact with protected.</string>
 	<string name="TouJKRoleCrusaderTabDescription">Protect the players from interactions, by killing.</string>
 	<!-- Crusader Wiki -->
 	<string name="TouJKRoleCrusaderWikiDescription">The Crusader is a Crewmate Protective role that can protect the player. If the protected player is interacted with, the interacting player will die.</string>

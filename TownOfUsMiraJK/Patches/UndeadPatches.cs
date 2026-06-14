@@ -2,6 +2,7 @@
 using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using TownOfUs.Patches;
+using TownOfUs.Roles.Impostor;
 using TownOfUsMiraJK.Modifiers.Game.Alliance;
 using TownOfUsMiraJK.Roles.Neutral;
 
@@ -14,7 +15,7 @@ public static class UndeadPatches
     [HarmonyPrefix]
     public static bool Prefix(ref bool __result)
     {
-        if (CustomRoleUtils.GetActiveRolesOfType<DeathRole>().FirstOrDefault()?.Player.HasModifier<NecromancerUndeadModifier>() != false)
+        if (CustomRoleUtils.GetActiveRolesOfType<SpellslingerRole>().FirstOrDefault()?.Player.HasModifier<NecromancerUndeadModifier>() == false)
         {
             return true;
         }

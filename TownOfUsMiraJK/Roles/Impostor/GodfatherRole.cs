@@ -90,7 +90,8 @@ public sealed class GodfatherRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
             notif1.AdjustNotification();
         }
         target.ChangeRole(RoleId.Get<MafiosoRole>());
-        (target.Data.Role as MafiosoRole)!.Godfather = godfather;
+        target.GetRole<MafiosoRole>()!.Godfather = godfather;
+        godfather.GetRole<GodfatherRole>()!.Recruited = true;
     }
     public override void Initialize(PlayerControl player)
     {

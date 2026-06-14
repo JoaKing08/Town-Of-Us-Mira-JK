@@ -1,16 +1,23 @@
 ﻿using AmongUs.GameOptions;
+using HarmonyLib;
 using Il2CppInterop.Runtime.Attributes;
+using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
+using MiraAPI.Modifiers.Types;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
+using Reactor.Utilities.Extensions;
 using TownOfUs;
 using TownOfUs.Assets;
+using TownOfUs.GameOver;
+using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
+using TownOfUs.Patches;
 using TownOfUs.Roles;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
@@ -79,7 +86,7 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
     {
         var amCount = CustomRoleUtils.GetActiveRolesOfType<AmmitRole>().Count(x => !x.Player.HasDied());
 
-        if (!PlayerControl.AllPlayerControls.ToArray().Any(x => !x.HasDied() && !x.HasModifier<AmmitDevouredModifier>() && !x.IsRole<AmmitRole>()) && amCount > 0)
+        if (!PlayerControl.AllPlayerControls.ToArray().Any(x => !x.HasDied() && (!x.HasModifier<AmmitDevouredModifier>() || x.HasModifier<InvulnerabilityModifier>() || x.HasModifier<BaseShieldModifier>() || x.HasModifier<BaseShieldModifier>()) && !x.IsRole<AmmitRole>()) && amCount > 0)
         {
             return true;
         }
@@ -142,6 +149,29 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
         foreach (var devoured in Devoured)
         {
             devoured.RemoveModifier<AmmitDevouredModifier>();
+        }
+    }
+
+    [HarmonyPatch]
+    public static class DrawGameWithImmuneDevoured
+    {
+        [HarmonyPatch(typeof(LogicGameFlowPatches), nameof(LogicGameFlowPatches.CheckEndCriteriaPatch))]
+        [HarmonyPostfix]
+        public static void Postfix(ref bool __result)
+        {
+            if (__result)
+            {
+
+                if (!PlayerControl.AllPlayerControls.ToArray().Any(x => !x.HasDied() && !x.HasModifier<AmmitDevouredModifier>() && !x.IsRole<AmmitRole>()) && CustomRoleUtils.GetActiveRolesOfType<AmmitRole>().FirstOrDefault()?.WinConditionMet() != true)
+                {
+                    var randomPlayer = PlayerControl.AllPlayerControls.ToArray().Where(x =>
+                        !x.Data.Role.DidWin(CustomGameOver.GameOverReason<DrawGameOver>()) && !x.GetModifiers<GameModifier>()
+                            .Any(y => y.DidWin(CustomGameOver.GameOverReason<DrawGameOver>()) == true)).Random();
+                    CustomGameOver.Trigger<DrawGameOver>([
+                        randomPlayer != null ? randomPlayer.Data : PlayerControl.LocalPlayer.Data
+                    ]);
+                }
+            }
         }
     }
 }

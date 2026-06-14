@@ -70,7 +70,7 @@ public sealed class ArmageddonSabotageTask(nint cppPtr) : PlayerTask(cppPtr)
     [HideFromIl2Cpp]
     private IEnumerator CoFlash()
     {
-        HudManager.Instance.FullScreen.color = new Color(TownOfUsMiraJKColors.Death.r, TownOfUsMiraJKColors.Death.g, TownOfUsMiraJKColors.Death.b, 0.34f);
+        HudManager.Instance.FullScreen.color = TownOfUsMiraJKColors.Death.SetAlpha(0.34f);
         var wait = new WaitForSeconds(1f);
         var playSound = false;
         while (_sabotage.TimeRemaining > 0)
@@ -78,7 +78,7 @@ public sealed class ArmageddonSabotageTask(nint cppPtr) : PlayerTask(cppPtr)
             var disableBlare = (MeetingHud.Instance != null || ExileController.Instance != null);
             if (_sabotage.Stage == ArmageddonStage.Countdown)
             {
-                HudManager.Instance.FullScreen.color = new Color(TownOfUsMiraJKColors.Death.r, TownOfUsMiraJKColors.Death.g, TownOfUsMiraJKColors.Death.b, playSound ? 0.18f : 0.34f);
+                HudManager.Instance.FullScreen.color = TownOfUsMiraJKColors.Death.SetAlpha(playSound ? 0.18f : 0.34f);
                 HudManager.Instance.FullScreen.gameObject.SetActive(true);
                 HudManager.Instance.PlayerCam.shakeAmount = 0.03f;
                 HudManager.Instance.PlayerCam.shakePeriod = 16f;
@@ -149,7 +149,7 @@ public sealed class ArmageddonSabotageTask(nint cppPtr) : PlayerTask(cppPtr)
             }
             else
             {
-                HudManager.Instance.FullScreen.color = new Color(1f, 0f, 0f, 0.37254903f);
+                HudManager.Instance.FullScreen.color = TownOfUsMiraJKColors.Death.SetAlpha(0.37254903f);
                 if (!HudManager.Instance.FullScreen.gameObject.activeSelf && !disableBlare)
                 {
                     SoundManager.Instance.StopSound(TouAudio.HexBombAlarmSound.LoadAsset());
@@ -164,11 +164,7 @@ public sealed class ArmageddonSabotageTask(nint cppPtr) : PlayerTask(cppPtr)
     public override void AppendTaskText(Il2CppSystem.Text.StringBuilder sb)
     {
         _even = !_even;
-        var color = _even ? Color.yellow : Color.red;
-        if (_sabotage.Stage == ArmageddonStage.Countdown)
-        {
-            color = _even ? new Color(0.7f, 0.5f, 0f) : Color.red;
-        }
+        var color = _even ? Color.yellow : TownOfUsMiraJKColors.Death;
 
         var text = TouLocale.Get("TouJKRoleDeathArmageddonTriggered");
         switch (_sabotage.Stage)

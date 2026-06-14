@@ -11,11 +11,13 @@ using TownOfUs.Extensions;
 using TownOfUs.Interfaces;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game;
+using TownOfUs.Modules.Components;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Options;
 using TownOfUs.Roles;
 using TownOfUs.Roles.Crewmate;
+using TownOfUs.Roles.Impostor;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
@@ -93,6 +95,11 @@ public sealed class NecromancerRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownO
         if (ArmageddonSabotageSystem.ArmageddonFinished)
         {
             return CustomRoleUtils.GetActiveRolesOfType<DeathRole>().FirstOrDefault()?.Player.HasModifier<NecromancerUndeadModifier>() == true;
+        }
+
+        if (HexBombSabotageSystem.BombFinished)
+        {
+            return CustomRoleUtils.GetActiveRolesOfType<SpellslingerRole>().FirstOrDefault()?.Player.HasModifier<NecromancerUndeadModifier>() == true;
         }
 
         var undeadCount = ModifierUtils.GetActiveModifiers<NecromancerUndeadModifier>().Count(x => !x.Player.HasDied()) + 1;

@@ -21,9 +21,9 @@ public sealed class BloodhoundBloodlustModifier() : TimedModifier
     public override bool AutoStart => true;
 
     public override bool HideOnUi => true;
-    public bool NoEndNotif = false;
-    public SpriteRenderer Tint;
-    public bool IsDestroyed = false;
+    public bool NoEndNotif { get; set; }
+    public SpriteRenderer Tint { get; set; }
+    public bool IsDestroyed { get; set; }
 
 
     public override void OnActivate()
@@ -32,7 +32,7 @@ public sealed class BloodhoundBloodlustModifier() : TimedModifier
         {
             Tint = GameObject.Instantiate(HudManager.Instance.FullScreen, HudManager.Instance.FullScreen.transform.parent);
             Tint.gameObject.SetActive(true);
-            Tint.color = new Color(TownOfUsMiraJKColors.Bloodhound.r, TownOfUsMiraJKColors.Bloodhound.g, TownOfUsMiraJKColors.Bloodhound.b, 0.2f);
+            Tint.color = TownOfUsMiraJKColors.Bloodhound.SetAlpha(0.2f);
             var notif1 = Helpers.CreateAndShowNotification(
                 TouLocale.GetParsed("TouJKRoleBloodhoundBloodlustNotif"),
                 Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Bloodhound.LoadAsset());
@@ -58,7 +58,7 @@ public sealed class BloodhoundBloodlustModifier() : TimedModifier
             }
             else
             {
-                Tint.Destroy();
+                Tint?.gameObject?.Destroy();
             }
             CustomButtonSingleton<BloodhoundKillButton>.Instance.ResetCooldownAndOrEffect();
         }
@@ -67,7 +67,7 @@ public sealed class BloodhoundBloodlustModifier() : TimedModifier
     {
         tint.color = new Color(Palette.CrewmateBlue.r, Palette.CrewmateBlue.g, Palette.CrewmateBlue.b, 0.4f);
         yield return new WaitForSeconds(1f);
-        tint.Destroy();
+        tint?.gameObject?.Destroy();
     }
 
     public override void OnDeath(DeathReason reason)

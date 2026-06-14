@@ -22,7 +22,7 @@ public static class SanctifierCircleManager
         var circle = gameObject.AddComponent<SanctifierCircle>();
         circle.Renderer.enabled = PlayerControl.LocalPlayer.IsRole<SanctifierRole>();
         circle._scale = scale;
-        circle._shown = PlayerControl.LocalPlayer.IsRole<SanctifierRole>() || OptionGroupSingleton<SanctifierOptions>.Instance.ShowSanctify;
+        circle._shown = PlayerControl.LocalPlayer.IsRole<SanctifierRole>() || !OptionGroupSingleton<SanctifierOptions>.Instance.ShowSanctify;
         SanctifierCircles.Add(circle);
         return circle;
     }
@@ -30,7 +30,7 @@ public static class SanctifierCircleManager
     {
         foreach (var circle in SanctifierCircles)
         {
-            circle?.gameObject?.Destroy();
+            circle?.gameObject?.DeepDestroy();
         }
         SanctifierCircles.Clear();
     }
@@ -96,7 +96,7 @@ public class SanctifierCircle(IntPtr ptr) : MonoBehaviour(ptr)
     }
     public void Destroy()
     {
-        gameObject?.Destroy();
+        gameObject?.DeepDestroy();
         SanctifierCircleManager.SanctifierCircles.Remove(this);
     }
 }

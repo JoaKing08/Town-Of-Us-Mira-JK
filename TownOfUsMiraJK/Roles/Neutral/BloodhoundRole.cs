@@ -72,7 +72,7 @@ public sealed class BloodhoundRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOf
         var stringB = ITownOfUsRole.SetNewTabText(this);
         if (Player.HasModifier<BloodhoundBloodlustModifier>(x => !x.IsDestroyed))
         {
-            stringB.Append(TownOfUsPlugin.Culture, $"\n<b>{TouLocale.GetParsed("TouJKRoleBloodhoundTabBloodlustCounter").Replace("<time>", $"{(int)Player.GetModifier<BloodhoundBloodlustModifier>().TimeRemaining}")}</b>");
+            stringB.Append(TownOfUsPlugin.Culture, $"\n<b>{TouLocale.GetParsed("TouJKRoleBloodhoundTabBloodlustCounter").Replace("<time>", $"{(int)Player.GetModifier<BloodhoundBloodlustModifier>()!.TimeRemaining}")}</b>");
         }
         else
         {
@@ -157,6 +157,6 @@ public sealed class BloodhoundRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOf
             modifier.StartTimer();
         }
         var role = bloodhound.Data.Role as BloodhoundRole;
-        role.KillCount -= (int)OptionGroupSingleton<BloodhoundOptions>.Instance.KillsToBloodlust;
+        role!.KillCount -= (int)OptionGroupSingleton<BloodhoundOptions>.Instance.KillsToBloodlust;
     }
 }

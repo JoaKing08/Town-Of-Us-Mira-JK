@@ -62,7 +62,7 @@ public sealed class NecromancerArrowModifier(DeadBody deadBody, Color color) : T
     {
         if (!_arrow.IsDestroyedOrNull())
         {
-            _arrow?.gameObject.Destroy();
+            _arrow?.gameObject.DeepDestroy();
             _arrow?.Destroy();
         }
     }

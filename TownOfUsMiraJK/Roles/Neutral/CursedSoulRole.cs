@@ -222,6 +222,11 @@ public sealed class CursedSoulRole(IntPtr cppPtr)
                 $"<b>{text.Replace("<role>", $"{TownOfUsMiraJKColors.CursedSoul.ToTextColor()}{target.Data.Role.GetRoleName()}</color>")}</b>",
                 Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.CursedSoul.LoadAsset());
             notif1.AdjustNotification();
+
+            if (target.inVent)
+            {
+                target.MyPhysics.RpcExitVent(Vent.currentVent.Id);
+            }
         }
 
         var playerIsAssassin = target.HasModifier<AssassinModifier>();

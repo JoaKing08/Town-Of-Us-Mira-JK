@@ -39,7 +39,7 @@ public sealed class SniperArrowModifier(Vector2 position, Color color) : TimedMo
     {
         if (!_arrow.IsDestroyedOrNull())
         {
-            _arrow?.gameObject.Destroy();
+            _arrow?.gameObject.DeepDestroy();
             _arrow?.Destroy();
         }
     }
