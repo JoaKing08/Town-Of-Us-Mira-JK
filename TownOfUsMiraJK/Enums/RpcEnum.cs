@@ -36,5 +36,6 @@
         SendUndeadTeamChat,
         SetUndercoverCover,
         DeputyReveal,
+        SetDrunkSeed,
     }
 }

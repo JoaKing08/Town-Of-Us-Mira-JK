@@ -19,4 +19,6 @@ public sealed class DrunkOptions : AbstractOptionGroup<DrunkModifier>
     {
         Visible = () => OptionGroupSingleton<DrunkOptions>.Instance.DrunkExpires
     };
+
+    public ModdedToggleOption DrunkRandom { get; set; } = new("TouJKOptionDrunkRandom", false);
 }
