@@ -87,7 +87,7 @@
 	<string name="TouJKRoleTavernKeeperWikiDescription">The Tavern Keeper is a Crewmate Support role that can temporarly block abilities.</string>
 	<string name="TouJKRoleTavernKeeperDrink">Drink</string>
 	<string name="TouJKRoleTavernKeeperDrinkWikiDescription">Prevents the target from using their abilities for a set duration.</string>
-	<string name="TouJKRoleTavernKeeperDrinkNotif">You are felling a bit tipsy and can't concentrate, \%role\% has blocked your ability.</string>
+	<string name="TouJKRoleTavernKeeperDrinkNotif">You are feeling a bit tipsy and can't concentrate, \%role\% has blocked your ability.</string>
 	<!-- Tavern Keeper Options -->
 	<string name="TouJKOptionTavernKeeperDrinkCooldown">Drink Cooldown</string>
 	<string name="TouJKOptionTavernKeeperDrinksResetEveryRound">Reset Drinks Every Round</string>
@@ -650,8 +650,13 @@
 	<string name="TouJKModifierDrunkTabDescription">Your movement is inverted!</string>
 	<string name="TouJKModifierDrunkWikiDescription">Your movement is inverted.</string>
 	<string name="TouJKModifierDrunkIntroBlurb">Your movement is inverted.</string>
+	<string name="TouJKModifierDrunkTabDescriptionExpiresRandom">Your movement is randomized for \%time\% round(s)!</string>
+	<string name="TouJKModifierDrunkTabDescriptionRandom">Your movement is randomized!</string>
+	<string name="TouJKModifierDrunkWikiDescriptionRandom">Your movement is randomized.</string>
+	<string name="TouJKModifierDrunkIntroBlurbRandom">Your movement is randomized.</string>
 	<string name="TouJKOptionDrunkExpires">Drunk Expires</string>
 	<string name="TouJKOptionDrunkRounds">Drunk Expires After Rounds</string>
+	<string name="TouJKOptionDrunkRandom">Drunk Randomizes Inputs</string>
 	<string name="TouJKOptionDrunkAmount">Drunk Amount</string>
 	<string name="TouJKOptionDrunkChance">Drunk Chance</string>
 	<!-- Tasker Wiki / Description -->
