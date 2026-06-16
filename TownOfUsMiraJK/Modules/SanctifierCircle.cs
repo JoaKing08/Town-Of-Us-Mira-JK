@@ -30,7 +30,7 @@ public static class SanctifierCircleManager
     {
         foreach (var circle in SanctifierCircles)
         {
-            circle?.gameObject?.DeepDestroy();
+            circle?.gameObject?.Destroy();
         }
         SanctifierCircles.Clear();
     }
@@ -96,7 +96,7 @@ public class SanctifierCircle(IntPtr ptr) : MonoBehaviour(ptr)
     }
     public void Destroy()
     {
-        gameObject?.DeepDestroy();
+        gameObject?.Destroy();
         SanctifierCircleManager.SanctifierCircles.Remove(this);
     }
 }

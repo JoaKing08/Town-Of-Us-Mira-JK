@@ -33,6 +33,7 @@ public sealed class SecretaryRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCre
     public bool NormalVoteUsed { get; set; }
     public bool StoredVote { get; set; }
     public List<byte> VotedFor { get; set; } = new();
+    public int VotesShown { get; set; }
 
     public void FixedUpdate()
     {
@@ -121,6 +122,7 @@ public sealed class SecretaryRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCre
 
         StoredVote = false;
         NormalVoteUsed = false;
+        VotesShown = 0;
         VotedFor = new();
         Player.GetVoteData().SetRemainingVotes(VotesStored + 1);
 
@@ -180,6 +182,20 @@ public sealed class SecretaryRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCre
             secretaryRole.NormalVoteUsed = true;
         }
         secretaryRole.StoredVote = true;
+        if (!GameOptionsManager.Instance.currentNormalGameOptions.AnonymousVotes)
+        {
+            if (OptionGroupSingleton<MonarchOptions>.Instance.ShowKnightedVotes && plr.HasModifier<KnightedModifier>() && secretaryRole.VotedFor.Count == 0)
+            {
+                for (int i = 0; i < (int)OptionGroupSingleton<MonarchOptions>.Instance.VotesPerKnight + 1; i++)
+                {
+                    plr.GetVoteData().VoteForPlayer(MeetingHud.Instance.SkipVoteButton.TargetPlayerId);
+                }
+            }
+            else
+            {
+                plr.GetVoteData().VoteForPlayer(MeetingHud.Instance.SkipVoteButton.TargetPlayerId);
+            }
+        }
     }
     [MethodRpc((uint)TownOfUsJKRpc.SecretaryVote)]
     public static void RpcVote(PlayerControl plr, byte voted)
@@ -194,16 +210,7 @@ public sealed class SecretaryRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCre
             return;
         }
 
-        if (secretaryRole.NormalVoteUsed)
-        {
-            secretaryRole.VotesStored--;
-        }
-        else
-        {
-            secretaryRole.NormalVoteUsed = true;
-        }
-        secretaryRole.VotedFor.Add(voted);
-        if (secretaryRole.VotedFor.Count == 0 && OptionGroupSingleton<MonarchOptions>.Instance.ShowKnightedVotes && plr.HasModifier<KnightedModifier>())
+        if (secretaryRole.VotedFor.Count == 0 && OptionGroupSingleton<MonarchOptions>.Instance.ShowKnightedVotes && plr.HasModifier<KnightedModifier>() && secretaryRole.VotedFor.Count == 0)
         {
             for (int i = 0; i < (int)OptionGroupSingleton<MonarchOptions>.Instance.VotesPerKnight + 1; i++)
             {
@@ -214,6 +221,16 @@ public sealed class SecretaryRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCre
         {
             plr.GetVoteData().VoteForPlayer(voted);
         }
+
+        if (secretaryRole.NormalVoteUsed)
+        {
+            secretaryRole.VotesStored--;
+        }
+        else
+        {
+            secretaryRole.NormalVoteUsed = true;
+        }
+        secretaryRole.VotedFor.Add(voted);
         if (plr.AmOwner)
         {
             var tmpro = secretaryRole.StoreButton?.gameObject.GetComponentInChildren<TextMeshPro>();

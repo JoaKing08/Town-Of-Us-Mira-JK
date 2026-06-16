@@ -17,7 +17,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Modifier;
 
-public sealed class ExplorerVentButton : TownOfUsVentRoleButton<Vent>
+public sealed class ExplorerVentButton : TownOfUsTargetButton<Vent>
 {
     public override string Name => TranslationController.Instance.GetStringWithDefault(StringNames.VentLabel, "Vent");
     public override BaseKeybind Keybind => Keybinds.VentAction;

@@ -8,6 +8,7 @@ using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using MiraAPI.Voting;
+using TownOfUs.Events.Misc;
 using TownOfUs.Modifiers;
 using TownOfUs.Options.Roles.Crewmate;
 using TownOfUs.Utilities;
@@ -17,6 +18,54 @@ namespace TownOfUsMiraJK.Events.Crewmate;
 
 public static class SecretaryEvents
 {
+    [RegisterEvent(1)]
+    public static void ProcessVotesEventHandler(ProcessVotesEvent @event)
+    {
+        var votes = @event.Votes.ToList();
+
+        if (!GameOptionsManager.Instance.currentNormalGameOptions.AnonymousVotes)
+        {
+            foreach (var secretary in CustomRoleUtils.GetActiveRolesOfType<SecretaryRole>())
+            {
+                if (secretary.StoredVote)
+                {
+                    var vote = votes.FirstOrDefault(x => x.Voter == secretary.Player.PlayerId && x.Suspect == MeetingHud.Instance.SkipVoteButton.TargetPlayerId);
+                    votes.Remove(vote);
+                }
+            }
+        }
+
+        KnightedEvents.ExtraKnightVotes.Clear();
+        if (KnightedEvents.ShowVotes)
+        {
+            return;
+        }
+
+        var baseExtraVotes = (int)OptionGroupSingleton<MonarchOptions>.Instance.VotesPerKnight;
+
+        foreach (var player in PlayerControl.AllPlayerControls)
+        {
+            var knightModifiers = player.GetModifiers<KnightedModifier>()?.ToList();
+            if (knightModifiers == null || knightModifiers.Count == 0)
+                continue;
+
+            var vote = votes.FirstOrDefault(v => v.Voter == player.PlayerId);
+            if (vote == default)
+                continue;
+
+            var totalBonusVotes = knightModifiers.Count * baseExtraVotes;
+
+            for (var i = 0; i < totalBonusVotes; i++)
+            {
+                var extraVote = new CustomVote(vote.Voter, vote.Suspect);
+                votes.Add(extraVote);
+                KnightedEvents.ExtraKnightVotes.Add(extraVote);
+            }
+        }
+
+        @event.ExiledPlayer = VotingUtils.GetExiled(votes, out _);
+    }
+
     [RegisterEvent(1000)]
     public static void BeforeLocalVoteEvent(BeforeVoteEvent @event)
     {

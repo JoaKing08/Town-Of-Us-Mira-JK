@@ -56,6 +56,6 @@ public class GuardLine(IntPtr ptr) : MonoBehaviour(ptr)
     }
     public void Destroy()
     {
-        gameObject?.DeepDestroy();
+        gameObject?.Destroy();
     }
 }

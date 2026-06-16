@@ -44,7 +44,7 @@ public static class AmmitEvents
     {
         foreach (var modifier in ModifierUtils.GetActiveModifiers<AmmitDevouredModifier>())
         {
-            if (!modifier.Player.HasModifier<InvulnerabilityModifier>() && !modifier.Player.HasModifier<BaseShieldModifier>())
+            if (!modifier.Player.HasModifier<InvulnerabilityModifier>() && !modifier.Player.HasModifier<BaseShieldModifier>() && !modifier.Player.HasModifier<FirstDeadShield>())
             {
                 DeathHandlerModifier.UpdateDeathHandlerImmediate(modifier.Player, TouLocale.Get("DiedToAmmit"),
                     DeathEventHandlers.CurrentRound, DeathHandlerOverride.SetFalse,

@@ -16,22 +16,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Include="Patches\MeetingHudTimerPatch.cs" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Reference Include="TownOfUsMira">
         <HintPath>..\packages.local\TownOfUsMira.dll</HintPath>
         <Private>False</Private>
       </Reference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Buttons\Secret\" />
-      <Folder Include="Events\Secret\" />
-      <Folder Include="Modifiers\Impostor\" />
-      <Folder Include="Options\Roles\Secret\" />
-      <Folder Include="Roles\Secret\" />
     </ItemGroup>
 
     <Import Project="../AmongUs.props" />
