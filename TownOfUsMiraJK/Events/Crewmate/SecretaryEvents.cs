@@ -18,7 +18,7 @@ namespace TownOfUsMiraJK.Events.Crewmate;
 
 public static class SecretaryEvents
 {
-    [RegisterEvent(1)]
+    [RegisterEvent]
     public static void ProcessVotesEventHandler(ProcessVotesEvent @event)
     {
         var votes = @event.Votes.ToList();

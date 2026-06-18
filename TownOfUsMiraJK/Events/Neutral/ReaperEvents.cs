@@ -1,13 +1,18 @@
-﻿using MiraAPI.Events;
+﻿using AmongUs.GameOptions;
+using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.GameOptions;
+using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using Reactor.Utilities;
 using System.Collections;
 using TownOfUs.Modifiers.Neutral;
 using TownOfUs.Utilities;
+using TownOfUsMiraJK.Buttons.Crewmate;
+using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Options.Roles.Neutral;
+using TownOfUsMiraJK.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
 
@@ -18,7 +23,7 @@ public static class ReaperEvents
     [RegisterEvent]
     public static void AfterMurderEventHandler(AfterMurderEvent @event)
     {
-        if (!CustomRoleUtils.GetActiveRolesOfType<ReaperJKRole>().HasAny())
+        if (!CustomRoleUtils.GetActiveRolesOfType<ReaperRole>().HasAny())
         {
             return;
         }
@@ -42,12 +47,17 @@ public static class ReaperEvents
             yield break;
         }
 
-        foreach (var soulCollector in CustomRoleUtils.GetActiveRolesOfType<ReaperJKRole>().Select(x => x.Player))
+        foreach (var soulCollector in CustomRoleUtils.GetActiveRolesOfType<ReaperRole>().Select(x => x.Player))
         {
             if (soulCollector.AmOwner)
             {
                 soulCollector.AddModifier<ReaperArrowModifier>(deadBody, TownOfUsMiraJKColors.Reaper);
             }
         }
+    }
+    [RegisterEvent]
+    public static void RoundStartEventHandler(RoundStartEvent @event)
+    {
+        ReaperRole.ReapedBodies.Clear();
     }
 }

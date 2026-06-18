@@ -29,7 +29,7 @@ namespace TownOfUsMiraJK.Modifiers.Game.Universal;
 public sealed class DrunkModifier : UniversalGameModifier, IWikiDiscoverable, IColoredModifier
 {
     public override string LocaleKey => "Drunk";
-    public override string ModifierName => OptionGroupSingleton<DrunkOptions>.Instance.DrunkRandom ? TouLocale.Get($"TouJKModifier{LocaleKey}Random") : TouLocale.Get($"TouJKModifier{LocaleKey}");
+    public override string ModifierName => TouLocale.Get($"TouJKModifier{LocaleKey}");
     public override string IntroInfo => OptionGroupSingleton<DrunkOptions>.Instance.DrunkRandom ? TouLocale.Get($"TouJKModifier{LocaleKey}IntroBlurbRandom") : TouLocale.Get($"TouJKModifier{LocaleKey}IntroBlurb");
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKModifierIcons.Drunk;
 
@@ -68,7 +68,7 @@ public sealed class DrunkModifier : UniversalGameModifier, IWikiDiscoverable, IC
 
     public string GetAdvancedDescription()
     {
-        return TouLocale.GetParsed($"TouJKModifier{LocaleKey}WikiDescription") + MiscUtils.AppendOptionsText(GetType());
+        return (OptionGroupSingleton<DrunkOptions>.Instance.DrunkRandom ? TouLocale.GetParsed($"TouJKModifier{LocaleKey}WikiDescriptionRandom") : TouLocale.GetParsed($"TouJKModifier{LocaleKey}WikiDescription")) + MiscUtils.AppendOptionsText(GetType());
     }
 
     public List<CustomButtonWikiDescription> Abilities { get; } = [];

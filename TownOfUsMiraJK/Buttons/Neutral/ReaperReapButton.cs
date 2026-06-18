@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Buttons.Neutral;
 
-public sealed class ReaperReapButton : TownOfUsRoleButton<ReaperJKRole, DeadBody>
+public sealed class ReaperReapButton : TownOfUsRoleButton<ReaperRole, DeadBody>
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleReaperReap", "Reap");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
@@ -29,7 +29,7 @@ public sealed class ReaperReapButton : TownOfUsRoleButton<ReaperJKRole, DeadBody
             return;
         }
 
-        ReaperJKRole.RpcReapSoul(Role.Player, Target);
+        ReaperRole.RpcReapSoul(Role.Player, Target);
         if (Role.SoulCount >= OptionGroupSingleton<ReaperJKOptions>.Instance.SoulsToTransform)
         {
             DeathRole.RpcTriggerDeath(Role.Player);
@@ -40,12 +40,11 @@ public sealed class ReaperReapButton : TownOfUsRoleButton<ReaperJKRole, DeadBody
     {
         return PlayerControl.LocalPlayer == null ? null : Helpers.GetNearestDeadBodies(PlayerControl.LocalPlayer.GetTruePosition(),
             PlayerControl.LocalPlayer.MaxReportDistance / 4f, Helpers.CreateFilter(Constants.NotShipMask))
-            .Find(component => component && !component.Reported && !CustomRoleUtils.GetActiveRolesOfType<ReaperJKRole>()
-            .Any(x => x.ReapedBodies.Contains(component.ParentId)));
+            .Find(component => component && !component.Reported && !ReaperRole.ReapedBodies.Contains(component.ParentId));
     }
 
     public override bool IsTargetValid(DeadBody? target)
     {
-        return target && target?.Reported == false;
+        return target && target?.Reported == false && !ReaperRole.ReapedBodies.Contains(target.ParentId);
     }
 }

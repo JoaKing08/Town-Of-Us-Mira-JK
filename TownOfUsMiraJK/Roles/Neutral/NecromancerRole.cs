@@ -23,6 +23,7 @@ using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Modifiers.Game.Alliance;
 using TownOfUsMiraJK.Modules.Components;
+using TownOfUsMiraJK.Utilities;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Neutral;
@@ -108,7 +109,7 @@ public sealed class NecromancerRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownO
         x.Is(RoleAlignment.NeutralKilling) ||
         (x.Data.Role is ITouCrewRole { IsPowerCrew: true } &&
          !(x.TryGetModifier<AllianceGameModifier>(out var allyMod) && !allyMod.CrewContinuesGame) &&
-         OptionGroupSingleton<GameMechanicOptions>.Instance.CrewKillersContinue)) &&
+         OptionGroupSingleton<GameMechanicOptions>.Instance.CrewKillersContinue) || x.IsApocalypse()) &&
          !x.HasModifier<NecromancerUndeadModifier>()))
         {
             return false;

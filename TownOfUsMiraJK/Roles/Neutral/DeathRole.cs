@@ -103,7 +103,7 @@ public sealed class DeathRole(IntPtr cppPtr)
     }
 
     public bool IsGuessable => false;
-    public RoleBehaviour AppearAs => RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<ReaperJKRole>());
+    public RoleBehaviour AppearAs => RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<ReaperRole>());
 
     [MethodRpc((uint)TownOfUsJKRpc.TriggerDeath, LocalHandling = RpcLocalHandling.Before)]
     public static void RpcTriggerDeath(PlayerControl player)
@@ -113,7 +113,7 @@ public sealed class DeathRole(IntPtr cppPtr)
             MiscUtils.RunAnticheatWarning(player);
             return;
         }
-        if (player.HasDied() || (player.Data.Role is not DeathRole && player.Data.Role is not ReaperJKRole))
+        if (player.HasDied() || (player.Data.Role is not DeathRole && player.Data.Role is not ReaperRole))
         {
             return;
         }

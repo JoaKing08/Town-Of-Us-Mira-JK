@@ -32,7 +32,7 @@ public static class SeeVotesPatch
         {
             if (player?.Data.Role is SecretaryRole secretary && secretary.VotedFor.Count > 0)
             {
-                if (secretary.VotesShown > 1 + KnightedEvents.ExtraKnightVotes.Count(x => x.Voter == secretary.Player.PlayerId) || (secretary.VotedFor.Count > 0 && secretary.VotedFor.FirstOrDefault() != suspect.TargetPlayerId))
+                if (secretary.VotesShown >= 1 + KnightedEvents.ExtraKnightVotes.Count(x => x.Voter == secretary.Player.PlayerId) || (secretary.VotedFor.Count > 0 && secretary.VotedFor.FirstOrDefault() != suspect.TargetPlayerId))
                 {
                     PlayerMaterial.SetColors(Palette.DisabledGrey, spriteRenderer);
                 }
@@ -61,7 +61,7 @@ public static class SeeVotesPatch
         {
             if (player?.Data.Role is SecretaryRole secretary && secretary.VotedFor.Count > 0)
             {
-                if (secretary.VotesShown > 1 + KnightedEvents.ExtraKnightVotes.Count(x => x.Voter == secretary.Player.PlayerId) || (secretary.VotedFor.Count > 0 && secretary.VotedFor.FirstOrDefault() != suspect.TargetPlayerId))
+                if (secretary.VotesShown >= 1 + KnightedEvents.ExtraKnightVotes.Count(x => x.Voter == secretary.Player.PlayerId) || (secretary.VotedFor.Count > 0 && secretary.VotedFor.FirstOrDefault() != suspect.TargetPlayerId))
                 {
                     PlayerMaterial.SetColors(Palette.DisabledGrey, spriteRenderer);
                 }

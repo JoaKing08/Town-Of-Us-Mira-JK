@@ -19,7 +19,7 @@ namespace TownOfUsMiraJK.Events.Neutral;
 
 public static class NecromancerEvents
 {
-    [RegisterEvent]
+    [RegisterEvent(400)]
     public static void PlayerDeathEventHandler(PlayerDeathEvent @event)
     {
         if (@event.Player.IsRole<NecromancerRole>())

@@ -7,7 +7,7 @@ using TownOfUsMiraJK.Roles.Neutral;
 
 namespace TownOfUsMiraJK.Options.Roles.Neutral;
 
-public sealed class ReaperJKOptions : AbstractOptionGroup<ReaperJKRole>
+public sealed class ReaperJKOptions : AbstractOptionGroup<ReaperRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleReaper", "Reaper");
 

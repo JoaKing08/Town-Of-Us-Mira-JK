@@ -52,7 +52,7 @@ public sealed class NecromancerReanimateButton : TownOfUsRoleButton<NecromancerR
             MiscUtils.RunAnticheatWarning(necromancer);
             return;
         }
-        foreach (var modifier in target.GetModifiers<AllianceGameModifier>())
+        foreach (var modifier in target.GetModifiers<AllianceGameModifier>(x => x is not NecromancerUndeadModifier))
         {
             target.RemoveModifier(modifier);
         }
@@ -73,12 +73,11 @@ public sealed class NecromancerReanimateButton : TownOfUsRoleButton<NecromancerR
     {
         return PlayerControl.LocalPlayer == null ? null : Helpers.GetNearestDeadBodies(PlayerControl.LocalPlayer.GetTruePosition(),
             PlayerControl.LocalPlayer.MaxReportDistance / 4f, Helpers.CreateFilter(Constants.NotShipMask))
-            .Find(component => component && !component.Reported && !CustomRoleUtils.GetActiveRolesOfType<ReaperJKRole>()
-            .Any(x => x.ReapedBodies.Contains(component.ParentId)));
+            .Find(component => component && !component.Reported && !ReaperRole.ReapedBodies.Contains(component.ParentId));
     }
 
     public override bool IsTargetValid(DeadBody? target)
     {
-        return target && target?.Reported == false;
+        return target && target?.Reported == false && !ReaperRole.ReapedBodies.Contains(target.ParentId);
     }
 }

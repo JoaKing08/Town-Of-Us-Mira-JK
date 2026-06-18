@@ -81,24 +81,7 @@ public sealed class NecromancerUndeadModifier : AllianceGameModifier, IColoredMo
 
     public override bool? DidWin(GameOverReason reason)
     {
-        if (!CustomRoleUtils.GetActiveRolesOfType<NecromancerRole>().Any(x => !x.Player.HasDied()))
-        {
-            return false;
-        }
-
-        var undeadCount = ModifierUtils.GetActiveModifiers<NecromancerUndeadModifier>().Count(x => !x.Player.HasDied()) + 1;
-
-        if (Helpers.GetAlivePlayers().Any(x => (x.IsImpostor() ||
-        x.Is(RoleAlignment.NeutralKilling) ||
-        (x.Data.Role is ITouCrewRole { IsPowerCrew: true } &&
-         !(x.TryGetModifier<AllianceGameModifier>(out var allyMod) && !allyMod.CrewContinuesGame) &&
-         OptionGroupSingleton<GameMechanicOptions>.Instance.CrewKillersContinue)) &&
-         !x.HasModifier<NecromancerUndeadModifier>()))
-        {
-            return false;
-        }
-
-        return undeadCount >= Helpers.GetAlivePlayers().Count - undeadCount;
+        return MiscUtils.GetRole<NecromancerRole>()?.WinConditionMet() == true;
     }
 
     public Color ModifierColor => TownOfUsMiraJKColors.Necromancer;

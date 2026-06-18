@@ -24,7 +24,7 @@ using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Neutral;
 
-public sealed class ReaperJKRole(IntPtr cppPtr)
+public sealed class ReaperRole(IntPtr cppPtr)
     : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable, ICrewVariant
 {
     public override void SpawnTaskHeader(PlayerControl playerControl)
@@ -38,7 +38,7 @@ public sealed class ReaperJKRole(IntPtr cppPtr)
         orCreateTask.name = "NeutralRoleText";
     }
 
-    public List<byte> ReapedBodies = new List<byte>();
+    public static List<byte> ReapedBodies { get; set; } = new();
     public int SoulCount { get; set; }
     public RoleBehaviour CrewVariant => RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<ForensicRole>());
     public DoomableType DoomHintType => DoomableType.Death;
@@ -119,8 +119,8 @@ public sealed class ReaperJKRole(IntPtr cppPtr)
             MiscUtils.RunAnticheatWarning(soulCollector);
             return;
         }
-        var role = soulCollector.GetRole<ReaperJKRole>();
-        role.ReapedBodies.Add(body.ParentId);
+        var role = soulCollector.GetRole<ReaperRole>();
+        ReapedBodies.Add(body.ParentId);
         role.SoulCount++;
         Coroutines.Start(CoReapSoul(body));
     }

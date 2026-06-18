@@ -75,7 +75,8 @@ public sealed class ArmageddonSabotageSystem(nint cppPtr) : Il2CppSystem.Object(
         
         if (RoundStart)
         {
-            TimeRemaining = 0;
+            TimeRemaining = Stage == ArmageddonStage.Initiate ? 0 : 1;
+            RoundStart = Stage != ArmageddonStage.Countdown;
         }
         if (TimeRemaining <= 0)
         {
@@ -129,7 +130,6 @@ public sealed class ArmageddonSabotageSystem(nint cppPtr) : Il2CppSystem.Object(
             ArmageddonFinished = false;
             IsDirty = true;
         }
-        RoundStart = false;
     }
 
     public void UpdateSystem(PlayerControl player, MessageReader msgReader)

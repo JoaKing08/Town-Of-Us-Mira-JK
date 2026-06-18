@@ -28,7 +28,7 @@ public sealed class PoisonerPoisonModifier(byte poisonerId) : TimedModifier
 
         var touAbilityEvent = new TouAbilityEvent((AbilityType)JKAbilityType.PoisonerPoison, Poisoner, Player);
         MiraEventManager.InvokeEvent(touAbilityEvent);
-        ShownPoison = OptionGroupSingleton<PoisonerOptions>.Instance.ShowPoison;
+        ShownPoison = !OptionGroupSingleton<PoisonerOptions>.Instance.ShowPoison;
         if (!ShownPoison && OptionGroupSingleton<PoisonerOptions>.Instance.PoisonDelay.Value <= 0)
         {
             if (Player.AmOwner)

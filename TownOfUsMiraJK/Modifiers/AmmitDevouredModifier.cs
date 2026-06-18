@@ -72,18 +72,6 @@ public sealed class AmmitDevouredModifier(PlayerControl ammit) : DisabledModifie
         ModifierComponent?.RemoveModifier(this);
     }
 
-    public override void OnMeetingStart()
-    {
-        if (!Player.HasModifier<InvulnerabilityModifier>())
-        {
-            DeathHandlerModifier.UpdateDeathHandlerImmediate(Player, TouLocale.Get("DiedToAmmit"),
-                DeathEventHandlers.CurrentRound, DeathHandlerOverride.SetFalse,
-                lockInfo: DeathHandlerOverride.SetTrue);
-
-            Player.Exiled();
-        }
-        ModifierComponent?.RemoveModifier(this);
-    }
     public static void HidePlayer(PlayerControl player, bool show = false)
     {
         if (player == null)
