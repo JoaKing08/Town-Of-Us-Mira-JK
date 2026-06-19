@@ -655,13 +655,14 @@ Game Options:
 Faction: <b>Universal Visibility</b>\
 Inspiration: <b>Town Of Us (Drunk)</b>
 
-The Drunk is a modifier that inverts the movement of the player for set amount of rounds.
+The Drunk is a modifier that either inverts the movement of the player, or randomizes it for set amount of rounds.
 
 Game Options:
 | Name | Description | Default |
 |----------|:-------------:|:------:|
 | Drunk Expires | Whether the Drunk modifier is removed after certain amount of rounds. | True |
 | Drunk Rounds | Amount of rounds after which the Drunk modifier is removed. | 3 |
+| Drunk Randomizes Inputs | Whether the Drunk modifier randomizes movement inputs instead of inverting them. | False |
 
 -----------------------
 # Credits
