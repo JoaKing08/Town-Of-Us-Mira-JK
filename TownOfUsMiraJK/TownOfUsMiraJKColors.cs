@@ -14,7 +14,7 @@ public static class TownOfUsMiraJKColors
     public static Color Gossip => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(255, 201, 92, 255);
     public static Color Gunslinger => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(170, 170, 170, 255);
     public static Color Inspector => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(127, 255, 219, 255);
-    public static Color Interrogator => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(87, 109, 161, 255);
+    public static Color Manager => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(230, 105, 66, 255);
     public static Color MonsterHunter => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(178, 178, 230, 255);
     public static Color Psychic => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(202, 123, 186, 255);
     public static Color Sanctifier => TownOfUsColors.UseBasic ? Palette.CrewmateBlue : new Color32(255, 255, 192, 255);
@@ -45,6 +45,7 @@ public static class TownOfUsMiraJKColors
     // Modifiers
     public static Color Drunk => new Color32(117, 128, 0, 255);
     public static Color Explorer => new Color32(174, 55, 0, 255);
+    public static Color Rivals => new Color32(12, 40, 40, 255);
 
     // Other Colors
     public static Color Apocalypse => new Color32(96, 96, 96, 255);

@@ -56,7 +56,7 @@ public sealed class MonsterHunterStakeButton : TownOfUsKillRoleButton<MonsterHun
         {
             UsesLeft += 1;
             Button.SetUsesRemaining(UsesLeft);
-            Helpers.CreateAndShowNotification($"<color={TownOfUsColors.ImpSoft.ToTextColor()}><b>{TouLocale.GetParsed("TouJKRoleMonsterHunterCorrectStake").Replace("<player>", Target.Data.PlayerName)}</b></color>", Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.MonsterHunter.LoadAsset());
+            Helpers.CreateAndShowNotification($"{TownOfUsColors.ImpSoft.ToTextColor()}<b>{TouLocale.GetParsed("TouJKRoleMonsterHunterCorrectStake").Replace("<player>", Target.Data.PlayerName)}</b></color>", Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.MonsterHunter.LoadAsset());
 
             if (Target.HasModifier<FirstDeadShield>())
             {
