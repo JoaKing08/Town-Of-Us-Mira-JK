@@ -10,4 +10,5 @@ public static class ToUJKImpAssets
     public static LoadableAsset<Sprite> SniperAimSprite { get; } = new LoadableResourceAsset($"{ShortPath}.SniperAimSprite.png");
     public static LoadableAsset<Sprite> SniperShootSprite { get; } = new LoadableResourceAsset($"{ShortPath}.SniperShootSprite.png");
     public static LoadableAsset<Sprite> GodfatherRecruitSprite { get; } = new LoadableResourceAsset($"{ShortPath}.GodfatherRecruitSprite.png");
+    public static LoadableAsset<Sprite> PsychopathInsanitySprite { get; } = new LoadableResourceAsset($"{ShortPath}.PsychopathInsanitySprite.png");
 }

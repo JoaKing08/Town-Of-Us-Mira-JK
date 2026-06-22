@@ -19,4 +19,5 @@ public static class ToUJKModifierIcons
 
     // Alliance
     public static LoadableAsset<Sprite> Prophet { get; } = new LoadableResourceAsset($"{ShortPath}.ModifierIcons.Prophet.png", 200);
+    public static LoadableAsset<Sprite> Rivals { get; } = new LoadableResourceAsset($"{ShortPath}.ModifierIcons.Rivals.png", 200);
 }
