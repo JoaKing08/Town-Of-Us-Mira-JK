@@ -17,26 +17,31 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewInvest.png" align="center" />
+  <a href="#constable-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Constable.png" /></a>
   <a href="#coroner-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Coroner.png" /></a>
   <a href="#gossip-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Gossip.png" /></a>
   <a href="#inspector-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Inspector.png" /></a>
+  <a href="#manager-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manager.png" /></a>
   <a href="#psychic-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Psychic.png" /></a>
   <a href="#watcher-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Watcher.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewKilling.png" align="center" />
   <a href="#gunslinger-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Gunslinger.png" /></a>
   <a href="#monster-hunter-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/MonsterHunter.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewPower.png" align="center" />
+  <a href="#alchemist-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Alchemist.png" /></a>
   <a href="#secretary-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Secretary.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewProtect.png" align="center" />
   <a href="#bodyguard-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Bodyguard.png" /></a>
   <a href="#crusader-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Crusader.png" /></a>
   <a href="#sanctifier-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sanctifier.png" /></a>
+  <a href="#stalker-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Stalker.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewSupport.png" align="center" />
   <a href="#tavern-keeper-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/TavernKeeper.png" /></a>
   <a href="#undercover-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Undercover.png" /></a>
   
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/ImpKilling.png" align="center" />
   <a href="#poisoner-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Poisoner.png" /></a>
+  <a href="#psychopath-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Psychopath.png" /></a>
   <a href="#sniper-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sniper.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/ImpPower.png" align="center" />
   <a href="#demagogue-"><img width="10%" src="./TownOfUsMiraJK/Resources/RoleIcons/Demagogue.png" /></a>
@@ -64,6 +69,7 @@ An extension mod to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira),
   
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/AllianceMods.png" />
   <a href="#prophet-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Prophet.png" /></a>
+  <a href="#rivals-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Rivals.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewMods.png" />
   <a href="#explorer-"><img width="10%" src="./TownOfUsMiraJK/Resources/ModifierIcons/Explorer.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/ImpMods.png" />
@@ -90,6 +96,18 @@ To the Apocalypse roles belong: Baker, Famine, Berserker, War, Plaguebearer, Pes
 -----------------------
 # Role Explanations
 ## Crewmate Roles
+### Constable <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Constable.png" />
+Alignment: <b>Crewmate Investigative</b>\
+Inspiration: <b>Town Of Salem 2 (Investigator)</b>, <b>Community Sugestion (Detective Rework by @brzozuwka)</b>
+
+The Constable is a role that can check the Records of players to learn what crimes did they commit.
+List of possible crimes:
+- Murder (The player had killed someone)
+- Assault (The player used an ability on someone from other faction)
+- Stalking (The player used one of: Admin, Doorlog, Security or Vitals)
+- Desecration (The player used an ability on a body)
+- Interference (The player used an indirect ability)
+
 ### Coroner <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Coroner.png" />
 Alignment: <b>Crewmate Investigative</b>\
 Inspiration: <b>The Other Roles (Medium)</b>
@@ -142,6 +160,12 @@ Game Options:
 | Crewmate Roles In Report | The amount of crewmate roles in the report. | 3 |
 | Neutral Roles In Report | The amount of neutral roles in the report. | 2 |
 | Impostor Roles In Report | The amount of impostor roles in the report. | 2 |
+
+### Manager <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Manager.png" />
+Alignment: <b>Crewmate Investigative</b>\
+Inspiration: <b>Own Idea/Inspiration Unclear</b>
+
+The Manager is a role that can Question players to learn last few rooms they were in.
 
 ### Psychic <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Psychic.png" />
 Alignment: <b>Crewmate Investigative</b>\
