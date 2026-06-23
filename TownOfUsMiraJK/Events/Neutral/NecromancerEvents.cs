@@ -1,9 +1,11 @@
 ﻿using MiraAPI.Events;
+using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Events.Vanilla.Player;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Networking;
 using MiraAPI.Roles;
+using Reactor.Utilities;
 using System.Collections;
 using TownOfUs.Events;
 using TownOfUs.Modifiers;
@@ -64,6 +66,22 @@ public static class NecromancerEvents
                 }
             }
         }
+    }
+
+    [RegisterEvent]
+    public static void AfterMurderEventHandler(AfterMurderEvent @event)
+    {
+        if (!CustomRoleUtils.GetActiveRolesOfType<NecromancerRole>().HasAny())
+        {
+            return;
+        }
+
+        if (!OptionGroupSingleton<NecromancerOptions>.Instance.NecromancerArrows)
+        {
+            return;
+        }
+
+        Coroutines.Start(CoCreateNecromancerArrow(@event.Target));
     }
 
     public static IEnumerator CoCreateNecromancerArrow(PlayerControl target)

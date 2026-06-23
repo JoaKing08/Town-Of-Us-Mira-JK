@@ -12,7 +12,7 @@ public sealed class ReaperArrowModifier(DeadBody deadBody, Color color) : TimedM
 {
     private ArrowBehaviour? _arrow;
     public override string ModifierName => "Death Notifier";
-    public override float Duration => OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrowDuration.Value;
+    public override float Duration => OptionGroupSingleton<ReaperOptions>.Instance.ReaperArrowDuration.Value;
     public override bool AutoStart => false;
     public override bool RemoveOnComplete => true;
     public override bool HideOnUi => true;
@@ -21,7 +21,7 @@ public sealed class ReaperArrowModifier(DeadBody deadBody, Color color) : TimedM
     public override void OnActivate()
     {
         base.OnActivate();
-        if (OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrowDuration.Value > 0f)
+        if (OptionGroupSingleton<ReaperOptions>.Instance.ReaperArrowDuration.Value > 0f)
         {
             StartTimer();
         }

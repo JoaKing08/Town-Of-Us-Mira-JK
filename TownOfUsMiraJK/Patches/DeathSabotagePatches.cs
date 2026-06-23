@@ -19,7 +19,7 @@ public static class DeathSabotagePatches
     {
         if (!__instance.Systems.TryGetValue((SystemTypes)ArmageddonSabotageSystem.SabotageId, out _))
         {
-            var hexBombSabo = new ArmageddonSabotageSystem(OptionGroupSingleton<ReaperJKOptions>.Instance.ArmageddonTimer);
+            var hexBombSabo = new ArmageddonSabotageSystem(OptionGroupSingleton<ReaperOptions>.Instance.ArmageddonTimer);
             __instance.Systems[SystemTypes.Sabotage].Cast<SabotageSystemType>().specials
                 .Add(hexBombSabo.Cast<IActivatable>());
             __instance.Systems.Add((SystemTypes)ArmageddonSabotageSystem.SabotageId, hexBombSabo.Cast<ISystemType>());

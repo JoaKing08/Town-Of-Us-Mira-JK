@@ -62,7 +62,7 @@ public sealed class ArmageddonSabotageTask(nint cppPtr) : PlayerTask(cppPtr)
         var text = TouLocale.GetParsed("TouJKRoleDeathWarningNotif").Replace("<role>", $"{TownOfUsMiraJKColors.Death.ToTextColor()}{TouLocale.Get("TouJKRoleDeath")}</color>");
 
         var notif1 = Helpers.CreateAndShowNotification(
-            text.Replace("<time>", $"{(int)OptionGroupSingleton<ReaperJKOptions>.Instance.ArmageddonTimer}"),
+            text.Replace("<time>", $"{(int)OptionGroupSingleton<ReaperOptions>.Instance.ArmageddonTimer}"),
             Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Death.LoadAsset());
         notif1.AdjustNotification();
     }
