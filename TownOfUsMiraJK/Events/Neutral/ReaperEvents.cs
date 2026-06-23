@@ -28,7 +28,7 @@ public static class ReaperEvents
             return;
         }
 
-        if (!OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrows)
+        if (!OptionGroupSingleton<ReaperOptions>.Instance.ReaperArrows)
         {
             return;
         }
@@ -38,7 +38,7 @@ public static class ReaperEvents
 
     public static IEnumerator CoCreateReaperArrow(PlayerControl target)
     {
-        yield return new WaitForSeconds(OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrowDelay.Value);
+        yield return new WaitForSeconds(OptionGroupSingleton<ReaperOptions>.Instance.ReaperArrowDelay.Value);
 
         var deadBody = UnityEngine.Object.FindObjectsOfType<DeadBody>().FirstOrDefault(x => x.ParentId == target.PlayerId);
 

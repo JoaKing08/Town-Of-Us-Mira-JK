@@ -320,17 +320,13 @@ namespace TownOfUsMiraJK.Utilities
                 var toReplace = crewRoles.RemoveAll(x => x == RoleId.Get<MonsterHunterRole>());
                 if (toReplace > 0)
                 {
-                    if (crewRoles.Any())
+                    var toReplaceWith = MiscUtils.ReadFromBucket(buckets, rolesToReplace, monsterHunterFromBucket);
+                    while (toReplaceWith.Count < toReplace)
                     {
-                        crewRoles.AddRange(MiscUtils.ReadFromBucket(buckets, rolesToReplace, monsterHunterFromBucket).GetRange(0, toReplace));
+                        toReplaceWith.Add((ushort)RoleTypes.Crewmate);
                     }
-                    else
-                    {
-                        for (int i = 0; i < toReplace; i++)
-                        {
-                            crewRoles.Add((ushort)RoleTypes.Crewmate);
-                        }
-                    }
+                    toReplaceWith.Shuffle();
+                    crewRoles.AddRange(toReplaceWith.GetRange(0, toReplace));
                 }
             }
 

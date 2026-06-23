@@ -7,7 +7,7 @@ using TownOfUsMiraJK.Roles.Neutral;
 
 namespace TownOfUsMiraJK.Options.Roles.Neutral;
 
-public sealed class ReaperJKOptions : AbstractOptionGroup<ReaperRole>
+public sealed class ReaperOptions : AbstractOptionGroup<ReaperRole>
 {
     public override string GroupName => TouLocale.Get("TouJKRoleReaper", "Reaper");
 
@@ -23,13 +23,13 @@ public sealed class ReaperJKOptions : AbstractOptionGroup<ReaperRole>
     public ModdedNumberOption ReaperArrowDelay { get; set; } =
         new("TouJKOptionReaperArrowDelay", 0.5f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0")
         {
-            Visible = () => OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrows
+            Visible = () => OptionGroupSingleton<ReaperOptions>.Instance.ReaperArrows
         };
 
     public ModdedNumberOption ReaperArrowDuration { get; set; } =
         new("TouJKOptionReaperArrowDuration", 10f, 0f, 15f, 0.5f, MiraNumberSuffixes.Seconds, "0.0", zeroInfinity: true)
         {
-            Visible = () => OptionGroupSingleton<ReaperJKOptions>.Instance.ReaperArrows
+            Visible = () => OptionGroupSingleton<ReaperOptions>.Instance.ReaperArrows
         };
 
     [ModdedNumberOption("TouJKOptionReaperArmageddonTimer", 10f, 180f, 5f, MiraNumberSuffixes.Seconds)]

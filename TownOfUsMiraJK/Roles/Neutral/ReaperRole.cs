@@ -85,7 +85,7 @@ public sealed class ReaperRole(IntPtr cppPtr)
     public StringBuilder SetTabText()
     {
         var stringB = ITownOfUsRole.SetNewTabText(this);
-        stringB.Append(TownOfUsPlugin.Culture, $"\n<b>{TouLocale.GetParsed("TouJKRoleReaperTabSoulCounter").Replace("<count>", $"{SoulCount}").Replace("<max_count>", $"{(int)OptionGroupSingleton<ReaperJKOptions>.Instance.SoulsToTransform}")}</b>");
+        stringB.Append(TownOfUsPlugin.Culture, $"\n<b>{TouLocale.GetParsed("TouJKRoleReaperTabSoulCounter").Replace("<count>", $"{SoulCount}").Replace("<max_count>", $"{(int)OptionGroupSingleton<ReaperOptions>.Instance.SoulsToTransform}")}</b>");
 
         return stringB;
     }

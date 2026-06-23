@@ -16,9 +16,9 @@ public sealed class ReaperReapButton : TownOfUsRoleButton<ReaperRole, DeadBody>
 {
     public override string Name => TouLocale.GetParsed("TouJKRoleReaperReap", "Reap");
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
-    public override int MaxUses => (int)OptionGroupSingleton<ReaperJKOptions>.Instance.SoulsToTransform;
+    public override int MaxUses => (int)OptionGroupSingleton<ReaperOptions>.Instance.SoulsToTransform;
     public override Color TextOutlineColor => TownOfUsMiraJKColors.Reaper;
-    public override float Cooldown => Math.Clamp(OptionGroupSingleton<ReaperJKOptions>.Instance.ReapCooldown + MapCooldown, 5f, 120f);
+    public override float Cooldown => Math.Clamp(OptionGroupSingleton<ReaperOptions>.Instance.ReapCooldown + MapCooldown, 5f, 120f);
     public override LoadableAsset<Sprite> Sprite => ToUJKNeutAssets.ReaperReapSprite;
 
     protected override void OnClick()
@@ -30,7 +30,7 @@ public sealed class ReaperReapButton : TownOfUsRoleButton<ReaperRole, DeadBody>
         }
 
         ReaperRole.RpcReapSoul(Role.Player, Target);
-        if (Role.SoulCount >= OptionGroupSingleton<ReaperJKOptions>.Instance.SoulsToTransform)
+        if (Role.SoulCount >= OptionGroupSingleton<ReaperOptions>.Instance.SoulsToTransform)
         {
             DeathRole.RpcTriggerDeath(Role.Player);
         }
