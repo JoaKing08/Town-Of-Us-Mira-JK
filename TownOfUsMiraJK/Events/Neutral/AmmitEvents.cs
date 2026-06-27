@@ -52,7 +52,7 @@ public static class AmmitEvents
 
                 modifier.Player.Exiled();
             }
-            modifier.ModifierComponent?.RemoveModifier(modifier);
+            modifier.Player.RemoveModifier<AmmitDevouredModifier>();
         }
     }
 }
