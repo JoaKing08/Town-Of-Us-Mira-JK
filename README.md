@@ -230,6 +230,48 @@ Game Options:
 | Self Kill When Run Out of Stakes | Commit suicide if ran out of stakes. | False |
 | Becomes on Monsters Death | What Monster Hunter becomes after killing all monsters. | Crewmate |
 
+### Alchemist <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Alchemist.png" />
+Alignment: <b>Crewmate Power</b>\
+Inspiration: <b>Community Sugestion (Gambler by @brzozuwka)</b>, <b>Community Sugestion (Druid by @_comedyy)</b>
+
+The Alchemist is a role that can Brew potions by combining two chosen ingredients.\
+The same combination of ingredients will always result in the same potion during the same game.\
+After Brewing a Potion they can give it to someone or (if enabled) to themself to gain its effect.\
+Possible Potions:
+- Alcohol: Blocks the abilities of the player (identical to Tavern Keeper) for a Longer time.
+- Blindness Potion: Reduces the vision radius of the player by set amount for a Longer time.
+- Clairvoyant Potion: Allows to see the ghosts for a Shorter time.
+- Energy Potion: Increases the speed with which cooldown are refreshing by a set amount for a Longer time.
+- Indecision Potion: Forces the player to skip on the next meeting.
+- Influence Potion: Increases the voting power by set amount for the next meeting.
+- Perception Potion: Increases the vision radius of the player by set amount for a Longer time.
+- Poison: Kills the player after a Shorter time.
+- Reveal Potion: Reveals the role of the player to the Alchemist.
+- Shield Potion: Protects player from attacks for a Longer time.
+- Silence Potion: The player is unable to speak on the next meeting.
+- Sleep Potion: Makes the player not be able to move, see and use abilities for a Shorter time.
+- Slowness Potion: Slows down the players movement for a Longer time.
+- Speed Potion: Speeds up the players movement for a Longer time.
+- Work Potion: Finishes a set number of tasks for the player.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Brew Cooldown | Cooldown of the Brew ability. | 25s |
+| Potion Cooldown | Cooldown of the Potion ability. | 10s |
+| Potion Delay | Time after giving the Potion after which the effects start. | 10s |
+| Max Choices Of Ingredients | Number of ingredient choices when using Brew. | 3 |
+| Allow Use Of The Potions On Self | Whether Alchemist can use their own Potions. | True |
+| Duration Of Shorter Lasting Potions | Defines how much is a "Shorter" time (look at the Potions above). | 10s |
+| Duration Of Longer Lasting Potions | Defines how much is a "Longer" time (look at the Potions above). | 30s |
+| Blindness Potion Vision Multiplier | Vision multiplier while under the effect of Blindness Potion. | 0.25x |
+| Energy Potion Cooldown Countdown Speed Multiplier | Countdown speed multiplier while under the effect of Energy Potion. | 2x |
+| Influence Potion Extra Votes | Number of extra votes while under the effect of Influence Potion. | 1 |
+| Perception Potion Vision Multiplier | Vision multiplier while under the effect of Perception Potion. | 1.5x |
+| Slowness Potion Speed Multiplier | Speed multiplier while under the effect of Slowness Potion. | 0.75x |
+| Speed Potion Speed Multiplier | Speed multiplier while under the effect of Speed Potion. | 1.5f |
+| Work Potion Tasks Completed | Number of tasks completed while under the effect of Work Potion. | 2 |
+
 ### Secretary <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Secretary.png" />
 Alignment: <b>Crewmate Power</b>\
 Inspiration: <b>Town Of Us Reactivated (old Mayor)</b>
