@@ -269,7 +269,7 @@ Game Options:
 | Influence Potion Extra Votes | Number of extra votes while under the effect of Influence Potion. | 1 |
 | Perception Potion Vision Multiplier | Vision multiplier while under the effect of Perception Potion. | 1.5x |
 | Slowness Potion Speed Multiplier | Speed multiplier while under the effect of Slowness Potion. | 0.75x |
-| Speed Potion Speed Multiplier | Speed multiplier while under the effect of Speed Potion. | 1.5f |
+| Speed Potion Speed Multiplier | Speed multiplier while under the effect of Speed Potion. | 1.5x |
 | Work Potion Tasks Completed | Number of tasks completed while under the effect of Work Potion. | 2 |
 
 ### Secretary <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Secretary.png" />
