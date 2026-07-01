@@ -37,5 +37,7 @@
         SetUndercoverCover,
         DeputyReveal,
         SetDrunkSeed,
+        SetAlchemistSeed,
+        AlchemistNotify,
     }
 }

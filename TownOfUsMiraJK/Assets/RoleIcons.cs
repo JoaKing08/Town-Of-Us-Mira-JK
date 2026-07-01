@@ -21,10 +21,10 @@ public static class ToUJKRoleIcons
     public static LoadableAsset<Sprite> Sanctifier { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Sanctifier.png", 200);
     public static LoadableAsset<Sprite> Psychic { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Psychic.png", 200);
     public static LoadableAsset<Sprite> Gossip { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Gossip.png", 200);
+    public static LoadableAsset<Sprite> Alchemist { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Alchemist.png", 200);
     public static LoadableAsset<Sprite> Constable { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Constable.png", 200);
     public static LoadableAsset<Sprite> Manager { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Manager.png", 200);
     public static LoadableAsset<Sprite> Stalker { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Stalker.png", 200);
-    public static LoadableAsset<Sprite> Alchemist { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Alchemist.png", 200);
 
     // Neutrals
     public static LoadableAsset<Sprite> Baker { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Baker.png", 200);

@@ -23,7 +23,7 @@ public sealed class PsychopathInsanityButton : TownOfUsRoleButton<PsychopathRole
     public override Color TextOutlineColor => Palette.ImpostorRed;
     public override float Cooldown => Math.Clamp(OptionGroupSingleton<PsychopathOptions>.Instance.InsanityCooldown + MapCooldown, 5f, 120f);
     public override float EffectDuration => OptionGroupSingleton<PsychopathOptions>.Instance.InsanityDuration;
-    public override LoadableAsset<Sprite> Sprite => ToUJKImpAssets.SniperAimSprite;
+    public override LoadableAsset<Sprite> Sprite => ToUJKImpAssets.PsychopathInsanitySprite;
 
     protected override void OnClick()
     {

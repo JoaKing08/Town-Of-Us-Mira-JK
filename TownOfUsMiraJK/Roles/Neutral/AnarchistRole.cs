@@ -30,7 +30,7 @@ public sealed class AnarchistRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
         orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralEvilTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
-
+    [HideFromIl2Cpp]
     public List<PlayerControl> Misejected { get; set; } = new();
     public int Misejects => Misejected.Count;
     public bool AboutToWin { get; set; }

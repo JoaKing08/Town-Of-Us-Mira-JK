@@ -3,6 +3,7 @@ using MiraAPI.Modifiers;
 using TownOfUs;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Modifiers;
+using TownOfUsMiraJK.Modifiers.Alchemist;
 
 namespace TownOfUsMiraJK.Patches;
 
@@ -19,6 +20,18 @@ public static class VisionPatch
         if (player.Object?.TryGetModifier<ShadowDarknessModifier>(out var modifier) == true)
         {
             __result *= modifier.VisionPerc;
+        }
+        if (player.Object?.TryGetModifier<BlindnessPotionModifier>(out var modifier1) == true)
+        {
+            __result *= modifier1.VisionPerc;
+        }
+        if (player.Object?.TryGetModifier<PerceptionPotionModifier>(out var modifier2) == true)
+        {
+            __result *= modifier2.VisionPerc;
+        }
+        if (player.Object?.TryGetModifier<SleepPotionModifier>(out var modifier3) == true)
+        {
+            __result *= modifier3.VisionPerc;
         }
     }
 }

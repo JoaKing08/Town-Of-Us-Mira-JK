@@ -18,4 +18,6 @@ public static class ToUJKCrewAssets
     public static LoadableAsset<Sprite> SanctifierSanctifySprite { get; } = new LoadableResourceAsset($"{ShortPath}.SanctifierSanctifySprite.png");
     public static LoadableAsset<Sprite> PsychicMindscanSprite { get; } = new LoadableResourceAsset($"{ShortPath}.PsychicMindscanSprite.png");
     public static LoadableAsset<Sprite> GossipChatSprite { get; } = new LoadableResourceAsset($"{ShortPath}.GossipChatSprite.png");
+    public static LoadableAsset<Sprite> AlchemistBrewSprite { get; } = new LoadableResourceAsset($"{ShortPath}.AlchemistBrewSprite.png");
+    public static LoadableAsset<Sprite> AlchemistPotionSprite { get; } = new LoadableResourceAsset($"{ShortPath}.AlchemistPotionSprite.png");
 }

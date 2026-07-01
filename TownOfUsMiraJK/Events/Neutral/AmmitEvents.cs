@@ -28,6 +28,11 @@ public static class AmmitEvents
             return;
         }
 
+        foreach (var player in ModifierUtils.GetPlayersWithModifier<AmmitDevouredModifier>())
+        {
+            player.RemoveModifier<AmmitDevouredModifier>();
+        }
+        
         if (!PlayerControl.LocalPlayer.Is((RoleTypes)RoleId.Get<AmmitRole>()))
         {
             return;
@@ -42,17 +47,17 @@ public static class AmmitEvents
     [RegisterEvent(-1000)]
     public static void ReportBodyEventHandler(ReportBodyEvent @event)
     {
-        foreach (var modifier in ModifierUtils.GetActiveModifiers<AmmitDevouredModifier>())
+        foreach (var player in ModifierUtils.GetPlayersWithModifier<AmmitDevouredModifier>())
         {
-            if (!modifier.Player.HasModifier<InvulnerabilityModifier>() && !modifier.Player.HasModifier<BaseShieldModifier>() && !modifier.Player.HasModifier<FirstDeadShield>())
+            if (!player.HasModifier<InvulnerabilityModifier>() && !player.HasModifier<BaseShieldModifier>() && !player.HasModifier<FirstDeadShield>())
             {
-                DeathHandlerModifier.UpdateDeathHandlerImmediate(modifier.Player, TouLocale.Get("DiedToAmmit"),
+                DeathHandlerModifier.UpdateDeathHandlerImmediate(player, TouLocale.Get("DiedToAmmit"),
                     DeathEventHandlers.CurrentRound, DeathHandlerOverride.SetFalse,
                     lockInfo: DeathHandlerOverride.SetTrue);
 
-                modifier.Player.Exiled();
+                player.Exiled();
             }
-            modifier.Player.RemoveModifier<AmmitDevouredModifier>();
+            player.RemoveModifier<AmmitDevouredModifier>();
         }
     }
 }

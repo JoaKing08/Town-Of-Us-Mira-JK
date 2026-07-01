@@ -32,6 +32,7 @@ public sealed class SecretaryRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCre
     public int VotesStored { get; set; } = (int)(OptionGroupSingleton<SecretaryOptions>.Instance.MaxVotes <= 0 ? OptionGroupSingleton<SecretaryOptions>.Instance.InitialVotes : MathF.Min(OptionGroupSingleton<SecretaryOptions>.Instance.InitialVotes, OptionGroupSingleton<SecretaryOptions>.Instance.MaxVotes));
     public bool NormalVoteUsed { get; set; }
     public bool StoredVote { get; set; }
+    [HideFromIl2Cpp]
     public List<byte> VotedFor { get; set; } = new();
     public int VotesShown { get; set; }
 

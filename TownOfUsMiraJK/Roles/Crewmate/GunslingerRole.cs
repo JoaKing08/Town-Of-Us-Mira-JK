@@ -120,7 +120,7 @@ public sealed class GunslingerRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCr
 
         Clear();
     }
-
+    [HideFromIl2Cpp]
     public bool IsExempt(PlayerVoteArea voteArea)
     {
         return voteArea?.TargetPlayerId == Player.PlayerId || Player.Data.IsDead || voteArea!.AmDead ||

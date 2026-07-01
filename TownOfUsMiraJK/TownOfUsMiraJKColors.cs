@@ -1,4 +1,5 @@
 ﻿using TownOfUs;
+using TownOfUsMiraJK.Roles.Crewmate;
 using UnityEngine;
 
 namespace TownOfUsMiraJK;
@@ -49,4 +50,11 @@ public static class TownOfUsMiraJKColors
 
     // Other Colors
     public static Color Apocalypse => new Color32(96, 96, 96, 255);
+    public static Color Gold => new Color32(255, 255, 0, 255);
+    public static Color Silver => new Color32(0, 255, 255, 255);
+    public static Color Copper => new Color32(0, 255, 0, 255);
+    public static Color Iron => new Color32(255, 0, 0, 255);
+    public static Color Tin => new Color32(128, 128, 128, 255);
+    public static Color Mercury => new Color32(255, 0, 255, 255);
+    public static Color Lead => new Color32(0, 0, 255, 255);
 }

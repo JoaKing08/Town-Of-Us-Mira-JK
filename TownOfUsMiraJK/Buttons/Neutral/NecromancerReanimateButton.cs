@@ -6,6 +6,8 @@ using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
 using Reactor.Networking.Attributes;
 using Reactor.Networking.Rpc;
+using Reactor.Utilities;
+using System.Collections;
 using TownOfUs.Buttons;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules;
@@ -60,13 +62,19 @@ public sealed class NecromancerReanimateButton : TownOfUsRoleButton<NecromancerR
         var targetEmergencies = target.RemainingEmergencies;
         var necroEmergencies = necromancer.RemainingEmergencies;
         ReviveUtilities.RevivePlayer(necromancer, target, body?.transform?.localPosition ?? necromancer.transform.localPosition, target.GetRoleWhenAlive(), TownOfUsMiraJKColors.Necromancer, TouLocale.GetParsed("TouJKRoleNecromancerReanimateTargetNotif").Replace("<player>", necromancer.Data.PlayerName).Replace("<role>", $"{TownOfUsMiraJKColors.Necromancer.ToTextColor()}{necromancer.Data.Role.GetRoleName()}</color>"), TouLocale.GetParsed("TouJKRoleNecromancerReanimateNotif").Replace("<player>", $"{TownOfUsMiraJKColors.Necromancer.ToTextColor()}{target.Data.PlayerName}</color>"), ToUJKRoleIcons.Necromancer.LoadAsset());
-        target.RemainingEmergencies = targetEmergencies;
-        necromancer.RemainingEmergencies = necroEmergencies;
+        Coroutines.Start(CoSetRemainingButtons(target, targetEmergencies));
+        Coroutines.Start(CoSetRemainingButtons(necromancer, necroEmergencies));
         target.AddModifier<NecromancerUndeadModifier>();
         if (body != null)
         {
-            UnityEngine.Object.Destroy(body.gameObject);
+            body.gameObject.DeepDestroy();
         }
+    }
+
+    public static IEnumerator CoSetRemainingButtons(PlayerControl player, int buttons)
+    {
+        yield return new WaitForSeconds(0.1f);
+        player.RemainingEmergencies = buttons;
     }
 
     public override DeadBody? GetTarget()

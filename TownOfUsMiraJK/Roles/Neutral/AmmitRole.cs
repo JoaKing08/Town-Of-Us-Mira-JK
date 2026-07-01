@@ -39,6 +39,7 @@ public sealed class AmmitRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
         orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralKillingTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
+    [HideFromIl2Cpp]
     public List<PlayerControl> Devoured => ModifierUtils.GetPlayersWithModifier<AmmitDevouredModifier>(x => x.Ammit.PlayerId == Player.PlayerId)?.ToList() ?? new();
     public string LocaleKey => "Ammit";
     public string RoleName => TouLocale.Get($"TouJKRole{LocaleKey}");
