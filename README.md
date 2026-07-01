@@ -378,6 +378,20 @@ Game Options:
 | Poison Announcement Delay | The time between being Poisoned and announcing Poison to the victim. | 5s |
 | Poisoner Can Use Normal Kill | Whether Poisoner can use normal kill button. | True |
 
+### Psychopath <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Psychopath.png" />
+Alignment: <b>Impostor Killing</b>\
+Inspiration: <b>Community Sugestion (Psychopath by @brzozuwka)</b>
+
+The Psychopath is a role that can go Insane.\
+While Insane their cooldown is significantly lowered and are visible to everyone as a Seeker from hide and seek.
+
+Game Options:
+| Name | Description | Default |
+|----------|:-------------:|:------:|
+| Insanity Cooldown | Cooldown of Insanity ability. | 25s |
+| Insanity Duration | Duration of Insanity ability. | 20s |
+| Insanity Kill Cooldown | Cooldown of Psychopath's kill button while Insane. | 10s |
+
 ### Sniper <img width="5%" src="./TownOfUsMiraJK/Resources/RoleIcons/Sniper.png" />
 Alignment: <b>Impostor Killing</b>\
 Inspiration: <b>Own Idea/Inspiration Unclear</b>
