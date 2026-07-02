@@ -240,6 +240,7 @@ After Brewing a Potion they can give it to someone or (if enabled) to themself t
 Possible Potions:
 - Alcohol: Blocks the abilities of the player (identical to Tavern Keeper) for a Longer time.
 - Blindness Potion: Reduces the vision radius of the player by set amount for a Longer time.
+- Chaos Potion: Gives a random non-alliance game modifier that is able to spawn.
 - Clairvoyant Potion: Allows to see the ghosts for a Shorter time.
 - Energy Potion: Increases the speed with which cooldown are refreshing by a set amount for a Longer time.
 - Indecision Potion: Forces the player to skip on the next meeting.
@@ -262,6 +263,8 @@ Game Options:
 | Potion Delay | Time after giving the Potion after which the effects start. | 10s |
 | Max Choices Of Ingredients | Number of ingredient choices when using Brew. | 3 |
 | Allow Use Of The Potions On Self | Whether Alchemist can use their own Potions. | True |
+| Learn Potion After Brewing | Whether Alchemist learns what Potion they have after Brewing. | True |
+| Learn Potion After Applying | Whether Alchemist learns what Potion they have after applying. | True |
 | Duration Of Shorter Lasting Potions | Defines how much is a "Shorter" time (look at the Potions above). | 10s |
 | Duration Of Longer Lasting Potions | Defines how much is a "Longer" time (look at the Potions above). | 30s |
 | Blindness Potion Vision Multiplier | Vision multiplier while under the effect of Blindness Potion. | 0.25x |
