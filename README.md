@@ -238,22 +238,22 @@ The Alchemist is a role that can Brew potions by combining two chosen ingredient
 The same combination of ingredients will always result in the same potion during the same game.\
 After Brewing a Potion they can give it to someone or (if enabled) to themself to gain its effect.\
 Possible Potions:
-- Alcohol: Blocks the abilities of the player (identical to Tavern Keeper) for a Longer time.
-- Blindness Potion: Reduces the vision radius of the player by set amount for a Longer time.
-- Chaos Potion: Gives a random non-alliance game modifier that is able to spawn.
-- Clairvoyant Potion: Allows to see the ghosts for a Shorter time.
-- Energy Potion: Increases the speed with which cooldown are refreshing by a set amount for a Longer time.
-- Indecision Potion: Forces the player to skip on the next meeting.
-- Influence Potion: Increases the voting power by set amount for the next meeting.
-- Perception Potion: Increases the vision radius of the player by set amount for a Longer time.
-- Poison: Kills the player after a Shorter time.
-- Reveal Potion: Reveals the role of the player to the Alchemist.
-- Shield Potion: Protects player from attacks for a Longer time.
-- Silence Potion: The player is unable to speak on the next meeting.
-- Sleep Potion: Makes the player not be able to move, see and use abilities for a Shorter time.
-- Slowness Potion: Slows down the players movement for a Longer time.
-- Speed Potion: Speeds up the players movement for a Longer time.
-- Work Potion: Finishes a set number of tasks for the player.
+- Alcohol (Negative): Blocks the abilities of the player (identical to Tavern Keeper) for a Longer time.
+- Blindness Potion (Negative): Reduces the vision radius of the player by set amount for a Longer time.
+- Chaos Potion (Neutral): Gives a random non-alliance game modifier that is able to spawn.
+- Clairvoyant Potion (Positive): Allows to see the ghosts for a Shorter time.
+- Energy Potion (Positive): Increases the speed with which cooldown are refreshing by a set amount for a Longer time.
+- Indecision Potion (Negative): Forces the player to skip on the next meeting.
+- Influence Potion (Positive): Increases the voting power by set amount for the next meeting.
+- Perception Potion (Positive): Increases the vision radius of the player by set amount for a Longer time.
+- Poison (Negative): Kills the player after a Shorter time.
+- Reveal Potion (Neutral): Reveals the role of the player to the Alchemist.
+- Shield Potion (Positive): Protects player from attacks for a Longer time.
+- Silence Potion (Negative): The player is unable to speak on the next meeting.
+- Sleep Potion (Negative): Makes the player not be able to move, see and use abilities for a Shorter time.
+- Slowness Potion (Negative): Slows down the players movement for a Longer time.
+- Speed Potion (Positive): Speeds up the players movement for a Longer time.
+- Work Potion (Positive): Finishes a set number of tasks for the player.
 
 Game Options:
 | Name | Description | Default |
