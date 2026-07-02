@@ -301,6 +301,8 @@
 	<string name="TouJKRoleAlchemistPotionAlcoholEffect">Drunk</string>
 	<string name="TouJKRoleAlchemistPotionBlindnessPotion">Blindness Potion</string>
 	<string name="TouJKRoleAlchemistPotionBlindnessPotionEffect">Blind</string>
+	<string name="TouJKRoleAlchemistPotionChaosPotion">Chaos Potion</string>
+	<string name="TouJKRoleAlchemistPotionChaosPotionEffect">Chaotic</string>
 	<string name="TouJKRoleAlchemistPotionClairvoyantPotion">Clairvoyant Potion</string>
 	<string name="TouJKRoleAlchemistPotionClairvoyantPotionEffect">Clairvoyant</string>
 	<string name="TouJKRoleAlchemistPotionEnergyPotion">Energy Potion</string>
@@ -326,12 +328,18 @@
 	<string name="TouJKRoleAlchemistPotionSpeedPotion">Speed Potion</string>
 	<string name="TouJKRoleAlchemistPotionSpeedPotionEffect">Speed Boost</string>
 	<string name="TouJKRoleAlchemistPotionWorkPotion">Work Potion</string>
+	<string name="TouJKRoleAlchemistPotionWorkPotionEffect">Working</string>
+	<string name="TouJKRoleAlchemistPotionNeutral">Unknown Neutral Potion</string>
+	<string name="TouJKRoleAlchemistPotionPositive">Unknown Positive Potion</string>
+	<string name="TouJKRoleAlchemistPotionNegative">Unknown Negative Potion</string>
 	<!-- Alchemist Options -->
 	<string name="TouJKOptionAlchemistBrewCooldown">Brew Cooldown</string>
 	<string name="TouJKOptionAlchemistPotionCooldown">Potion Cooldown</string>
 	<string name="TouJKOptionAlchemistPotionDelay">Potion Delay</string>
 	<string name="TouJKOptionAlchemistIngredientChoices">Max Choices Of Ingredients</string>
 	<string name="TouJKOptionAlchemistAllowSelf">Allow Use Of The Potions On Self</string>
+	<string name="TouJKOptionAlchemistLearnPotion">Learn Potion After Brewing</string>
+	<string name="TouJKOptionAlchemistLearnAfterApplying">Learn Potion After Applying</string>
 	<string name="TouJKOptionAlchemistPotionDurationShort">Duration Of Shorter Lasting Potions</string>
 	<string name="TouJKOptionAlchemistPotionDurationLong">Duration Of Longer Lasting Potions</string>
 	<string name="TouJKOptionAlchemistBlindnessPotion">Blindness Potion Vision Multiplier</string>

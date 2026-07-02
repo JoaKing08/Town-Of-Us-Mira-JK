@@ -26,7 +26,7 @@ public sealed class SleepPotionModifier(PlayerControl alchemist) : DisabledModif
     public override float Duration => OptionGroupSingleton<AlchemistOptions>.Instance.PotionDurationShort;
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKCrewAssets.AlchemistPotionSprite;
     public bool CanAppear => true;
-    public bool CanSelf => false;
+    public PotionType PotionType => PotionType.Negative;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionSleepPotion");
     public PlayerControl Alchemist => alchemist;
     public override string GetDescription()

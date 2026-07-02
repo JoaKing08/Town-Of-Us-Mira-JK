@@ -3,6 +3,7 @@ using HarmonyLib;
 using MiraAPI.Events;
 using MiraAPI.Events.Mira;
 using MiraAPI.Events.Vanilla.Gameplay;
+using MiraAPI.Events.Vanilla.Meeting.Voting;
 using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Modifiers;
@@ -134,6 +135,33 @@ public static class AlchemistEvents
         if (alchemist != null && (TutorialManager.InstanceExists || source.AmOwner))
         {
             AlchemistRole.RpcAlchemistNotify(alchemist.Player, source, target);
+        }
+    }
+
+    [RegisterEvent]
+    public static void HandleVoteEvent(HandleVoteEvent @event)
+    {
+        if (@event.VoteData.Owner.TryGetModifier<InfluencePotionModifier>(out var modifier, x => !x.Voted))
+        {
+            for (var i = 0; i < OptionGroupSingleton<AlchemistOptions>.Instance.InfluencePotion; i++)
+            {
+                @event.VoteData.VoteForPlayer(@event.TargetId);
+            }
+            modifier.Voted = true;
+        }
+    }
+
+    [RegisterEvent]
+    public static void RoundStartEventHandler(RoundStartEvent @event)
+    {
+        if (@event.TriggeredByIntro)
+        {
+            return;
+        }
+
+        foreach(var modifier in PlayerControl.AllPlayerControls.ToArray().SelectMany(x => x.GetModifierComponent()?.ActiveModifiers.Where(y => y is InfluencePotionModifier || y is IndecisionPotionModifier || y is SilencePotionModifier) ?? []))
+        {
+            modifier.ModifierComponent!.RemoveModifier(modifier);
         }
     }
 }

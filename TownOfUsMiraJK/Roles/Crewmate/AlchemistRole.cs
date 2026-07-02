@@ -41,8 +41,37 @@ public sealed class AlchemistRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOf
     public string RoleDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}IntroBlurb");
     public string RoleLongDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}TabDescription");
     [HideFromIl2Cpp]
-    public Type? PotionStored { get; set; }
+    public Type? PotionStored
+    {
+        get
+        {
+            return _potionStored;
+        }
+        set
+        {
+            _potionStored = value;
+            var potion = ModifierManager.Modifiers.FirstOrDefault(x => x.GetType() == value) as IPotionEffect;
+            if (potion == null)
+            {
+                PotionStoredName = TouLocale.Get($"TouJKRole{LocaleKey}PotionNone");
+                PotionStoredCanSelf = false;
+                PotionStoredType = PotionType.None;
+            }
+            else
+            {
+                PotionStoredName = potion.PotionName;
+                PotionStoredCanSelf = potion.CanSelf;
+                PotionStoredType = potion.PotionType;
+            }
+        }
+    }
+    private Type? _potionStored;
+    public string PotionStoredName { get; private set; } = TouLocale.Get($"TouJKRoleAlchemistPotionNone");
+    public bool PotionStoredCanSelf { get; private set; }
+    public PotionType PotionStoredType { get; private set; } = PotionType.None;
     public int Priority { get; set; }
+    public List<(AlchemyIngredient, AlchemyIngredient)> KnownCombinations { get; set; } = new();
+    public (AlchemyIngredient, AlchemyIngredient)? LastCombination { get; set; }
     [HideFromIl2Cpp]
     public List<AlchemyIngredient> ChosenIngredients { get; set; } = new();
     public void AssignTargets()
@@ -103,24 +132,21 @@ public sealed class AlchemistRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOf
         {
             PotionStored = modifiers[new System.Random(seed).Next(0, modifiers.Length)];
         }
+        ingredients = ingredients.OrderBy(x => x).ToList();
 
+        LastCombination = (ingredients[0], ingredients[1]);
+        var known = OptionGroupSingleton<AlchemistOptions>.Instance.LearnPotion || KnownCombinations.Contains(((AlchemyIngredient, AlchemyIngredient))LastCombination);
+        
         var notif1 = Helpers.CreateAndShowNotification(
             TouLocale.GetParsed($"TouJKRole{LocaleKey}BrewNotif")
             .Replace("<ingredient0>", $"{GetIngredientColor(ingredients[0]).ToTextColor()}{TouLocale.Get($"TouJKRole{LocaleKey}Ingredient{ingredients[0]}")}</color>")
             .Replace("<ingredient1>", $"{GetIngredientColor(ingredients[1]).ToTextColor()}{TouLocale.Get($"TouJKRole{LocaleKey}Ingredient{ingredients[1]}")}</color>")
-            .Replace("<potion>", $"{TownOfUsMiraJKColors.Alchemist.ToTextColor()}{(ModifierManager.Modifiers.FirstOrDefault(x => x.GetType() == PotionStored) as IPotionEffect)?.PotionName ?? TouLocale.Get($"TouJKRole{LocaleKey}PotionNone")}</color>"),
+            .Replace("<potion>", $"{TownOfUsMiraJKColors.Alchemist.ToTextColor()}{(known ? PotionStoredName : TouLocale.GetParsed($"TouJKRole{LocaleKey}Potion{PotionStoredType}"))}</color>"),
             Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Alchemist.LoadAsset());
 
         notif1.AdjustNotification();
     }
 
-    [HideFromIl2Cpp]
-    public StringBuilder SetTabText()
-    {
-        var text = ITownOfUsRole.SetNewTabText(this);
-        text.AppendLine(TouLocale.GetParsed($"TouJKRole{LocaleKey}PotionTab").Replace("<potion>", (ModifierManager.Modifiers.FirstOrDefault(x => x.GetType() == PotionStored) as IPotionEffect)?.PotionName ?? TouLocale.Get($"TouJKRole{LocaleKey}PotionNone")));
-        return text;
-    }
     [MethodRpc((uint)TownOfUsJKRpc.SetAlchemistSeed)]
     public static void RpcSetSeed(PlayerControl self, int seed)
     {

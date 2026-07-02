@@ -20,9 +20,10 @@ public sealed class IndecisionPotionModifier(PlayerControl alchemist) : BaseModi
     public override bool HideOnUi => false;
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKCrewAssets.AlchemistPotionSprite;
     public bool CanAppear => true;
-    public bool CanSelf => false;
+    public PotionType PotionType => PotionType.Negative;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionIndecisionPotion");
     public PlayerControl Alchemist => alchemist;
+    public PlayerVoteArea VoteArea;
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescription").Replace("<potion>", PotionName);
@@ -31,5 +32,24 @@ public sealed class IndecisionPotionModifier(PlayerControl alchemist) : BaseModi
     public override void OnDeath(DeathReason reason)
     {
         Player.RemoveModifier(this);
+    }
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        var meetingInstance = MeetingHud.Instance;
+        if (meetingInstance == null || !VoteArea)
+        {
+            return;
+        }
+
+        if (!VoteArea.DidVote && meetingInstance.state == MeetingHud.VoteStates.NotVoted)
+        {
+            VoteArea.SetVote(252);
+
+            if (Player.AmOwner)
+            {
+                MeetingHud.Instance.Confirm(252);
+            }
+        }
     }
 }

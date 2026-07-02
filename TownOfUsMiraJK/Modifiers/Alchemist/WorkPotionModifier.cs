@@ -21,13 +21,17 @@ namespace TownOfUsMiraJK.Modifiers.Alchemist;
 
 public sealed class WorkPotionModifier(PlayerControl alchemist) : TimedModifier, IPotionEffect
 {
-    public override string ModifierName => TouLocale.Get("TouJKRoleAlchemistPotionWorkPotion");
+    public override string ModifierName => TouLocale.Get("TouJKRoleAlchemistPotionWorkPotionEffect");
     public bool CanAppear => true;
     public override bool AutoStart => true;
     public override float Duration => 0.1f;
-    public bool CanSelf => OptionGroupSingleton<AlchemistOptions>.Instance.AllowSelf;
+    public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionWorkPotion");
     public PlayerControl Alchemist => alchemist;
+    public override string GetDescription()
+    {
+        return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescription").Replace("<potion>", PotionName);
+    }
 
     public override void OnActivate()
     {

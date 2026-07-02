@@ -23,7 +23,7 @@ public sealed class ClairvoyantPotionModifier(PlayerControl alchemist) : TimedMo
     public override float Duration => OptionGroupSingleton<AlchemistOptions>.Instance.PotionDurationShort;
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKCrewAssets.AlchemistPotionSprite;
     public bool CanAppear => true;
-    public bool CanSelf => OptionGroupSingleton<AlchemistOptions>.Instance.AllowSelf;
+    public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionClairvoyantPotion");
     public PlayerControl Alchemist => alchemist;
     public override string GetDescription()

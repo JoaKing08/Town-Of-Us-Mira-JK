@@ -20,9 +20,10 @@ public sealed class InfluencePotionModifier(PlayerControl alchemist) : BaseModif
     public override bool HideOnUi => false;
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKCrewAssets.AlchemistPotionSprite;
     public bool CanAppear => true;
-    public bool CanSelf => OptionGroupSingleton<AlchemistOptions>.Instance.AllowSelf;
+    public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionInfluencePotion");
     public PlayerControl Alchemist => alchemist;
+    public bool Voted { get; set; }
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescription").Replace("<potion>", PotionName);

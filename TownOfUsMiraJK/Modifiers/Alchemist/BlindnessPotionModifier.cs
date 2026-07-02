@@ -25,7 +25,7 @@ public sealed class BlindnessPotionModifier(PlayerControl alchemist) : TimedModi
     public override float Duration => OptionGroupSingleton<AlchemistOptions>.Instance.PotionDurationLong;
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKCrewAssets.AlchemistPotionSprite;
     public bool CanAppear => true;
-    public bool CanSelf => false;
+    public PotionType PotionType => PotionType.Negative;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionBlindnessPotion");
     public PlayerControl Alchemist => alchemist;
     public override string GetDescription()

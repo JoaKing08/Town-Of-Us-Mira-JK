@@ -31,7 +31,7 @@ public sealed class AlchemistPotionButton : TownOfUsRoleButton<AlchemistRole, Pl
 
     public override PlayerControl? GetTarget()
     {
-        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance) ?? ((ModifierManager.Modifiers.FirstOrDefault(x => x.GetType() == Role?.PotionStored) as IPotionEffect)?.CanSelf == true ? PlayerControl.LocalPlayer : null);
+        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance) ?? (Role?.PotionStoredCanSelf == true ? PlayerControl.LocalPlayer : null);
     }
     public override bool IsTargetValid(PlayerControl? target)
     {
@@ -61,5 +61,6 @@ public sealed class AlchemistPotionButton : TownOfUsRoleButton<AlchemistRole, Pl
         Role.PotionStored = null;
         SetActive(false, Role);
         CustomButtonSingleton<AlchemistBrewButton>.Instance.SetActive(true, Role);
+        CustomButtonSingleton<AlchemistBrewButton>.Instance.ResetCooldownAndOrEffect();
     }
 }

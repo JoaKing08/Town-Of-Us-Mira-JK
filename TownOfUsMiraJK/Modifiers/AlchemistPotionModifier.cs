@@ -10,6 +10,7 @@ using TownOfUsMiraJK;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
 using TownOfUsMiraJK.Options.Roles.Neutral;
+using TownOfUsMiraJK.Roles.Crewmate;
 using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
 
@@ -41,13 +42,30 @@ public sealed class AlchemistPotionModifier(byte alchemist, uint id) : TimedModi
     {
         if (Apply)
         {
-            Player?.AddModifier(ToApply, Alchemist);
-            if (Alchemist.AmOwner)
+            Player.AddModifier(ToApply, Alchemist);
+            var potion = ModifierManager.Modifiers.FirstOrDefault(x => x.GetType() == ToApply) as IPotionEffect;
+            if (Alchemist.AmOwner && Player.AmOwner)
             {
+                var notif1 = Helpers.CreateAndShowNotification(
+                    TouLocale.GetParsed($"TouJKRoleAlchemistPotionSelfNotif")
+                    .Replace("<potion>", $"{TownOfUsMiraJKColors.Alchemist.ToTextColor()}{potion?.PotionName ?? TouLocale.Get($"TouJKRoleAlchemistPotionNone")}</color>"),
+                    Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Alchemist.LoadAsset());
+
+                notif1.AdjustNotification();
+
+                var alchemist = Alchemist.GetRole<AlchemistRole>();
+                if (!OptionGroupSingleton<AlchemistOptions>.Instance.LearnPotion && OptionGroupSingleton<AlchemistOptions>.Instance.LearnAfterApplying && alchemist?.KnownCombinations.Contains(((AlchemyIngredient, AlchemyIngredient))alchemist.LastCombination!) == true)
+                {
+                    alchemist.KnownCombinations.Add(((AlchemyIngredient, AlchemyIngredient))alchemist.LastCombination);
+                }
+            }
+            else if (Alchemist.AmOwner)
+            {
+                var typeString = potion is null ? null : TouLocale.GetParsed($"TouJKRoleAlchemistPotion{potion.PotionType}");
                 var notif1 = Helpers.CreateAndShowNotification(
                     TouLocale.GetParsed($"TouJKRoleAlchemistPotionRealNotif")
                     .Replace("<player>", $"{TownOfUsMiraJKColors.Alchemist.ToTextColor()}{Player.Data.PlayerName}</color>")
-                    .Replace("<potion>", $"{TownOfUsMiraJKColors.Alchemist.ToTextColor()}{(ModifierManager.Modifiers.FirstOrDefault(x => x.GetType() == ToApply) as IPotionEffect)?.PotionName ?? TouLocale.Get($"TouJKRoleAlchemistPotionNone")}</color>"),
+                    .Replace("<potion>", $"{TownOfUsMiraJKColors.Alchemist.ToTextColor()}{(OptionGroupSingleton<AlchemistOptions>.Instance.LearnAfterApplying || OptionGroupSingleton<AlchemistOptions>.Instance.LearnPotion ? potion?.PotionName : typeString) ?? TouLocale.Get($"TouJKRoleAlchemistPotionNone")}</color>"),
                     Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Alchemist.LoadAsset());
 
                 notif1.AdjustNotification();
@@ -57,7 +75,7 @@ public sealed class AlchemistPotionModifier(byte alchemist, uint id) : TimedModi
                 var notif1 = Helpers.CreateAndShowNotification(
                     TouLocale.GetParsed($"TouJKRoleAlchemistPotionTargetNotif")
                     .Replace("<role>", $"{TownOfUsMiraJKColors.Alchemist.ToTextColor()}{Alchemist.Data.Role.GetRoleName()}</color>")
-                    .Replace("<potion>", $"{TownOfUsMiraJKColors.Alchemist.ToTextColor()}{(ModifierManager.Modifiers.FirstOrDefault(x => x.GetType() == ToApply) as IPotionEffect)?.PotionName ?? TouLocale.Get($"TouJKRoleAlchemistPotionNone")}</color>"),
+                    .Replace("<potion>", $"{TownOfUsMiraJKColors.Alchemist.ToTextColor()}{potion?.PotionName ?? TouLocale.Get($"TouJKRoleAlchemistPotionNone")}</color>"),
                     Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Alchemist.LoadAsset());
 
                 notif1.AdjustNotification();
@@ -81,6 +99,14 @@ public interface IPotionEffect
 {
     public string PotionName { get; }
     public bool CanAppear { get; }
-    public bool CanSelf { get; }
+    public bool CanSelf => PotionType != PotionType.Negative && OptionGroupSingleton<AlchemistOptions>.Instance.AllowSelf;
+    public PotionType PotionType { get; }
     public PlayerControl Alchemist { get; }
+}
+public enum PotionType
+{
+    None,
+    Neutral,
+    Positive,
+    Negative
 }

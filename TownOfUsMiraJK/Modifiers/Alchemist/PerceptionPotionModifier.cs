@@ -25,7 +25,7 @@ public sealed class PerceptionPotionModifier(PlayerControl alchemist) : TimedMod
     public override float Duration => OptionGroupSingleton<AlchemistOptions>.Instance.PotionDurationLong;
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKCrewAssets.AlchemistPotionSprite;
     public bool CanAppear => true;
-    public bool CanSelf => OptionGroupSingleton<AlchemistOptions>.Instance.AllowSelf;
+    public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionPerceptionPotion");
     public PlayerControl Alchemist => alchemist;
     public override string GetDescription()

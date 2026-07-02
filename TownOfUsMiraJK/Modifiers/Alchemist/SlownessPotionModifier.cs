@@ -21,7 +21,7 @@ public sealed class SlownessPotionModifier(PlayerControl alchemist) : TimedModif
     public override float Duration => OptionGroupSingleton<AlchemistOptions>.Instance.PotionDurationLong;
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKCrewAssets.AlchemistPotionSprite;
     public bool CanAppear => true;
-    public bool CanSelf => false;
+    public PotionType PotionType => PotionType.Negative;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionSlownessPotion");
     public PlayerControl Alchemist => alchemist;
     public override string GetDescription()

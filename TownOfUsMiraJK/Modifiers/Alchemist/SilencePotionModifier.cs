@@ -20,7 +20,7 @@ public sealed class SilencePotionModifier(PlayerControl alchemist) : BaseModifie
     public override bool HideOnUi => false;
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKCrewAssets.AlchemistPotionSprite;
     public bool CanAppear => true;
-    public bool CanSelf => false;
+    public PotionType PotionType => PotionType.Negative;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionSilencePotion");
     public PlayerControl Alchemist => alchemist;
     public override string GetDescription()

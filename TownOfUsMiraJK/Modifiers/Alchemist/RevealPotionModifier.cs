@@ -27,10 +27,11 @@ public sealed class RevealPotionModifier(PlayerControl alchemist) : RevealModifi
     public override bool HideOnUi => false;
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKCrewAssets.AlchemistPotionSprite;
     public bool CanAppear => true;
-    public bool CanSelf => false;
+    public PotionType PotionType => PotionType.Neutral;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionRevealPotion");
     public PlayerControl Alchemist => alchemist;
     public override ChangeRoleResult ChangeRoleResult => ChangeRoleResult.UpdateInfo;
+    public bool CanSelf => false;
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescription").Replace("<potion>", PotionName);

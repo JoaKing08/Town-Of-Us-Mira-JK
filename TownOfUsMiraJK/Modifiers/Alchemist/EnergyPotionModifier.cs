@@ -24,7 +24,7 @@ public sealed class EnergyPotionModifier(PlayerControl alchemist) : TimedModifie
     public override float Duration => OptionGroupSingleton<AlchemistOptions>.Instance.PotionDurationLong;
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKCrewAssets.AlchemistPotionSprite;
     public bool CanAppear => true;
-    public bool CanSelf => OptionGroupSingleton<AlchemistOptions>.Instance.AllowSelf;
+    public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionEnergyPotion");
     public PlayerControl Alchemist => alchemist;
     public override string GetDescription()

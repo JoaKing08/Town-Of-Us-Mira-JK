@@ -69,7 +69,10 @@ public sealed class AlchemistBrewButton : TownOfUsRoleButton<AlchemistRole>
                         Role.ChosenIngredients.Clear();
                         alchemistMenu.Close();
                         SetActive(false, Role);
-                        CustomButtonSingleton<AlchemistPotionButton>.Instance.SetActive(true, Role);
+                        var brewButton = CustomButtonSingleton<AlchemistPotionButton>.Instance;
+                        brewButton.SetActive(true, Role);
+                        brewButton.ResetCooldownAndOrEffect();
+                        brewButton.OverrideName(Role.PotionStoredName);
                     }
                 }
             );

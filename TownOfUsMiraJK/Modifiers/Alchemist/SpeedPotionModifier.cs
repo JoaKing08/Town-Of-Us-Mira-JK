@@ -22,7 +22,7 @@ public sealed class SpeedPotionModifier(PlayerControl alchemist) : TimedModifier
     public override float Duration => OptionGroupSingleton<AlchemistOptions>.Instance.PotionDurationLong;
     public override LoadableAsset<Sprite>? ModifierIcon => ToUJKCrewAssets.AlchemistPotionSprite;
     public bool CanAppear => true;
-    public bool CanSelf => OptionGroupSingleton<AlchemistOptions>.Instance.AllowSelf;
+    public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionSpeedPotion");
     public PlayerControl Alchemist => alchemist;
     public override string GetDescription()
