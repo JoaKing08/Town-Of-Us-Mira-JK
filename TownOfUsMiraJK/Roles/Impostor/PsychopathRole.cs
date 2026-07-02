@@ -1,4 +1,5 @@
-﻿using InnerNet;
+﻿using Il2CppInterop.Runtime.Attributes;
+using InnerNet;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Patches.Stubs;
@@ -40,6 +41,20 @@ public sealed class PsychopathRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownO
         return
             TouLocale.GetParsed($"TouJKRole{LocaleKey}WikiDescription") +
             MiscUtils.AppendOptionsText(GetType());
+    }
+
+    [HideFromIl2Cpp]
+    public List<CustomButtonWikiDescription> Abilities
+    {
+        get
+        {
+            return new List<CustomButtonWikiDescription>
+            {
+                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Insanity", "Insanity"),
+                    TouLocale.GetParsed($"TouJKRole{LocaleKey}InsanityWikiDescription"),
+                    ToUJKImpAssets.PsychopathInsanitySprite)
+            };
+        }
     }
 
     public Color RoleColor => TownOfUsColors.Impostor;

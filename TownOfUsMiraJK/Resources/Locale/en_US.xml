@@ -707,6 +707,20 @@
 	<string name="TouJKOptionDemagogueCanBeKilledNonCrew">Demagogue Can Be Killed By Non-Crew Roles</string>
 	<string name="TouJKOptionDemagogueGiveHints">Give Hints About Who Isn't Immunity</string>
 	<string name="TouJKOptionDemagogueAnnounceImmunityDeath">Announce Immunity Death</string>
+	<!-- Psychopath -->
+	<string name="TouJKRolePsychopath">Psychopath</string>
+	<string name="TouJKRolePsychopathIntroBlurb">Reveal yourself and hunt down your pray.</string>
+	<string name="TouJKRolePsychopathTabDescription">Reveal yourself to decrease your cooldown.</string>
+	<string name="TouJKRolePsychopathInsanityNotif">You decided to let your insanity take control.</string>
+	<string name="TouJKRolePsychopathInsanityEndNotif">You calm yourself and put your mask back on again.</string>
+	<!-- Psychopath Wiki -->
+	<string name="TouJKRolePsychopathWikiDescription">The Psychopath is a Impostor Killing role that can decide to appear as an Seeker from Hide and Seek to lower their cooldown.</string>
+	<string name="TouJKRolePsychopathInsanity">Insanity</string>
+	<string name="TouJKRolePsychopathInsanityWikiDescription">Reveal your identity to lower your cooldown.</string>
+	<!-- Psychopath Options -->
+	<string name="TouJKOptionPsychopathInsanityCooldown">Insanity Cooldown</string>
+	<string name="TouJKOptionPsychopathInsanityDuration">Insanity Duration</string>
+	<string name="TouJKOptionPsychopathInsanityKillCooldown">Insanity Kill Cooldown</string>
 	<!-- Explorer Wiki / Description -->
 	<string name="TouJKModifierExplorer">Explorer</string>
 	<string name="TouJKModifierExplorerTabDescription">You can vent!</string>
