@@ -22,7 +22,9 @@ public sealed class SilencePotionModifier(PlayerControl alchemist) : BaseModifie
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Negative;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionSilencePotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionSilencePotionDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "m";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescription").Replace("<potion>", PotionName);

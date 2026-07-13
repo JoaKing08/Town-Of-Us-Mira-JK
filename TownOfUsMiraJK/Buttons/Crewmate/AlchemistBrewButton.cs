@@ -65,14 +65,15 @@ public sealed class AlchemistBrewButton : TownOfUsRoleButton<AlchemistRole>
                     }
                     if (alchemistMenu.ChosenCards.Count == 2)
                     {
-                        Role.BrewPotion(alchemistMenu.ChosenCards.Select(x => x.Item2).ToList());
+                        var ingredients = alchemistMenu.ChosenCards.Select(x => x.Item2).OrderBy(x => x).ToList();
+                        var brewButton = CustomButtonSingleton<AlchemistPotionButton>.Instance;
+                        Role.BrewPotion(ingredients);
                         Role.ChosenIngredients.Clear();
                         alchemistMenu.Close();
-                        SetActive(false, Role);
-                        var brewButton = CustomButtonSingleton<AlchemistPotionButton>.Instance;
                         brewButton.SetActive(true, Role);
                         brewButton.ResetCooldownAndOrEffect();
-                        brewButton.OverrideName(Role.PotionStoredName);
+                        brewButton.OverrideName(Role.LastCombination.Name);
+                        SetActive(false, Role);
                     }
                 }
             );

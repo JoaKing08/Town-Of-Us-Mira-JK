@@ -28,7 +28,9 @@ public sealed class SleepPotionModifier(PlayerControl alchemist) : DisabledModif
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Negative;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionSleepPotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionSleepPotionDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "$";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescriptionTimer").Replace("<time>", ((int)TimeRemaining).ToString()).Replace("<potion>", PotionName);

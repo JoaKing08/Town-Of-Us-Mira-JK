@@ -27,7 +27,9 @@ public sealed class PerceptionPotionModifier(PlayerControl alchemist) : TimedMod
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionPerceptionPotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionPerceptionPotionDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "^";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescriptionTimer").Replace("<time>", ((int)TimeRemaining).ToString()).Replace("<potion>", PotionName);

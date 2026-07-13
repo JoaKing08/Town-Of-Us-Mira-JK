@@ -24,10 +24,13 @@ public sealed class WorkPotionModifier(PlayerControl alchemist) : TimedModifier,
     public override string ModifierName => TouLocale.Get("TouJKRoleAlchemistPotionWorkPotionEffect");
     public bool CanAppear => true;
     public override bool AutoStart => true;
-    public override float Duration => 0.1f;
+    public override bool HideOnUi => true;
+    public override float Duration => 1;
     public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionWorkPotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionWorkPotionDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescription").Replace("<potion>", PotionName);

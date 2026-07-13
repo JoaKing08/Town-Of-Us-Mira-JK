@@ -22,8 +22,10 @@ public sealed class InfluencePotionModifier(PlayerControl alchemist) : BaseModif
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionInfluencePotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionInfluencePotionDescription");
     public PlayerControl Alchemist => alchemist;
     public bool Voted { get; set; }
+    public string PotionSymbol => "+";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescription").Replace("<potion>", PotionName);

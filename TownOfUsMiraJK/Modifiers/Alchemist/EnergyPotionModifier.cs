@@ -26,7 +26,9 @@ public sealed class EnergyPotionModifier(PlayerControl alchemist) : TimedModifie
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionEnergyPotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionEnergyPotionDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "e";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescriptionTimer").Replace("<time>", ((int)TimeRemaining).ToString()).Replace("<potion>", PotionName);
@@ -45,13 +47,18 @@ public sealed class EnergyPotionModifier(PlayerControl alchemist) : TimedModifie
     public override void FixedUpdate()
     {
         base.FixedUpdate();
+        var time = Time.fixedDeltaTime * (OptionGroupSingleton<AlchemistOptions>.Instance.EnergyPotion - 1f);
+        if (Player.IsImpostor())
+        {
+            Player.killTimer -= time;
+        }
         if (!Player.AmOwner)
         {
             return;
         }
         foreach (var button in CustomButtonManager.Buttons.Where(x => x.Enabled(Player.Data.Role) && !x.EffectActive && x.Timer > 0 && !x.TimerPaused))
         {
-            button.Timer -= Time.fixedDeltaTime * (OptionGroupSingleton<AlchemistOptions>.Instance.EnergyPotion - 1f);
+            button.Timer -= time;
         }
     }
 }

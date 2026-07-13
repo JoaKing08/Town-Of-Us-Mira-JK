@@ -27,7 +27,9 @@ public sealed class BlindnessPotionModifier(PlayerControl alchemist) : TimedModi
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Negative;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionBlindnessPotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionBlindnessPotionDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "v";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescriptionTimer").Replace("<time>", ((int)TimeRemaining).ToString()).Replace("<potion>", PotionName);

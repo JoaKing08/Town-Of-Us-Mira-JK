@@ -30,7 +30,9 @@ public sealed class PoisonModifier(PlayerControl alchemist) : TimedModifier, IPo
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Negative;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionPoison");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionPoisonDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "p";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescriptionTimer").Replace("<time>", ((int)TimeRemaining).ToString()).Replace("<potion>", PotionName);

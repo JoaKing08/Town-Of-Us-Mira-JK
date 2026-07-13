@@ -22,7 +22,9 @@ public sealed class IndecisionPotionModifier(PlayerControl alchemist) : BaseModi
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Negative;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionIndecisionPotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionIndecisionPotionDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "-";
     public PlayerVoteArea VoteArea;
     public override string GetDescription()
     {

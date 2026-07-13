@@ -70,8 +70,8 @@ public sealed class AlchemistRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOf
     public bool PotionStoredCanSelf { get; private set; }
     public PotionType PotionStoredType { get; private set; } = PotionType.None;
     public int Priority { get; set; }
-    public List<(AlchemyIngredient, AlchemyIngredient)> KnownCombinations { get; set; } = new();
-    public (AlchemyIngredient, AlchemyIngredient)? LastCombination { get; set; }
+    public List<RecordedCombination> KnownCombinations { get; set; } = new();
+    public RecordedCombination LastCombination { get; set; }
     [HideFromIl2Cpp]
     public List<AlchemyIngredient> ChosenIngredients { get; set; } = new();
     public void AssignTargets()
@@ -98,14 +98,78 @@ public sealed class AlchemistRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOf
             return new List<CustomButtonWikiDescription>
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Brew", "Brew"),
-                    TouLocale.GetParsed($"TouJKRole{LocaleKey}BrewDescription"),
+                    TouLocale.GetParsed($"TouJKRole{LocaleKey}BrewWikiDescription"),
                     ToUJKCrewAssets.AlchemistBrewSprite),
 
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Potion", "Potion"),
-                    TouLocale.GetParsed($"TouJKRole{LocaleKey}PotionDescription"),
-                    ToUJKCrewAssets.AlchemistPotionSprite)
+                    TouLocale.GetParsed($"TouJKRole{LocaleKey}PotionWikiDescription"),
+                    ToUJKCrewAssets.AlchemistPotionSprite),
+
+                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}PositivePotions"),
+                    PositivePotionList,
+                    TouRoleIcons.Cleric),
+
+                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}NeutralPotions"),
+                    NeutralPotionList,
+                    TouRoleIcons.Aurial),
+
+                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}NegativePotions"),
+                    NegativePotionList,
+                    ToUJKRoleIcons.Poisoner),
+
             };
         }
+    }
+
+    public static string PositivePotionList
+    {
+        get
+        {
+            if (_positivePotionList == null)
+            {
+                _positivePotionList = GetPotionList(PotionType.Positive);
+            }
+            return _positivePotionList;
+        }
+    }
+    private static string _positivePotionList;
+
+    public static string NeutralPotionList
+    {
+        get
+        {
+            if (_neutralPotionList == null)
+            {
+                _neutralPotionList = GetPotionList(PotionType.Neutral);
+            }
+            return _neutralPotionList;
+        }
+    }
+    private static string _neutralPotionList;
+
+    public static string NegativePotionList
+    {
+        get
+        {
+            if (_negativePotionList == null)
+            {
+                _negativePotionList = GetPotionList(PotionType.Negative);
+            }
+            return _negativePotionList;
+        }
+    }
+    private static string _negativePotionList;
+
+    public static string GetPotionList(PotionType type)
+    {
+        var text = new StringBuilder();
+        foreach (var modifier in ModifierManager.Modifiers.Where(x => x is IPotionEffect potion && potion.PotionType == type))
+        {
+            var potion = modifier as IPotionEffect;
+            text.AppendLine($"{potion!.PotionName}{(string.IsNullOrWhiteSpace(potion.PotionSymbol) ? "" : $" ({TownOfUsMiraJKColors.Alchemist.ToTextColor()}{potion.PotionSymbol}</color>)")}{(string.IsNullOrWhiteSpace(potion.PotionDescription) ? "" : $": {potion.PotionDescription}")}");
+        }
+        text = text.Remove(text.Length - 1, 1);
+        return text.ToString();
     }
 
     public Color RoleColor => TownOfUsMiraJKColors.Alchemist;
@@ -132,16 +196,18 @@ public sealed class AlchemistRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOf
         {
             PotionStored = modifiers[new System.Random(seed).Next(0, modifiers.Length)];
         }
-        ingredients = ingredients.OrderBy(x => x).ToList();
 
-        LastCombination = (ingredients[0], ingredients[1]);
-        var known = OptionGroupSingleton<AlchemistOptions>.Instance.LearnPotion || KnownCombinations.Contains(((AlchemyIngredient, AlchemyIngredient))LastCombination);
-        
+        LastCombination = KnownCombinations.Any(x => x.Is(ingredients)) ? KnownCombinations.First(x => x.Is(ingredients)) : new(ingredients, OptionGroupSingleton<AlchemistOptions>.Instance.LearnPotion ? PotionStoredName : TouLocale.GetParsed($"TouJKRole{LocaleKey}Potion{PotionStoredType}"));
+        if (!KnownCombinations.Contains(LastCombination))
+        {
+            KnownCombinations.Add(LastCombination);
+        }
+
         var notif1 = Helpers.CreateAndShowNotification(
             TouLocale.GetParsed($"TouJKRole{LocaleKey}BrewNotif")
             .Replace("<ingredient0>", $"{GetIngredientColor(ingredients[0]).ToTextColor()}{TouLocale.Get($"TouJKRole{LocaleKey}Ingredient{ingredients[0]}")}</color>")
             .Replace("<ingredient1>", $"{GetIngredientColor(ingredients[1]).ToTextColor()}{TouLocale.Get($"TouJKRole{LocaleKey}Ingredient{ingredients[1]}")}</color>")
-            .Replace("<potion>", $"{TownOfUsMiraJKColors.Alchemist.ToTextColor()}{(known ? PotionStoredName : TouLocale.GetParsed($"TouJKRole{LocaleKey}Potion{PotionStoredType}"))}</color>"),
+            .Replace("<potion>", $"{TownOfUsMiraJKColors.Alchemist.ToTextColor()}{LastCombination.Name}</color>"),
             Color.white, new Vector3(0f, 1f, -20f), spr: ToUJKRoleIcons.Alchemist.LoadAsset());
 
         notif1.AdjustNotification();
@@ -231,4 +297,31 @@ public enum AlchemyIngredient
     Tin,
     Mercury,
     Lead,
+}
+public struct RecordedCombination
+{
+    public List<AlchemyIngredient> Ingredients = new();
+    public string Name = "";
+    public RecordedCombination(List<AlchemyIngredient> ingredients, string name)
+    {
+        Ingredients = ingredients.OrderBy(x => x).ToList();
+        Name = name;
+    }
+    public bool Is(List<AlchemyIngredient> ingredients)
+    {
+        ingredients = ingredients.OrderBy(x => x).ToList();
+        var result = Ingredients.Count == ingredients.Count;
+        if (result)
+        {
+            for (int i = 0; i < ingredients.Count; i++)
+            {
+                result &= Ingredients[i] == ingredients[i];
+            }
+        }
+        return result;
+    }
+    public bool Is(params AlchemyIngredient[] ingredients)
+    {
+        return Is(ingredients.ToList());
+    }
 }

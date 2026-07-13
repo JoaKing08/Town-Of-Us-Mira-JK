@@ -8,7 +8,7 @@ using TownOfUsMiraJK.Options;
 namespace TownOfUsMiraJK.Patches;
 
 [HarmonyPatch]
-public static class IngameWikiAddNewSettingsPatch
+public static class IngameWikiAddNewEntriesPatch
 {
     [HarmonyPatch(typeof(IngameWikiMinigame), nameof(IngameWikiMinigame.AddNewSettings))]
     [HarmonyPostfix]
@@ -19,5 +19,11 @@ public static class IngameWikiAddNewSettingsPatch
             {
                 OptionGroupSingleton<GeneralOptions>.Instance, OptionGroupSingleton<TouMTweaksOptions>.Instance
             }, ToUJKRoleIcons.Demagogue));
+    }
+    [HarmonyPatch(typeof(IngameWikiMinigame), nameof(IngameWikiMinigame.AddNewTerms))]
+    [HarmonyPostfix]
+    public static void AddOwnTerms(IngameWikiMinigame instance)
+    {
+        instance._activeTerms.Insert(3, new TermWikiInfo("TouJKTermsPotionEffectSymbolsTitle", "TouJKTermsPotionEffectSymbolsInfo", ToUJKRoleIcons.Alchemist));
     }
 }

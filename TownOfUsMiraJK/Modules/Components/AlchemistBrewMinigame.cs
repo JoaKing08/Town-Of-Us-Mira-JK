@@ -17,6 +17,7 @@ using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Roles.Crewmate;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace TownOfUs.Modules.Components;
@@ -29,6 +30,7 @@ public sealed class AlchemistBrewMinigame(IntPtr cppPtr) : Minigame(cppPtr)
     public Transform RolesHolder;
     public GameObject RolePrefab;
     public TextMeshPro StatusText;
+    public TextMeshPro RecipeBook;
 
     private readonly Color _bgColor = TownOfUsMiraJKColors.Alchemist.SetAlpha(0.8f);
     private RoleTypes? _selectedRole;
@@ -53,6 +55,13 @@ public sealed class AlchemistBrewMinigame(IntPtr cppPtr) : Minigame(cppPtr)
         StatusText.fontMaterial = HudManager.Instance.TaskPanel.taskText.fontMaterial;
         StatusText.text = TouLocale.Get("TouJKRoleAlchemistBrewTitle");
         StatusText.gameObject.SetActive(false);
+
+        RecipeBook = GameObject.Instantiate(StatusText, transform);
+        RecipeBook.transform.localPosition = new Vector3(-1.5f, 2.75f, StatusText.transform.localPosition.z - 10);
+        RecipeBook.fontSize = 1;
+        RecipeBook.text = "";
+        RecipeBook.alignment = TextAlignmentOptions.TopLeft;
+        RecipeBook.enableAutoSizing = false;
     }
 
     public static AlchemistBrewMinigame Create()
@@ -97,6 +106,21 @@ public sealed class AlchemistBrewMinigame(IntPtr cppPtr) : Minigame(cppPtr)
         HudManager.Instance.StartCoroutine(HudManager.Instance.CoFadeFullScreen(Color.clear, _bgColor));
 
         StatusText!.gameObject.SetActive(true);
+        var alchemist = PlayerControl.LocalPlayer.GetRole<AlchemistRole>();
+        if (alchemist != null && alchemist.KnownCombinations.Count > 0)
+        {
+            RecipeBook!.text = $"<size=3>{TouLocale.Get("TouJKRoleAlchemistRecipeBook")}</size>\n";
+            foreach (var record in alchemist.KnownCombinations.OrderBy(x => x.Ingredients[0]).ThenBy(x => x.Ingredients[1]))
+            {
+                RecipeBook.text += $"{AlchemistRole.GetIngredientColor(record.Ingredients[0]).ToTextColor()}{TouLocale.Get($"TouJKRoleAlchemistIngredient{record.Ingredients[0]}")}</color> + {AlchemistRole.GetIngredientColor(record.Ingredients[1]).ToTextColor()}{TouLocale.Get($"TouJKRoleAlchemistIngredient{record.Ingredients[1]}")}</color> = {record.Name}\n";
+            }
+            RecipeBook.text = RecipeBook.text.Remove(RecipeBook.text.Length - 1);
+            RecipeBook!.gameObject.SetActive(true);
+        }
+        else
+        {
+            RecipeBook!.gameObject.SetActive(false);
+        }
 
         var z = 0;
 

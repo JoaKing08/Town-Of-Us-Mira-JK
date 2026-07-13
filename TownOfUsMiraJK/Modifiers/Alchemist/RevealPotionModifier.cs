@@ -29,9 +29,11 @@ public sealed class RevealPotionModifier(PlayerControl alchemist) : RevealModifi
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Neutral;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionRevealPotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionRevealPotionDescription");
     public PlayerControl Alchemist => alchemist;
     public override ChangeRoleResult ChangeRoleResult => ChangeRoleResult.UpdateInfo;
     public bool CanSelf => false;
+    public string PotionSymbol => "r";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescription").Replace("<potion>", PotionName);

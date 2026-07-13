@@ -24,7 +24,9 @@ public sealed class SpeedPotionModifier(PlayerControl alchemist) : TimedModifier
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionSpeedPotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionSpeedPotionDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "$";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescriptionTimer").Replace("<time>", ((int)TimeRemaining).ToString()).Replace("<potion>", PotionName);

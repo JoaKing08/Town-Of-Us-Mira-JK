@@ -31,7 +31,9 @@ public sealed class ShieldPotionModifier(PlayerControl alchemist) : BaseShieldMo
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionShieldPotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionShieldPotionDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "[]";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescriptionTimer").Replace("<time>", ((int)TimeRemaining).ToString()).Replace("<potion>", PotionName);

@@ -24,7 +24,9 @@ public sealed class AlcoholModifier(PlayerControl alchemist) : TimedModifier, IP
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Negative;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionAlcohol");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionAlcoholDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "d";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescriptionTimer").Replace("<time>", ((int)TimeRemaining).ToString()).Replace("<potion>", PotionName);

@@ -25,7 +25,10 @@ public sealed class ClairvoyantPotionModifier(PlayerControl alchemist) : TimedMo
     public bool CanAppear => true;
     public PotionType PotionType => PotionType.Positive;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionClairvoyantPotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionClairvoyantPotionDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "c";
+    public List<VisibleToClaivoyantModifier> VisibleModifiers { get; set; } = new();
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescriptionTimer").Replace("<time>", ((int)TimeRemaining).ToString()).Replace("<potion>", PotionName);
@@ -45,11 +48,19 @@ public sealed class ClairvoyantPotionModifier(PlayerControl alchemist) : TimedMo
     {
         if (Player.AmOwner)
         {
-            foreach (var player in PlayerControl.AllPlayerControls.ToArray().Where(x => x.Data.IsDead && !x.Data.Disconnected))
+            foreach (var player in PlayerControl.AllPlayerControls.ToArray().Where(x => x.Data.IsDead && !x.Data.Disconnected && !x.HasModifier<VisibleToClaivoyantModifier>()))
             {
-                player.Visible = true;
+                VisibleModifiers.Add(player.AddModifier<VisibleToClaivoyantModifier>()!);
             }
         }
         base.FixedUpdate();
+    }
+    public override void OnDeactivate()
+    {
+        foreach (var modifier in VisibleModifiers)
+        {
+            modifier.ModifierComponent?.RemoveModifier(modifier);
+        }
+        base.OnDeactivate();
     }
 }

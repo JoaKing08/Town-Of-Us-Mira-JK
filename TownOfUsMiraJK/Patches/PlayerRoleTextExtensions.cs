@@ -717,12 +717,20 @@ namespace TownOfUsMiraJK.Patches
                 if (player.HasModifier(PoisonerPredicate) && PlayerControl.LocalPlayer.IsRole<PoisonerRole>()
                     || player.HasModifier<PoisonerPoisonModifier>() && isDead)
                 {
-                    __result += $"<color=#{TownOfUsColors.Impostor.ToHtmlStringRGBA()}> ž</color>";
+                    __result += $"<color=#{TownOfUsColors.Impostor.ToHtmlStringRGBA()}> ö</color>";
                 }
                 if (player.HasModifier(DemagoguePredicate)
                     || player.HasModifier<DemagogueImmunityModifier>() && isDead)
                 {
                     __result += $"<color=#{TownOfUsColors.Impostor.ToHtmlStringRGBA()}> Œ</color>";
+                }
+                foreach (var modifier in ModifierManager.Modifiers.Where(x => x is IPotionEffect potion && !string.IsNullOrWhiteSpace(potion.PotionSymbol)))
+                {
+                    var potion = modifier as IPotionEffect;
+                    if (potion != null && player.HasModifier(modifier.TypeId) && (potion.Alchemist?.AmOwner == true || isDead))
+                    {
+                        __result += $"<color=#{TownOfUsMiraJKColors.Alchemist.ToHtmlStringRGBA()}> {potion.PotionSymbol}</color>";
+                    }
                 }
             }
         }

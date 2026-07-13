@@ -26,10 +26,13 @@ public sealed class ChaosPotionModifier(PlayerControl alchemist) : TimedModifier
     public override string ModifierName => TouLocale.Get("TouJKRoleAlchemistPotionChaosPotionEffect");
     public bool CanAppear => true;
     public override bool AutoStart => true;
-    public override float Duration => 0.1f;
+    public override bool HideOnUi => true;
+    public override float Duration => 1;
     public PotionType PotionType => PotionType.Neutral;
     public string PotionName => TouLocale.Get("TouJKRoleAlchemistPotionChaosPotion");
+    public string PotionDescription => TouLocale.Get("TouJKRoleAlchemistPotionChaosPotionDescription");
     public PlayerControl Alchemist => alchemist;
+    public string PotionSymbol => "";
     public override string GetDescription()
     {
         return TouLocale.GetParsed("TouJKRoleAlchemistPotionDescription").Replace("<potion>", PotionName);
