@@ -31,11 +31,13 @@ public sealed class AnarchistRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
         orCreateTask.name = "NeutralRoleText";
     }
 
+    [HideFromIl2Cpp]
     public List<PlayerControl> Misejected { get; set; } = new();
     public int Misejects => Misejected.Count;
     public bool AboutToWin { get; set; }
 
-    [HideFromIl2Cpp] public List<(byte suspect, byte voter)> Voters { get; set; } = [];
+    [HideFromIl2Cpp]
+    public List<(byte suspect, byte voter)> Voters { get; set; } = [];
 
     public RoleBehaviour CrewVariant => RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<GossipRole>());
     public DoomableType DoomHintType => DoomableType.Trickster;

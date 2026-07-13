@@ -61,9 +61,9 @@ public sealed class PsychicRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUs
         {
             return new List<CustomButtonWikiDescription>
             {
-                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Guard", "Guard"),
-                    TouLocale.GetParsed($"TouJKRole{LocaleKey}GuardWikiDescription"),
-                    ToUJKCrewAssets.BodyguardGuardSprite)
+                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Mindscan", "Mindscan"),
+                    TouLocale.GetParsed($"TouJKRole{LocaleKey}MindscanWikiDescription"),
+                    ToUJKCrewAssets.PsychicMindscanSprite)
             };
         }
     }

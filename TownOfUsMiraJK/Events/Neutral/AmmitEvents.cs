@@ -37,6 +37,10 @@ public static class AmmitEvents
         {
             CustomButtonSingleton<AmmitDevourButton>.Instance.SetUses((int)OptionGroupSingleton<AmmitOptions>.Instance.MaxDevoured);
         }
+        foreach (var modifier in ModifierUtils.GetActiveModifiers<AmmitDevouredModifier>())
+        {
+            modifier.Player.RemoveModifier<AmmitDevouredModifier>();
+        }
     }
 
     [RegisterEvent(-1000)]
@@ -44,6 +48,7 @@ public static class AmmitEvents
     {
         foreach (var modifier in ModifierUtils.GetActiveModifiers<AmmitDevouredModifier>())
         {
+            modifier.Player.RemoveModifier<AmmitDevouredModifier>();
             if (!modifier.Player.HasModifier<InvulnerabilityModifier>() && !modifier.Player.HasModifier<BaseShieldModifier>() && !modifier.Player.HasModifier<FirstDeadShield>())
             {
                 DeathHandlerModifier.UpdateDeathHandlerImmediate(modifier.Player, TouLocale.Get("DiedToAmmit"),
@@ -52,7 +57,6 @@ public static class AmmitEvents
 
                 modifier.Player.Exiled();
             }
-            modifier.Player.RemoveModifier<AmmitDevouredModifier>();
         }
     }
 }

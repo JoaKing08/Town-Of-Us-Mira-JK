@@ -223,7 +223,7 @@
 	<!-- Sanctifier Wiki -->
 	<string name="TouJKRoleSanctifierWikiDescription">The Sanctifier is a Crewmate Protective role that can place magic circle, which when the player is inside they cannot be interacted with.</string>
 	<string name="TouJKRoleSanctifierSanctify">Sanctify</string>
-	<string name="TouJKRoleSanctifierSanctifyDescription">Place a magic circle, preventing others from using their abilities inside of it.</string>
+	<string name="TouJKRoleSanctifierSanctifyWikiDescription">Place a magic circle, preventing others from using their abilities inside of it.</string>
 	<!-- Sanctifier Options -->
 	<string name="TouJKOptionSanctifierSanctifyCooldown">Sanctify Cooldown</string>
 	<string name="TouJKOptionSanctifierShowSanctify">Magic Circle Visible</string>
@@ -240,7 +240,7 @@
 	<!-- Psychic Wiki -->
 	<string name="TouJKRolePsychicWikiDescription">The Psychic is a Crewmate Investigative role that can see the player minds. The Psychic cannot distinguish between players, instead after they Mindscan them enough they will see the role of the player.</string>
 	<string name="TouJKRolePsychicMindscan">Mindscan</string>
-	<string name="TouJKRolePsychicMindscanDescription">Mindscan all surrounding players to learn their roles.</string>
+	<string name="TouJKRolePsychicMindscanWikiDescription">Mindscan all surrounding players to learn their roles.</string>
 	<!-- Psychic Options -->
 	<string name="TouJKOptionPsychicMindscanRange">Mindscan Range</string>
 	<string name="TouJKOptionPsychicMindscanCooldown">Mindscan Cooldown</string>
