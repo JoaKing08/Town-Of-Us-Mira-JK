@@ -1,11 +1,13 @@
 ﻿using AmongUs.GameOptions;
 using HarmonyLib;
 using MiraAPI.GameOptions;
+using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities.Extensions;
 using System.Collections;
+using System.Reflection;
 using TownOfUs.Assets;
 using TownOfUs.Modifiers;
 using TownOfUs.Modules;
@@ -234,5 +236,21 @@ public static class SetNamePatchPatch
             __instance.NameText.color = (player.GetRoleWhenAlive() is ICustomRole custom) ? custom.RoleColor : player.GetRoleWhenAlive().TeamColor;
         }
         return false;
+    }
+
+    [HarmonyPatch]
+    public static class ExtraVinculatorPatch
+    {
+        [HarmonyTargetMethod]
+        public static MethodBase TargetMethod()
+        {
+            return TownOfUsMiraJKPlugin.CommsInstalled ? AccessTools.Method(AccessTools.TypeByName("VoiceChatPlugin.VoiceChat.VoiceRoleMuteState"), "IsVoiceImpostor") : null;
+        }
+
+        [HarmonyPostfix]
+        public static void Postfix(PlayerControl? player, ref bool __result)
+        {
+            __result &= player?.HasModifier<OutcastModifier>() != true;
+        }
     }
 }

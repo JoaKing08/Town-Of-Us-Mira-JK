@@ -51,6 +51,10 @@ public sealed class PsychicRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUs
         if (Player.AmOwner)
         {
             CameraEffect.singleton.materials.Clear();
+            foreach (var player in ModifierUtils.GetPlayersWithModifier<PsychicColoredModifier>())
+            {
+                player.RemoveModifier<PsychicColoredModifier>();
+            }
         }
     }
 

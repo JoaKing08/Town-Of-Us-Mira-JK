@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+	<string name="TouJKOr"> or </string>
 	<!-- Wiki -->
     <string name="TermsRoleBucketsInfo">Role List Buckets are only relevant when the "Set Role List" setting is used for role spawning. • Common \%color=#8CFFFF\%crew\%/color\% contains Investigative, Protective, and Support roles. • Common \%color=#FF0000\%Impostor\%/color\% contains Concealing and Support roles. • Common \%color=#8A8A8A\%Neutral\%/color\% contains Benign and Evil roles. • Special \%color=#8CFFFF\%crew\%/color\% contains Killing and Power roles. • Special \%color=#FF0000\%Impostor\%/color\% contains Killing and Power roles. • Special \%color=#8A8A8A\%Neutral\%/color\% contains Killing, Outlier and Apocalypse roles. • Wildcard \%color=#8A8A8A\%Neutral\%/color\% contains Benign, Evil, and Outlier roles. • Non-\%color=#FF0000\%Impostor\%/color\% contains all \%color=#8A8A8A\%Neutral\%/color\% and \%color=#8CFFFF\%crewmate\%/color\% roles. • Random buckets spawn any role of said faction (like Random \%color=#8CFFFF\%crew\%/color\%). • The Any bucket allows any enabled role to spawn.</string>
     <string name="TermsTargetSymbolsInfo">Target Symbols appear on player names in meetings and mid-game, usually only visible to the role they pertain to and/or the dead. • Executioner targets are marked with \%color=#643B1F\%X\%/color\% • Inquisitor heretics are marked with \%color=#D94291\%$\%/color\% to the dead. • Fairy targets are marked with \%color=#B3FFFF\%★\%/color\% • Demagogue immunity marked with \%color=#FF1919\%Œ\%/color\% • Undercover is marked with \%color=#002600\%€\%/color\% to the dead.</string>
@@ -46,7 +47,7 @@
 	<!-- Monster Hunter Wiki -->
 	<string name="TouJKRoleMonsterHunterWikiDescription">The Monster Hunter is a Crewmate Killing role with a goal to get rid off the monsters. When there are no monsters left they transform into another crewmate role.</string>
 	<string name="TouJKRoleMonsterHunterStake">Stake</string>
-	<string name="TouJKRoleMonsterHunterStakeWikiDescription">Check if the player is a monster (Werewolf, Vampire or Undead), and attack them if they are.</string>
+	<string name="TouJKRoleMonsterHunterStakeWikiDescription">Check if the player is a monster (\%monsters\%), and attack them if they are.</string>
 	<!-- Monster Hunter Options -->
 	<string name="TouJKOptionMonsterHunterStakeCooldown">Stake Cooldown</string>
 	<string name="TouJKOptionMonsterHunterMaxStakes">Max Failed Stakes Per Game</string>
@@ -267,7 +268,6 @@
 	<!-- Gossip Feedback -->
 	<string name="TouJKRoleGossipChatTitle">Gossip Report</string>
 	<string name="TouJKRoleGossipChatResult">Your chat revealed that \%players\% is \%role\%!</string>
-	<string name="TouJKRoleGossipChatResultOr"> or </string>
 	<string name="TouJKRoleGossipChatResultNotEnoughPlayers">Your chat failed due to small amount of players.</string>
 	<!-- Pirate -->
 	<string name="TouJKRolePirate">Pirate</string>

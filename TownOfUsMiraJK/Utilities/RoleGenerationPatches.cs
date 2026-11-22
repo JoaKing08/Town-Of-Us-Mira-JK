@@ -65,9 +65,16 @@ namespace TownOfUsMiraJK.Utilities
 
             var crewCount = crewmates.Count - nbRoles.Count - neRoles.Count - nkRoles.Count - noRoles.Count;
             var crewRoles = MiscUtils.GetMaxRolesToAssign(ModdedRoleTeams.Crewmate, crewCount);
-            if (!nkRoles.Any(x => x == RoleId.Get<VampireRole>() || x == RoleId.Get<WerewolfRole>()) && !noRoles.Any(x => x == RoleId.Get<NecromancerRole>()))
+            if (crewRoles.Contains(RoleId.Get<MonsterHunterRole>()))
             {
-                if (crewRoles.Contains(RoleId.Get<MonsterHunterRole>()))
+                var mhRoles = new List<ushort>();
+                mhRoles.AddRange(impRoles);
+                mhRoles.AddRange(nbRoles);
+                mhRoles.AddRange(neRoles);
+                mhRoles.AddRange(nkRoles);
+                mhRoles.AddRange(noRoles);
+                mhRoles.AddRange(crewRoles);
+                if (!mhRoles.Any(x => MonsterHunterRole.RequiredRoles.Any(y => (ushort)y.Role == x)))
                 {
                     crewRoles = MiscUtils.GetMaxRolesToAssign(ModdedRoleTeams.Crewmate, crewCount, (x) => (ushort)x.Role != RoleId.Get<MonsterHunterRole>());
                 }
@@ -295,7 +302,7 @@ namespace TownOfUsMiraJK.Utilities
                 monsterHunterFromBucket = RoleListOption.NonImp;
             }
 
-            if (!crewRoles.Any(x => x == RoleId.Get<WerewolfRole>() || x == RoleId.Get<VampireRole>() || x == RoleId.Get<NecromancerRole>()))
+            if (!crewRoles.Any(x => MonsterHunterRole.RequiredRoles.Any(y => (ushort)y.Role == x)))
             {
                 var rolesToReplace = new List<(ushort RoleType, int Chance)>();
                 switch (monsterHunterFromBucket)

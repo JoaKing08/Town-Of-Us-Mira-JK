@@ -41,11 +41,11 @@ public sealed class ShadowRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRo
         {
             return new List<CustomButtonWikiDescription>
             {
-                new(TouLocale.GetParsed($"TouRole{LocaleKey}Vanish", "Vanish"),
-                    TouLocale.GetParsed($"TouRole{LocaleKey}VanishWikiDescription"),
+                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Vanish", "Vanish"),
+                    TouLocale.GetParsed($"TouJKRole{LocaleKey}VanishWikiDescription"),
                     ToUJKNeutAssets.ShadowVanishSprite),
-                new(TouLocale.GetParsed($"TouRole{LocaleKey}Darkness", "Darkness"),
-                    TouLocale.GetParsed($"TouRole{LocaleKey}DarknessWikiDescription"),
+                new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Darkness", "Darkness"),
+                    TouLocale.GetParsed($"TouJKRole{LocaleKey}DarknessWikiDescription"),
                     ToUJKNeutAssets.ShadowDarknessSprite)
             };
         }

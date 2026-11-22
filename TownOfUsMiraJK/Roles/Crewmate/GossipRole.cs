@@ -96,7 +96,7 @@ public sealed class GossipRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsR
         var lastPlayer = players[^1];
         players.Remove(lastPlayer);
         string playerString = string.Join(", ", players.Select(x => x.Data.PlayerName));
-        playerString += TouLocale.GetParsed("TouJKRoleGossipChatResultOr") + lastPlayer.Data.PlayerName;
+        playerString += TouLocale.GetParsed("TouJKOr") + lastPlayer.Data.PlayerName;
         return TouLocale.GetParsed("TouJKRoleGossipChatResult").Replace("<players>", playerString).Replace("<role>", MiscUtils.GetHyperlinkText(role));
     }
 }

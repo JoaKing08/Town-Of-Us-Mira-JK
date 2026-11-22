@@ -266,7 +266,7 @@
 	<!-- Gossip Feedback -->
 	<string name="TouJKRoleGossipChatTitle">Raport Plotkarza</string>
 	<string name="TouJKRoleGossipChatResult">Twoja pogawędka ujawniła że \%players\% jest \%role\%!</string>
-	<string name="TouJKRoleGossipChatResultOr"> lub </string>
+	<string name="TouJKOr"> lub </string>
 	<string name="TouJKRoleGossipChatResultNotEnoughPlayers">Twoja pogawędka nie zadziałała ponieważ jest za mało graczy.</string>
 	<!-- Pirate -->
 	<string name="TouJKRolePirate">Pirat</string>

@@ -1,4 +1,5 @@
 ﻿using AmongUs.GameOptions;
+using DivaniMods.Modifiers.Game.Alliance;
 using HarmonyLib;
 using MiraAPI.GameOptions;
 using MiraAPI.Hud;
@@ -6,6 +7,8 @@ using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using System.Reflection;
+using TownOfExtra;
+using TownOfExtra.Modifiers.Excluded;
 using TownOfUs.Assets;
 using TownOfUs.Buttons.Impostor;
 using TownOfUs.Extensions;
@@ -29,6 +32,7 @@ using TownOfUs.Roles.Impostor;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUs.Utilities.Appearances;
+using TownOfUsMiraJK;
 using TownOfUsMiraJK.Modifiers;
 using TownOfUsMiraJK.Modifiers.Game.Impostor;
 using TownOfUsMiraJK.Options.Roles.Crewmate;
@@ -451,5 +455,548 @@ public static class UndercoverChangeRole
 
         }
         return true;
+    }
+}
+
+[HarmonyPatch]
+public static class ExtensionWitchPatch
+{
+    [HarmonyTargetMethod]
+    public static MethodBase TargetMethod()
+    {
+        return TownOfUsMiraJKPlugin.ExtraInstalled ? AccessTools.Method(typeof(TouMiraRolesExtension.Buttons.Impostor.WitchKillButton), "GetTarget") : null;
+    }
+
+    [HarmonyPrefix]
+    public static bool Prefix(object __instance, ref PlayerControl? __result)
+    {
+        var instance = __instance as TownOfExtra.Buttons.PoisonerPoisonButton;
+        if (instance == null)
+        {
+            return true;
+        }
+        var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
+        var saboOpt = OptionGroupSingleton<AdvancedSabotageOptions>.Instance;
+        var closePlayer = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance);
+
+        var includePostors = genOpt.FFAImpostorMode ||
+                             (PlayerControl.LocalPlayer.IsLover() &&
+                              OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) ||
+                             (saboOpt.KillDuringCamoComms &&
+                              closePlayer?.GetAppearanceType() == TownOfUsAppearances.Camouflage) ||
+                              (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) ||
+                              closePlayer?.HasModifier<OutcastModifier>() == true || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
+        if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
+        {
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+                x => (!x.IsLover() || !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors)));
+            return false;
+        }
+
+        __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+            x => !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors));
+        return false;
+    }
+}
+
+[HarmonyPatch]
+public static class ExtraPoisonerPatch
+{
+    [HarmonyTargetMethod]
+    public static MethodBase TargetMethod()
+    {
+        return TownOfUsMiraJKPlugin.ExtraInstalled ? AccessTools.Method(typeof(TownOfExtra.Buttons.PoisonerPoisonButton), "GetTarget") : null;
+    }
+
+    [HarmonyPrefix]
+    public static bool Prefix(object __instance, ref PlayerControl? __result)
+    {
+        var instance = __instance as TownOfExtra.Buttons.PoisonerPoisonButton;
+        if (instance == null)
+        {
+            return true;
+        }
+        var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
+        var saboOpt = OptionGroupSingleton<AdvancedSabotageOptions>.Instance;
+        var closePlayer = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance);
+
+        var includePostors = genOpt.FFAImpostorMode ||
+                             (PlayerControl.LocalPlayer.IsLover() &&
+                              OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) ||
+                             (saboOpt.KillDuringCamoComms &&
+                              closePlayer?.GetAppearanceType() == TownOfUsAppearances.Camouflage) ||
+                              (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) ||
+                              closePlayer?.HasModifier<OutcastModifier>() == true || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
+        if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
+        {
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+                x => (!x.IsLover() || !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors)));
+            return false;
+        }
+
+        __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+            x => !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors));
+        return false;
+    }
+}
+
+[HarmonyPatch]
+public static class ExtraStrikerPatch
+{
+    [HarmonyTargetMethod]
+    public static MethodBase TargetMethod()
+    {
+        return TownOfUsMiraJKPlugin.ExtraInstalled ? AccessTools.Method(typeof(TownOfExtra.Buttons.StrikerStrikeButton), "GetTarget") : null;
+    }
+
+    [HarmonyPrefix]
+    public static bool Prefix(object __instance)
+    {
+        var instance = __instance as TownOfExtra.Buttons.StrikerStrikeButton;
+        if (instance == null)
+        {
+            return true;
+        }
+        PlayerControl p = PlayerControl.LocalPlayer;
+        CustomPlayerMenu playerMenu = CustomPlayerMenu.Create();
+        playerMenu.transform.FindChild("PhoneUI").GetChild(0).GetComponent<SpriteRenderer>()
+            .material = PlayerControl.LocalPlayer.cosmetics.currentBodySprite.BodySprite.material;
+        playerMenu.transform.FindChild("PhoneUI").GetChild(1).GetComponent<SpriteRenderer>()
+            .material = PlayerControl.LocalPlayer.cosmetics.currentBodySprite.BodySprite.material;
+        playerMenu.Begin((PlayerControl plr) => !plr.Data.Disconnected && !plr.Data.IsDead && !plr.AmOwner && ((!plr.IsImpostor() && !plr.IsRole<UndercoverRole>()) || plr.HasModifier<OutcastModifier>() || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>()), delegate (PlayerControl? plr)
+        {
+            PlayerControl plr2 = plr;
+            playerMenu.ForceClose();
+            if (!(plr2 == null))
+            {
+                GuesserMenu shapeMenu = GuesserMenu.Create();
+                shapeMenu.Begin(IsRoleValid, delegate (RoleBehaviour role)
+                {
+                    RoleBehaviour role2 = plr2.Data.Role;
+                    ICachedRole cachedRole = plr2.GetModifiers<BaseModifier>().FirstOrDefault((BaseModifier x) => x is ICachedRole) as ICachedRole;
+                    bool flag = role.Role == role2.Role;
+                    if (cachedRole != null)
+                    {
+                        flag = cachedRole.GuessMode switch
+                        {
+                            CacheRoleGuess.ActiveRole => role.Role == role2.Role,
+                            CacheRoleGuess.CachedRole => role.Role == cachedRole.CachedRole.Role,
+                            _ => role.Role == cachedRole.CachedRole.Role || role.Role == role2.Role,
+                        };
+                    }
+
+                    PlayerControl playerControl = (flag ? plr2 : p);
+                    playerControl.RpcAddModifier<TownOfExtra.Modifiers.Excluded.ImpendingDoomModifier>(new object[2]
+                    {
+                        p,
+                        playerControl == p
+                    });
+                    instance.EffectActive = true;
+                    instance.Timer = instance.EffectDuration;
+                    shapeMenu.Close();
+                });
+            }
+        });
+        foreach (ShapeshifterPanel potentialVictim in playerMenu.potentialVictims)
+        {
+            potentialVictim.PlayerIcon.cosmetics.SetPhantomRoleAlpha(1f);
+            if (potentialVictim.NameText.text != PlayerControl.LocalPlayer.Data.PlayerName)
+            {
+                potentialVictim.NameText.color = Color.white;
+            }
+        }
+        return false;
+    }
+
+    private static bool IsRoleValid(RoleBehaviour role)
+    {
+        if (role.IsDead)
+        {
+            return false;
+        }
+
+        if (role is IGhostRole)
+        {
+            return false;
+        }
+
+        if (role is IUnguessable { IsGuessable: false })
+        {
+            return false;
+        }
+
+        if (role.GetRoleAlignment() == RoleAlignment.GameOutlier)
+        {
+            return false;
+        }
+
+        TownOfExtra.Options.Roles.StrikerRoleOptions instance = OptionGroupSingleton<TownOfExtra.Options.Roles.StrikerRoleOptions>.Instance;
+        RoleAlignment roleAlignment = role.GetRoleAlignment();
+        if (instance.ShareAssassinSettings)
+        {
+            AssassinOptions instance2 = OptionGroupSingleton<AssassinOptions>.Instance;
+            if (roleAlignment == RoleAlignment.CrewmateInvestigative)
+            {
+                return instance2.AssassinGuessInvest;
+            }
+
+            if (role.IsCrewmate() && role is ICustomRole)
+            {
+                return true;
+            }
+
+            if (role.IsCrewmate())
+            {
+                return instance2.AssassinCrewmateGuess;
+            }
+
+            if (role.IsImpostor())
+            {
+                return instance2.AssassinGuessImpostors;
+            }
+
+            return roleAlignment switch
+            {
+                RoleAlignment.NeutralBenign => instance2.AssassinGuessNeutralBenign,
+                RoleAlignment.NeutralEvil => instance2.AssassinGuessNeutralEvil,
+                RoleAlignment.NeutralKilling => instance2.AssassinGuessNeutralKilling,
+                RoleAlignment.NeutralOutlier => instance2.AssassinGuessNeutralOutlier,
+                _ => false,
+            };
+        }
+
+        if (roleAlignment == RoleAlignment.CrewmateInvestigative)
+        {
+            return instance.StrikerGuessInvest.Value;
+        }
+
+        if (role.IsCrewmate() && role is ICustomRole)
+        {
+            return true;
+        }
+
+        if (role.IsCrewmate())
+        {
+            return instance.StrikerGuessCrewmate.Value;
+        }
+
+        if (role.IsImpostor())
+        {
+            return instance.StrikerGuessImpostors.Value;
+        }
+
+        return roleAlignment switch
+        {
+            RoleAlignment.NeutralBenign => instance.StrikerGuessNeutralBenign.Value,
+            RoleAlignment.NeutralEvil => instance.StrikerGuessNeutralEvil.Value,
+            RoleAlignment.NeutralKilling => instance.StrikerGuessNeutralKilling.Value,
+            RoleAlignment.NeutralOutlier => instance.StrikerGuessNeutralOutlier.Value,
+            _ => false,
+        };
+    }
+}
+
+[HarmonyPatch]
+public static class ExtraTaggerMarkPatch
+{
+    [HarmonyTargetMethod]
+    public static MethodBase TargetMethod()
+    {
+        return TownOfUsMiraJKPlugin.ExtraInstalled ? AccessTools.Method(typeof(TownOfExtra.Buttons.TaggerMarkButton), "GetTarget") : null;
+    }
+
+    [HarmonyPrefix]
+    public static bool Prefix(object __instance, ref PlayerControl? __result)
+    {
+        var instance = __instance as TownOfExtra.Buttons.TaggerMarkButton;
+        if (instance == null)
+        {
+            return true;
+        }
+        var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
+        var saboOpt = OptionGroupSingleton<AdvancedSabotageOptions>.Instance;
+        var closePlayer = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance);
+
+        var includePostors = genOpt.FFAImpostorMode ||
+                             (PlayerControl.LocalPlayer.IsLover() &&
+                              OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) ||
+                             (saboOpt.KillDuringCamoComms &&
+                              closePlayer?.GetAppearanceType() == TownOfUsAppearances.Camouflage) ||
+                              (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) ||
+                              closePlayer?.HasModifier<OutcastModifier>() == true || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
+        if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
+        {
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+                x => (!x.IsLover() || !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors)));
+            return false;
+        }
+
+        __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+            x => !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors));
+        return false;
+    }
+}
+
+[HarmonyPatch]
+public static class ExtraTaggerKillPatch
+{
+    [HarmonyTargetMethod]
+    public static MethodBase TargetMethod()
+    {
+        return TownOfUsMiraJKPlugin.ExtraInstalled ? AccessTools.Method(typeof(TownOfExtra.Buttons.TaggerKillButton), "GetTarget") : null;
+    }
+
+    [HarmonyPrefix]
+    public static bool Prefix(object __instance, ref PlayerControl? __result)
+    {
+        var instance = __instance as TownOfExtra.Buttons.TaggerKillButton;
+        if (instance == null)
+        {
+            return true;
+        }
+        var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
+        var saboOpt = OptionGroupSingleton<AdvancedSabotageOptions>.Instance;
+        var closePlayer = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance);
+
+        var includePostors = genOpt.FFAImpostorMode ||
+                             (PlayerControl.LocalPlayer.IsLover() &&
+                              OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) ||
+                             (saboOpt.KillDuringCamoComms &&
+                              closePlayer?.GetAppearanceType() == TownOfUsAppearances.Camouflage) ||
+                              (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) ||
+                              closePlayer?.HasModifier<OutcastModifier>() == true || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
+        if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
+        {
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+                x => (!x.IsLover() || !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors)));
+            return false;
+        }
+
+        __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+            x => !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors));
+        return false;
+    }
+}
+
+[HarmonyPatch]
+public static class ExtraDreamCasterPatch
+{
+    [HarmonyTargetMethod]
+    public static MethodBase TargetMethod()
+    {
+        return TownOfUsMiraJKPlugin.ExtraInstalled ? AccessTools.Method(typeof(TownOfExtra.Buttons.DreamCasterCastButton), "GetTarget") : null;
+    }
+
+    [HarmonyPrefix]
+    public static bool Prefix(object __instance, ref PlayerControl? __result)
+    {
+        var instance = __instance as TownOfExtra.Buttons.DreamCasterCastButton;
+        if (instance == null)
+        {
+            return true;
+        }
+        var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
+        var saboOpt = OptionGroupSingleton<AdvancedSabotageOptions>.Instance;
+        var closePlayer = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance);
+
+        var includePostors = genOpt.FFAImpostorMode ||
+                             (PlayerControl.LocalPlayer.IsLover() &&
+                              OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) ||
+                             (saboOpt.KillDuringCamoComms &&
+                              closePlayer?.GetAppearanceType() == TownOfUsAppearances.Camouflage) ||
+                              (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) ||
+                              closePlayer?.HasModifier<OutcastModifier>() == true || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
+        if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
+        {
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+                x => (!x.IsLover() || !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors)) && !x.HasModifier<TownOfExtra.Modifiers.Excluded.LucidDreamingModifier>());
+            return false;
+        }
+
+        __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+            x => !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors) && !x.HasModifier<TownOfExtra.Modifiers.Excluded.LucidDreamingModifier>());
+        return false;
+    }
+}
+
+[HarmonyPatch]
+public static class ExtraEraserPatch
+{
+    [HarmonyTargetMethod]
+    public static MethodBase TargetMethod()
+    {
+        return TownOfUsMiraJKPlugin.ExtraInstalled ? AccessTools.Method(typeof(TownOfExtra.Buttons.EraserEraseButton), "GetTarget") : null;
+    }
+
+    [HarmonyPrefix]
+    public static bool Prefix(object __instance, ref PlayerControl? __result)
+    {
+        var instance = __instance as TownOfExtra.Buttons.EraserEraseButton;
+        if (instance == null)
+        {
+            return true;
+        }
+        var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
+        var saboOpt = OptionGroupSingleton<AdvancedSabotageOptions>.Instance;
+        var closePlayer = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance);
+
+        var includePostors = genOpt.FFAImpostorMode ||
+                             (PlayerControl.LocalPlayer.IsLover() &&
+                              OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) ||
+                             (saboOpt.KillDuringCamoComms &&
+                              closePlayer?.GetAppearanceType() == TownOfUsAppearances.Camouflage) ||
+                              (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) ||
+                              closePlayer?.HasModifier<OutcastModifier>() == true || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
+        if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
+        {
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+                x => (!x.IsLover() || !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors)) && !x.HasModifier<TownOfExtra.Modifiers.Excluded.PendingEraseModifier>());
+            return false;
+        }
+
+        __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+            x => !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors) && !x.HasModifier<TownOfExtra.Modifiers.Excluded.PendingEraseModifier>());
+        return false;
+    }
+}
+
+[HarmonyPatch]
+public static class ExtraVinculatorPatch
+{
+    [HarmonyTargetMethod]
+    public static MethodBase TargetMethod()
+    {
+        return TownOfUsMiraJKPlugin.ExtraInstalled ? AccessTools.Method(typeof(TownOfExtra.Buttons.VinculatorChainButton), "OnClick") : null;
+    }
+
+    [HarmonyPrefix]
+    public static bool Prefix(object __instance)
+    {
+        var instance = __instance as TownOfExtra.Buttons.VinculatorChainButton;
+        if (instance == null)
+        {
+            return true;
+        }
+        if ((bool)typeof(TownOfExtra.Buttons.VinculatorChainButton).GetField("_inMenu", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(instance))
+        {
+            return false;
+        }
+
+        typeof(TownOfExtra.Buttons.VinculatorChainButton).GetField("_inMenu", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(instance, true);
+        CustomPlayerMenu player1Menu = CustomPlayerMenu.Create();
+        player1Menu.transform.FindChild("PhoneUI").GetChild(0).GetComponent<SpriteRenderer>()
+            .material = PlayerControl.LocalPlayer.cosmetics.currentBodySprite.BodySprite.material;
+        player1Menu.transform.FindChild("PhoneUI").GetChild(1).GetComponent<SpriteRenderer>()
+            .material = PlayerControl.LocalPlayer.cosmetics.currentBodySprite.BodySprite.material;
+        player1Menu.Begin((PlayerControl plr) => !plr.Data.Disconnected && !plr.Data.IsDead && !plr.AmOwner && ((!plr.IsImpostor() && !plr.IsRole<UndercoverRole>()) || plr.HasModifier<OutcastModifier>() || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>()), delegate (PlayerControl? plr)
+        {
+            PlayerControl plr3 = plr;
+            player1Menu.ForceClose();
+            if (plr3 == null)
+            {
+                typeof(TownOfExtra.Buttons.VinculatorChainButton).GetField("_inMenu", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(instance, false);
+                return;
+            }
+
+            CustomPlayerMenu player2Menu = CustomPlayerMenu.Create();
+            player2Menu.transform.FindChild("PhoneUI").GetChild(0).GetComponent<SpriteRenderer>()
+                .material = PlayerControl.LocalPlayer.cosmetics.currentBodySprite.BodySprite.material;
+            player2Menu.transform.FindChild("PhoneUI").GetChild(1).GetComponent<SpriteRenderer>()
+                .material = PlayerControl.LocalPlayer.cosmetics.currentBodySprite.BodySprite.material;
+            player2Menu.Begin((PlayerControl plr2) => !plr2.Data.Disconnected && !plr2.Data.IsDead && !plr2.AmOwner && !plr2.IsImpostor() && plr2 != plr3, delegate (PlayerControl? plr2)
+            {
+                player2Menu.Close();
+                typeof(TownOfExtra.Buttons.VinculatorChainButton).GetField("_inMenu", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(instance, false);
+                if (!(plr2 == null))
+                {
+                    LobbyNotificationMessage notification = Helpers.CreateAndShowNotification($"You have {TownOfUsColors.Impostor.ToTextColor()}linked</color> the fate of {plr3.Data.PlayerName} and {plr2.Data.PlayerName}!", Color.white, new Vector3(0f, 1f, -20f), null, TownOfExtraAssets.VinculatorChainButton.LoadAsset());
+                    notification.AdjustNotification();
+                    plr3.RpcAddModifier<LinkedModifier>(new object[1] { plr2 });
+                    plr2.RpcAddModifier<LinkedModifier>(new object[1] { plr3 });
+                    instance.SetTimer(instance.Cooldown);
+                    if (instance.MaxUses != 0)
+                    {
+                        int usesLeft = instance.UsesLeft;
+                        instance.UsesLeft = usesLeft - 1;
+                        instance.Button?.SetUsesRemaining(instance.UsesLeft);
+                    }
+                }
+            });
+            foreach (ShapeshifterPanel potentialVictim in player2Menu.potentialVictims)
+            {
+                potentialVictim.PlayerIcon.cosmetics.SetPhantomRoleAlpha(1f);
+                if (potentialVictim.NameText.text != PlayerControl.LocalPlayer.Data.PlayerName)
+                {
+                    potentialVictim.NameText.color = Color.white;
+                }
+            }
+        });
+        foreach (ShapeshifterPanel potentialVictim2 in player1Menu.potentialVictims)
+        {
+            potentialVictim2.PlayerIcon.cosmetics.SetPhantomRoleAlpha(1f);
+            if (potentialVictim2.NameText.text != PlayerControl.LocalPlayer.Data.PlayerName)
+            {
+                potentialVictim2.NameText.color = Color.white;
+            }
+        }
+        return false;
+    }
+}
+
+[HarmonyPatch]
+public static class DivaniMosquitoKillPatch
+{
+    [HarmonyTargetMethod]
+    public static MethodBase TargetMethod()
+    {
+        return TownOfUsMiraJKPlugin.DivaniInstalled ? AccessTools.Method(typeof(DivaniMods.Buttons.Impostor.ImpostorKilling.MosquitoKillButton), "GetTarget") : null;
+    }
+
+    [HarmonyPrefix]
+    public static bool Prefix(object __instance, ref PlayerControl __result)
+    {
+        var instance = __instance as DivaniMods.Buttons.Impostor.ImpostorKilling.MosquitoKillButton;
+        if (instance == null)
+        {
+            return true;
+        }
+        var genOpt = OptionGroupSingleton<GeneralOptions>.Instance;
+        var saboOpt = OptionGroupSingleton<AdvancedSabotageOptions>.Instance;
+        var closePlayer = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance);
+
+        var includePostors = genOpt.FFAImpostorMode ||
+                             (PlayerControl.LocalPlayer.IsLover() &&
+                              OptionGroupSingleton<LoversOptions>.Instance.LoverKillTeammates) ||
+                             (saboOpt.KillDuringCamoComms &&
+                              closePlayer?.GetAppearanceType() == TownOfUsAppearances.Camouflage) ||
+                              (OptionGroupSingleton<UndercoverOptions>.Instance.ImpsKillEachother && UndercoverRole.InPlay) ||
+                              closePlayer?.HasModifier<OutcastModifier>() == true || PlayerControl.LocalPlayer.HasModifier<OutcastModifier>();
+        if (!OptionGroupSingleton<LoversOptions>.Instance.LoversKillEachOther && PlayerControl.LocalPlayer.IsLover())
+        {
+            __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+                x => (!x.IsLover() || !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors)));
+            return false;
+        }
+
+        __result = PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, instance.Distance, false,
+            x => !((x.IsImpostorAligned() || x.IsRole<UndercoverRole>()) && !includePostors));
+        return false;
+    }
+}
+
+[HarmonyPatch]
+public static class DivaniMosquitoStingPatch
+{
+    [HarmonyTargetMethod]
+    public static MethodBase TargetMethod()
+    {
+        return TownOfUsMiraJKPlugin.DivaniInstalled ? AccessTools.Method(typeof(DivaniMods.Buttons.Impostor.ImpostorKilling.MosquitoStingButton), "IsValidTarget") : null;
+    }
+
+    [HarmonyPrefix]
+    public static bool Prefix(PlayerControl? plr, PlayerControl me, ref bool __result)
+    {
+        __result = plr != null && plr.Data != null && !plr.Data.Disconnected && !plr.HasDied() && plr.PlayerId != me.PlayerId && ((!plr.IsImpostorAligned() && !plr.IsRole<UndercoverRole>()) || BetrayerRevealedModifier.AllowsImpostorTarget(me, plr));
+        return false;
     }
 }

@@ -51,7 +51,7 @@ public sealed class MonsterHunterStakeButton : TownOfUsKillRoleButton<MonsterHun
         }
 
         var targetRole = Target.Data.Role;
-        var stakeFlag = targetRole.Role == (RoleTypes)RoleId.Get<VampireRole>() || targetRole.Role == (RoleTypes)RoleId.Get<WerewolfRole>() || Target.HasModifier<NecromancerUndeadModifier>();
+        var stakeFlag = MonsterHunterRole.MonsterRoles.Any(x => x.Role == targetRole.Role) || MonsterHunterRole.MonsterModifiers.Any(x => Target.HasModifier(x.GetType()));
         if (stakeFlag)
         {
             UsesLeft += 1;

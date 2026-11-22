@@ -16,6 +16,26 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Reference Include="DivaniMods">
+        <HintPath>..\packages.local\DivaniMods.dll</HintPath>
+		<Private>False</Private>
+      </Reference>
+      <Reference Include="NotePadMod">
+        <HintPath>..\packages.local\NotePadMod.dll</HintPath>
+		<Private>False</Private>
+      </Reference>
+      <Reference Include="PerfectComms">
+        <HintPath>..\packages.local\PerfectComms.dll</HintPath>
+		<Private>False</Private>
+      </Reference>
+      <Reference Include="TouMiraRolesExtension">
+        <HintPath>..\packages.local\TouMiraRolesExtension.dll</HintPath>
+		<Private>False</Private>
+	  </Reference>
+	  <Reference Include="TownOfExtra">
+		<HintPath>..\packages.local\TownOfExtra.dll</HintPath>
+		<Private>False</Private>
+      </Reference>
       <Reference Include="TownOfUsMira">
         <HintPath>..\packages.local\TownOfUsMira.dll</HintPath>
         <Private>False</Private>

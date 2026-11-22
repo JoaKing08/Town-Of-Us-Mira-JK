@@ -35,7 +35,7 @@ public static class MonsterHunterEvents
     {
         foreach (var mh in CustomRoleUtils.GetActiveRolesOfType<MonsterHunterRole>())
         {
-            if (CustomRoleUtils.GetActiveRoles().Any(x => !x.Player.Data.IsDead && !x.Player.Data.Disconnected && (x is VampireRole || x is WerewolfRole || x is NecromancerRole)))
+            if (CustomRoleUtils.GetActiveRoles().Any(x => !x.Player.Data.IsDead && !x.Player.Data.Disconnected && MonsterHunterRole.RequiredRoles.Any(y => y.Role == x.Role)))
             {
                 ushort roleId = OptionGroupSingleton<MonsterHunterOptions>.Instance.BecomesOnMonsterDeath switch
                 {

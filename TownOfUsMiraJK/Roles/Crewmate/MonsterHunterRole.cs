@@ -1,5 +1,8 @@
-﻿using Il2CppInterop.Runtime.Attributes;
+﻿using HarmonyLib;
+using Il2CppInterop.Runtime.Attributes;
+using MiraAPI.Modifiers;
 using MiraAPI.Roles;
+using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
 using System.Text;
 using TownOfUs;
@@ -8,9 +11,12 @@ using TownOfUs.Extensions;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles;
+using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using TownOfUsMiraJK.Assets;
 using TownOfUsMiraJK.Enums;
+using TownOfUsMiraJK.Modifiers.Game.Alliance;
+using TownOfUsMiraJK.Roles.Neutral;
 using UnityEngine;
 
 namespace TownOfUsMiraJK.Roles.Crewmate;
@@ -23,6 +29,41 @@ public sealed class MonsterHunterRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITo
     public string RoleName => TouLocale.Get($"TouJKRole{LocaleKey}");
     public string RoleDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}IntroBlurb");
     public string RoleLongDescription => TouLocale.GetParsed($"TouJKRole{LocaleKey}TabDescription");
+    [HideFromIl2Cpp]
+    public static List<RoleBehaviour> MonsterRoles
+    {
+        get
+        {
+            var types = new List<Type> { typeof(VampireRole), typeof(WerewolfRole) };
+            if (TownOfUsMiraJKPlugin.ExtraInstalled)
+            {
+                types.Add(typeof(TownOfExtra.Roles.Neutral.Evil.PoltergeistRole));
+            }
+            return CustomRoleManager.AllRoles.Where(x => types.Any(y => y == x.GetType())).ToList();
+        }
+    }
+    [HideFromIl2Cpp]
+    public static List<RoleBehaviour> RequiredRoles
+    {
+        get
+        {
+            var types = new List<Type> { typeof(VampireRole), typeof(WerewolfRole), typeof(NecromancerRole) };
+            if (TownOfUsMiraJKPlugin.ExtraInstalled)
+            {
+                types.Add(typeof(TownOfExtra.Roles.Neutral.Evil.PoltergeistRole));
+            }
+            return CustomRoleManager.AllRoles.Where(x => types.Any(y => y == x.GetType())).ToList();
+        }
+    }
+    [HideFromIl2Cpp]
+    public static List<BaseModifier> MonsterModifiers
+    {
+        get
+        {
+            var types = new List<Type> { typeof(NecromancerUndeadModifier) };
+            return ModifierManager.Modifiers.Where(x => types.Any(y => y == x.GetType())).ToList();
+        }
+    }
 
     public string GetAdvancedDescription()
     {
@@ -36,10 +77,16 @@ public sealed class MonsterHunterRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITo
     {
         get
         {
+            var names = MonsterRoles.Select(x => x.GetRoleName()).ToList();
+            names.AddRange(MonsterModifiers.Select(x => x.ModifierName));
+            names = names.OrderBy(x => x).ToList();
+            var last = names[-1];
+            names.RemoveAt(names.Count - 1);
+            var monsters = names.Join() + TouLocale.Get("TouJKOr") + last;
             return new List<CustomButtonWikiDescription>
             {
                 new(TouLocale.GetParsed($"TouJKRole{LocaleKey}Stake", "Stake"),
-                    TouLocale.GetParsed($"TouJKRole{LocaleKey}StakeWikiDescription"),
+                    TouLocale.GetParsed($"TouJKRole{LocaleKey}StakeWikiDescription").Replace("<monsters>", monsters),
                     ToUJKCrewAssets.MonsterHunterStakeSprite)
             };
         }
