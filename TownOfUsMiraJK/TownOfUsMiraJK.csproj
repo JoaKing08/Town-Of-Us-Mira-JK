@@ -28,14 +28,6 @@
         <HintPath>..\packages.local\PerfectComms.dll</HintPath>
 		<Private>False</Private>
       </Reference>
-      <Reference Include="TouMiraRolesExtension">
-        <HintPath>..\packages.local\TouMiraRolesExtension.dll</HintPath>
-		<Private>False</Private>
-	  </Reference>
-	  <Reference Include="TownOfExtra">
-		<HintPath>..\packages.local\TownOfExtra.dll</HintPath>
-		<Private>False</Private>
-      </Reference>
       <Reference Include="TownOfUsMira">
         <HintPath>..\packages.local\TownOfUsMira.dll</HintPath>
         <Private>False</Private>
@@ -47,4 +39,9 @@
     <Target Name="Copy" AfterTargets="Build" Condition="'$(AmongUs)' != ''">
         <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(AmongUs)/BepInEx/plugins/" UseSymboliclinksIfPossible="true" />
     </Target>
+
+    <ItemGroup>
+      <PackageReference Update="AllOfUs.MiraAPI" Version="0.6.1" />
+      <PackageReference Update="SonarAnalyzer.CSharp" Version="10.37.0.15768" />
+    </ItemGroup>
 </Project>

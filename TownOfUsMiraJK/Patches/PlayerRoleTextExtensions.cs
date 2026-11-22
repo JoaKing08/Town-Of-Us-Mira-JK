@@ -193,7 +193,7 @@ namespace TownOfUsMiraJK.Patches
                                         {
                                             color = Palette.CrewmateBlue;
                                             roleName =
-                                                $"<size=80%>{color.ToTextColor()}{TouLocale.Get("CrewmateKeyword")}</color></size>";
+                                                $"<size=80%>{color.ToTextColor()}{MiraLocaleManager.Get("CrewmateKeyword")}</color></size>";
                                         }
                                         else if (role.IsImpostor())
                                         {
